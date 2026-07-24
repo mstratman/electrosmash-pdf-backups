@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitar Swami Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Sitar Swami Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Sitar Swami Analysis</h1>
+
+<p>The Sitar Swami guitar pedal is <a href="https://en.wikipedia.org/wiki/Sitar" rel="noopener noreferrer" target="_blank">Sitar</a> simulator designed by Danelectro in 2001 and included in the <em>Miscellaneous Series</em>. It is built in a robust die-cast enclosure with hippie/flower graphics.<br/><img alt="Sitar Swami Circuit Guts" class="article-img" longdesc="Sitar Swami Circuit Guts" src="images/sitar-swami-analysis/sitar-swami-gutts.png"/><br/>The pedal named by the Sitar Guitar seems to be designed to get mid-eastern string tones. In practice, the sound experience is rather an overdriven octaver with a continuous flanger. So, do not expect it to sound exactly like a sitar, this effect is part of the Danelectro <em>Hippie Pedals</em> together with the Psycho Flange and the<a href="back-talk-analysis.html"> Back Talk Reverse Delay</a> and is aimed for 60's creative/psychedelic/space/noisy sounds.</p>
+<h2><strong>Table of Contents:</strong></h2>
+<p><a href="#link1">1. Sitar Swami Circuit.</a><br/>    <a href="#link11">1.1 Input/Output Board.</a><br/>    <a href="#link12">1.2 Power Supply.</a><br/>    <a href="#link13">1.3 Mother Board.</a><br/>    <a href="#link14">1.4 Auxiliary Boards.</a><br/><a href="#link2">2. Resources.</a><br/><a href="#link21">2.1 Datasheets.    </a></p>
+
+<h2><a id="link1" name="link1"></a><strong>1. The Sitar Swami Circuit.</strong></h2>
+<p>The Sitar Swami pedal is made of two boards, the communication between them is made through a shielded coaxial cable and a 7-pin Molex connector.<img alt="Sitar Swami Exploded View" class="article-img" longdesc="Sitar Swami Exploded View" src="images/sitar-swami-analysis/sitar-swami-exploded-view.png"/></p>
+<ul>
+<li><strong>Input/Output Board: </strong>It is a small double sided PCB where the input/output jacks are placed. It provides the in/out buffering, basic power supply protection and power-on mechanism.</li>
+<li><strong>Mother Board</strong>: It is the main board of the circuit, containing the core circuitry. It also carries two small auxiliary printed circuit boards soldered directly over this main PCB.</li>
+</ul>
+<p>The pedal has two knobs: Mix trimmer, controlling the blend between the <em>dry</em> original and <em>wet</em> effected signal and therefore making the effect more or less dramatic. The Level potentiometer regulates the output volume level.</p>
+<h3><a id="link11" name="link11"></a><strong>1.1 Input/Output Board:</strong></h3>
+<p>The double-sided PCB contains two ICs: an analog multiplexer (HCF4053) and a dual flip-flop (4013B). Additional general purpose  NPN transistors (BS39) are used as buffers. The main functionality of this PCB is to serve as an input/output buffer and aided by the analog multiplexer make the input signal to pass through the pedal core effect or bypass it, keeping the guitar signal unmodified.</p>
+<p><img alt="danelectro sitar swami input board" class="article-img" src="images/sitar-swami-analysis/danelectro-sitar-swami-input-board.jpg"/></p>
+<ul>
+<li><strong>The HCF4053</strong> is a triple 2-channel analog multiplexer/demultiplexer: meaning that though three separate digital control inputs (A, B, C and inhibit) a pair of channels are connected. Each channel is attached in a single pole double throw SPDT configuration. It has 2 inputs and 3 outputs although inputs and output are bidirectional.<img alt="4053 Diagram" class="article-img" longdesc="4053 Diagram" src="images/sitar-swami-analysis/4053-diagram.PNG"/></li>
+</ul>
+<ul>
+<li><strong>The 4013B </strong>is a CMOS Dual D-type Flip Flop: Each flip-flop has independent data, set, reset, and clock inputs, <em>Q</em> and <em>Q_neg</em> outputs. This part can be used for toggle the analog multiplexer between on and bypass states.<img alt="4013 Diagram" class="article-img" longdesc="4013 Diagram" src="images/sitar-swami-analysis/4013-diagram.PNG"/></li>
+</ul>
+<h3><a id="link12" name="link12"></a><strong>1.2 Power Supply.</strong></h3>
+<p>The main supply +9V taken from a battery or a DC adapter is common to all circuit components. It is decoupled to ground with large electrolytic capacitors in order to remove the possible voltage ripple. All the active chips are compatible with this 9V supply and get the power directly from the battery/adaptor without any active voltage regulation element.</p>
+<p>The diode D8 protects the pedal against reverse polarity connections. The pedal also has the typical stereo jack arrangement to be used as power on switch, connecting the battery (-) terminal to ground when the guitar jack is connected.</p>
+<h3><a id="link13" name="link13"></a><strong>1.3 Mother Board.</strong></h3>
+<p>It is the main board of the circuit containing a big amount of passive components (Rs + Cs), several transistors, diodes and fifteen ICs: BL3102 x 3, BL3207 x 3, TL074 x 3, PT2399s, TL072 x 2 and 4013B: The Danelectro Sitar Swami creates the oscillating/droning/resonating tones using three Bucket Brigade subsystems (BL3102 + BL3207) and an integrated echo generator (PT2399s).</p>
+<p><img alt="Sitar Swami Main Board PCB Circuit" class="article-img" longdesc="Sitar Swami Main Board PCB Circuit" src="images/sitar-swami-analysis/sitar-swami-mother-board.png"/></p>
+<p>Each of the Bucket Brigade Device stages requires pre-post active low pass filtering (anti-aliasing and reconstruction filter), some signal pre-de emphasis, companding, mixing and buffering, for this purpose be three quad op-amp TL074 is used.</p>
+<p><img alt="Sitar Swami Main PCB Circuit Bottom" class="article-img" longdesc="Sitar Swami Main PCB Circuit Bottom" src="images/sitar-swami-analysis/sitar-swami-mother-board-bottom.png"/></p>
+<ul>
+<li><strong>BL3207:</strong> It is a 1024-Stage Bucked Brigade Device manufactured by Shanghai Belling Co, pin compatible with the well-known MN3207 by Matsushita/Panasonic. It is based in N-channel silicon transistors and operates at low voltage from +4V to +10V supply, providing a signal delay adjustable from 2.56ms to 51.2ms with S/N=73dB, THD=0.4% (V<sub>in</sub>=0.25V<sub>rms</sub>), input clock frequency range from 10 to 200KHz.</li>
+</ul>
+<p><img alt="BL3207 Diagram" class="article-img" longdesc="BL3207 Diagram" src="images/sitar-swami-analysis/bl3207-diagram.PNG"/><br/></p>
+<ul>
+<li><strong>BL3102:</strong> It is a Clock Generator for the BBD BL3207 manufactured by Shanghai Belling Co, pin compatible with MN3102. Utilizing CMOS technology, with low Voltage Operation from +4V to +10V. It provides the two-phase clock signal and the V<sub>GG</sub> reference voltage necessary to drive BL3207. The oscillation frequency is easily settled with an external RC network, providing clock frequency ranges from 1KHz to 500KHz.<img alt="BL3102 Diagram" class="article-img" longdesc="BL3102 Diagram" src="images/sitar-swami-analysis/bl3102-diagram.PNG"/></li>
+</ul>
+<ul>
+<li><strong>PT2399s:</strong> It is an Echo/Delay Processor integrated component based on CMOS technology by Princeton Technology Corp. It accepts audio input signals: first of all the signal is low pass filtered (anti-aliasing filter) and an ADC transfer the analog signal into a bit stream to be saved into the internal 44Kbit RAM. After processing,  the bitstream will de-modulate by DAC and low-pass filter (reconstruction filter). The delay time is determined by internal VCO clock frequency, and the designer can modify the VCO frequency by changing the external resistance. The PT2399 archives low distortion (THD&lt;0.5%@0.5Vrms) and low noise (No&lt;-90dBV). The pin arrangement and application circuit are optimized for easy PCB layout and cost saving.<img alt="PT2399 Diagram" class="article-img" longdesc="PT2399 Diagram" src="images/sitar-swami-analysis/pt2399-diagram.PNG"/></li>
+</ul>
+<ul>
+<li><strong>TL074:</strong> is a Low noise JFET quad operational amplifier by ST Microelectronics. This part has been widely used in stompboxes because of the small footprint that saves tons of space and has low power consumption (low input bias and offset currents). The device is suitable to manage audio signal due to the high slew rate, high input impedance, low offset voltage temperature coefficient and THD (0.01% typ).<img alt="TL072 TL074 Diagram" class="article-img" longdesc="TL072 TL074 Diagram" src="images/sitar-swami-analysis/tl072-tl074-diagram.PNG"/><br/></li>
+</ul>
+<ul>
+<li><strong>TL072:</strong> JFET Dual operational amplifier. From the same family as the TL074 and sharing similar characteristics but only including 2 op-amps.</li>
+</ul>
+<ul>
+<li><strong>4013B:</strong> is a CMOS Dual D-type Flip Flop: Each flip-flop has independent data, set, reset, and clock inputs and <em>Q</em> and <em>Q_neg</em> outputs. This part can be used for toggle applications.</li>
+</ul>
+<h3><img alt="4013 Diagram" class="article-img" longdesc="4013 Diagram" src="images/sitar-swami-analysis/4013-diagram.PNG"/><br/><strong><a id="link14" name="link14"></a>1.4 Auxiliary Boards.</strong></h3>
+<p>They are two identical PCBs soldered perpendicular to the Mother Board and containing passive components in a symmetric placement.<br/><img alt="Sitar Swami Aux PCB Circuits" class="article-img" longdesc="Sitar Swami Aux PCB Circuits" src="images/sitar-swami-analysis/sitar-swami-aux-boards.png"/></p>
+<ul>
+<li>TL072c x 4 JFET Dual operational amplifier: Each of the Auxiliary Boards contain two TL072 chips. </li>
+</ul>
+<h2><a id="link2" name="link2"></a><strong>2. Resources.</strong></h2>
+<p><a href="http://www.diystompboxes.com/smfforum/index.php?topic=64946.0" rel="noopener noreferrer" target="_blank">Sitar Swami in DIYStopmBoxes.</a></p>
+
+<h3><a id="link21" name="link21"></a><strong>2.1 Datasheets.</strong></h3>
+<p><a href="http://www.princeton.com.tw/Portals/0/Product/PT2399_1.pdf" rel="noopener noreferrer" target="_blank">PT2399s datasheet.</a><br/><a href="http://www.ti.com/product/TL074" rel="noopener noreferrer" target="_blank">TL074 datasheet.</a><br/><a href="http://www.fairchildsemi.com/ds/CD/CD4013BC.pdf" rel="noopener noreferrer" target="_blank">4013B datasheet.</a></p>
+
+<p>Thanks for reading, all feedback is appreciated  </p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material under attribution and non-commercial conditions.<br/>Trademarks, brand names and logos are the property of their respective owners.</p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054619/https://www.electrosmash.com/sitar-swami-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Sitar%20Swami%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="proco-rat.html">&larr; Pro Co Rat Analysis</a>
+    <a class="prevnext" href="tube-screamer-analysis.html">Tube Screamer Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

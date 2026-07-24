@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MXR Dyna Comp Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; MXR Dyna Comp Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>MXR Dyna Comp Analysis</h1>
+
+<p>The MXR 102 Dyna Comp is a compressor effect guitar pedal, released in 1972 by MXR and rapidly becoming popular because of its price and ease of use. The electronic circuit was also used as a reference design on many other compressor effects like the Ross Compressor, T-Rex CompNova, Ibanez/Maxon CP5/CP9/CP10 and boutique pedals. This model is neither the most silent nor the most hi-definition piece of gear but it has real character and it's easy to find.<br/></p>
+<p><img alt="mxr dyna comp pedal" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-pedal.jpeg"/>This pedal produces dynamic range compression, this is basically smooth out volume differences between notes; giving more body and level to weak notes so the sound does not change drastically no matter what the real signal level is,  giving better articulation and sustain to the guitar. The pedal also adds its own coloring and tone to the signal.</p>
+
+<p><strong>Table of Contents:</strong></p>
+<div class="table-scroll"><table>
+<tbody>
+<tr>
+<td><img alt="mxr dyna comp circuit electrosmash" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-circuit-electrosmash.png"/></td>
+<td></td>
+<td></td>
+<td>
+
+<p><a href="#schematic">1. MXR Dyna Comp Schematic.</a><br/>    <a href="#bom">1.2 MXR Dyna Comp Part List / Bill of Materials.</a><br/>    <a href="#layout">1.3 MXR Dyna Comp PCB Layout. </a><br/><a href="#power">2. Power Supply Stage.</a><br/><a href="#input">3. Input Buffer.</a><br/>    <a href="#input_frequency">3.1 Input Buffer Frequency Response.</a><br/><a href="#OTA">4. The OTA Amplifier.</a><br/>    <a href="#ca3080">4.1 The OTA Chip: CA3080.</a><br/><a href="#envelope">5. Envelope Detector Block.</a><br/><a href="#output">6. Output Stage.</a><br/><a href="#resources">7. Resources.</a></p>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>   <a id="schematic" name="schematic"></a><strong>1.  MXR Dyna Comp Schematic.</strong></p>
+<p>To make the circuit easier to understand, it is divided into 5 blocks: Input Buffer, OTA Amplifier, Envelope Detector, Output Stage and Power Supply:</p>
+<p><img alt="mxr dyna comp schematic parts small" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-schematic-parts.png"/></p>
+<p>The main design idea is this: The Input and Output Buffers isolate the circuit, keeping good signal integrity. The core of the circuit is the OTA amplifier, this part will give higher or lower amplification to the signal. In order to decide the amount of amplification, the Envelope Detector will measure how big or small the guitar signal is at a time and gives to the OTA a current feedback proportional to the guitar level, amplifying weak signals.The simple Power Supply provides energy and bias points to all the circuit parts.</p>
+<p><strong>note:</strong> The circuit is redrawn trying to make it simpler. Usually, the <em>Envelope Detector</em> stage is represented in parallel looking like a <a href="https://www.google.co.uk/search?q=long+tailed+pair&amp;client=firefox-b&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwi046Lxk-rPAhXhB8AKHbe_BvsQ_AUICSgC&amp;biw=1366&amp;bih=696" rel="noopener noreferrer" target="_blank">Long Tailed Pair or a Differential Amplifier</a> that could be misleading.</p>
+
+<h3><a id="bom">  </a><strong>1.2 MXR Dyna Comp Part List / Bill of Materials.</strong><br/></h3>
+<p>The parts in the design are not critical, you can use substitutes for the transistors (2N3904) or the silicon diodes (1N914). The only part which is not so easy to find nowadays is the CA3080 IC.</p>
+
+<p>C1                             0.01uF<br/>C2,C3                         1uF<br/>C4,C6,C7                     10nF<br/>C5                              1nf<br/>C8,C10,C11                  10uF<br/>C9                              50nF<br/>Q1,Q2,Q3,Q4,Q5           2N3904<br/>D1,D2                         1N914<br/>D3                             1N4148<br/>RV1                           500K<br/>RV2                           50K<br/>Rtrimmer                     2K<br/>R1,R3,R9,R10,R14         10K<br/>R2,R4,R6,R11,R12         1M<br/>R5                             470K<br/>R7                             15K<br/>R8,R13                       150K<br/>R17                           27K<br/>R15                           56K<br/>R16                           22K<br/>U1                            CA3080<br/>J1, J2                        Audio Jacks</p>
+
+<h3><a id="layout"></a><strong>1.3 MXR Dyna Comp PCB Layout. </strong><br/></h3>
+<p>The original MXR Script model which is not available nowadays uses the classic MXR white/yellow PCB with a distinctive shape. It was a one layer PCB with all the components on one side. When Dunlop acquired MXR in 1987, the PCB was progressively redesigned using modern materials/components and a double-sided PCB with red solder mask.  </p>
+<p><img alt="mxr dyna comp pcb" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-pcb.jpg"/></p>
+<p> <a id="power" name="power"> </a><strong>2. Power Supply Stage.</strong></p>
+<p>The Power Supply block provides +9V supply to the circuit components and also an unusual bias of +2.5V with resistor divider (R15 and R16) to be used as a virtual ground to the CA3080 and also as a bias voltage for the transistor stages:</p>
+<p><img alt="mxr dyna comp power supply" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-power-supply.png"/></p>
+<ul>
+<li>Seems that the original design did not include decoupling caps in the power supply, but a moderate-high value 10uF caps (C10 and C11) could be included to remove noise from the power supply line.</li>
+<li>A protection diode D3 helps against reverse polarity connection. Some schematics include this diode in series and some in parallel with the 9V source, both ideas will work fine.</li>
+<li>A stereo guitar input jack could be used as an on-off switch, connecting the battery (-) pin to ground when the mono guitar jack is plugged.</li>
+</ul>
+<h3><strong><a id="input" name="input"></a>3. Input Buffer.</strong></h3>
+<p>The Input Buffer is implemented using a basic Common Collector (Emitter Follower) transistor circuit. It provides high input impedance and unity gain in order to preserve signal integrity avoiding high-frequency signal loss (tone sucking).<br/><img alt="mxr dyna comp input buffer" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-input-buffer.png"/></p>
+<ul>
+<li>The base of the transistor is biased to 2.54V through a high-value resistor R2 (1MΩ).</li>
+<li>The input series resistor R1 (10KΩ) will limit the amount of current into the base of the transistor, protecting Q1 against electrostatic discharges and making the pedal more robust.</li>
+<li>The input capacitor C1 (10nF) gives DC isolation and together with R2 (1MΩ) - R1 is ignored because 10K is much smaller than 1M - and the input impedance of the Emitter Follower (equal to 1MΩ and calculated in the next point) creates a high pass filter:  <br/>fc= 1/2πRC =  1/(2 x 3.14 x (1MΩ//1MΩ) x 10nF) = 31.8Hz</li>
+<li>
+<p>The output of this buffer is DC isolated through the capacitor C2 (1uF). This C2 and R4 form again a high-pass filter with a cut frequency of fc=1/2πRC = 1/(2π x 1uF x 1MΩ) = 0.15Hz. This filter will DC-isolate the next stage without modifying the audio levels.</p>
+</li>
+</ul>
+<p><br/><strong>MXR Dyna Comp - Input Impedance Calculation:</strong></p>
+<p>In order to calculate the input impedance of the Emitter Follower, the hybrid-pi model can be used to analyze the small signal behavior. If you want to get all the details, please check the <a href="tube-screamer-analysis.html#impedance">Tube Screamer Input Impedance Calculation</a>, it is basically the same circuit with some changes in the components values, otherwise just stick to the general formula:</p>
+<p><br/>Zin = R1 + ( R2 // [rπ + (β+1) x R3])<br/>Zin = 10K + 1M // [rπ + (300+1) x 10K]<br/>Zin = 1MΩ</p>
+<p><br/><strong>note:</strong> The value of β is 300 (taken from the 2N5088 datasheet), the value of rπ is very small compared with the value of (β+1)xR3 and can be considered as 0 (ignored).</p>
+<p>Therefore, the MXR Dyna Comp input resistance is 1MΩ (almost the value of the biasing resistor R2) which accounts for almost the entire signal loading at the input and can be considered a good/high input impedance.</p>
+<h3><a id="input_frequency"></a><strong>3.1 Input Buffer Frequency Response.</strong><br/></h3>
+<p>The plot of the Input Stage freq response shows a unity gain and a filtering of the excess of bass (dc-level), preserving a good flat response between 20Hz and 20KHz.</p>
+<p><img alt="mxr dyna comp input buffer frequency response" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-input-buffer-frequency-response.png"/></p>
+<p>The low frequencies area is dominated by the high-pass filters that place two poles on 3.1Hz and 0.15Hz creating a roll-off for the low harmonics. This filters will just remove DC-offset at the input and between stages, the audio band (20Hz to 20KHz) is not touched.<br/></p>
+<h2><a id="OTA"></a><strong>4. The OTA Amplifier.</strong></h2>
+<p>The OTA Amplifier is the heart of this effect.<br/>To understand its functionality, it is important to understand the concept of how an audio compressor works:<br/></p>
+<ul>
+<li>The principle of an audio compressor is to modify the volume of the guitar signal, attenuating the peaks and reducing the span between the softest and loudest sounds. There is a defined point <em>threshold</em> above which the signal gets reduced (contrary to distortion effects where the signal gets clipped/squashed and distorted).<br/><img alt="compressed signal waveform electrosmash" class="article-img" src="images/mxr-dyna-comp-analysis/compressed-signal-waveform-electrosmash.png"/><br/></li>
+</ul>
+<p>The aim of the OTA is to apply a variable gain to the original guitar signal, giving more amplification to weak signals and less to the hi-level waveforms. This amount of gain is set by the current bias pin 5 of the CA3080 and generated in the next stage (Envelope Detector)<img alt="mxr dyna comp ota amplifier" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-ota-amplifier.png"/></p>
+
+<ul>
+<li>The CA3080 has a differential input, it amplifies the current differences between the inverting (-) and non-inverting (+) inputs.</li>
+<li>The 2K trimmer resistor adjusts the bias currents of the OTA differential inputs, trying to make a perfectly balanced OTA. Imbalances in the + and - input pins can make the OTA noisy as the signal change levels. In practice, this trimmer is adjusted to the middle position and in very very very rare occasions it is adjusted to any other value.</li>
+<li>The bias point for the inverting and non-inverting input is around 4V, the image below can help to understand how to calculate this bias point:</li>
+</ul>
+<p><img alt="mxr dyna comp CA3080 ota amplifier bias points" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-ota-amplifier-bias-points.png"/> </p>
+<ul>
+<li>The input resistance of the CA3080 inputs (Zin) depends on the amplifier bias current, looking at the "input resistance VS amplifier bias current" it can be seen that the Zin has a middle value of around 1M.</li>
+</ul>
+<p>With the simplified middle circuit, the bias at the input of the CA3080 (Vx) can be calculated as:</p>
+<p>Vx= R5 *[9V/(R5+(R4//Zin//Zin//R6))] = 470 * [9V/(1M//1M//1M//1M)] = 3.1V</p>
+<p>note: The Rtrimmer is ignored because its value is much smaller than R4, R5, R6 or Zin.</p>
+<p>Usually, the bias point sits around 3~4V (depending on the CA3080 current bias pin)</p>
+
+<p><strong>CA3080 input Filter.</strong></p>
+<p>There is a filter in the non-inverting input: R7(15KΩ), C3(1uF) and C4(10nF) that creates a low pass filter making the frequency response to be different in each input:</p>
+<p><img alt="mxr dyna comp ota amplifier input signals" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-ota-amplifier-input-signals.png"/></p>
+<p>The blue line (CA3080 positive input) level is slightly smaller (~1dB) than the negative input, it is due to a small signal bleed through the Rtrimmer and R5/R6. This OTA chip amplifies the voltage difference at its input pins:</p>
+<ul>
+<li>The freq response at pin 2 (-) is flat.</li>
+<li>The freq response signal at pin 3 (+) reduces the high-frequency harmonics because of the filter created by C3 (1uF), C4 (10nF) and R7 (150K).</li>
+</ul>
+<p>This frequency response is very important because it tailors the tone character of the pedal. It is important to understand that the CA3080 will amplify the difference between the red and the blue line. At mid/low freqs (let's say 300Hz) the difference is small (1dB) but at high freqs (let's say 10KHz) the difference is bigger (4dB) so the output generated will be also bigger.</p>
+<p>In the image below you can see the input voltages VS the output voltage:</p>
+<p><img alt="mxr dyna comp ota amplifier input vs outputs" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-ota-amplifier-input-vs-outputs.png"/></p>
+<p>As mentioned before, the output of the CA3080 will be bigger at high frequencies because the voltage difference of its inputs is also bigger at high freqs. This will give a general high freq boost to the tone of the effect.</p>
+<p>The C5 cap (1nF) cap placed at the output of the OTA will smooth out the excess of hash high harmonics, in orange and red the difference can be observed.</p>
+<p>This equalization is often attributed to a pre-emphasis / de-emphasis method to reduce noise (the CA3080 is a pretty noisy part) and also will give some signature to the sound of the pedal.</p>
+
+<p><strong>MOD: </strong>Some users lower or remove the 0.001uF C5 cap to give the circuit full or emphasized top end response (values between 100pF to 470pF or completely removing it).</p>
+
+<p><strong><a id="ca3080"></a></strong><strong>4.1 The OTA Chip: CA3080.</strong><br/>The OTA is implemented using the CA3080, this part was the first commercially available OTA by RCA in 1969, manufactured also by Intersil/Harris and discontinued nowadays. <br/>Transconductance is a way to measure the gain of an amplifier relating the input voltage with the output current and usually designated with the letter <em>gm</em> and measured in Siemens. In a nutshell, the CA3080 is basically an amplifier whose differential input voltage produces an output current.</p>
+<p><img alt="ca3080 internal circuit" class="article-img" src="images/mxr-dyna-comp-analysis/ca3080-internal-circuit-small.png"/></p>
+<p><br/>We are not describing in detail how everything works inside the CA3080, there is a fantastic application note by Intersill that describes how it works, and some other works that can give you more details about the internal electronics of the IC.</p>
+<h2> <a id="envelope"></a><strong>5. Envelope Detector Block.</strong></h2>
+<p>This block provides the current feedback to the OTA amplifier in order to create the compression effect:</p>
+<p><img alt="mxr dyna comp envelope detector" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-envelope-detector.png"/></p>
+<ul>
+<li>The base of the Q2 transistor is biased to 2.5V through the R8 transistor.</li>
+<li>The C5 (1nF) capacitor removes the excess of treble, rounding the sound, there are more details in the previous <em>OTA Amplifier</em> block.</li>
+<li>After the OTA amplifier, the guitar signal is <em>doubled</em> using a common collector transistor in a <em>phase splitter</em> topology, so at the points <em>OUT_1</em> and <em>OUT_2</em> the input signal is doubled with the same amplitude (gain=1) and opposite phase.</li>
+</ul>
+<p><img alt="mxr dyna comp phase splitter" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-phase-splitter.png"/></p>
+<ul>
+<li>After the phase splitter, 2 networks in parallel will average out the guitar signal, both the positive/negative semi cycles creating a unipolar signal (because it goes from 0 to 9V). This averaged value will indicate how loud the guitar signal is:</li>
+</ul>
+<p><img alt="mxr dyna comp ota amp working" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-ota-amp-working.gif"/></p>
+<p>Above image: the averaged signal in blue color (measured at the C8 cap) changes following the amplitude of the guitar signal in purple/green colors (measured after the phase-splitter at R11 and R12):</p>
+<ul>
+<li>When the level of the guitar signal starts to rise (at around 1Vpp), the blue averaged signal decreases from 9V to 0V, giving less current feedback to the OTA.</li>
+</ul>
+
+<ul>
+<li>The signal is high pass filtered in parallel with C6 &amp; R11 and C7 &amp; R12 and the diodes D1 and D2 will protect the base of the transistor from negative voltages (the diodes are just clamping diodes that ground the base of the transistor under damaging negative voltages).</li>
+</ul>
+<p><strong>MOD</strong><strong>:</strong> Disconnecting C7: If you check the full schematic the output of the pedal is also connected to the emitter of Q2. The D2 diode could clip the output signal making the signal distorted, this is why some people decide to remove the bottom envelope detector (by disconnecting C7) and just use the top one. The side effect is the fact that using half-wave rectification leads to some envelope ripple on lower notes during the decay of held notes<br/></p>
+
+<ul>
+<li>The transistors Q4 and Q5 work as switches, when the voltage at their bases is over the Vbe (0.6V typ), the transistor will conduct allowing the current to flow through the R13 resistor (150K). The big C8 capacitor (10uF) will act as a low pass filter, making the voltage at the base of Q5 to change slowly and follow the general envelope of the guitar signal.</li>
+</ul>
+<p><strong>MOD:</strong> The attack mod makes the effect more flexible to play different styles of music. It can be done replacing the 150KΩ R13 resistor with a 10k+150k pair in series or using a toggle switch to select different values i.e 150KΩ or 10KΩ.</p>
+<h2><a id="output"></a><strong>6. Output Stage.</strong></h2>
+<p>The output signal is taken from the emitter of the phase splitter Q2 simplifying the circuit and using less parts. <br/><img alt="mxr dyna comp output stage" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-output-stage.png"/></p>
+<ul>
+<li>The output series capacitor C9 (0.05uF) will remove all the DC voltage. It also forms a high past filter together with the resistor R14 and VR2.</li>
+<li>The cut frequency of the output low-pass filter changes slightly with the level potentiometer (RV2). This fc calculation is not easy because the interaction between R14 and RV2 does not allow to use the simple formula fc=1/2piRC. However, in the real application this fc is: 
+<ul>
+<li>fc min with (RV2 max 50KΩ) = 52Hz</li>
+<li>fc max with (RV2 min 1) = 310Hz</li>
+</ul>
+</li>
+</ul>
+<p><img alt="mxr dyna comp output stage frequency response" class="article-img" src="images/mxr-dyna-comp-analysis/mxr-dyna-comp-output-stage-frequency-response.png"/></p>
+<p><strong>MOD: </strong>The output series 0.05uF capacitor C9 can be enlarged to a 1uF to give to the effect a full bottom end response.</p>
+<h2><a id="resources"></a> <strong>7. Resources.</strong></h2>
+<p><a href="assets/mxr-dyna-comp-analysis/ca3080_datasheet.pdf" rel="noopener" target="_blank">CA3080 Datasheet.</a><br/><a href="assets/mxr-dyna-comp-analysis/AN6668_datasheet.pdf" rel="noopener" target="_blank">CA3080 Application Note (AN6668).</a><br/><a href="http://www.till.com/blog/archives/2005/06/last_of_the_ota.html" rel="noopener noreferrer" target="_blank">Don Tillman great article about the CA3080 background.</a> <a href="assets/mxr-dyna-comp-analysis/CA3080_tillman.pdf" rel="noopener" target="_blank">(Mirror)</a><br/><a href="assets/mxr-dyna-comp-analysis/mods_by_JC_Maillet.pdf" rel="noopener" target="_blank">MXR Dynacomp mods by JC Maillet</a><br/><a href="http://www.pisotones.com/Articulos/DynaMod/DynaMod.htm" rel="noopener noreferrer" target="_blank">Dyna/Ross Clones and Variations.</a> <a href="assets/mxr-dyna-comp-analysis/mxr_comp_clones.pdf" rel="noopener" target="_blank">(Mirror)</a></p>
+
+<p>Thanks for reading, all feedback is appreciated. My sincere appreciation to Eric (<a href="http://ontheroadeffects.com/" rel="noopener noreferrer" target="_blank">ontheroadeffects</a>), C. Chiuchiolo and Dror S. for your support.</p>
+
+
+
+
+
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054657/https://www.electrosmash.com/mxr-dyna-comp-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20MXR%20Dyna%20Comp%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="mxr-distortion-plus-analysis.html">&larr; MXR Distortion + Analysis</a>
+    <a class="prevnext" href="mxr-microamp.html">MXR MicroAmp Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

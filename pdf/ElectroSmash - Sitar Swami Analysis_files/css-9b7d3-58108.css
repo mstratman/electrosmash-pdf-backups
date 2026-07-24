@@ -1,0 +1,33 @@
+
+
+/*===============================
+https://www.electrosmash.com/media/com_acymailing/css/module_default_box_blue.css?v=1535466594
+================================================================================*/
+@import url("https://web.archive.org/web/20220430002017cs_/https://www.electrosmash.com/media/com_acymailing/css/module_default_box_black.css");.acysubbuttons input.button:hover,.acysubbuttons .button:hover,.acysubbuttons button.validate:hover,.acymailing_mootoolsbutton a:hover,.acymailing_mootoolsbutton a:active{color:#79adb2 !important}.acymailing_module form a:hover,.acymailing_module form a:active,.acymailing_module form a:focus{color:#79adb2!important}
+
+
+/*===============================
+https://www.electrosmash.com/modules/mod_jux_social_instagram_feed/assets/css/style.css
+================================================================================*/
+.jux_style_hover_1 #instaShowPopup_1 .instashow-popup-twilight{opacity:0.9}.jux_style_hover_1 .instashow-gallery-media-cover{background:none!important}.jux_style_hover_1 .instashow-gallery-media-link:after{content:'';width:10px;height:10px;top:50%;left:50%;transform:translate(-50%,-50%);position:absolute;background:#000;transition:all .4s ease;border-radius:100%;opacity:0}.jux_style_hover_1 .instashow-gallery-media-link:hover:after{width:200%;opacity:0.7;height:200%}.jux_style_hover_1 .instashow-gallery-media-info{top:50%;left:50%;transform:translate(-50%,-50%)}.jux_style_hover_2 .instashow-gallery-media-info{bottom:50%;right:50%;transform:translateX(50%)}.jux_style_hover_2 .instashow-gallery-media-link:hover .instashow-gallery-media-info{-webkit-transform:translateX(50%) translateY(50%);transform:translateX(50%) translateY(50%)}.jux_style_hover_3 .instashow-gallery-media-info{top:50%;left:50%;text-align:center;width:80%;// height:80%;transform:translate(-50%,-50%)!important}.jux_style_hover_3 .instashow-gallery-media-cover{-webkit-transition:all 0.5s ease;transition:all 0.5s ease}.jux_style_hover_3 .instashow-gallery-media-link:hover .instashow-gallery-media-cover{border-radius:50%;visibility:visible;opacity:0.8}.jux_style_hover_4 .instashow-gallery-media-info{top:50%;left:50%;text-align:center;transform:translate(-50%,-50%)!important}.jux_style_hover_4 .instashow-gallery-media-link:hover{opacity:0.8;-webkit-transform:rotate(360deg);transform:rotate(360deg)}.jux_style_hover_4 .instashow-gallery-media-link{opacity:1;-webkit-transition:all 0.7s ease!important;transition:all 0.7s ease!important}.jux_style_hover_4 .instashow-gallery-media{overflow:hidden}.jux_style_hover_5 .instashow-gallery-media-info{top:50%;// display:none;left:-50%;transform:translate(-50%,-50%)!important;opacity:0;transition-delay:0s;transition:all 0.4s ease-in-out!important}.jux_style_hover_5 .instashow-gallery-media-link:hover .instashow-gallery-media-info{left:50%;opacity:1}.jux_style_hover_5 .instashow-gallery-media-link:hover .instashow-gallery-media-cover{opacity:0.8;transition-delay:0s;transform:translate(0,0)!important}.jux_style_hover_5 .instashow-gallery-media-cover{opacity:0;!important;transform:translate(150%,-100%) rotate(180deg)!important;transition:all 0.4s ease-in-out!important}.jux_style_hover_5 .instashow-gallery-media-link:hover .instashow-gallery-media-cover~.instashow-gallery-media-image{-webkit-transform:none!important;transform:none!important}.instashow-spinner::before{border:12px solid #f50a0a!important}
+/*
+     FILE ARCHIVED ON 00:20:17 Apr 30, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:24:48 Sep 05, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 73.21
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.076
+  cdx.remote: 0.064
+  esindex: 0.01
+  LoadShardBlock: 43.484 (3)
+  PetaboxLoader3.datanode: 78.309 (5)
+  CDXLines.iter: 14.182 (3)
+  load_resource: 211.965 (2)
+  PetaboxLoader3.resolve: 109.213 (2)
+*/

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMG81 Pickup Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; EMG81 Pickup Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>EMG81 Pickup Analysis</h1>
+
+<p>The EMG81 is an active humbucker guitar pickup manufactured by EMG Inc. It was developed in 1979 along with the EMG85 and released in 1981. The construction is similar to traditional U-shaped rail pickups with ceramic magnets. </p>
+<p><img alt="EMG81 pickups" class="article-img" src="images/emg81/emg81-intro.jpg"/></p>
+<p>The EMG 81 is commonly used in the bridge position, giving high end cut and fluid sustain. It has a three pin header output which makes it easy to replace and mod without iron solder. The EMG81 has two variants:</p>
+<ul>
+<li><strong>EMG81TW</strong> features two separate pickups and preamps in a single pickup housing, allowing for single-coil and humbucking configuration.</li>
+<li><strong>EMG81-X</strong> provides increased headroom giving the voicing an organic and open tone while still maintaining clarity and response.</li>
+</ul>
+<p><br/><strong>EMG81 Pickup Specifications:</strong><br/>     Resonant Frequency: 2.25 kHz.<br/>     Average/Max Output Voltage: 1.25/1.75.<br/>     Noise: -91 dBV.<br/>     Output Impedance: 10K Ohm.<br/>     Current Consumption: 80uA.</p>
+<p><strong>Coil Specifications:</strong><br/>     Magnet: Ceramic 56x3x13mm.<br/>     Wire: 0,06mm PE.<br/>     Core: 54x3x12, 5mm solid steel.<br/>     Coil: 4,18 KΩ (one coil), wax potted, approx. 5500-6000 turns, h=7,5mm.<br/>     Bobbin: 64x13x9mm (or with <em>tube legs</em> 12,2mm).</p>
+
+<p><strong>Table of Contents:</strong></p>
+<p><a href="#link1">1. Humbuckers Pickups.</a><br/><a href="#link2">2. EMG81 Schematic.</a><br/>     <a href="#link21">2.1 EMG81 Voltage Gain.</a><br/><a href="#link3">3. EMG-81 Frequency Response.</a><br/><a href="#link4">4. Electronic Humbucker Unbalance.</a><br/><a href="#link5">5. Bajaman Active Pickup.</a><br/><a href="#link6">6. Resources.</a></p>
+<h2><strong><a id="link1"></a>1. Humbuckers Pickups.</strong></h2>
+<p>The passive humbucker pickup was invented by Joseph Ray Butts (U.S. Patent 2,892,371) and Seth Lover from Gibson (U.S. Patent 2,896,491). It is composed of two coils wound reverse to one another with the magnetic rails opposite in polarity in each winding. Ambient hum from power-supply transformers or radio frequencies reaches the coils as common-mode noise (inducing an electrical current with the same magnitude in each coil). Because the windings are reversed in each pickup coil, the hum signals are canceled (they are equal and in anti-phase).</p>
+<p>A humbucker pickup senses a wider section of the string than a single-coil pickup and generally results in a less bright, smoother and <em>fatter</em> tone compared to single coils. </p>
+<p> There are several configurations:</p>
+<ul>
+<li><strong>Wired in Series</strong>: the most common setup. The overall inductance/resistance of the pickup is increased, which lowers its resonance frequency and attenuates the higher frequencies, giving a less trebly tone. The resulting signal that is output by the pickup is doubled in amplitude, thus more able to overdrive the early stages of the amplifier.</li>
+</ul>
+<ul>
+<li><strong>Wired in Parallel</strong>: The equal common-mode hum interference is canceled, while the string variation signal sums. This method has a more neutral effect on resonant frequency; mutual capacitance is doubled and inductance/resistance is halved. The resulting tone is brighter, more single coil tone but keeping hum-canceling. A humbucker wired in parallel has about 30% less output of the same pickup wired in series.</li>
+</ul>
+<ul>
+<li><strong>Split Mode:</strong> this wiring option shuts off one of the coils, resulting in a single-coil pickup. Hum canceling will be lost.</li>
+</ul>
+<ul>
+<li><strong>Wiring Out-of-Phase:</strong> it is the electric connection of two coils in either series or parallel but with the signal polarities combined in a way that cancels out part of the signal (usually low frequencies).</li>
+</ul>
+<ul>
+<li><strong>Unbalance Winding</strong>: Most of the humbuckers have their own degree of coil mismatch to achieve their signature sound. The more unbalanced they are, the more harmonic content they have. But also, it can start to bring in single coil hum.</li>
+</ul>
+
+<p><strong>Active Pickups:</strong></p>
+<p>Active pickups incorporate electronic circuitry, usually including a pre-amp and filters for tone modeling. Active pickups are relatively unaffected by cables and the input characteristics of subsequent devices and generally, they tend to have a smooth and even response:</p>
+<ul>
+<li>They give higher level output, more <em>headroom</em>, and dynamic range.</li>
+<li>They are less affected in tone by the amplifier/pedal input characteristics. </li>
+<li>They require an electrical source of energy (usually one or two 9/18V batteries) to operate.</li>
+</ul>
+<h2><strong><a id="link2"></a>2. EMG81 Schematic.</strong></h2>
+<p>The EMG81 active pickup circuit is a simple Differential Amplifier:<img alt="EMG81 Circuit Schematic" class="article-img" src="images/emg81/emg81-schematic.jpg"/></p>
+<p>A Differential Amplifier amplifies the voltage difference between two coils but it does not amplify the particular single coil voltage (hum common mode). Using an op-amp as a core, the circuit will achieve high differential-mode gain, good input impedance, and low output impedance which reduce pickups loading and tone sucking when connected to the next pedal/amp stage.</p>
+<ul>
+<li>The Set Current Resistor R<sub>8</sub>  programs the input bias current, input offset current, quiescent power consumption, slew rate, input noise and the gain-bandwidth product. The 1MΩ value sets the current draw to 80uA for a very long battery life.</li>
+<li>Diode D<sub>1</sub> protects the device against reverse polarity connections.</li>
+</ul>
+<p><img alt="EMG81 layout" class="article-img" src="images/emg81/emg81-layout.jpg"/></p>
+<p>The schematic is hard to trace since it is totally encapsulated in epoxy in the baseplate of the EMG81. The circuit is implemented using a single layer PCB, with SMD components.</p>
+<p><img alt="EMG81 Guts" class="article-img" src="images/emg81/emg81-guts.jpg"/></p>
+<p>The coils are wired in a differential mode, so it is close to parallel topology because the output of the two coils is summed together, but they do not interact the way passive parallel coils do, so the DC resistance/inductance is not halved.</p>
+
+<p><strong><a id="link21"></a>2.1 EMG81 Voltage Gain.</strong></p>
+<p>The op-amp is labeled as EMG private IC number <em>EMG001</em>, but seems that they are using the National Semiconductors LM4250 part because of its low standby power consumption (500 nW). The design is indeed very close to the datasheet circuit <em>x5 Difference Amplifier</em>.<br/><img alt="LM4250 Differential Amplifier" class="article-img" src="images/emg81/lm4250-differential-amplifier.jpg"/>In the classic differential amplifier, the common and differential gain are calculated as:</p>
+<p><div>\[I_{1}=\frac{V_{cm}-\frac{V_{d}}{2}-V_{out}}{R_{1}+R_{2}}\]</div></p>
+<p><div>\[I_{2}=\frac{V_{cm}+\frac{V_{d}}{2}}{R_{3}+R_{4}}\]</div></p>
+<p><div>\[V_{(-)}= V_{out}+R_{2} \cdot  I_{1}\]</div></p>
+<p><div>\[V_{(+)}=R_{4} \cdot  I_{2}\]</div></p>
+<p>Making V<sub>(+)</sub>=V<sub>(-)</sub>:</p>
+<div>\[V_{out}=V_{cm}\left (  \frac{R_{1}R_{4}-R_{2}R_{3}}{R_{1}(R_{3}+R_{4})} \right ) + \frac{V_{d}}{2} \left ( \frac{R_{1}R_{4}+R_{2}R_{3}+2R_{2}R_{4}}{R_{1}(R_{3}+R_{4})} \right ) \]</div>
+<p>The two main factors multiplying V<sub>cm</sub> and <sub>Vd</sub> are the common mode gain G<sub>cm</sub> (or hum gain) and the Differential Gain G<sub>d</sub> (or signal gain):</p>
+<p><div>\[ G_{cm}=(\frac{R_{1}R_{4}-R_{2}R_{3}}{R_{1}(R_{3}+R_{4})} ) \]</div></p>
+<p><div>\[ G_{d}= \frac{1}{2} \frac{R_{1}R_{4}+R_{2}R_{3}+2R_{2}R_{4}}{R_{1}(R_{3}+R_{4})}\]</div></p>
+<p>With this equations, the common-mode rejection ratio (CMRR) can be defined easily.</p>
+<div>\[ CMRR=20log\left ( \frac{G_{d}}{G_{cm}} \right ) \]</div>
+<p>The CMRR shows the rejection in dB for the hum noise. </p>
+<p><br/>In the classic balanced Differential Amplifier topology, the values of the resistors are selected following R<sub>1</sub>R<sub>4</sub>=R<sub>2</sub>R<sub>3</sub>, simplifying the equations:</p>
+<p> <div>\[ G_{cm}= 0  \]</div>   (in practice due to component limitations this value can be considered as &lt;-30dB)</p>
+<p><div>\[ G_{d}=\frac{R_{2}}{R_{1}}\]</div></p>
+<p> <div>\[ CMRR=20log\left ( \frac{G_{d}}{G_{cm}} \right )= 20log\left ( \frac{\frac{R_{2}}{R_{1}}}{0} \right ) = \infty\]</div></p>
+<p>Giving a good differential gain (5), good hum voltage gain (0) and maximum CMRR.</p>
+<p><br/>In EMG81 circuit is deliberately imbalanced for tone modeling purposes, making R<sub>2</sub>=0 and R4=R<sub>4</sub>//R<sub>5</sub>=68K. Replacing these values in the general equations:</p>
+<p><div>\[ G_{cm}=(\frac{R_{1}R_{4}}{R_{1}R_{4}} ) = 1 (0db) \]</div></p>
+<p><div>\[ G_{d}= \frac{1}{2}\left (1+  \frac{2R_{2}}{R_{1}}\right ) = 5.5 (14.8dB) \]</div></p>
+<p><div>\[ CMRR= 20log\left ( \frac{G_{d}}{G_{cm}} \right )20log\left ( \frac{5.5}{1} \right ) = 14.8dB\]</div></p>
+<p>The numbers show that the EMG design will not reject the hum as good as the classic balanced design. This will not make much difference if any to the noise cancelling efficiency, 14.8 dB of hum rejection is still a nice number. As a rule of thumb in audio, 10dB in hum rejection is quite noticeable, 20 dB is very good and 30 dB and above is perfect.</p>
+<p><strong>EMG81 Output Impedance</strong><br/>The output impedance is defined by R<sub>7</sub>, the value is 10K.<br/></p>
+<h2><strong><a id="link3"></a>3. EMG-81 Frequency Response.</strong></h2>
+<p>The peak resonance of a coil is modified (shifted/attenuated/enhanced) depending on the load attached to it. There are <a href="http://www.sugardas.lt/~igoramps/article57.htm" rel="noopener noreferrer" target="_blank">several</a> detailed articles explaining how the pickup resonance is altered by the load. The general idea is that lower values of load shift the resonant peak down in frequency, higher values give a much more pronounced resonance at a higher frequency for a brighter sounding pickup.</p>
+<p>In the EMG81 circuit, each of the coils <em>sees</em> a different equivalent circuit from their output to ground. These external loads consist of resistance and capacitance from coil outputs to ground. </p>
+<p>In passive pickups, the pots in the guitar, cable capacitance, and amp input impedance are an interactive system that modifies the coil response. On active pickups and thanks to the buffering properties of the differential amplifier, the response will be less affected by these factors.</p>
+<p>The lack of series resistor in the non-inverting input (+) will shift the f<sub>res</sub> to higher frequencies, giving a single coil like sound. The coupling capacitors C<sub>1</sub> and C<sub>2</sub> create a high pass filter in 241Hz. It will additionally remove hum and super bass harmonics.</p>
+<p><img alt="EMG81 Frequency Response" class="article-img" src="images/emg81/emg81-frequency-response.png"/></p>
+<p>In the graph above, the signal in each of the coils output is shown in blue/red as well as the circuit output in orange. Unbalancing the differential amplifier is the simplest way to do tone modeling that is to say to move the resonant frequency of each of the coils in a different way to be amplified covering a wider spectrum of frequencies or <em>double resonance</em>. This enrichment will be traded for less hum canceling, but as far as it is below reasonable limits, there is no problem. <br/></p>
+<p>With this design topology, it is easy to create multiple humbucker models with distinct tonal signature by just changing some values in the circuit. Using the same PCB and even the same coils in different models. </p>
+<p>For this simulation, the equivalent model of a coil is considered as R=4K2, L=5H, and C=500pF. It is shown in the above graph in purple color in isolated response configuration (without any load).</p>
+<p><img alt="Coil Model" class="article-img" src="images/emg81/humbucker-model.jpg"/></p>
+<p>The real pickup coil equivalent model can be described electrically as an ideal inductance L in series with an Ohmic resistance R, and parallel to both a winding capacitance C</p>
+<ul>
+<li>The inductance is the most important parameter. Anything from 1 Henry for a low output single coil pickup up to around 9 Henries for high output humbuckers. This value depends on the number of turns and the physical shape of the coils.</li>
+<li>The characteristic resistance is anything from 1k up to 15k. The resistance value depends on the number of turns and the diameter of the wire.</li>
+<li>The distributed capacitance which is effectively in parallel with the inductance of the coil.</li>
+</ul>
+<p> The combination of these factors results in tuned circuit with a well defined resonant frequency. The typical frequency response is a smooth resonant peak in the upper midrange, from 1KHz (humbuckers) to 8KHz (single coils). The resonant peak which gives each pickup its own individual character and about 90 percent of a pickup's sound characteristics. </p>
+<p>The resonant frequency f<sub>res</sub> of the coil can be calculated as:</p>
+<div>\[f_{res}=\frac{1}{2\pi \sqrt{L\cdot C}}=\frac{1}{2\pi \sqrt{5H\cdot 500pF}}=3.1\: KHz\]</div>
+<p>It determines the audio characteristics of the pickup, at 2 KHz the sound is warm and mellow, at 3 KHz brilliant or present, at 4 KHz piercing, and at 5 KHz or more brittle and thin.</p>
+<p>Other common values for guitar coils are:</p>
+<ul>
+<li>Typical Single-Coil: R=5k, L=2H, C=100pF, f<sub>res</sub>=9.2 KHz</li>
+<li>Typical Humbucker: R=15K, L=10H, C=200pF, f<sub>res</sub>=3.6 KHz</li>
+</ul>
+<h2><strong><a id="link4"></a>4. Electronic Humbucker Unbalance.</strong></h2>
+<p>Humbucker pickups are usually unbalanced during manufacturing, winding each coil with a different number of turns or using a specific wiring pattern (even, scattered, random…) in order to produce a different tone response.</p>
+<p>The Dimarzio <em>Dual Resonance</em> patent US4501185 claims that winding the coils with the same number of turns but with wire of different gauge, the 60 Hz hum cancellation is emphasized without affecting the higher harmonics of the hum which may contribute to the desired tonal qualities.<br/>Moreover, because of the difference in coils impedance resulting from different wire diameter, the overall frequency response can be selectively tailored to provide improved tone modeling.</p>
+<p>Modern active pickups manufacturers like EMG or Seymour Duncan found the way to reduce costs in mass production, produce a signature sound, and create a dual resonance by making both humbucker coils mechanically equal but unbalance them electronically:</p>
+<p>Seymour Duncan Blackouts: <em>"Active humbuckers use unbalanced inputs in a differential preamp. The problem is, an unbalanced differential preamp is not very effective at canceling hum. Our engineers figured out how to capture the tone that players want in an active design, but using balanced inputs. The result is 12dB to 14dB less noise, plus more lows, more highs, and more output. Simply put, Blackouts have more tone than other active pickups."</em></p>
+<p>Note that this description form Seymour Duncan also fits perfect with the EMG81 circuit analysis.<br/>Designing unbalanced preamps can enrich the tone, widening the frequency response. The side effect is the increase of hum voltage gain (common mode).</p>
+
+<h2><strong><a id="link5"></a>5. Bajaman Active Pickup.</strong></h2>
+<p>Bajaman proposed a DIY project inspired in EMG81 active circuit. The values of the resistors in the pre-amp are modified in order to create a different tone response. Bajaman designed a balanced differential amplifier with higher bias resistances (R<sub>4</sub> and R<sub>5</sub>) of 1MΩ and feedback resistor R<sub>3</sub> of 500KΩ. <img alt="Bajaman Active Pickup Schematic" class="article-img" src="images/emg81/bajaman-active-schematic.jpg"/></p>
+<ul>
+<li>The coils will be loaded with 500KΩ approx,  giving similar tone as most Gibson pickups used in Les Pauls and 335s which use 500k volume pots. Featuring more brightness because the f<sub>resonance</sub> will be higher and more pronounced compared to the EMG81.<br/></li>
+</ul>
+<ul>
+<li>The voltage gain is increased, it is 16 times or 24dB (G<sub>dif</sub>=R<sub>3</sub>/R<sub>1</sub>), this extra output makes the EMG81 lifeless in comparison. Noise cancellation is better than in EMG81 because of the balanced topology. In the other hand, the double resonance effect pursued by EMG will be lost.</li>
+</ul>
+<p><img alt="bajaman-frequency-response" class="article-img" src="images/emg81/bajaman-frequency-response.png"/></p>
+<ul>
+<li>Coupling capacitors C<sub>1</sub> and C<sub>2</sub> can be decreased for more high-end response or increased for more bass:</li>
+</ul>
+<p><img alt="bajaman-frequency-response-caps" class="article-img" src="images/emg81/bajaman-frequency-response-caps.png"/>   <br/></p>
+<h2><strong><a id="link6"></a>6. Resources.</strong></h2>
+<p><a href="http://www.seymourduncan.com/images/schematics/501005-110.pdf%20" rel="noopener noreferrer" target="_blank">Seymour Duncan wiring Information.</a><br/><a href="http://freestompboxes.org/viewtopic.php?f=3&amp;;t=880" rel="noopener noreferrer" target="_blank">Free Stompboxes Thread EMG81.</a> (requires registration)<br/>Music Electronics Forum EMG81 <a href="http://music-electronics-forum.com/t9095/" rel="noopener noreferrer" target="_blank">Thread1</a> and <a href="http://music-electronics-forum.com/t2145/" rel="noopener noreferrer" target="_blank">Thread2</a>.<br/><a href="http://www.syscompdesign.com/assets/images/appnotes/guitar-pickups.pdf" rel="noopener noreferrer" target="_blank">Frequency Response for guitar pickups</a>.<br/><a href="http://buildyourguitar.com/resources/lemme/" rel="noopener noreferrer" target="_blank">The Secrets of Electric Guitar Pickups</a> by BuildYourGuitar.<br/><a href="http://guitar.ru/articles/pickup/sound-pickup_318.html" rel="noopener noreferrer" target="_blank">Active Pickups theory and Practice</a> (in Russian).<br/><br/></p>
+
+<p>Thanks for reading, all feedback is appreciated</p>
+
+
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054734/https://www.electrosmash.com/emg81" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20EMG81%20Pickup%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="crybaby-gcb-95.html">&larr; Dunlop CryBaby GCB-95 Cicuit Analysis</a>
+    <a class="prevnext" href="fuzz-face.html">Fuzz Face Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

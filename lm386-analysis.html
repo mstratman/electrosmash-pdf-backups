@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LM386 Audio Amplifier Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Chips &rsaquo; LM386 Audio Amplifier Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>LM386 Audio Amplifier Analysis</h1>
+
+<p>The LM386 is a Voltage Audio Power Amplifier manufactured by National Semiconductor and JRC/NJM. This design (from the mid 70’s) has been always a popular choice for low-powered audio applications. It is a flexible device; the frequency response can be shaped with some external components and there are plenty of examples of clever circuits that people have come up with over the years.<img alt="LM386 Chip" class="article-img" src="images/lm386-analysis/lm386-chip.jpg"/></p>
+<p>Due to its low quiescent current drain and power consumption, it is suitable for portable battery-powered guitar mini amplifiers. Some of the best known are:</p>
+<ul>
+<li><strong> Smokey Amp</strong>, the smallest and least expensive. Uses only 2 components and it is able to fit in a cigarette package. <br/> </li>
+<li><strong>Little Gem</strong>, an enhanced version of Smokey Amp, adding new features and a gain/volume control. <br/> </li>
+<li><strong>Ruby Amp</strong>, adds an input buffer to the Little Gem and also improves other sections of the circuit.<br/> </li>
+<li><strong>Noisy Cricket</strong>, based on the Ruby amp, with gain/volume/tone controls, gives all capabilities of a guitar amp for a little money.<br/></li>
+</ul>
+<h2>Table of Contents:</h2>
+<p><a href="#intro"> 1 </a><a href="#chars">Electrical Characteristics.</a></p>
+<p><a href="#circuit">2 LM386 Internal Circuit Analysis.</a><br/>   <a href="#lin">2.1 Lin Topology.</a><br/>    <a href="#lin386">2.2 Lin Topology in LM386.</a><br/>        <a href="#lm386input">2.2.1 LM386 Input Stage.</a><br/>        <a href="#lm386vas">2.2.2 LM386 Voltage Amplifier Stage.</a><br/>        <a href="#lm386os">2.2.3 LM386 Output Stage.</a><br/>        <a href="#lm386feedback">2.2.4 LM386 Feedback network.</a></p>
+<p> <a href="#frequency">3 LM386 Frequency Response.</a><br/>    <a href="#bassboost">3.1 LM386 Bass Boost Frequency Calculation.</a></p>
+<p><a href="#resources">4 Resources.</a></p>
+<h2><a id="chars" name="chars"></a><strong>1. Electrical Characteristics.</strong></h2>
+<p>The voltage gain can be adjusted from 20 to 200 (26 to 46 dB) with a wide supply voltage range: 4V-12V or 5V-18V depending on the model.  There are three models: LM386N-1, LM386N-3, and LM386N-4, which can provide 0.325W, 0.7W  and 1W respectively.</p>
+<div class="table-scroll"><table><colgroup> <col width="90"/> <col width="82"/> <col width="85"/> <col width="138"/> <col width="124"/> </colgroup>
+<tbody>
+<tr>
+<td><strong>Chip Name</strong></td>
+<td><strong>Min VolT.</strong></td>
+<td><strong>Max Volt.</strong></td>
+<td><strong> Min. Out Power</strong></td>
+<td><strong>Typ. Out Power</strong></td>
+</tr>
+<tr>
+<td>LM386N-1</td>
+<td>4 Volts</td>
+<td>12 Volts</td>
+<td>250 mW</td>
+<td>325 mW</td>
+</tr>
+<tr>
+<td>LM386N-3</td>
+<td>4 Volts</td>
+<td>12 Volts</td>
+<td>500 mW</td>
+<td>700 mW</td>
+</tr>
+<tr>
+<td>LM386N-4</td>
+<td>5 Volts</td>
+<td>18 Volts</td>
+<td>700 mW</td>
+<td>1000 mW</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>The inputs are ground referenced while the output automatically biases to one-half the supply voltage. It has a low quiescent current drain: 4mA (24 mW when operating from a 6 volt supply) and "low" harmonic distortion: up to 0.2% (AV = 20, VS = 6V, RL = 8Ω, PO = 125mW, f = 1KHz) with a worst case of 10%THD.</p>
+<h2><a id="circuit" name="circuit"></a><strong>2. LM386 Internal Circuit Analysis.</strong></h2>
+<p>The internal circuit is based on a classic audio power amplifier configuration typically referred as <em>Lin Topology</em>. Although old, it remains nearly unbeatable and almost all solid-state power amplifiers follow it. </p>
+<h3><a id="lin" name="lin"></a><strong>2.1 Lin Topology.</strong></h3>
+<p>The circuit can be divided into four main blocks: Input Stage, Voltage Amplifier Stage (VAS), Output Stage (OPS) and Feedback Network:<a href="images/lm386-analysis/lin-topology.gif" rel="noopener" target="_blank" title="Lin Topology"> </a> </p>
+<ul>
+<li><strong>The Input Stage: </strong>This differential amplifier formed by 2 transistors (Q1 and Q2) is the most common input stage today for audio circuits, also known as a long-tailed pair or LTP. Its major tasks are:
+<ul>
+<li> Define the DC operating points.</li>
+<li>Set a high input impedance.</li>
+<li>To subtract the feedback signal from the input path in order to reduce distortion. </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>The Voltage Amplifier Stage (VAS)</strong>: This is the core of the power amplifier. Its job is to amplify the low-level signal generated by the input signal to a suitable level. Most VAS circuits work in class-A mode since they basically require only a small amount of current,  and therefore power losses over the active device can be retained reasonably small. A basic VAS circuit is a common emitter amplifier.</li>
+</ul>
+<p>The Q3 VAS transistor usually has some local <em>Miller compensation capacitor</em> (from Q3 transistor’s collector to base), this to limit the bandwidth, to upgrade stability and to improve linearity at higher frequencies.</p>
+<ul>
+<li><strong>The Output Stage (OPS):</strong> It is a current amplifier working in either class-A, class-B or class-AB mode. The function of the output stage is to provide enough current gain so that voltage potential provided by VAS can exist over a low impedance load.<br/>The simplest current amplifier is an emitter follower. </li>
+</ul>
+<p>Combining two complementary transistors the emitter followers can be connected in a push-pull configuration where each transistor amplifies the current of its corresponding half wave. Such topology is known as Class-B amplifier, very efficient but subject to crossover distortion.</p>
+<p>A typical configuration is to directly couple the bases of the output transistors to the collector of the VAS, thus the transistors do not require individual biasing (like the one shown in the image above). <br/></p>
+<p>A further improvement on the VAS is to upgrade it to Class-AB using a pair of diodes, reducing the efficiency but vastly improving the crossover distortion.</p>
+<ul>
+<li><strong>The  Feedback Network:</strong> its task is to send in some form the output signal to the VAS, this it has an important part in error correcting as well as in bandwidth and gain limiting. Feedback can be either local, global or a mixture of both. Feedbacking from the OPS to VAS, is used to limit the gain and set the DC operating points. </li>
+</ul>
+<h3><a id="lin386" name="lin386"></a><strong>2.2 Lin Topology in LM386.</strong></h3>
+<p>Following the Lin Topology, the LM386 <a href="http://www.ti.com/lit/ds/symlink/lm386.pdf" rel="noopener noreferrer" target="_blank">internal circuit that can be found in the datasheet</a> is divided into Input Stage, Voltage Amplifier Stage (VAS), output stage (OPS) and Feedback network:</p>
+
+<h4><a id="lm386input" name="lm386input"></a><strong>2.2.1 LM386 Input Stage:</strong></h4>
+<p>The first block is a PNP Emitter Follower amplifier (Q<sub>1</sub>, Q<sub>3</sub>), it sets the input impedance and defines the DC operation points, raising the input voltages off the ground so the circuit will accept negative input signal down to -0.4 V.</p>
+<p>Both 50k input resistors (R<sub>1</sub>, R<sub>3</sub>) create the path to ground of the base current, the input needs to be coupled so not to disturb the internal biasing, hence the input impedance is dominated by these resistors and set to 50K.</p>
+<p><strong>Voltage Gain Analysis: </strong> </p>
+<p>The differential amplifier Long Tailed Pair (Q<sub>2</sub>, Q<sub>4</sub>) gain is adjusted by two gain-setting resistors 1.35K + 150Ω (R5 + R5). External pins 1 and 8 provide access to adjust the gain from 20(min) to 200(max). </p>
+<p>The voltage Gain can be calculated under quiescent conditions (no input signal applied) as follows:</p>
+<p><a href="images/lm386-analysis/lm386-analysis2.gif" rel="noopener" target="_blank" title="LM386 Analysis"></a>Note: </p>
+<ol>
+<li>The voltage across R4 and R5 (Vdiff) is simply the differential input voltage (Vin) because the base-emitter voltage drops in the PNP transistors (Q1, Q2, Q3, and Q4) are the same in each side of the LTP.</li>
+<li>The current mirror formed by Q5 and Q6 generates equal currents on both sides of the LTP. This current is labeled "I".</li>
+</ol>
+<p>Due to the current mirror, the current intensity through R8 is equal to 2I, neglecting the current (i7) through the two 15K resistors (R6, R7), which are large impedances compared to other parts of the circuit, thereby:</p>
+<p><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>In the figure above, is easy to see that if i7=0 then:</p>
+<p>    <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>So:</p>
+<p>   <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>This formula can also be rewritten in a more generic way as:</p>
+<p>    <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/> </p>
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins.</p>
+<ul>
+<li>Without any external components, it has a gain of Gv = 2x15K/(150+1350) = 20 (26 dB).</li>
+<li>With a capacitor (or shortcutting) between pins 1 and 8 , it has a gain of Gv = 2x15K/150 =200 (46dB).</li>
+</ul>
+
+<h4><a id="lm386vas" name="lm386vas"></a><strong>2.2.2 LM386 Voltage Amplifier Stage</strong></h4>
+<p>The  common emitter amplifier (Q7) amplifies the low amplitude input signal to a suitable level directly coupled to the output stage</p>
+<h4><strong><a id="lm386os" name="lm386os"></a>2.2.3 LM386 Output Stage:</strong></h4>
+<p>It is a class AB power amplifier,  that is to say, a push-pull configuration where each transistor amplifies its corresponding half wave.<br/>Because of the poor gain of the PNP transistors, Q<sub>9</sub> and Q<sub>10</sub> are in a <em>compound PNP transistor configuration</em> where β<sub>TOTAL</sub> = β<sub>Q9</sub> x β<sub>Q10</sub></p>
+<p><strong>Crossover Compensation:</strong><br/> </p>
+<p>The diodes D<sub>1</sub> and D<sub>2</sub> are used to compensate the crossover distortion.<br/>In the  Push-Pull topology, as a matter of fact, the transistors do not start conducting until the input signal begins to exceed their forward voltage (Vbe), which is the voltage over the base-emitter junction (typically around ± 0.6 V). </p>
+<p>In order to counteract the transistor minimum limit to conduct (Vbe), they are biased so their idling voltage never drops below the forward voltage (Vbe). A specific amount of current, known as bias current, is constantly fed to the transistors’ bases to ensure that they keep conducting sacrificing efficiency.</p>
+<p>Using a diode proved to be one of the best solutions: It offers a voltage drop which is temperature dependent and by matching the thermal coefficiency with the transistor the bias current can be kept quite stable. If an accurate thermal tracking is required the diodes are mounted to the same heatsink as power transistors. Since one diode usually is not enough, amplifiers often use several diode junctions, two in this case.</p>
+<h4><a id="lm386feedback" name="lm386feedback"></a><strong>2.2.4 LM386 Feedback network:</strong></h4>
+<p>Negative feedback is applied from the output to the emitter Q<sub>4</sub> via resistor R<sub>8</sub>. This DC feedback acts to stabilize the output DC bias voltage to one-half the supply voltage.</p>
+<p>Qualitatively, the dc feedback functions as follows: If for some reason Vo increases, a corresponding current increment will flow through R8 and into the emitter of Q<sub>4</sub>. Thus the collector current of Q<sub>4</sub> increases, resulting in a positive increment in the voltage at the base of Q<sub>7</sub>. This, causes the collector current of Q<sub>7</sub> to increase, thus bringing down the voltage at the base of Q<sub>7</sub> and hence Vo.</p>
+<p><strong>Why Vout = Vcc/2 ? </strong> </p>
+<p>The output automatically biases to one half the supply voltage, this is how it happens:<br/>On quiescent conditions (no input signal applied), it is easy to see that Vbe1=Vbe3 and Vbe2=Vbe4, so the voltage in the V<sub>a</sub> node is exactly the same as in V<sub>b</sub>, forcing Idiff = 0.</p>
+
+<p>And now there are 2 approaches to get the same conclusion:</p>
+<p>Approach 1:</p>
+<p>The current mirror (Q<sub>5</sub>, Q<sub>6</sub>) balances the LTP, equalizing the current through both transistors (Q<sub>2</sub>, Q<sub>4</sub>) and improving the linearity of the input stage.  Therefore, the currents on both tails are equal: both DC and AC components.</p>
+<p><br/>Since the currents  "I" in the emitters of  Q<sub>2</sub> and Q<sub>4</sub> are the same:</p>
+<p><img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>Because of the symmetry of the circuit,  V<sub>out</sub> = V<sub>7</sub> ("Bypass" pin), making</p>
+<p><img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+
+<p>Approach 2:</p>
+<p>I<sub>diff</sub>=0 because V<sub>1</sub> and V<sub>2</sub> are at the same potential V<sub>1</sub>=V<sub>2</sub></p>
+<p><img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/><br/> <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>Due to the current mirror IQ2=IQ4</p>
+<p><img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p><br/>With Veb2= Veb4, Veb1=Veb3 and R6=R7=R8=15K:</p>
+<p> <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/><br/> <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<h2><a id="frequency" name="frequency"></a>3. LM386 Frequency Response.</h2>
+<p>Looking at the LM386 <em>Voltage Gain vs Frequency</em> datasheet graph, the frequency response is flat in the audible region (up to 20KHz). Supplementary external components can be used to tailor the response to specific applications. </p>
+<p>It may be interesting to modify the feedback loop between pins 5 and 1 that can be exploited for bass boost, and the more familiar feedback loop between pins 8 and 1 can also be modified to use different capacitor/resistor feedback combinations in parallel to yield differential gain for different frequency ranges.</p>
+
+<p>The LM386 application data mentions a bass boost by connecting an RC network between pins 1 and 5 (paralleling the internal 15k resistor):</p>
+
+<p>The amplifier is stable only for closed-loop gains greater than 9, so if the external resistor R is too small, the circuit could oscillate. Thereby, the minimum R can be calculated easily:<br/></p>
+<ul>
+<li>If pin 8 is open: R<sub>min</sub>=10k, calculated as:</li>
+</ul>
+<p>    <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/><br/></p>
+<ul>
+<li>If pins 1 -8 are bypassed: Rmin=2K, calculated as:        </li>
+</ul>
+<p>    <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<h3><a id="bassboost" name="bassboost"></a><strong>3.1 LM386 Bass Boost Frequency Calculation:</strong></h3>
+<p>For a 6 dB effective bass boost, the datasheet suggests R=10K and C=33nF between pins 1 and 5 with pin 8 open, another common set of values used are  R=2K2 and R=4.7nF. Actually, this modification did not provide an active boost, just a roll-off at frequencies below the selected frequency, that is it a low pass filter.</p>
+<p>This mod can successfully compensate a poor speaker bass response and filter the hissing noise, but in the other hand, if the circuit has a gain pot between pins 1 and 8 as Little Gem, Ruby Amp and Noisy Cricket do, the cut frequency will be modified with the gain value. Unfortunately, the bass boost will be gain dependent.</p>
+<p>The effect of the bass boost RC network can be analyzed with the voltage gain equation above by inserting R + 1/jωC impedances in parallel to the internal Z<sub>1-5</sub> feedback resistor.</p>
+<p>    <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/>  <br/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>So f<sub>c</sub> can be calculated:<br/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/><br/>     <img alt="" border="0" class="article-img" src="images/lm386-analysis/gif.latex"/></p>
+<p>So, assuming that the Z<sub>1-5</sub> internal resistance is 15K, the value of f<sub>c</sub> for the most common RC values can be calculated as follows:</p>
+<ul>
+<li>Using R=10K and C=33nF →  f<sub>c</sub>= 1/2π x 33nF x (15K+10K)=192,2 Hz</li>
+<li>Using R=2,2K and C=4,7nF→ f<sub>c</sub>= 1/2π x 4.7nF x (15K+2,2K)=1968,7 Hz</li>
+</ul>
+<h2><a id="resources" name="resources"></a><strong>Resources:</strong></h2>
+<p><a href="http://www.datasheetcatalog.org/datasheet/newjapanradio/de05001.pdf" rel="noopener noreferrer" target="_blank">JRC386 Datasheet</a>.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers </a>  from (New) Japan Radio Co. JRC/NJM.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank"></a><a href="http://www.ti.com/lit/ds/symlink/lm386.pdf" rel="noopener noreferrer" target="_blank">LM386 Datasheet </a>  from National Semiconductor.<br/><a href="assets/lm386-analysis/LM386_Lecture_by_South_Dakota_School_Mines_Technology.pdf" rel="noopener" target="_blank">LM38X Lecture  by South Dakota School of Mines &amp; Technology.</a><br/><a href="http://stephan.win31.de/music.htm" rel="noopener noreferrer" target="_blank">Stephan Großklaß LM386 </a>  Study.<br/><a href="http://sound.whsites.net/ism.htm" rel="noopener noreferrer" target="_blank">Elliott Sound Products  Study</a> of Current Mirror Sources.</p>
+
+<p>Thanks for reading, all feedback is appreciated <br/></p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054731/https://www.electrosmash.com/lm386-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20LM386%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="jrc4558-analysis.html">&larr; JRC4558 Analysis</a>
+    <a class="prevnext" href="pt2399-analysis.html">PT2399 Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

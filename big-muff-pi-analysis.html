@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Muff Pi Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Big Muff Pi Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Big Muff Pi Analysis</h1>
+
+<p>The Big Muff Pi is a distortion/sustain guitar pedal designed by Bob Myer and Mike Matthews in 1969 and mass produced in 1970. This effect was the first overwhelming success of Electro-Harmonix due to the distinctive sound, price, and reliability. Several versions and reeditions were released over the years.</p>
+<p><img alt="Big Muff Pi All Pedals" class="article-img" src="images/big-muff-pi-analysis/bmp-all-pedals.png"/></p>
+<p>Many inspiring guitarists use this stompbox, giving to the Big Muff Pi a leading role in the hard-driving music signature:<br/>Tony Peluso of The Carpenters, Carlos Santana, David Gilmour of Pink Floyd, Ronnie Montrose, Mike Mills and Pete Buck of R.E.M., Robin Finck of Nine Inch Nails, Brian Molko of Placebo, Cliff Burton of Metallica, Kurt Kobain of Nirvana, Thom Yorke of Radiohead, Pete Townshend of The Who, Thurston and Lee Renaldo Moore of Sonic Youth, Billy Corgan of Smashing Pumkins, J. Mascis of Dinosaur Jr., Dan Auerbach of Black Keys, Ace Frehley of Kiss, The Edge of U2, Jamie Cook of the Arctic Monkeys, Jack White of White Stripes, John Frusciante of The Red Hot Chili Peppers, Chris Wolstenholme of Muse are some of the B.M.P well known users.</p>
+<h2><strong>Table of Contents:</strong></h2>
+<p><a href="#circuit1">1. The Big Muff Pi Circuit.</a><br/>    <a href="#bom11">1.1 List of Materials / Parts List.</a><br/><a href="#input2">2. Input Booster Stage.</a><br/>    <a href="#link21">2.1 Shunt Feedback Common Emitter Stage.</a><br/>    <a href="#link22">2.2 Input Booster Voltage Gain Calculation.</a><br/>    <a href="#link23">2.3 Input Impedance Calculation.</a><br/>    <a href="#link24">2.4 Input Booster Frequency Response.</a><br/><a href="#link3">3. Big Muff Pi Clipping Stage.</a><br/>    <a href="#link31">3.1 Sustain Circuit.</a><br/>    <a href="#link32">3.2 Clipping Amplifier Voltage Gain Calculation</a><br/>    <a href="#link33">3.3 Clipping Method.</a><br/>    <a href="#link34">3.4 Clipping Stage Frequency Response.</a><br/><a href="#link4">4. Passive Tone Control Stage.</a><br/>    <a href="#link41">4.1 Tone Control Frequency Response.</a><br/><a href="#link5">5. Output Stage.</a><br/>   <a href="#link51"> 5.1 Big Muff Pi Output Impedance.</a><br/><a href="#link6">6. Big Muff Pi Bias and Tone Response.</a><br/><a href="#link7">7. Resources.</a><br/>    <a href="#link71">7.1 Datasheets.</a></p>
+
+<h2><a id="circuit1" name="circuit1"></a><strong>1. The Big Muff Pi Circuit.</strong></h2>
+<p>The Big Muff Pi circuit consists of 4 cascaded common emitter amplifier stages with a passive tone control. The schematic can be broken down into 4 simpler blocks: Input Booster, Clipping Stage, Passive Tone Control and Output Booster.<br/><img alt="Big Muff Pi v3 Circuit Stages" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-circuit-stages.png"/>The circuit design was inspired by previous Fuzz pedals like the Dallas Arbiter Fuzz-Face, Maestro Fuzz-Tone or Electro-Harmonix Axis Fuzz. In addition, the BMP introduced a double clipping stage, a new tone control and it is able to produce a characteristic sustained distortion sound never heard before.</p>
+<p>There are also several enhancements on the design in order to make the circuit stable and reliable: All components are based in silicon, all transistor stages include an emitter resistance, which makes the gain independent from temperature or transistor intrinsic characteristics. Three out of four stages include feedback resistors and Miller capacitors, which stabilize the behavior and frequency response. It is a big advantage versus the contemporary dodgy pedals based on germanium.</p>
+<p>The components selected for the design are very generic and easy to find: just high gain NPN transistors, simple silicon diodes and standard resistors, caps and three 100K linear pots. Avoiding exotic parts and making the circuit ready for mass production and a shortage of suppliers.</p>
+<p>This study is focused on the American <em>Version 3</em>, associated with the iconic bold red and black design and released in 1976-1977, the analysis can be easily extrapolated to any other version.</p>
+
+
+<p><a id="bom11" name="bom11"></a><strong>1.1 Big Muff Pi List of Materials / Parts List.</strong></p>
+<p>The components are labeled following the original Electro-Harmonix printed circuit board:</p>
+<p>4 NPN Transistors: BC239 or equivalents 2N5088, 2N5089, BC549C, SE4010, 2N5210, 2N5113: Q<sub>1</sub>, Q<sub>2</sub>, Q<sub>3</sub>, Q<sub>4</sub>.<br/>4 Silicon Diodes: 1N914 or equivalent 1N4148: D<sub>1</sub>, D<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub>.</p>
+<p>3 Potentiometers 100K Lin: Sustain, Tone, Volume.<br/>5 Resistances 10K: R<sub>13</sub>, R<sub>19</sub>, R<sub>18</sub>, R<sub>11</sub> R<sub>12</sub>.<br/>3 Resistances 100K: R<sub>20</sub>, R<sub>16</sub>, R<sub>3</sub>.<br/>3 Resistances 470K: R<sub>9</sub>, R<sub>17</sub>, R<sub>15</sub>.<br/>2 Resistances 39K: R<sub>2</sub>, R<sub>8</sub>. <br/>2 Resistances 150: R<sub>21</sub>, R<sub>10</sub>.<br/>2 Resistances 15K: R<sub>6</sub>.<br/>1 Resistance 47K: R<sub>14</sub>.<br/>1 Resistance 100: R<sub>22</sub>.<br/>1 Resistance 3.3K: R<sub>4</sub>.<br/>1 Resistance 1K: R<sub>23</sub>.<br/>1 Resistance 22K: R<sub>5</sub>.</p>
+<p>4 Capacitors 1uF: C<sub>1</sub>, C<sub>4</sub>, C<sub>6</sub>, C<sub>7</sub>.<br/>4 Capacitors 100nF: C<sub>5</sub>, C<sub>13</sub>, C<sub>3</sub>, C<sub>2</sub>.<br/>3 Capacitors 470pF: C<sub>10</sub>, C<sub>11</sub>, C<sub>12</sub>.<br/>1 Capacitor 4nF: C<sub>9</sub>.<br/>1 Capacitor 10nF: C<sub>8</sub>.</p>
+<h2><a id="input2" name="input2"></a><strong>2. Big Muff Pi Input Booster Stage.</strong></h2>
+<p>This clean boost stage is based on a Common Emitter amplifier with Shunt Feedback and some arrangements to enhance the performance. <br/><img alt="Big Muff Pi V3 Input Booster" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-input-buffer.png"/><br/>The Input Booster sets the pedal input impedance, shapes the frequency response and adds some gain.</p>
+
+<h3><strong><a id="link21" name="link21"></a>2.1 Big Muff Pi Shunt Feedback Common Emitter Stage.</strong></h3>
+<p>In common emitter amps, the approximate voltage gain is collector resistance divided by the emitter resistance (R<sub>C</sub>/R<sub>E</sub>), but the effect of the feedback resistor has to be taken into consideration:<br/>The resistor R<sub>9</sub> from collector to base also called <em>Shunt Feedback resistor</em> or R<sub>F</sub> is a method to apply negative feedback to the amplifier. While it results in a reduced overall voltage gain and input impedance, a number of improvements are obtained:</p>
+<ul>
+<li>Better stabilized voltage gain.</li>
+<li>Improved frequency response.</li>
+<li>Reduced Noise.</li>
+<li>More Linear operation.</li>
+<li>More immune against variations in temperature and transistors Beta.</li>
+</ul>
+<p>How it works?: If the emitter current were to increase, the voltage drop across Rc increases, decreasing Vc, reducing Ib feedback to the base. This, in turn, decreases the emitter current, correcting the original increase. The value of R<sub>9 </sub>should be selected so that the collector voltage is half of the supply voltage. </p>
+
+<h3><strong><a id="link22" name="link22"></a>2.2 Input Booster Voltage Gain Calculation.</strong></h3>
+<p>A <a href="http://www.uotechnology.edu.iq/dep-eee/lectures/2nd/Electronics%201/Part%2004.pdf" rel="noopener noreferrer" target="_blank">simplified analysis method</a> must be used to calculate the voltage gain of the amplifier, otherwise, it turns into an arithmetic nightmare. It consists of 3 steps:</p>
+<ul>
+<li><strong>a) Identify the Amplifier Topology:</strong></li>
+</ul>
+<p>The topology is known as <em>Voltage-Shunt Feedback</em>: voltage refers to connecting the output voltage as the input to the feedback network and Shunt refers to connecting the feedback signal in parallel/shunt with the input current source.<br/><br/></p>
+<ul>
+<li><strong>b) Draw the equivalent circuit without the feedback network:</strong> The idea is to draw an equivalent amplifier without feedback but taking the loading of it into consideration. In the image below, the resistor values are substituted by generic labels, in order to make the formulas more intuitive:<img alt="Big Muff Pi V3 Small Signal" class="article-img" src="images/big-muff-pi-analysis/bmp-small-signal1.png"/></li>
+</ul>
+<p>The equivalent circuit uses Norton's current source since the feedback signal is current. In the image below, the feedback resistor is grounded in the input and output sections and the resistors grouped:<img alt="Big Muff Pi Small Signal " class="article-img" src="images/big-muff-pi-analysis/bmp-small-signal2.png"/> </p>
+<p>Where:</p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+
+
+<ul>
+<li><strong>c) T</strong><strong>he voltage gain</strong> can be calculated following the simplified analysis of these equations:</li>
+</ul>
+<p>A<sub>Z</sub>: Voltage-Shunt Gain without feedback formula:</p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p><br/><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p><br/><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p>B<sub>G</sub>: Feedback Voltage-Shunt formula:</p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p>A<sub>ZF</sub>: Voltage-Shunt Gain with Feedback </p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p>GV: Voltage Gain:</p>
+<p><img alt="" class="article-img" src="images/big-muff-pi-analysis/gif.latex"/></p>
+<p>Replacing the Input Booster circuit values R<sub>B</sub>=20.4K, R<sub>L</sub>=9K, R<sub>E</sub> =100, R<sub>S</sub>=39K and R<sub>F</sub> =470K the results obtained are B<sub>G</sub>=1/470K, A<sub>ZF</sub>=374.2 and the voltage value is G<sub>V</sub>=9.6 (19.6dB) although doing the simulation the G<sub>V</sub> never reaches this value (it is 16.7 dB).</p>
+
+<h3><a id="link23" name="link23"></a><strong>2.3 Big Muff Pi Input Impedance Calculation.</strong></h3>
+<p>The Big Muff Pi input impedance is R<sub>2</sub> aka <em>R<sub>S</sub> series resistance</em> plus the input impedance of the Input Booster stage:</p>
+<p> Z<sub>in</sub> = R<sub>S</sub> + (R<sub>in input Booster</sub>) </p>
+<p>The input resistance of the Input Booster due to the emitter resistance and the feedback network effect is much smaller than R<sub>2</sub>. So, the value of the input resistor R<sub>2</sub>=39K accounts for almost all of the signal loading at the input. The 39K it is indeed a low input impedance, and the guitar signal might suffer tone sucking (loss of high frequencies), although tone and volume loss is compensated by the rest of the circuit design.</p>
+<p>Increasing the 39k R<sub>2</sub> input resistor, the input impedance is increased but it also forms a voltage divider at the input, reducing the available voltage gain.</p>
+
+<p>The Emitter Resistance: Adding an emitter resistance R<sub>22</sub> to a common emitter amp, also known as <em>Emitter Degeneration</em>, makes the voltage gain less dependant from BJT parameters, and therefore less vulnerable to temperature and bias current changes. The stability characteristics of the circuit are thus improved at the expense of a reduction in gain.</p>
+
+<h3><a id="link24" name="link24"></a><strong>2.4 Input Booster Frequency Response.</strong></h3>
+<p>The frequency response is tailored by two capacitors: the input decoupling cap C<sub>1</sub> which sets the low-frequency response (roll-off the bass) and the Miller Capacitor C<sub>10</sub> which shapes the high-frequency response (roll-off the highs):<br/><img alt="Big Muff Pi Input Booster Frequency Response" class="article-img" src="images/big-muff-pi-analysis/bmp-input-booster-frequency-response.png"/></p>
+<ul>
+<li>Input Capacitor C<sub>1</sub>: creates a high-pass filter, increasing its value will result in a more bassy response and increasing the signal into the pedal. The cut-off frequency is around 3.8Hz, not disturbing guitar harmonics.</li>
+<li>Collector to Base feedback Capacitor: C<sub>10</sub> is a <em>Lag Capacitor</em> or <em>Miller Capacitor</em> compensation to avoid oscillation which sets the amplifier bandwidth and the dominant pole frequency. The effective value of the C<sub>10</sub> capacitor is increased by the internal collector-base capacitance (base to collector depletion capacitance) of the BJT. </li>
+</ul>
+<p>With a C<sub>10</sub> of 470pF and depending on the internal BJT capacitance, low pass filter cut-off frequency is around 1.2KHz. This operation occurs just before the distortion stage; clipping a low-passed signal usually sounds better, smoother and less harsh.</p>
+<p>The usual values for this cap are decs to some hundreds of pF, lowering the C<sub>10</sub> value will result in a more treble response, rolling-off fewer highs.</p>
+
+<h2><a id="link3" name="link3"></a><strong>3. Big Muff Pi Clipping Stage.</strong></h2>
+<p>The clipping Stage is made of a passive voltage divider (sustain potentiometer) and two consecutive common emitter stages. Each of the two consecutive Q<sub>2</sub>/Q<sub>3</sub> clipping stages keeps the same topology as the Input Booster. In addition, the clipping amplifiers include a back to back diodes to create the symmetric clipping.<br/><img alt="Big Muff Pi Clipping Stage" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-clipping-stage.png"/></p>
+<p>The design idea for the double distortion is that the first transistor <em>softly</em> clips the waveform in the feedback loop: creating the distortion and filtering the signal. After the first clipping transistor, the second one repeats the operation again and refines the distorted signal creating the <em>hard</em> clip.</p>
+<p><img alt="Big Muff Pi Clipped Signal" class="article-img" src="images/big-muff-pi-analysis/bmp-clipped-signals.png"/></p>
+<h3><a id="link31" name="link31"></a><strong>3.1 Big Muff Pi Sustain Circuit.</strong></h3>
+<p>The 100K sustain potentiometer controls the level of the signal going into the clipping blocks. If the level is high, the signal will be more clipped and the distortion effect will hold even if the guitar input signal is not strong. The resistor R<sub>23</sub> prevents the signal from coming from the Input Booster from being cut-off when the sustain pot is at the lowest setting.</p>
+<h3><a id="link32" name="link32"></a><strong>3.2 Clipping Amplifier Voltage Gain Calculation.</strong></h3>
+<p>The voltage gain can be calculated applying the simplified analysis method as in the Input Booster:</p>
+<ul>
+<li>First Clipping Stage, using the formulas of the Input Booster:  <br/></li>
+</ul>
+<p>R<sub>B </sub>= R<sub>S</sub>//R<sub>A</sub>//R<sub>F </sub>= 10K//100K//470K = 8.9K <br/>R<sub>L </sub>= R<sub>F</sub>//R<sub>C </sub>= 470K//10K = 9.8K <br/>R<sub>E</sub> = 150 <br/>R<sub>S </sub>= 10K<br/>R<sub>F</sub> = 470K <br/>The results obtained are: <br/>B<sub>G </sub>= 1/470K <br/>A<sub>ZF </sub>= 260<br/>The Voltage Gain is G<sub>V </sub>= A<sub>ZF</sub>/RS = 260/10 = 26 (28dB). In the real circuit is around 23 dB.</p>
+
+<ul>
+<li>Second Clipping Stage, using the formulas of the Input Booster: </li>
+</ul>
+<p>R<sub>B </sub>= R<sub>S</sub>//R<sub>A</sub>//R<sub>F </sub>= 10K//100K//470K = 8.9K <br/>R<sub>L </sub>= R<sub>F</sub>//R<sub>C </sub>= 470K//15K = 14.5K<br/>R<sub>E</sub> = 150 <br/>R<sub>S</sub> = 10K <br/>R<sub>F</sub> = 470K <br/>The results obtained are:<br/>B<sub>G </sub>= 1/470K<br/>A<sub>ZF </sub>= 304 <br/>The Voltage Gain is G<sub>V </sub>= A<sub>ZF</sub>/R<sub>S </sub>= 304/10 = 30 (29dB). In the real circuit is around 25 dB.</p>
+
+<p><strong>Note:</strong> In the calculation, the diodes feedback network is not taken into consideration because it contains big capacitors C<sub>6</sub> and C<sub>7</sub> which disconnect the path for DC conditions. </p>
+<p>The Gain of the second clipping stage is slightly higher (1 or 2 dBs) than the first one. However, the voltage gain of this stage will not reach such values as 28 or 29dBs. As it will be seen in the next point, the gain is limited by the clipping diodes action. The output signal of the amplifiers will never exceed ±0.6V and all the extra gain will modify the slew rate and the shape of the clipped signal. </p>
+<p><br/><a id="link33" name="link33"></a><strong>3.3 Big Muff Pi Clipping Method.</strong></p>
+<p>The diodes D<sub>1</sub>-D<sub>2</sub> and D<sub>3</sub>-D<sub>4</sub> in the collector-base feedback loop of the transistors, clip the signal when the voltage difference between the <em>input</em> (transistor base) and the <em>output</em> (transistor collector) is higher than the V<sub>F</sub> of the diode, which is around 0.6V. So they will limit the signal peaks and the output signal will never exceed ± 0.6V.</p>
+<p>The big 1uF series capacitors C<sub>6</sub> and C<sub>7</sub> located next to the feedback diodes, allow the AC signal to pass through it and be clipped and block the DC bias voltage. Keeping the transistor operating point undisturbed. These caps determine the frequency band the unit clips. Enlarging this cap will make it clip more bass harmonics, make it smaller for more high-end clipping and archiving more saturated tone, more sustain, and compression</p>
+
+<p><br/><a id="link34" name="link34"></a><strong>3.4 Clipping Stage Frequency Response.</strong></p>
+<p>In each of the clipping amplifiers, the frequency response is similar to the Input Booster, tailored by two capacitors: The input series decoupling caps C<sub>12</sub>-C<sub>19</sub> acting as a high pass filter and rolling-off the bass below some decs of Hz and the C<sub>6</sub>-C<sub>7</sub> Miller Capacitors acting as a low pass filter shaping the high frequency response and rolling-off around 1KHz:</p>
+<p><img alt="Big Muff Pi Clipping Stage Frequency Response" class="article-img" src="images/big-muff-pi-analysis/bmp-clipping-stage-frequency-response.png"/><br/>In the image above, the Clipping Stage frequency response is shown. The red curve illustrates the output after the first clipping, with a maximum gain of 23.4 dB and band limited with two poles at 55Hz and 1.78KHz. The blue curve shows the output after the second clipping, with a maximum gain of 25.2 dB (48.6 - 23.4 = 25.2) and band limited with two poles at 94Hz and 1.17KHz.</p>
+<p>The BMP distortion is very narrow bandwidth limited, attenuating harmonics at 40dB/dec outside the pass-band, and taking into consideration the Input Booster similar response which adds another two poles, all frequencies below 90Hz, and over 1.2KHz are attenuated 60dB/dec.</p>
+<p>The basic idea inside the Big Muff Pi is to remove the high harmonics using Miller Capacitors three times: in Q<sub>4</sub>, Q<sub>3</sub> and Q<sub>2</sub> around 1.2 KHzand resulting in a narrow frequency limited response that accentuates the lows and low mids, making it perfect for bass-less bands. It seems that getting rid of its overdriven high end is the trick to increase the <em>sustain</em> of the guitar.</p>
+
+
+<p><a id="link4" name="link4"></a><strong>4. Big Muff Pi Passive Tone Control Stage.</strong></p>
+<p>The Passive Tone Control has a simple and effective design: essentially it is just a combination of high-low pass filters that are mixed together by a single linear 100K <em>Tone</em> potentiometer. The cut-off points are designed so that their interweaving effect introduces a middle-frequency scoop/notch at 1KHz when the potentiometer is set to the middle position. <img alt="Big Muff Pi Tone Control" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-tone-control.png"/></p>
+<h3></h3>
+<h3><strong><a id="link41" name="link41"></a>4.1 Big Muff Pi Tone Control Frequency Response.</strong></h3>
+<p>Find below the BMP frequency response, showing from blue to red all values of the tone potentiometer:</p>
+<p><img alt="Big Muff Pi Tone Control Frequency Response" class="article-img" src="images/big-muff-pi-analysis/bmp-tone-control.png"/></p>
+<ul>
+<li>The green response line has the tone pot set at the midpoint, evidencing the 1KHz scoop. It also shows that the tone control is not able to archive a flat response. There is an overall 7dB loss and at the notch, the loss is about 6.5db (-13.5db total) at 1KHz.</li>
+<li>The blue and red color curves have the tone at full treble/bass respectively.</li>
+</ul>
+
+<h2><a id="link5" name="link5"></a><strong>5. Output Stage.</strong></h2>
+<p>The Output Stage is once again a common emitter amplifier amp which recovers the volume loss during the passive tone stack.<br/><img alt="bBig Muff Pi Output Booster" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-output-buffer.png"/><br/>The design of this last stage is simpler than the previous ones, not including resistor Shunt Feedback or Miller compensation. The frequency response is then flat across the audio band and the gain is about 13dB, compensating the loss in the passive tone filter.</p>
+<p>The Voltage Gain in this basic common emitter topology is<br/>G<sub>V </sub>= R<sub>C</sub>/R<sub>E </sub>= R<sub>6</sub>/R<sub>4</sub> = 15K/3.3K = 4.5 = 13dB</p>
+<p>The Output impedance of the common emitter transistor stage is equal to R<sub>C</sub> = R<sub>6</sub> = 10K.</p>
+<p>The last part of the circuit is a simple 100k volume potentiometer that regulates the output level. </p>
+
+<h3><a id="link51" name="link51"></a><strong>5.1 Big Muff Pi Output Impedance.</strong></h3>
+<p>The pedal output impedance also depends on the volume potentiometer position, being always less than 10K:</p>
+<ul>
+<li>Volume Potentiometer at maximum volume: Z<sub>out</sub> = Z<sub>out|Output Stage</sub> // 100K = 9K approx.</li>
+<li>Volume Potentiometer at minimum volume: Z<sub>out</sub> = Z<sub>out|Output Stage</sub> + 99K // 1K = 1K approx.</li>
+</ul>
+<h2><a id="link6" name="link6"></a><strong>6. Big Muff Pi Bias and Tone Response.</strong></h2>
+<p>In the image below, the most important DC bias points are shown. It can be useful to trace circuit failures:</p>
+<p><img alt="Big Muff Pi Bias" class="article-img" src="images/big-muff-pi-analysis/big-muff-pi-v3-bias.png"/></p>
+<p>In the graph below the most important signals at the output of each stage are shown:</p>
+<p><img alt="Big Muff Pi Waveforms" class="article-img" src="images/big-muff-pi-analysis/bmp-waveforms.png"/></p>
+<ul>
+<li><strong>Orange Signal:</strong> It is the input signal, for this test a 1KHz, 200mVpp guitar alike signal is used.</li>
+</ul>
+<ul>
+<li><strong>Black Signal:</strong> It is the output of the Input Booster, just the input signal inverted and amplified 9.6 times (19.6dB). At this point is important to mention that due to the low-level value of R<sub>14</sub>=47K, the V<sub>C </sub>of the transistor is not at Vcc/2=4.5V but at 7V. It might cause asymmetric clipping if the input signal is bigger than 0.2Vpp. </li>
+</ul>
+<ul>
+<li><strong>Red Signal:</strong> It is the output of the first Clipping Stage, the previous signal is amplified 23 dBs and the amplitude is clipped to ±0.6V. The Sustain potentiometer is set at maximum value.</li>
+</ul>
+<ul>
+<li><strong>Blue Signal:</strong>  It is the output of the first Clipping Stage, the previous signal is amplified 25 dBs and the amplitude is clipped to ±0.6V. After two consecutive clipping stages, the shape is more square or hard.</li>
+</ul>
+<ul>
+<li><strong>Green Signal:</strong> It is the output after the Tone Control, set at mid position. The signal is attenuated around 13dBs because at 1KHz the mid scoop is there and the shape is slightly changed.</li>
+</ul>
+<ul>
+<li><strong>Pink Signal:</strong> It is the output signal of the Big Muff Pi. The previous signal is amplified 13dBs without changes in frequency. The Volume potentiometer is set at maximum value.</li>
+</ul>
+
+<h2><a id="link7" name="link7"></a><strong>7. Resources.</strong></h2>
+<p><a href="http://www.bigmuffpage.com/" rel="noopener noreferrer" target="_blank">The Big Muff Page</a>, the most comprehensive site about BMP by Kitrae. <br/><a href="https://web.archive.org/web/20220504054728/http:/www.uotechnology.edu.iq/dep-eee/lectures/2nd/Electronics%201/Part%2004.pdf">Feedback BJT Amplifier Analysis </a>by Dr. Ahmed Saadoon.<br/><a href="http://webs.uvigo.es/ario/docencia/ean/FEEDBACK1.pdf" rel="noopener noreferrer" target="_blank">Feedback BTJ Amplifier Analysis</a> by the University of Vigo.<br/><a href="http://www.coda-effects.com/2015/11/big-muff-mods-and-tweaks.html" rel="noopener noreferrer" target="_blank">BMP Mods and Tweaks.</a><br/><a href="http://www.diyaudio.com/forums/solid-state/144603-what-capacitor-base-collector.html" rel="noopener noreferrer" target="_blank">BMP Questions in DIYaudio</a>.<br/><a href="http://www.muzique.com/lab/tone3.htm" rel="noopener noreferrer" target="_blank">BMP tone Control</a> by AMZ.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers</a>, the Holy Scripture.</p>
+
+<p>Our sincere appreciation to B. Toskin for helping us with the article.</p>
+<h3><a id="link71" name="link71"></a><strong>7.1 Datasheets.</strong></h3>
+<ul>
+<li> NPN Transistors:</li>
+</ul>
+<p><a href="http://www.datasheetcatalog.org/datasheet/motorola/BC239.pdf" rel="noopener noreferrer" target="_blank">BC239 Datasheet. </a><br/><a href="http://w5jgv.com/tree_amplifier/2N5088-89.pdf" rel="noopener noreferrer" target="_blank">2N5088/2N5089 Datasheet. </a><br/><a href="http://www.datasheetcatalog.org/datasheet/motorola/BC549C.pdf" rel="noopener noreferrer" target="_blank">BC549C Datasheet. </a><br/><a href="http://datasheet.seekic.com/PdfFile/SE4/SE4010.pdf" rel="noopener noreferrer" target="_blank">SE4010 Datasheet.</a><br/><a href="http://72.52.208.92/~gbpprorg/mil/cavity/2N5210.pdf" rel="noopener noreferrer" target="_blank">2N5210 Datasheet. </a></p>
+<ul>
+<li>Silicon Diodes:</li>
+</ul>
+<p><a href="http://www.oup.com/us/pdf/microcircuits/students/diode/1N914B_philip.pdf" rel="noopener noreferrer" target="_blank">1N914 Datasheet. </a><br/><a href="http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf" rel="noopener noreferrer" target="_blank">1N4148 Datasheet.</a> </p>
+<p>Thanks for reading, all feedback is appreciated     </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054728/https://www.electrosmash.com/big-muff-pi-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Big%20Muff%20Pi%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="back-talk-analysis.html">&larr; Back Talk Reverse Delay Analysis</a>
+    <a class="prevnext" href="boss-ce-2-analysis.html">Boss CE-2 Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

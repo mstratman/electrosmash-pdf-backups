@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices -->
+<html lang="en-gb" dir="ltr" class="com_content view-article itemid-519 j39 mm-hover  no-touch" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/analytics.js"></script><script src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/analytics(1).js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app213.us.archive.org';v.server_ms=301;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bundle-playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://www.electrosmash.com/mn3007-bucket-brigade-devices","20220422111533","https://web.archive.org/","web","/_static/",
+	      "1650626133");
+</script>
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+	<!--<base href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/">--><base href=".">
+	
+	<meta name="keywords" content="bbd, bbds, bucket, brigade, devices, circuit, schematic, analysis, signal, clock, delay, frequency, mn3007, mn3207, echo, flanger, chorus, driver, topology, tetrode, dual">
+	<meta name="rights" content="Creative Commons: Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) ">
+	<meta name="author" content="JR">
+	<meta name="description" content=" Functionality, BBD Internal Circuit Topologies, Basic Topology, Tetrode Isolation Topology, Complementary Output Topology, Dual Topology, Tapped Output Topology, BBD Chips Comparison, Bucket Brigade Device Clock Drivers, BBD Clock Limitations, BBD Circui">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>ElectroSmash - Bucket Brigade Devices: MN3007</title>
+	<link href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices" rel="canonical">
+	<link href="https://web.archive.org/web/20220422111533im_/https://www.electrosmash.com/templates/purity_iii/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/css-0ef93-36470.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/css-3adb1-08286.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/css-9b7d3-58108.css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+
+	</style>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"0a79b302822830e3815216675a3618c0","system.paths":{"root":"","base":""}}</script>
+	<script src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/MathJax.js" id=""></script>
+	<script src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/js-44af3-08326.js" type="text/javascript"></script>
+	<script src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/acymailing_module.js" type="text/javascript" async="async"></script>
+	<script src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/js-a8ba7-58108.js" type="text/javascript"></script><style type="text/css">.instashow-gallery-media-counter em,.instashow-gallery-media-info-counter em{font-style:normal}@font-face{font-family:Iconsfont;src:url(data:application/vnd.ms-fontobject;base64,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);src:url(data:application/vnd.ms-fontobject;base64,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) format('embedded-opentype'),url(data:application/x-font-ttf;base64,AAEAAAALAIAAAwAwT1MvMg8SBJAAAAC8AAAAYGNtYXDoPOa2AAABHAAAAFxnYXNwAAAAEAAAAXgAAAAIZ2x5ZifNA5wAAAGAAAACiGhlYWQHo5vZAAAECAAAADZoaGVhB8IDyQAABEAAAAAkaG10eBUAAEAAAARkAAAAIGxvY2ECLAGaAAAEhAAAABJtYXhwAA0ARgAABJgAAAAgbmFtZZlKCfsAAAS4AAABhnBvc3QAAwAAAAAGQAAAACAAAwNmAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADoAAPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAQAAAAAwACAACAAQAAQAg5gLoAP/9//8AAAAAACDmAOgA//3//wAB/+MaBBgHAAMAAQAAAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAIAAP+rBAADqwAZADMAACUyNjcXNT4DNTQuAiMiDgIVFB4CMxEyHgIVFA4CBxcnDgEjIi4CNTQ+AjMCABkvGOAsRzIbUIu7amq7i1BQi7tqXaN6RhsyRysClxo2HF2jekZGeqNdKwQEiOIfTVlkNVykeUdHeaRcXaN6RgNAPWiMTzFbUUQalFoFBjxojFBPjGg9AAACAAD/zgQAA2sAGwA4AAAJAQYiJwEuATU0PgIzMhYXPgEzMh4CFRQGByc+ATU0LgIjIg4CBy4DIyIOAhUUFhcJAQO//nEhHyH+chonJkReOFB/MTN9UDheRCYjHj8lGx0zRykjSUQ7FRU7REkjK0YzHB4iAYABgAGp/iUjIwHbJ1U5NGJKLUw0MU8tSmI0OVUnDi5NLClMOSMgMjoaGzsxHyM6SyksSi/+NQHJAAAAAAQAAP+rAwADqwAUACkANgBDAAAFIi4CNTQ+AjMyHgIVFA4CIxEiDgIVFB4CMzI+AjU0LgIjESImNTQ2MzIWFRQGIxEiBhUUFjMyNjU0JiMBgBh+hGY8aYtQUItpPGaFfRhCdVcyVW5pFBRpblUyV3VCQl5eQkJeXkIoODgoKDg4KFWa0tc9T4xoPT1ojE8819KbA8AzV3RCM7azhIS0tjJCdFcz/iBdQ0JeXkJDXQEAOScoODgoJzkAAAAAAQBA/+sDwANrABUAADcUFjMyNjcBPgE1NCYnAS4BIyIGFRFAJhoQIBAC0Q0iIg39LxAgEBomKxslEQcBaAYdHRwdBwFoBxEmGv0AAAEAAAAAAACAJtkfXw889QALBAAAAAAA0kKrwwAAAADSQqvDAAD/qwQAA6sAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAACAAAABAAAAAQAAAADAAAABAAAQAAAAAAACgAUAB4AaADAAR4BRAAAAAEAAAAIAEQABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAHAAAAAQAAAAAAAgAHAGAAAQAAAAAAAwAHADYAAQAAAAAABAAHAHUAAQAAAAAABQALABUAAQAAAAAABgAHAEsAAQAAAAAACgAaAIoAAwABBAkAAQAOAAcAAwABBAkAAgAOAGcAAwABBAkAAwAOAD0AAwABBAkABAAOAHwAAwABBAkABQAWACAAAwABBAkABgAOAFIAAwABBAkACgA0AKRpY29tb29uAGkAYwBvAG0AbwBvAG5WZXJzaW9uIDEuMABWAGUAcgBzAGkAbwBuACAAMQAuADBpY29tb29uAGkAYwBvAG0AbwBvAG5pY29tb29uAGkAYwBvAG0AbwBvAG5SZWd1bGFyAFIAZQBnAHUAbABhAHJpY29tb29uAGkAYwBvAG0AbwBvAG5Gb250IGdlbmVyYXRlZCBieSBJY29Nb29uLgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAC4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format('truetype'),url(data:application/font-woff;base64,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) format('woff'),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiID4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWV0YWRhdGE+R2VuZXJhdGVkIGJ5IEljb01vb248L21ldGFkYXRhPgo8ZGVmcz4KPGZvbnQgaWQ9Imljb21vb24iIGhvcml6LWFkdi14PSIxMDI0Ij4KPGZvbnQtZmFjZSB1bml0cy1wZXItZW09IjEwMjQiIGFzY2VudD0iOTYwIiBkZXNjZW50PSItNjQiIC8+CjxtaXNzaW5nLWdseXBoIGhvcml6LWFkdi14PSIxMDI0IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4MjA7IiBob3Jpei1hZHYteD0iNTEyIiBkPSIiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlNjAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1jb21tZW50IiBkPSJNNTEyIDQyLjY2N2MzMi43NjggMCA2NC42NCAyLjk0NCA5NS42OCA4LjA2NGwyMjQuMzItMTM2LjA2NHYyMjYuNjI0YzExNi45MjggODIuMTEyIDE5MiAyMDggMTkyIDM0OS4zNzYgMCAyNDcuNDI0LTIyOS4yNDggNDQ4LTUxMiA0NDhzLTUxMi0yMDAuNTc2LTUxMi00NDhjMC0yNDcuNDI0IDIyOS4yNDgtNDQ4IDUxMi00NDh6TTUxMiA4NzQuNjY3YzI0Ny40MjQgMCA0NDgtMTcxLjkwNCA0NDgtMzg0IDAtMTMwLjExMi03NS43MTItMjQ0LjkyOC0xOTEuMjMyLTMxNC4zNjhsMi4wNDgtMTQ4LjQxNi0xNTAuNjU2IDkwLjU2Yy0zNC42ODgtNy40MjQtNzAuNzg0LTExLjc3Ni0xMDguMTYtMTEuNzc2LTI0Ny40MjQgMC00NDggMTcxLjkwNC00NDggMzg0czIwMC41NzYgMzg0IDQ0OCAzODR6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMTsiIGdseXBoLW5hbWU9Imljb24tbGlrZSIgZD0iTTk1OS4xNjggNDI1LjQ1MWwtMzk4LjcyLTQ3NS4wMDhjLTQ0LjY3Mi00Ny4wNDAtNTMuMDU2LTQ3LjA0MC05Ny43MjggMGwtMzk3Ljg4OCA0NzUuMDA4Yy0zMy45MiA1MC45NDQtNjQuODMyIDEwNS4wODgtNjQuODMyIDE4MC4zNTIgMCAxNDAuMjI0IDEwNS43OTIgMjY4Ljg2NCAyNTYgMjY4Ljg2NCAxMDYuNjI0IDAgMTkwLjU5Mi01OC4zMDQgMjU2LTEyNy40ODggNjguNjA4IDY1LjE1MiAxNDkuMzc2IDEyNy40ODggMjU2IDEyNy40ODggMTUwLjIwOCAwIDI1Ni0xMjguNjQgMjU2LTI2OC44NjQgMC03NS4yNjQtMjQuOTYtMTI5LjQ3Mi02NC44MzItMTgwLjM1MnpNODk2IDQzOC42OTljNDkuNjY0IDYyLjI3MiA2NCAxMDguMzUyIDY0IDE2Ny4xMDQgMCAxMDkuNTY4LTgxLjUzNiAyMDkuMDg4LTE5MiAyMDkuMDg4LTkzLjMxMiAwLTIwMC41NzYtOTYuNjQtMjU2LTE2NS42OTYtNTYuODk2IDcxLjYxNi0xNjIuNjg4IDE2Ni41MjgtMjU2IDE2NS43Ni0xMTMuNDcyLTAuOTYtMTkyLTk5LjU4NC0xOTItMjA5LjE1MiAwLTU4Ljc1MiAxOC4wNDgtMTAxLjY5NiA2NC0xNjUuMjQ4bDM4NC00NTguMTc2IDM4NCA0NTYuMzJ6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMjsiIGdseXBoLW5hbWU9Imljb24tcGxhY2VtYXJrIiBob3Jpei1hZHYteD0iNzY4IiBkPSJNMzg0LTg1LjMzM2MtNjMuODcyLTAuMzItMzg0IDQ3OS40MjQtMzg0IDY0MCAwIDIxMi4wOTYgMTcxLjkwNCAzODQgMzg0IDM4NHMzODQtMTcxLjkwNCAzODQtMzg0YzAtMTU4LjQtMzIxLjE1Mi02NDAuMzItMzg0LTY0MHpNMzg0IDg3NC42NjdjLTE3Ni43MDQgMC0zMjAtMTQzLjI5Ni0zMjAtMzIwIDAtMTMzLjgyNCAyNjYuODE2LTU0NC4yNTYgMzIwLTU0NCA1Mi4zNTItMC4yNTYgMzIwIDQxMS45NjggMzIwIDU0NCAwIDE3Ni43MDQtMTQzLjI5NiAzMjAtMzIwIDMyMHpNMzg0IDM5NC42NjdjLTg4LjM4NCAwLTE2MCA3MS42MTYtMTYwIDE2MHM3MS42MTYgMTYwIDE2MCAxNjAgMTYwLTcxLjYxNiAxNjAtMTYwLTcxLjYxNi0xNjAtMTYwLTE2MHpNMzg0IDY1MC42NjdjLTUyLjk5MiAwLTk2LTQzLjAwOC05Ni05NiAwLTUzLjA1NiA0My4wMDgtOTYgOTYtOTZzOTYgNDMuMDA4IDk2IDk2LTQzLjAwOCA5Ni05NiA5NnoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlODAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1wbGF5IiBkPSJNNjQgNDIuNjY3YzAtMzUuMDA4IDI5LjUwNC02NCA2NC02NCAyMS41MDQgMCA0My4wMDggMTQuNTI4IDY0IDI0bDcyMC41MTIgMzYwYzE3LjQ3MiA4LjUxMiA0Ny40ODggMjUuOTg0IDQ3LjQ4OCA2NHMtMzAuMDE2IDU1LjQ4OC00Ny40ODggNjRsLTcyMC41MTIgMzYwYy0yMC45OTIgOS40NzItNDIuNDk2IDI0LTY0IDI0LTM0LjQ5NiAwLTY0LTI4Ljk5Mi02NC02NHYtNzY4eiIgLz4KPC9mb250PjwvZGVmcz48L3N2Zz4=) format('svg');font-weight:400;font-style:normal}.instashow-icon{font-family:Iconsfont;font-size:160%}.instashow-iconspan{padding:2px}.instashow-icon,.instashow-icon+*{display:inline-block;vertical-align:middle}.instashow-icon+*{margin-left:.4em}.instashow-icon-comment::before{content:'\e600'}.instashow-icon-like::before{content:'\e601'}.instashow-icon-placemark::before{content:'\e602'}.instashow-spinner{display:block;position:relative}.instashow-spinner::before{display:none;position:absolute;box-sizing:border-box;top:0;right:0;bottom:0;left:0;border:12px solid #ddd;border-radius:50%;box-shadow:0 0 30px rgba(255,255,255,.3);-webkit-animation-timing-function:cubic-bezier(.22,.61,.36,1);animation-timing-function:cubic-bezier(.22,.61,.36,1);content:''}.instashow-show .instashow-spinner::before{display:block;-webkit-animation:instashow-spinner 1.5s infinite;animation:instashow-spinner 1.5s infinite}@-webkit-keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}@keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}.instashow{font-family:Roboto,Arial,sans-serif;font-size:12px;line-height:1.4;color:#444;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}.instashow,.instashow *{direction:ltr!important}.instashow a{color:#2196f3;-webkit-transition:all .3s ease;transition:all .3s ease;text-decoration:none}.instashow a:hover{color:#444}.instashow,.instashow a,.instashow div,.instashow figure,.instashow img,.instashow li,.instashow p,.instashow span,.instashow ul{border-top:none;border-right:none;border-bottom:none;border-left:none;margin:0;padding:0}.instashow,.instashow div,.instashow figure,.instashow img,.instashow p,.instashow ul{display:block}.instashow img{max-width:none;max-height:none}.instashow-gallery-media{display:none;box-sizing:border-box;float:left;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-perspective:900px;perspective:900px}.instashow-gallery-view-active .instashow-gallery-media,.instashow-gallery-view-active-next .instashow-gallery-media,.instashow-gallery-view-active-prev .instashow-gallery-media{display:block}.instashow-gallery-media-link{display:block;position:relative;overflow:hidden;width:100%;height:100%}.instashow-gallery-media-marker{display:none;position:absolute;z-index:2;top:.6em;right:.6em;width:1.8em;height:1.8em;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-marker svg{display:block;width:100%;height:100%;fill:rgba(255,255,255,.8)}.instashow-gallery-media:hover .instashow-gallery-media-marker{opacity:.3}.instashow-gallery-media-carousel .instashow-gallery-media-marker-carousel,.instashow-gallery-media-video .instashow-gallery-media-marker-video{display:block}.instashow-gallery-media-cover{display:block;position:absolute;visibility:hidden;z-index:2;top:0;right:0;bottom:0;left:0;opacity:0;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-link:hover .instashow-gallery-media-cover{visibility:visible;opacity:0.8}.instashow-gallery-media-link:hover .instashow-gallery-media-cover~.instashow-gallery-media-image{-webkit-transform:scaleX(1.1) scaleY(1.1) translateZ(0);transform:scaleX(1.1) scaleY(1.1) translateZ(0)}.instashow-gallery-media-counter{display:block;position:absolute;visibility:hidden;z-index:3;box-sizing:border-box;top:50%;right:0;left:0;opacity:0;-webkit-transform:translateY(0) scale(.8);transform:translateY(0) scale(.8);font-size:200%;text-align:center;line-height:1;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}span.instashow-gallery-media-counter{padding:3px}.instashow-gallery-media-link:hover .instashow-gallery-media-counter{visibility:visible;opacity:1;-webkit-transform:translateY(-50%) scale(1);transform:translateY(-50%) scale(1)}.instashow-gallery-media-counter .instashow-icon{font-size:160%}.instashow-gallery-media-image{display:block;position:relative;visibility:hidden;width:100%;height:100%;opacity:0;-webkit-transform:scaleX(1) scaleY(1) translateZ(0);transform:scaleX(1) scaleY(1) translateZ(0);-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-loaded .instashow-gallery-media-image{visibility:visible;opacity:1}.instashow-gallery-media-image img{display:block;position:relative;min-width:auto!important;min-height:auto!important;max-width:none!important;max-height:none!important}.instashow-gallery-media-square .instashow-gallery-media-image img{width:100%!important;height:100%!important}.instashow-gallery-media-portrait .instashow-gallery-media-image img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-gallery-media-album .instashow-gallery-media-image img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-gallery-media-info{display:block;position:absolute;visibility:hidden;z-index:3;width:80%;max-height:80%;opacity:0;-webkit-transform:translateX(-50%) translateY(-40%);transform:translateX(-50%) translateY(-40%);text-align:center;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-info-no-description{-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0);font-size:120%}.instashow-gallery-media-link:hover .instashow-gallery-media-info{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) translateY(-47%);transform:translateX(-50%) translateY(-47%)}.instashow-gallery-media-info-counter{line-height:1}.instashow-gallery-media-info-counter+.instashow-gallery-media-info-counter{margin-left:16%}.instashow-gallery-media-info-counter~.instashow-gallery-media-info-description{margin-top:12%}.instashow-gallery-media-info-description{display:block;overflow:hidden;font-size:14px}.instashow-gallery-media-info-cropped::after{display:block;line-height:1;letter-spacing:2px;content:'...'}.instashow-gallery-loader{position:absolute;z-index:12;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(255,255,255,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-gallery-loader.instashow-show{visibility:visible;opacity:1}.instashow-gallery-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-gallery-control-arrow{position:absolute;z-index:10;width:74px;height:74px;top:50%;border-radius:50%;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-control-arrow-disabled{visibility:hidden;opacity:0}.instashow-gallery-control-arrow::after,.instashow-gallery-control-arrow::before{display:block;position:absolute;height:2px;width:12px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-gallery-control-arrow-previous{left:0;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}.instashow-gallery-control-arrow-previous::after,.instashow-gallery-control-arrow-previous::before{top:37px;right:16px;border-radius:0 10px 10px 0}.instashow-gallery-control-arrow-previous::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-previous::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-previous:active{-webkit-transform:translate3d(-50%,-50%,0) scale(.9);transform:translate3d(-50%,-50%,0) scale(.9)}.instashow-gallery-control-arrow-next{right:0;-webkit-transform:translate3d(50%,-50%,0);transform:translate3d(50%,-50%,0)}.instashow-gallery-control-arrow-next::after,.instashow-gallery-control-arrow-next::before{top:37px;left:16px;border-radius:10px 0 0 10px}.instashow-gallery-control-arrow-next::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-next::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-next:active{-webkit-transform:translate3d(50%,-50%,0) scale(.9);transform:translate3d(50%,-50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow{right:auto;left:50%}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous{top:0;-webkit-transform:rotate(90deg) translate3d(-50%,50%,0);transform:rotate(90deg) translate3d(-50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous:active{-webkit-transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next{top:auto;bottom:0;-webkit-transform:rotate(90deg) translate3d(50%,50%,0);transform:rotate(90deg) translate3d(50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next:active{-webkit-transform:rotate(90deg) translate3d(50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(50%,50%,0) scale(.9)}.instashow-gallery-control-scroll{position:absolute;visibility:hidden;z-index:10;opacity:0;background:rgba(0,0,0,.35);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll{width:3px;top:6px;right:6px;bottom:6px}.instashow-gallery-horizontal .instashow-gallery-control-scroll{height:3px;right:6px;bottom:6px;left:6px}.instashow-gallery:hover .instashow-gallery-control-scroll{visibility:visible;opacity:1}.instashow-gallery-control-scroll-slider{position:absolute;background:#000;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll-slider{width:100%}.instashow-gallery-horizontal .instashow-gallery-control-scroll-slider{height:100%}.instashow-gallery{position:relative;overflow:hidden;float:none;clear:both}.instashow-gallery-wrapper{overflow:hidden}.instashow-gallery-container{-webkit-transition:all 0s linear;transition:all 0s linear}.instashow-gallery-container::after,.instashow-gallery-container::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-view{position:relative;box-sizing:border-box;z-index:1}.instashow-gallery-view::after,.instashow-gallery-view::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-fade .instashow-gallery-view{position:absolute;visibility:hidden;opacity:0;top:0;left:0;pointer-events:none}.instashow-gallery-fade .instashow-gallery-view-active{visibility:visible;pointer-events:all}.instashow-gallery-slide .instashow-gallery-view{float:left;pointer-events:none}.instashow-gallery-slide .instashow-gallery-view-active,.instashow-gallery-slide .instashow-gallery-view-active-next,.instashow-gallery-slide .instashow-gallery-view-active-prev{pointer-events:all}.instashow-gallery-empty{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-gallery-empty-text{position:absolute;left:50%;top:50%;padding:26px 26px 23px;border-radius:4px;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);background:#fff;white-space:nowrap;font-size:14px;line-height:1.2}.instashow-popup-twilight{position:absolute;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(0,0,0,.5);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-show .instashow-popup-twilight{visibility:visible;opacity:1}.instashow-popup-media{position:relative;overflow:hidden;width:640px;border-radius:4px;background:#fff}.instashow-popup-media::after,.instashow-popup-media::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-has-comments{width:1040px;height:640px}.instashow-popup-media-picture{position:relative;overflow:hidden;width:640px;min-height:200px;background:#2d2d2d}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:640px;float:left}.instashow-popup-media-picture-loader{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(45,45,45,.5);z-index:1}.instashow-popup-media-picture-loaded .instashow-popup-media-picture-loader{display:none}.instashow-popup-media-picture-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-picture img{display:block}.instashow-popup-media-album .instashow-popup-media-picture img,.instashow-popup-media-square .instashow-popup-media-picture img{width:100%}.instashow-popup-media-portrait .instashow-popup-media-picture img{margin:0 auto}.instashow-popup-media-has-comments .instashow-popup-media-picture img{position:absolute}.instashow-popup-media-has-comments.instashow-popup-media-square .instashow-popup-media-picture img{width:100%;height:100%}.instashow-popup-media-has-comments.instashow-popup-media-portrait .instashow-popup-media-picture img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-popup-media-has-comments.instashow-popup-media-album .instashow-popup-media-picture img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-popup-media-video{position:relative;cursor:pointer}.instashow-popup-media-video video{width:100%;height:100%}.instashow-popup-media-video::before{display:block;position:absolute;visibility:visible;top:50%;left:50%;opacity:.8;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);font:400 64px/1 Iconsfont;-webkit-transition:all .3s ease;transition:all .3s ease;content:'\e800'}.instashow-playing .instashow-popup-media-video::before{visibility:visible;opacity:0;-webkit-transform:translateX(-50%) translateY(-50%) scale(2);transform:translateX(-50%) translateY(-50%) scale(2)}div.instashow-popup-media-info{box-sizing:border-box;padding:16px}.instashow-popup-media-info-container{position:relative;min-height:200px}.instashow-popup-media-has-comments .instashow-popup-media-info-container{float:left;width:399px;min-height:640px}.instashow-popup-media-info-loader{position:absolute;top:0;right:0;bottom:0;left:0}.instashow-popup-media-info-loaded .instashow-popup-media-info-loader{display:none}.instashow-popup-media-info-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-info-origin::after,.instashow-popup-media-info-origin::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-author{display:block;float:left;line-height:1;font-weight:700;font-size:14px}span.instashow-popup-media-info-author-picture{display:inline-block;overflow:hidden;box-sizing:border-box;vertical-align:middle;width:40px;height:40px;border-radius:50%;background:-webkit-radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),-webkit-linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);background:radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);padding:2px}span.instashow-popup-media-info-author-picture img{display:block;width:100%;height:100%;background:#fff;border:2px solid #fff;border-radius:50%;box-sizing:border-box}span.instashow-popup-media-info-author-name{display:inline-block;vertical-align:middle;margin-left:5px}a.instashow-popup-media-info-original{display:block;float:right;margin-top:8px;padding:5px 16px 6px;color:#fff;background:#3897f0;border-radius:4px;line-height:1;font-size:12px;font-weight:700}a.instashow-popup-media-info-original:hover{color:#fff;background:#268dea}.instashow-popup-media-info-meta{line-height:1}.instashow-popup-media-info-meta::after,.instashow-popup-media-info-meta::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-origin+div.instashow-popup-media-info-meta{margin-top:16px}.instashow-popup-media-info-properties{float:left;width:80%;white-space:nowrap}.instashow-popup-media-info-properties-item{display:inline-block;font-size:12px}.instashow-popup-media-info-properties-item+.instashow-popup-media-info-properties-item{margin-left:20px}.instashow-popup-media-info-properties-item em{font-style:normal}.instashow-popup-media-info-properties-item-location{width:60%}.instashow-popup-media-info-properties-item-location em{overflow:hidden;max-width:90%;text-overflow:ellipsis}.instashow-popup-media-info-passed-time{float:right;width:20%;text-align:right;line-height:1.68;font-size:12px}div+div.instashow-popup-media-info-content{margin:12px -16px -16px;padding:16px;border-top:1px solid rgba(0,0,0,.08)}.instashow-popup-media-has-comments .instashow-popup-media-info-content{overflow:auto;height:503px}.instashow-popup-media-info-description,p.instashow-popup-media-info-comments-item{line-height:1.45;font-size:13px}div.instashow-popup-media-info-comments-item{margin:12px 0;font-size:13px}.instashow-popup-media-info-comments-item-author,.instashow-popup-media-info-description-author{font-weight:700}.instashow-popup-media-appearing{position:absolute;top:36px;left:100px}.instashow-popup-media-next,.instashow-popup-media-previous{opacity:0;z-index:1}@media only screen and (min-width:1840px){.instashow-popup-media-hr{width:840px;height:840px}.instashow-popup-media-hr.instashow-popup-media-has-comments{width:1240px}.instashow-popup-media-hr .instashow-popup-media-picture{width:840px;height:840px}}@media only screen and (max-width:1280px){.instashow-popup-media{width:430px}.instashow-popup-media-has-comments{width:740px;height:430px}.instashow-popup-media-picture{width:430px}.instashow-popup-media-picture img{width:100%}.instashow-popup-media-has-comments .instashow-popup-media-picture img{width:auto}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:430px}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:310px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item+.instashow-popup-media-info-container-properties-item{margin-left:12px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item-location{width:40%}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:320px}}@media only screen and (max-width:1024px){.instashow-popup-media{width:auto}.instashow-popup-media-has-comments{width:auto;height:auto}.instashow-popup-media-picture{width:100%;height:auto!important;border-right:none!important}.instashow-popup-media-picture img{width:100%!important;height:auto!important;position:static!important;top:auto!important;-webkit-transform:none!important;transform:none!important}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:100%}.instashow-popup-media-info-container-properties-item-location{width:60%!important}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:auto}.instashow-popup-media-appearing{position:absolute;top:36px;right:100px;left:100px}}@media only screen and (max-width:780px){.instashow-popup-media-appearing{position:absolute;top:0;left:0;right:0}}@media only screen and (max-width:480px){span.instashow-popup-media-info-properties-item-location{display:block;margin-top:16px;margin-left:0!important;width:auto!important}}.instashow-popup-media .instashow-popup-media-carousel-nav{position:absolute;right:0;bottom:0;left:0;text-align:center;padding:12px 0}.instashow-popup-media .instashow-popup-media-carousel-nav-item{display:inline-block;width:20px;height:20px;padding:5px;box-sizing:border-box;cursor:pointer}.instashow-popup-media .instashow-popup-media-carousel-nav-item::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-media .instashow-popup-media-carousel-nav-item-active::before,.instashow-popup-media .instashow-popup-media-carousel-nav-item:hover::before{background:#fff}.instashow-popup-control-close{position:absolute;z-index:12;width:32px;height:36px;top:0;right:68px;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-close::after,.instashow-popup-control-close::before{display:block;position:absolute;width:18px;height:3px;top:7px;left:10px;border-radius:10px;background:#fff;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-close::before{-webkit-transform-origin:0 50%;transform-origin:0 50%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-close::after{-webkit-transform-origin:100% 50%;transform-origin:100% 50%;-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}.instashow-popup-control-close:active{-webkit-transform:scale(.8);transform:scale(.8)}@media only screen and (max-width:1024px){.instashow-popup-control-close{right:auto;width:35px;height:35px;top:48px;left:115px;border-radius:50%}.instashow-popup-control-close::after,.instashow-popup-control-close::before{top:11px;left:12px;width:16px;height:2px}.instashow-popup-control-close::after{-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}}@media only screen and (max-width:780px){.instashow-popup-control-close{top:15px;left:15px}}.instashow-popup-control-arrow{position:absolute;z-index:10;top:20px;bottom:20px;width:100px;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-control-arrow.instashow-disabled{visibility:hidden;opacity:0;-webkit-transform:scale(.85);transform:scale(.85)}.instashow-popup-control-arrow span{display:block;position:absolute;width:20px;height:40px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-arrow span::after,.instashow-popup-control-arrow span::before{display:block;position:absolute;width:28px;height:3px;top:20px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-arrow-previous{left:0}.instashow-popup-control-arrow-previous span{left:24px}.instashow-popup-control-arrow-previous span::after,.instashow-popup-control-arrow-previous span::before{border-radius:0 10px 10px 0}.instashow-popup-control-arrow-previous span::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow-previous span::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next{right:0}.instashow-popup-control-arrow-next span{right:24px}.instashow-popup-control-arrow-next span::after,.instashow-popup-control-arrow-next span::before{right:0;border-radius:10px 0 0 10px}.instashow-popup-control-arrow-next span::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next span::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow:hover span{-webkit-transform:translateY(-50%) scaleY(.85);transform:translateY(-50%) scaleY(.85)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-previous span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(-30%);transform:translateY(-50%) scaleY(.8) translateX(-30%)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-next span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(30%);transform:translateY(-50%) scaleY(.8) translateX(30%)}@media only screen and (max-width:780px){.instashow-popup-control-arrow{display:none!important}}.instashow-popup{position:fixed;visibility:hidden;z-index:9999;top:0;right:0;bottom:0;left:0;text-align:left}.instashow-popup.instashow-show{visibility:visible}.instashow-popup-wrapper{position:absolute;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;max-height:100%;top:0;right:0;bottom:0;left:0}div.instashow-popup-container{display:inline-block;position:relative;visibility:hidden;box-sizing:border-box;left:50%;padding:36px 100px;opacity:0;-webkit-transform:translateX(-50%) scale(.9);transform:translateX(-50%) scale(.9);-webkit-transition:all .25s ease;transition:all .25s ease}.instashow-show div.instashow-popup-container{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) scale(1);transform:translateX(-50%) scale(1);-webkit-transition:all .35s ease;transition:all .35s ease}@media only screen and (max-width:780px){div.instashow-popup-container{padding:0}}.instashow-gallery .instashow-error{position:absolute;z-index:20;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-error-panel{padding:26px 27px 27px 92px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAAGW4ZPmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ0OEZFOTU2NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ0OEZFOTU3NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NDQ4RkU5NTQ2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDQ4RkU5NTU2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5wtTv1AAAGNElEQVR42mK8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) 20px 20px no-repeat #fff;line-height:1.4;font-size:13px}.instashow-gallery div.instashow-error-panel{position:absolute;max-width:600px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border-radius:4px}.instashow-error-title{font-weight:700}div.instashow-error-caption{margin-top:3px}</style>
+	<script type="text/javascript">
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	if(typeof acymailingModule == 'undefined'){
+				var acymailingModule = [];
+			}
+			
+			acymailingModule['emailRegex'] = /^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*\@([a-z0-9-]+\.)+[a-z0-9]{2,10}$/i;
+
+			acymailingModule['NAMECAPTION'] = 'Name';
+			acymailingModule['NAME_MISSING'] = 'Please enter your name';
+			acymailingModule['EMAILCAPTION'] = 'example@email.com';
+			acymailingModule['VALID_EMAIL'] = 'Please enter a valid e-mail address';
+			acymailingModule['ACCEPT_TERMS'] = 'Please check the Terms and Conditions';
+			acymailingModule['CAPTCHA_MISSING'] = 'The captcha is invalid, please try again';
+			acymailingModule['NO_LIST_SELECTED'] = 'Please select the lists you want to subscribe to';
+		
+acymailingModule['excludeValuesformAcymailing98151'] = [];
+acymailingModule['excludeValuesformAcymailing98151']['name'] = 'Name';
+acymailingModule['excludeValuesformAcymailing98151']['email'] = 'example@email.com';
+
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	</script>
+
+	
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+		//]]>
+	</script>
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/templates/purity_iii/css/ie8.css" type="text/css" />
+<![endif]-->
+	<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style></style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 1px;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(675,27,25,2,"web","https://www.electrosmash.com/mn3007-bucket-brigade-devices","20220422111533",1996,"/_static/",["/_static/css/banner-styles.css?v=fantwOh2","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div class="t3-wrapper corporate"> <!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+	
+<!-- MAIN NAVIGATION -->
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
+
+	<!-- OFF-CANVAS -->
+		<!-- //OFF-CANVAS -->
+
+	<div class="container">
+
+		<!-- NAVBAR HEADER -->
+		<div class="navbar-header">
+
+			<!-- LOGO -->
+			<div class="logo logo-image">
+				<div class="logo-image">
+					<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/" title="ElectroSmash">
+													<img class="logo-img" src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/logo-electrosmash.png" alt="ElectroSmash">
+						
+												
+						<span>ElectroSmash</span>
+					</a>
+				</div>
+			</div>
+			<!-- //LOGO -->
+
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".t3-navbar-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+			
+	    
+		</div>
+		<!-- //NAVBAR HEADER -->
+
+		<!-- NAVBAR MAIN -->
+				<nav class="t3-navbar-collapse navbar-collapse collapse"><ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/">Home </a>
+
+</li>
+<li itemprop="name" class="active dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Chips<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/jrc4558-analysis">JRC4558  </a>
+
+</li><li itemprop="name" class="current active">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices">MN3007 BBDs </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/lm386-analysis">LM386 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pt2399-analysis">PT2399 </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Amps<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/little-gem-analysis">Little Gem Amp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/marshall-mg10">Marshall MG10 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/noisy-cricket-analysis">Noisy Cricket  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/ruby-amp-analysis">Ruby Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/smokey-amp-analysis">Smokey Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/http://www.electrosmash.com/schematics#amps">Amps Schematics.</a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Pedals<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/back-talk-analysis">Back Talk Reverse Delay </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/big-muff-pi-analysis">Big Muff Pi  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ce-2-analysis">Boss CE-2 Chorus </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ds1-analysis">Boss DS-1 Distortion </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/dallas-rangemaster">Dallas Rangemaster </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/crybaby-gcb-95">Dunlop CryBaby GCB-95  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/fuzz-face">Fuzz Face </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/tube-screamer-analysis">Ibanez Tube Screamer </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/klon-centaur-analysis">Klon Centaur </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-microamp">MXR MicroAmp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/marshall-guvnor-analysis">Marshall Guvnor </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-distortion-plus-analysis">MXR Distortion + </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-dyna-comp-analysis">MXR Dyna Comp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-phase90">MXR Phase 90 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/proco-rat">ProCo Rat </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/sitar-swami-analysis">Sitar Swami </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/vox-v847-analysis">Vox V847 Wah Wah </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/emg81">EMG81 Pickup </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Projects<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield-uno">pedalSHIELD UNO </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield">pedalSHIELD DUE </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield-mega">pedalSHIELD MEGA </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedal-pi">Pedal-Pi </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/time-manipulator">Time Manipulator </a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/forum-electrosmash?lang=en">Forum </a>
+
+</li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220422111533/https://shop.electrosmash.com/">Shop</a>
+
+</li>
+</ul></nav>
+		
+		<nav class="t3-navbar navbar-collapse collapse">
+			<div class="t3-megamenu" data-responsive="true">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" data-id="435" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/" data-target="#">Home </a>
+
+</li>
+<li itemprop="name" class="active dropdown mega" data-id="510" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Chips<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="492" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/jrc4558-analysis" data-target="#">JRC4558  </a>
+
+</li>
+<li itemprop="name" class="current active" data-id="519" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices" data-target="#">MN3007 BBDs </a>
+
+</li>
+<li itemprop="name" data-id="468" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/lm386-analysis" data-target="#">LM386 </a>
+
+</li>
+<li itemprop="name" data-id="1643" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pt2399-analysis" data-target="#">PT2399 </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="444" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Amps<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="993" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="489" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/little-gem-analysis" data-target="#">Little Gem Amp </a>
+
+</li>
+<li itemprop="name" data-id="526" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/marshall-mg10" data-target="#">Marshall MG10 </a>
+
+</li>
+<li itemprop="name" data-id="491" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/noisy-cricket-analysis" data-target="#">Noisy Cricket  </a>
+
+</li>
+<li itemprop="name" data-id="490" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/ruby-amp-analysis" data-target="#">Ruby Amp  </a>
+
+</li>
+<li itemprop="name" data-id="488" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/smokey-amp-analysis" data-target="#">Smokey Amp  </a>
+
+</li>
+<li itemprop="name" data-id="746" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/http://www.electrosmash.com/schematics#amps" data-target="#">Amps Schematics.</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="511" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Pedals<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu" style="width: 600px" data-width="600"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="515" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/back-talk-analysis" data-target="#">Back Talk Reverse Delay </a>
+
+</li>
+<li itemprop="name" data-id="518" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/big-muff-pi-analysis" data-target="#">Big Muff Pi  </a>
+
+</li>
+<li itemprop="name" data-id="524" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ce-2-analysis" data-target="#">Boss CE-2 Chorus </a>
+
+</li>
+<li itemprop="name" data-id="1088" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ds1-analysis" data-target="#">Boss DS-1 Distortion </a>
+
+</li>
+<li itemprop="name" data-id="1713" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/dallas-rangemaster" data-target="#">Dallas Rangemaster </a>
+
+</li>
+<li itemprop="name" data-id="905" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/crybaby-gcb-95" data-target="#">Dunlop CryBaby GCB-95  </a>
+
+</li>
+<li itemprop="name" data-id="842" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/fuzz-face" data-target="#">Fuzz Face </a>
+
+</li>
+<li itemprop="name" data-id="1664" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="512" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/tube-screamer-analysis" data-target="#">Ibanez Tube Screamer </a>
+
+</li>
+<li itemprop="name" data-id="1433" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/klon-centaur-analysis" data-target="#">Klon Centaur </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="548" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-microamp" data-target="#">MXR MicroAmp </a>
+
+</li>
+<li itemprop="name" data-id="1667" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/marshall-guvnor-analysis" data-target="#">Marshall Guvnor </a>
+
+</li>
+<li itemprop="name" data-id="1632" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-distortion-plus-analysis" data-target="#">MXR Distortion + </a>
+
+</li>
+<li itemprop="name" data-id="1244" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-dyna-comp-analysis" data-target="#">MXR Dyna Comp </a>
+
+</li>
+<li itemprop="name" data-id="573" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-phase90" data-target="#">MXR Phase 90 </a>
+
+</li>
+<li itemprop="name" data-id="553" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/proco-rat" data-target="#">ProCo Rat </a>
+
+</li>
+<li itemprop="name" data-id="520" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/sitar-swami-analysis" data-target="#">Sitar Swami </a>
+
+</li>
+<li itemprop="name" data-id="525" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/vox-v847-analysis" data-target="#">Vox V847 Wah Wah </a>
+
+</li>
+<li itemprop="name" data-id="547" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/emg81" data-target="#">EMG81 Pickup </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="796" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Projects<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1108" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield-uno" data-target="#">pedalSHIELD UNO </a>
+
+</li>
+<li itemprop="name" data-id="797" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield" data-target="#">pedalSHIELD DUE </a>
+
+</li>
+<li itemprop="name" data-id="1437" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedalshield-mega" data-target="#">pedalSHIELD MEGA </a>
+
+</li>
+<li itemprop="name" data-id="1312" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/pedal-pi" data-target="#">Pedal-Pi </a>
+
+</li>
+<li itemprop="name" data-id="1662" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="1663" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="1668" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/time-manipulator" data-target="#">Time Manipulator </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="745" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/forum-electrosmash?lang=en" data-target="#">Forum </a>
+
+</li>
+<li itemprop="name" data-id="816" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220422111533/https://shop.electrosmash.com/" data-target="#">Shop</a>
+
+</li>
+</ul>
+</div>
+
+		</nav>
+    <!-- //NAVBAR MAIN -->
+
+	</div>
+</header>
+<!-- //MAIN NAVIGATION -->
+
+
+
+
+
+
+  
+
+
+  
+
+
+	
+<div id="t3-mainbody" class="container t3-mainbody">
+	<div class="row">
+
+		<!-- MAIN CONTENT -->
+		<div id="t3-content" class="t3-content col-xs-12 col-sm-8  col-md-9">
+						<div class="item-page clearfix">
+
+
+<!-- Article -->
+<article>
+	<meta itemprop="inLanguage" content="en-GB">
+	<meta itemprop="url" content="/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices">
+
+      
+<header class="article-header clearfix">
+	<h1 class="article-title" itemprop="headline">
+					<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices" itemprop="url" title="Bucket Brigade Devices: MN3007">
+				Bucket Brigade Devices: MN3007</a>
+			</h1>
+
+			</header>
+    
+    
+  <!-- Aside -->
+    <!-- //Aside -->
+
+  
+  
+  
+	
+  
+	
+	<section class="article-content clearfix">
+		<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The Bucket Brigade Device <em>BBD</em> chip was invented by F. Sangster and K. Teer at the Philips Research Labs between 1968-1969. This affordable solid state device provides signal delay and soon found many applications in a wide range of products,&nbsp;especially guitar effects being a midpoint between the bulky old <em>pure analog</em> delay circuits based on magnetic tape&nbsp;and the modern<em>&nbsp;digital</em> systems based in Analog to Digital converters and signal processors.</span><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/MN3007.jpg" alt="MN3007" width="156" height="163" style="display: block; margin-left: auto; margin-right: auto;"></span></p>
+ 
+<h1><span style="font-family: verdana, geneva;"><strong><span style="font-size: 14pt; color: #000000;"><span style="background-color: #ffffff;">Table</span> of Contents.</span></strong></span></h1>
+<p style="padding-left: 30px;"><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link1">1. BBD Functionality.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link2">2. BBD Internal Circuit Topologies.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link21">2.1 Basic Topology.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link22">2.2 Tetrode Isolation Topology.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link23">2.3 Complementary Output Topology.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link24">2.4 Dual Topology.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link25">2.5 Tapped Output Topology.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link3">3. BBD Chips Comparison. </a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link4">4. Bucket Brigade Device Clock Drivers.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link41">4.1 BBD Clock Limitations.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link5">5. BBD Circuits Architecture.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; <a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link51"> 5.1 Filter Implementation.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link6">6. The MN3007.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link61">6.1 MN3007 VS MN3207.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link7">7. Resources.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices#link71">7.1 BBDs Datasheets.</a></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<h1><span style="font-size: 14pt; color: #000000; font-family: verdana, geneva;"><a id="link1" name="link1"></a><strong>1. BBD Functionality.</strong></span></h1>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt;"><span style="color: #333333;">BBDs are given their name because of the similarity in their functionality to a line of people passing buckets of water to fight a fire. <span style="font-size: 10pt;">The chip was licensed to Matsushita from mid-70s, Roland/Boss was the first customer and they used it in the Roland JC120 Amplifier, the Chorus CE-1 pedal and later on&nbsp;</span></span></span><span style="font-size: 10pt;"><span style="color: #333333;"><span style="font-size: 10pt;">the<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ce-2-analysis"> Chorus CE-2</a>.</span></span></span></span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://www.stepneyct.org/history/ht/stop17.html"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/fire-bucket-brigade.jpg" alt="Fire Bucket Brigade" width="430" height="211" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-topology-basic.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-silicon.png" alt="Bucket Brigade Device Silicon" width="500" height="122" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p style="text-align: left;"><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">They consist of a series of capacitors sections which carry the analog signal. The charge in each cap stage is passed into the subsequent stage using&nbsp;</span><span style="font-size: 10pt;">transistors as switches at a rate determined by an external clock. </span></span><br><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">In this way, the output delayed signal is discrete in time due to the external clock sampling and analog in </span><span style="font-size: 10pt;">amplitude because of the capacitor storage element.</span></span></p>
+<p>&nbsp;</p>
+<p style="text-align: justify;"><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-basic.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-basic.png" alt="Bucket Brigade Device Explanation" width="445" height="181" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 10pt;">With the high level of CLK2, the input signal is gated through Q<sub>0</sub> to the capacitor C<sub>0</sub>. At the next clock transition</span><span style="color: #333333; font-family: verdana, geneva;">, </span><span style="font-size: 10pt;">C<sub>0</sub> is isolated and the last voltage applied to C<sub>0</sub> is held. As CLK2 goes down, CLK1 rises allowing the charge on C<sub>0</sub></span><span style="color: #333333; font-family: verdana, geneva;"> </span><span style="font-size: 10pt;">to be gated to the storage capacitor C<sub>1</sub>. On the next clock transition, gating transistor Q<sub>1</sub> is disabled and Q<sub>2</sub> is </span><span style="color: #333333; font-family: verdana, geneva;">enabled to allow the charge in C</span><sub style="color: #333333; font-family: verdana, geneva;">1</sub><span style="color: #333333; font-family: verdana, geneva;"> to pass the next stage C</span><sub style="color: #333333; font-family: verdana, geneva;">2</sub><span style="color: #333333; font-family: verdana, geneva;">. The process is repeated through the circuit until the </span><span style="font-size: 10pt;">same voltage appears at the output.</span></p>
+<p style="text-align: left;"><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;"></span></span></p>
+<h1 style="text-align: left;"><span style="font-family: verdana, geneva;"><a id="link2" name="link2"></a><span style="color: #000000;"><strong><span style="font-size: 14pt; color: #000000;">2. BBD Internal Circuit Topologies.</span></strong></span></span></h1>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The basic BBD internal schematic is made of a series of typically thousands of capacitors and MOS transistor switches. The design suffered</span>&nbsp;<span style="font-size: 10pt; color: #333333;">some modifications to enhance its performance:</span></span></p>
+<h2><span style="color: #000000; font-size: 12pt; font-family: verdana, geneva;"><a id="link21" name="link21"></a><strong>2.1 The Basic Topology.</strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The basic model invented by Sangster at Philips in 1968. It was the first attempt to make&nbsp;a practical implementation of an analog delay structure. This initial design had a poor transfer efficiency being limited to</span>&nbsp;<span style="font-size: 10pt; color: #333333;">few stages and low-frequency applications.</span></span><br><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-topology-basic.png"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-topology-basic.png" alt="Bucket Brigade Basic Topology." width="440" height="179" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link22" name="link22"></a><strong>2.2 The Tetrode Isolation Topology.</strong></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The first major advance also by Sangster at Reticon Corporation, introduces an isolation of tetrode structure with a DC biased gate NMOS transistor separating</span>&nbsp;<span style="font-size: 10pt; color: #333333;">each clock element.</span>&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Two out of phase clk lines are required: one to govern the even-numbered caps and </span><span style="font-size: 10pt; color: #333333;">the other to drive the odd-numbered ones. The performance was enhanced being able to use it in audio applications.</span><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-topology-tetrode-isolation.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-topology-tetrode-isolation.png" alt="Bucket Brigade Devices Tetrode Isolation Topology" width="629" height="186" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;">Between each of this switch transistors, there is a capacitor (charge-holding element) which is separated by a DC-biased gate transistor, </span><span style="font-size: 10pt; color: #333333;">which greatly improves transfer efficiency. Only half of the caps carry information, the other half remain charged</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link23" name="link23"></a><strong>2.3 The Complementary Output Topology.</strong></span></h2>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The output architecture was enhanced using two source follower transistors connected to the last two consecutive capacitors,&nbsp;</span><span style="font-size: 10pt;">resulting in a full wave output. Mixing these two outputs a more continuous output waveform is generated, providing a means</span>&nbsp;<span style="font-size: 10pt;">of improved suppression of clocking glitches.</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-topology-complementary-outputs.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-topology-complementary-outputs.png" alt="Bucket Brigade Devices Complementary Outputs Topology" width="657" height="211" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;">Some designs use a trim-pot to vary the load termination between the two output followers to minimize clock frequency component due to V<sub>GS</sub> between them.&nbsp;</span><span style="font-size: 10pt; color: #333333;">This could be useful if running very low clock frequencies, and tight filter skirts to passband.&nbsp;</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"></span></p>
+<h2><span style="color: #000000; font-family: verdana, geneva;"><a id="link24" name="link24"></a><strong><span style="font-size: 12pt;">2.4 Dual Topology.</span></strong></span></h2>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Another well-known topology is the <em>Dual Delay Line</em> which is made of two delay sections running in parallel:</span><br><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-topology-dual.png"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-topology-dual.png" alt="Bucket Brigade Devices Dual Topology" width="663" height="313" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">This approach offers flexible performance: </span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Each section can be used independently, only sharing the power supply.</span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Each section can be connected in series to get double delay time for a given sample rate.</span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Each section can be multiplexed to double the sample rate.</span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Each section can be operated in differential mode in order to reduce even harmonic distortion.</span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Several devices can be connected in series.</span></li>
+</ul>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">For more details about these configurations check the <a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/#link71">Reticon SAD1024 datasheet.</a></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link25" name="link25"></a><strong>2.5 The Tapped Output Topology.</strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333;"><span style="font-size: 10pt;">A buffer amplifier (NMOS source follower) can be used for non-destructive sampling of the capacitors. These measure points or <em>taps</em> permit to have</span>&nbsp;<span style="font-size: 10pt;">multiple outputs with a different delay, which is very interesting in order to model reverb effects, mixing the different delayed output signals properly.</span></span><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-output-tapper-topology.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-output-tapper-topology.png" alt="Bucket Brigade Devices Tapper Output Topology" width="607" height="270" style="display: block; margin-left: auto; margin-right: auto;"></a></span><br><span style="color: #000000;"><strong><span style="font-family: verdana, geneva;"> <a id="link3" style="color: #000000;" name="link3"></a><span style="font-size: 14pt; color: #000000;">3. BBD Chips Comparison.</span></span></strong></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The most common BBD chips come from Panasonic/Matsushita MN3xxx series, with variants for high/low supply voltage and the number of stages. </span></p>
+<p><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbds-matsushita.png"><span style="font-size: 8pt; font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbds-matsushita.png" alt="BBDs Panasonic Matsushita Table" width="299" height="210" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Besides Panasonic/Matsushita, other companies were licensed to make BBD clones like </span><span style="font-size: 10pt; color: #333333;">Behringer which bankroll Coolaudio and started producing MN3207/3208/3205 clones for their own production needs.</span>&nbsp;<span style="font-size: 10pt; color: #333333;">Visual Sound recommissioned production of MN3102/MN3207 in 2009.&nbsp;</span><span style="font-size: 10pt; color: #333333;">Shangai Beilling Co LTD manufactures pin compatible parts with Panasonic/Matsushita chips, labeled with BL instead of MN.</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-comparison.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-comparison.png" alt="Bucket Brigade Devices Comparison Table" width="800" height="400" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;">Reticon manufactured the popular BBD chips SAD512, SAD1024 and SAD4096, whose suffix represents the number of BBD stages. </span></span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Less common chips include the Reticon R51xx and RD51xx series and the Philips TDA1022.</span></p>
+<h1><strong><span style="font-size: 14pt; color: #000000; font-family: verdana, geneva;"><a id="link4" name="link4"></a>4. Bucket Brigade Devices Clock Drivers.</span></strong></h1>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">In order to make a BBD system fully working, a complementary clock signal generator driver is needed. Matsushita/Panasonic MN31xx series have</span>&nbsp;<span style="font-size: 10pt; color: #333333;">a convenient small footprint package designed to match with their respective BBD and providing:</span></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">A two-phase clock with low impedance and the proper capacitance. The frequency value is selected by a simple RC network.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">Stable V<sub>GG</sub> power supply used to DC bias the base of the charge-holding elements, which greatly improves transfer efficiency, V<sub>GG</sub> = 4/15 * V<sub>CC.</sub></span></li>
+</ul>
+<p><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd%20clock.gif"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd clock.gif" alt="BBD Clock BD3101" width="294" height="233" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The usage of these devices is not mandatory, some designers in order to reduce costs, have more flexibility or achieve higher clock rates</span>&nbsp;<span style="font-size: 10pt; color: #333333;">use simple voltage dividers to get V<sub>GG</sub> and oscillator parts like CD4046 (used in Zombie Chorus), CD4047 (used in Small Clone, Carbon Copy, and A/DA Flanger)</span>&nbsp;<span style="font-size: 10pt; color: #333333;">or 4013 (used in Electric Mistress) to generate the double clock signal.</span></span></p>
+<h2><strong><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link41" name="link41"></a>4.1 BBD Clock Limitations.</span></strong></h2>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">Following the datasheet recommendations, BBDs guaranteed a correct behavior under a certain clock frequency (100~200KHz). It is because the input capacitance </span><span style="color: #333333; font-size: 10pt;">of the clock pins causes progressive degradation of clock pulses above the frequency limit: The clock pulses change from square to a trapezoidal/sawtooth waveform.&nbsp;</span><span style="color: #333333; font-size: 10pt;">When that happens the switching action is not perfectly synchronized resulting in a signal degradation.</span></span><br><br><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">The clock frequency limitation is the reason why the Reticon SAD1024 chip was a largely preferred choice for flangers effects which involve short delay</span>&nbsp;<span style="color: #333333; font-size: 10pt;">and fast clock: the input capacitance on the clock pins was much lower (110pF) than on the MN3007 (700pF), allowing it to be clocked at much higher frequencies.</span></span><br><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">When suitably buffered, though, there are reports of it clocking MN3xxx chips up well past 1MHz, which takes the device close the zero-delay zone, being convenient for fine</span>&nbsp;<span style="color: #333333; font-size: 10pt;">flanger effects.</span></span></p>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;"><span style="background-color: #ffffff; color: #000000;">BBD Sampling Time Limitations</span>:</span>&nbsp;<span style="font-size: 10pt;">For any BBD, the total delay time can be calculated as:</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/gif.latex" alt="" title="time_{delay}=\frac{N}{2\cdot f_{clock}}"></span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">where:</span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">N: is the number of stages.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">f<sub>clock</sub>: is the circuit clock frequency.</span></p>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The clock signals applied to the BBD will determine the signal sampling time, this</span>&nbsp;<span style="font-size: 10pt;">sampling time should respect the Nyquist-Shannon Theorem:</span></span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/gif(1).latex" alt="" title="f_{sampling}&lt; 2 \cdot f_{signal}"></span></p>
+<ul>
+<li><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">For short delay effects like flanging, the input signal can be oversampled, there is no penalty in&nbsp;</span><span style="font-size: 10pt;">terms of signal degradation. If the clock signal goes beyond the BBD clock boundary, the clk signal&nbsp;</span><span style="font-size: 10pt;">can be degraded as explained above and the audio waveform corrupted.&nbsp;</span></span></li>
+<li><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">For long delay effects like delay, the input signal is can be undersampled, the resulting processed&nbsp;</span><span style="font-size: 10pt;">signal will be degraded but the total delay time is extended.</span></span></li>
+</ul>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;"></span></span></p>
+<h1><span style="font-family: verdana, geneva;"><a id="link5" name="link5"></a><strong><span style="color: #000000; font-size: 14pt;">5. Typical Circuit with BBD Architecture.</span></strong></span></h1>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The BBDs are found in delay based effects such as echo, chorus, reverb, vibrato, flanging or delay all of them share the same general circuit architecture:</span><br><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-architecture.png"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-architecture.png" alt="Bucket Bridage Devices Architecture" width="800" height="188" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Part of the input signal is processed through the BBD chain. Depending on the clock circuit the specific effect is created:&nbsp;<span style="color: #333333; font-size: 13px; line-height: 18px;">the Low-Frequency Oscillator&nbsp;</span><em style="color: #333333; font-size: 13px; line-height: 18px;">LFO</em><span style="color: #333333; font-size: 13px; line-height: 18px;">&nbsp;is used for flanger/chorus/vibrato effects to automatically modify the delay time. For other effects like a simple delay, it is not needed.</span></span></p>
+<p><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The output of the delay line or part of it can be feedbacked into the input with variable gain, generating trailing echoes.</span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Before and after the BBD action, there are some stages needed to avoid signal degradation: Dynamic Range compression/expansion, Anti-Aliasing Filter and </span><span style="font-size: 10pt; color: #333333;">Reconstruction Filter:</span></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;"><strong><span style="color: #000000;">Dynamic Range <em>Companding</em> (compression + expansion):</span></strong> These circuits allow wider dynamic range signals to be processed at the cost of altering the&nbsp;</span><span style="color: #333333; font-size: 10pt;">signal dynamics. In order to obtain low THD and good Signal to Noise ratio, the input signal has to be close to the maximum input level of the BBD.</span></span></li>
+</ul>
+<p style="margin-left: 30px;"><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">In some cases, the compression and expansion take place outside of the anti-aliasing and reconstruction filters, while in others, the</span>&nbsp;<span style="font-size: 10pt; color: #333333;">compander is implemented directly at the input and output of the BBD. Some BBD systems that require companding utilize the 570/571 series chips. This integrated circuit consists</span></span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">of a pair of variable gain amplifiers and signal level averagers.</span></p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><strong><span style="color: #000000;">Anti-Aliasing Filter:</span></strong>&nbsp;</span><span style="color: #333333; font-size: 10pt;">It is low pass filter used before a signal sampler, to restrict the bandwidth of a signal to approximately satisfy the Nyquist-Shannon sampling theorem.&nbsp;</span><span style="color: #333333; font-size: 10pt;">The sampled input signal must be bandlimited to prevent aliasing (meaning waves of higher frequency being recorded as a lower frequency).</span></span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;"><strong><span style="color: #000000;">Reconstruction Filter:</span></strong>&nbsp;</span><span style="color: #333333; font-size: 10pt;">Also called <em>Anti-Imaging Filter</em> is again a low pass filter used to construct a smooth analog signal from a sampled input.&nbsp;</span><span style="color: #333333; font-size: 10pt;">The output signal must be bandlimited, to prevent aliasing (meaning Fourier coefficients being reconstructed as low-frequency waves, not as higher frequency aliases).</span></span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><strong><span style="color: #000000;">Feedback path</span></strong>: The feedback path also varies from system to system; different circuits place it inside or outside of the compression and</span>&nbsp;<span style="font-size: 10pt; color: #333333;">expansion circuitry.</span></span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Finally, the<em> wet</em> or processed signal is mixed with the <em>dry</em> original one, depending on this mix ratio the effect over the original signal will be more or</span>&nbsp;<span style="font-size: 10pt; color: #333333;">less dramatic.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;"></span></strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><strong><span style="color: #000000;">Drawbacks of Bucket Brigade Devices:</span></strong><br></span><span style="color: #333333;"><span style="font-size: 10pt;">First of all, there is degradation of the capacitors charge as it passes through the bucket brigade, these losses deteriorate the quality of the delayed signal by introducing noise and distortion. The signal is slightly modified, but this is not a drawback necessarily, some players consider that this feature is unique in BBDs and contribute to create a warm or organic tone.</span><span style="font-size: 10pt;"><br>&nbsp; &nbsp;<br>The process of passing the charge from bucket to bucket creates clocking noise in the signal. The output signal, therefore, looks like the audio signal, but there are “spikes” in the wave that corresponds to the clock frequency. The solution to this problem is to remove the spikes with a low pass filter, typically 30 or 36 dB per octave with a –3 dB point of around 3 kHz.</span></span></span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link51" name="link51"></a><strong>5.1 Filter Implementation.</strong></span></h2>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The low pass filters used for Anti-Aliasing and Reconstruction must be strict to avoid signal distortion and keep the clock signal out of the audio path. Common configurations implement high order (2nd, 3rd, 4th)&nbsp;active filters using op-amps or transistors in Sallen-key configuration because of their simplicity. </span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">In this, so called, <em>standard strategy </em>the cut-off frequency of the filters before and after the BBD is fixed according to the effect delay time:</span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/bbd-low-pass-filters.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/bbd-low-pass-filters.png" alt="Bucket Brigade Devices Sallen-Key Low Pass Filters" width="585" height="184" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;">Another less common technique use switched capacitor filters, controlling the cut-off frequency by the signal clock frequency and therefore limiting the&nbsp;pass-band only to the necessary for a given clock frequency and improving the signal fidelity for shorter delay times.</span></span></p>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link6" name="link6"></a><strong><span style="color: #000000;">6. The MN3007.</span></strong></span></h1>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The MN3007 core is based on the Bucket Brigade Delay circuit with an isolated triode and a differential output. It was included in popular designs like the DM-1 and<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ce-2-analysis"> CE-2 by Boss</a>, Small Clone and Memory Man by Electro-Harmonix, AD-999 by Maxon or Analog Delay by MXR:</span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/images/tech/mn3007/mn3007-internal-circuit.png"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/mn3007-internal-circuit.png" alt="MN3007 Internal Circuit" width="631" height="164" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;">It consists of a 1024 PMOS silicon stage that provides a signal delay from 5.12 to 51.2ms. The S/N is 80dB typ, THD of 0.5% typ (V<sub>IN</sub>=0.78Vrms), supporting a clock frequency range from 10 to 100KHz. The supply voltage range is from -10 to -15V.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><a id="link61" name="link61"></a></span><strong><span style="font-size: 12pt; color: #000000;">6.1 MN3007 vs MN3207.</span></strong></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">There is some controversy among the MN3007 and MN3207 BBDs: some designers prefer to use the MN3007 because it has more headroom (higher levels/dynamic range without signal clipping) and therefore less distortion.</span></p>
+<table border="0" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="font-size: 10pt; font-family: verdana, geneva;"></span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">MN3007</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">MN3207</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">Technology</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">PMos</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">NMos</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">S/N Ratio</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp;80dB</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">73dB&nbsp;</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">THD &nbsp;</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp;&nbsp;&nbsp; &nbsp; 0.5% (V<sub>in</sub>=0.78V<sub>rms</sub>)&nbsp; <br></span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp; 0.4%&nbsp;<span style="text-align: center; background-color: #ffffff;">(V<sub>in</sub>=0.25V<sub>rms</sub>)</span></span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">Max. Freq.</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp;100KHz</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">200KHz&nbsp;</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">Delay Time&nbsp;</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">5.12 ~ 51.2ms&nbsp;</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">2.56 ~ 51.2ms&nbsp;</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span style="font-size: 10pt; color: #000000; font-family: verdana, geneva;">Power Supply</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp;-10 to -15V</span></td>
+<td style="text-align: center;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">+5 to +10V&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;">&nbsp;</p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">MN3207 is based in NMOS technology while MN3007 is PMOS (that is why it needs negative supply). Both are 1024-stage BBDs sharing the same internal circuit. </span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="color: #000000;">S/N ratio</span> is slightly better in MN3007 (80 vs 73dB).</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"><span style="color: #000000;">THD levels</span> are similar 0.4-0.5% under different input V<sub>rms</sub> (0.25V vs 0.78V), MN3007 accept input signals 3 times wider, having, in fact,&nbsp;better dynamic range and less noise.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"><span style="color: #000000;">Maximum Clock frequency</span> is better in MN3207 200 vs 100KHz, allowing shorter delays 2.56 vs 5.12ms.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"><span style="color: #000000;">Regarding the power supply</span>, the 3007 is made for high voltage (10 to 15V) and in a usual 9V pedals supply is below the ideal voltage and then ends up not with the performance which it was designed to work. The 3207 operates from 4 to 10V, being suitable for 9V powered effects and within the optimal supply range and also the 9V can be easily regulated to 5V giving a reliable standard behavior under all conditions.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Summarizing, using MN3007 will provide light advantages in terms of THD, and more dynamic headroom. In a guitar pedal, the chip will work at 9V, below the optimum supply range. </span><span style="font-size: 10pt; color: #333333;">So far seems that the performance in this conditions is good and preferred over the MN3207.</span></span><br><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">However, in BBD circuit design there are many other other factors that can improve the performance more than the chip itself:</span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The use of compander circuitry to keep a ceiling on input signal levels.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">The bias voltage fine adjustment.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">The filtering applied, and the support circuitry (quality of clock pulse, mixing of complementary outputs, etc.)</span></li>
+</ul>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link7" name="link7"></a><strong><span style="color: #000000;">7. Resources:</span></strong></span></h1>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://www.sdiy.org/BBDHell/">Official Panasonic Bucket Brigade Devices Databook</a> <span style="color: #333333;">by Harry Bissell. </span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://dafx10.iem.at/papers/RaffelSmith_DAFx10_P42.pdf">Practical Modeling of Bucket Brigade Device Circuits</a> <span style="color: #333333;">by Raffael &amp; Smith. </span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://ww1.microchip.com/downloads/en/AppNotes/00699b.pdf">Anti-Aliasing Filters Application Note</a>&nbsp; <span style="color: #333333;">by Microchip. </span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://hammer.ampage.org/files/PAiA_Phlanger.PDF">PAiA Phlanger</a> <span style="color: #333333;">in Hammer AmpPage. </span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http:/www.uk-electronic.de/PDF/mn3004.pdf">Bucket Brigade Delay Line Application Note</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">Bucket-brigade electronics - new possibilities for delay, time-axis conversion, and scanning <span style="color: #333333;">by F. L. J. Sangster and K. Teer. (IEEE Journal vol. 4, no. 3, pp. 131–136, 1969.)</span></span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt;"><a href="https://web.archive.org/web/20220422111533/http://www.imagesensors.org/Past%20Workshops/Marvin%20White%20Collection/1977%20Short%20Course/1977%203%20Weckler.pdf">Bucket Brigade Devices Circa 1977.</a></span> - <span style="font-size: 10pt;"><a href="https://web.archive.org/web/20220422111533/http://www.imagesensors.org/Past%20Workshops/Marvin%20White%20Collection/1977%20Short%20Course/1977%203%20Weckler.pdf">Bucket Brigade Devices Circa 1976.</a></span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://www.generalguitargadgets.com/effects-projects/modulationecho/pt-80-delay/">The PT-80 Digital Delay</a> <span style="color: #333333;">by General Guitar Gadgets.</span></span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt;"><span style="font-size: 10pt; color: #333333;"><a href="https://web.archive.org/web/20220422111533/http://www.circularscience.com/">www.CircularScience.com </a></span></span><span style="font-size: 10pt;"><span style="font-size: 10pt; color: #333333;">by John Roberts.</span></span></span><br><br><span style="font-family: verdana, geneva;"></span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link71" name="link71"></a><strong>7.1 Datasheets:</strong></span></h2>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://www.experimentalistsanonymous.com/diy/Datasheets/">All MN3XXX, SAD512-1024-4096 and TDA1022 Datasheets</a> by ExperimentalistAnonymous. </span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220422111533/http://hammer.ampage.org/files/BBDementia.zip">All MN3XXX, SAD512-1024-4096 and TDA1022 Datasheets</a> by Mark Hammer.&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<p style="text-align: right;"><span style="font-size: 10pt; font-family: verdana, geneva;"><span style="font-size: 12pt; color: #000000;"><span style="color: #333333; font-size: 10pt;">Thanks for reading, all feedback is appreciated&nbsp;&nbsp;<img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/mail.jpg" alt="jr(at)ElectroSmash.com " style="float: right;"></span></span></span></p>	</section>
+  
+  <!-- footer -->
+    <!-- //footer -->
+
+			<hr class="divider-vertical"><ul class="pager pagenav">
+	<li class="next">
+		<a class="hasTooltip" title="" aria-label="Next article: LM386 Audio Amplifier Analysis" href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/lm386-analysis" rel="next" data-original-title="LM386 Audio Amplifier Analysis">
+			<span aria-hidden="true">Next</span> <span class="icon-chevron-right" aria-hidden="true"></span>		</a>
+	</li>
+</ul>
+	
+	
+	</article>
+<!-- //Article -->
+
+
+</div><div><a href="https://web.archive.org/web/20220422111533/http://www.artio.net/" style="font-size: 8px; visibility: visible; display: inline;" title="Web development, Joomla, CMS, CRM, Online shop software, databases">Joomla SEF URLs by Artio</a></div>
+		</div>
+		<!-- //MAIN CONTENT -->
+
+		<!-- SIDEBAR RIGHT -->
+		<div class="t3-sidebar t3-sidebar-right col-xs-12 col-sm-4  col-md-3 ">
+			<div class="t3-module module " id="Mod192"><div class="module-inner"><h3 class="module-title "><span>Instagram photos</span></h3><div class="module-ct">  
+
+<div id="jux_social_instagram_feed" class="jux_social_instagram_feed_192">
+    <style type="text/css">
+    #instaShowGallery_1 {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-counter,
+    #instaShowGallery_1 .instashow-gallery-media-info-counter {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-info-description {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-cover {
+         background: #000000;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll-slider {
+        background: rgb(68, 68, 68);
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow::after {
+        background: #008eff;
+    }
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::after {
+        background: #25b5ff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-twilight {
+  opacity: 0.9;      background: #2b2b2b;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author {
+        color: #000000;
+    }
+    #instaShowPopup_1 .instashow-popup-media-info-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 a.instashow-popup-media-info-original {
+        background: #3897f0;
+    }
+    #instaShowPopup_1 a.instashow-popup-media-info-original:hover {
+        background: rgb(38, 141, 234);
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-properties {
+        color: #6d6d6d;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-passed-time {
+        color: #989898;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content {
+        color: #343434;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a {
+        color: #113c6e;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+    #instaShowPopup_1 .instashow-popup-control-close::before,
+    #instaShowPopup_1 .instashow-popup-control-close::after {
+        background: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video::before {
+        color: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video:hover::before {
+        color: #ffffff;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        #instaShowPopup_1 .instashow-popup-control-close {
+            background: #ffffff;
+        }
+        #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+        #instaShowPopup_1 .instashow-popup-control-close::before,
+        #instaShowPopup_1 .instashow-popup-control-close::after,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+            background: #676767;
+        }
+
+        #instaShowPopup_1 .instashow-popup-media-video::before {
+            color: #676767;
+        }
+    }
+</style><div data-is="" data-is-api="https://www.electrosmash.com/modules/mod_jux_social_instagram_feed/juxinstagram/api/index.php" data-is-source="@electro.smash" data-is-filter-only="" data-is-filter-except="" data-is-limit="0" data-is-cache-media-time="0" data-is-responsive="{ &quot;768&quot;: { &quot;columns&quot;: 2, &quot;rows&quot;: 2, &quot;gutter&quot;:10} , &quot;480&quot;:{ &quot;columns&quot;: 1, &quot;rows&quot;: 1, &quot;gutter&quot;: 10}}" data-is-width="auto" data-is-height="auto" data-is-columns="1" data-is-rows="5" data-is-gutter="10" data-is-arrows-control="false" data-is-scroll-control="false" data-is-drag-control="false" data-is-free-mode="false" data-is-loop="false" data-is-scrollbar="false" data-is-direction="horizontal" data-is-auto="0" data-is-auto-hover-pause="true" data-is-effect="slide" data-is-speed="600" data-is-easing="ease" data-is-popup-deep-linking="false" data-is-popup-speed="400" data-is-popup-easing="ease" data-is-lang="en" data-is-mode="popup" data-is-info="likesCounter, commentsCounter, description" data-is-popup-info="username, instagramLink, likesCounter, commentsCounter, location, passedTime, description, comments" data-is-color-gallery-bg="#ffffff" data-is-color-gallery-counters="#ffffff" data-is-color-gallery-description="#ffffff" data-is-color-gallery-overlay="#000000" data-is-color-gallery-arrows="#008eff" data-is-color-gallery-arrows-bg="#ffffff" data-is-color-gallery-arrows-hover="#25b5ff" data-is-color-gallery-arrows-bg-hover="#ffffff" data-is-color-gallery-scrollbar="#ffffff" data-is-color-popup-overlay="#2b2b2b" data-is-color-popup-bg="#ffffff" data-is-color-popup-username="#000000" data-is-color-popup-username-hover="#3897f0" data-is-color-popup-instagram-link="#3897f0" data-is-color-popup-instagram-link-hove="#268dea" data-is-color-popup-counters="#6d6d6d" data-is-color-popup-passed-time="#989898" data-is-color-popup-anchor="#113c6e" data-is-color-popup-anchor-hover="#3897f0" data-is-color-popup-text="#343434" data-is-color-popup-controls="#676767" data-is-color-popup-controls-hover="#ffffff" data-is-color-popup-mobile-controls="#676767" data-is-color-popup-mobile-controls-bg="#ffffff" data-is-debug="true" id="instaShowGallery_1" class="instashow instashow-gallery instashow-gallery-horizontal instashow-gallery-slide" style="width: auto; height: 1275px;"><div class="instashow-gallery-loader instashow-show"><div class="instashow-spinner"></div></div> 
+
+    <div class="instashow-gallery-wrapper" style="width: 263px; height: 1275px;"><div class="instashow-gallery-container" style="width: 0px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+</div>
+
+<script type="text/javascript">
+    var jux_style_hover = "1";
+    // console.log(jux_style_hover);
+</script></div></div></div><div class="t3-module module " id="Mod28"><div class="module-inner"><h3 class="module-title "><span>New Updates</span></h3><div class="module-ct"><ul class="latestnews mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/arduino-audio-meter" itemprop="url">
+			<span itemprop="name">
+				Arduino Audio Meter			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/dallas-rangemaster" itemprop="url">
+			<span itemprop="name">
+				Dallas Rangemaster Treble Booster Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/time-manipulator" itemprop="url">
+			<span itemprop="name">
+				Time Manipulator - Arduino Delay/Echo/Reverb			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/marshall-guvnor-analysis" itemprop="url">
+			<span itemprop="name">
+				Marshall The Guvnor Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/germanium-fuzz" itemprop="url">
+			<span itemprop="name">
+				You Can Build the Perfect Germanium Fuzz			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mxr-distortion-plus-analysis" itemprop="url">
+			<span itemprop="name">
+				MXR Distortion + Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod29"><div class="module-inner"><h3 class="module-title "><span>Most Visited</span></h3><div class="module-ct"><ul class="mostread mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/tube-screamer-analysis" itemprop="url">
+			<span itemprop="name">
+				Tube Screamer Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/fuzz-face" itemprop="url">
+			<span itemprop="name">
+				Fuzz Face Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/proco-rat" itemprop="url">
+			<span itemprop="name">
+				Pro Co Rat Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/boss-ds1-analysis" itemprop="url">
+			<span itemprop="name">
+				Boss DS-1 Distortion Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/klon-centaur-analysis" itemprop="url">
+			<span itemprop="name">
+				Klon Centaur Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/crybaby-gcb-95" itemprop="url">
+			<span itemprop="name">
+				Dunlop CryBaby GCB-95 Cicuit Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod184"><div class="module-inner"><h3 class="module-title "><span>Follow us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><span style="font-size: 10pt; color: #333333;">You can also follow us on:</span></p>
+<p><a href="https://web.archive.org/web/20220422111533/https://www.facebook.com/ElectroSmash"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/facebook.png" alt="facebook"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://plus.google.com/+Electrosmash/about"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/google.png" alt="google"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://www.instagram.com/electro.smash/"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/instagram.png" alt="instagram"></a></p>
+<p><a href="https://web.archive.org/web/20220422111533/https://www.pinterest.com/electrosmash/"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/pinterest.png" alt="pinterest"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://www.youtube.com/user/ElectroSmashTV"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/youtube.png" alt="youtube"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220422111533/https://twitter.com/electro_smash"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/twitter.png" alt="twitter"></a></p></div>
+</div></div></div>
+		</div>
+		<!-- //SIDEBAR RIGHT -->
+
+	</div>
+</div> 
+
+
+
+  
+
+
+  
+
+
+	
+<!-- BACK TOP TOP BUTTON -->
+<div id="back-to-top" data-spy="affix" data-offset-top="300" class="back-to-top hidden-xs hidden-sm affix-top">
+  <button class="btn btn-primary" title="Back to Top"><i class="fa fa-caret-up"></i></button>
+</div>
+<script type="text/javascript">
+(function($) {
+	// Back to top
+	$('#back-to-top').on('click', function(){
+		$("html, body").animate({scrollTop: 0}, 500);
+		return false;
+	});
+    $(window).load(function(){
+        // hide button to top if the document height not greater than window height*2;using window load for more accurate calculate.    
+        if ((parseInt($(window).height())*2)>(parseInt($(document).height()))) {
+            $('#back-to-top').hide();
+        } 
+    });
+})(jQuery);
+</script>
+<!-- BACK TO TOP BUTTON -->
+
+<!-- FOOTER -->
+<footer id="t3-footer" class="wrap t3-footer">
+
+			<!-- FOOTER SPOTLIGHT -->
+		<div class="container hidden-xs">
+				<!-- SPOTLIGHT -->
+	<div class="t3-spotlight t3-footer-sl  row">
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod185"><div class="module-inner"><h3 class="module-title "><span>About us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220422111533/https://shop.electrosmash.com/about-us/">&nbsp;&nbsp;<img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/smash-electro.jpg" alt="smash electro"></a></p>
+<p><a href="https://web.archive.org/web/20220422111533/https://shop.electrosmash.com/about-us/"><span style="font-size: 10pt; color: #333333;">Smashing audio electronics since MMXIII</span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod183"><div class="module-inner"><h3 class="module-title "><span>Email Newsletter</span></h3><div class="module-ct"><div class="acymailing_module" id="acymailing_module_formAcymailing98151">
+	<div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing98151">
+		<form id="formAcymailing98151" action="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/mn3007-bucket-brigade-devices" onsubmit="return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing98151&#39;)" method="post" name="formAcymailing98151">
+		<div class="acymailing_module_form">
+						<table class="acymailing_form">
+				<tbody><tr>
+												<td class="acyfield_email acy_requiredField">
+								<input id="user_email_formAcymailing98151" onfocus="if(this.value == &#39;example@email.com&#39;) this.value = &#39;&#39;;" onblur="if(this.value==&#39;&#39;) this.value=&#39;example@email.com&#39;;" class="inputbox" type="text" name="user[email]" style="width:90%" value="example@email.com" title="example@email.com">
+							</td> </tr><tr>
+					
+					<td class="acysubbuttons">
+												<input class="button subbutton btn btn-primary" type="submit" value="Subscribe" name="Submit" onclick="try{ return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing98151&#39;); }catch(err){alert(&#39;The form could not be submitted &#39;+err);return false;}">
+											</td>
+				</tr>
+			</tbody></table>
+						<input type="hidden" name="ajax" value="0">
+			<input type="hidden" name="acy_source" value="module_183">
+			<input type="hidden" name="ctrl" value="sub">
+			<input type="hidden" name="task" value="notask">
+			<input type="hidden" name="redirect" value="https%3A%2F%2Fwww.electrosmash.com%2Fmn3007-bucket-brigade-devices">
+			<input type="hidden" name="redirectunsub" value="https%3A%2F%2Fwww.electrosmash.com%2Fmn3007-bucket-brigade-devices">
+			<input type="hidden" name="option" value="com_acymailing">
+						<input type="hidden" name="hiddenlists" value="1">
+			<input type="hidden" name="acyformname" value="formAcymailing98151">
+									</div>
+		</form>
+	</div>
+	</div>
+
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod186"><div class="module-inner"><h3 class="module-title "><span>Contact us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220422111533/https://www.electrosmash.com/contact-us"><span style="font-size: 10pt; color: #333333;">e-mail us at <span id="cloak90c48b6b71fa65d4f45b8d3baf6f861f"><a href="mailto:info@electrosmash.com">info@electrosmash.com</a></span><script type="text/javascript">
+				document.getElementById('cloak90c48b6b71fa65d4f45b8d3baf6f861f').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy90c48b6b71fa65d4f45b8d3baf6f861f = '&#105;nf&#111;' + '&#64;';
+				addy90c48b6b71fa65d4f45b8d3baf6f861f = addy90c48b6b71fa65d4f45b8d3baf6f861f + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text90c48b6b71fa65d4f45b8d3baf6f861f = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak90c48b6b71fa65d4f45b8d3baf6f861f').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy90c48b6b71fa65d4f45b8d3baf6f861f + '\'>'+addy_text90c48b6b71fa65d4f45b8d3baf6f861f+'<\/a>';
+		</script></span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod188"><div class="module-inner"><h3 class="module-title "><span>Rights</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p style="text-align: left;">&nbsp;&nbsp;<a href="https://web.archive.org/web/20220422111533/https://creativecommons.org/licenses/by-nc/3.0/"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/88x31.png" alt="88x31"></a></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/open_source_logo.png" alt="open source logo" width="180" height="38"></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Bucket Brigade Devices_ MN3007_files/open_hardware_logo.png" alt="open hardware logo" width="180" height="38"></p>
+<p style="text-align: left;">&nbsp;</p></div>
+</div></div></div>
+							</div>
+			</div>
+<!-- SPOTLIGHT -->
+		</div>
+		<!-- //FOOTER SPOTLIGHT -->
+	
+	<section class="t3-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 copyright ">
+					
+          <small>
+            <a href="https://web.archive.org/web/20220422111533/http://twitter.github.io/bootstrap/" title="Bootstrap by Twitter" target="_blank">Bootstrap</a> is a front-end framework of Twitter, Inc. Code licensed under <a href="https://web.archive.org/web/20220422111533/https://github.com/twbs/bootstrap/blob/master/LICENSE" title="MIT License" target="_blank">MIT License.</a>
+          </small>
+          <small>
+            <a href="https://web.archive.org/web/20220422111533/http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> font licensed under <a href="https://web.archive.org/web/20220422111533/http://scripts.sil.org/OFL">SIL OFL 1.1</a>.
+          </small>
+				</div>
+							</div>
+		</div>
+	</section>
+
+</footer>
+<!-- //FOOTER -->
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://web.archive.org/web/20220422111533/https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29544239-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!--
+playback timings (ms):
+  captures_list: 134.658
+  exclusion.robots: 0.276
+  exclusion.robots.policy: 0.267
+  cdx.remote: 0.098
+  esindex: 0.013
+  LoadShardBlock: 90.162 (3)
+  PetaboxLoader3.datanode: 152.423 (4)
+  CDXLines.iter: 15.404 (3)
+  load_resource: 151.231
+  PetaboxLoader3.resolve: 48.385
+--><div class="instashow instashow-popup" id="instaShowPopup_1"><div class="instashow-popup-twilight"></div><div class="instashow-popup-wrapper"><div class="instashow-popup-container"><div class="instashow-popup-control-close"></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-previous"><span></span></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-next"><span></span></div></div></div></div></body></html>

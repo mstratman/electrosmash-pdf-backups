@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dunlop CryBaby GCB-95 Cicuit Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Dunlop CryBaby GCB-95 Cicuit Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Dunlop CryBaby GCB-95 Cicuit Analysis</h1>
+
+<p>The Dunlop Crybaby is a Wah-Wah pedal released around 1982. The pedal is a copy of the original VOX model made by VOX/Thomas Organ Co in 1970. The effect is basically a bandpass filter, it boosts the resonant frequency around 750Hz attenuating above and below harmonics. The rocketing action of the pedal shifts the resonant frequency up and down.</p>
+<p>Due to the great success of the pedal, being maybe the most sold guitar pedal of all times, Dunlop produced several versions of the Wah-Wah and signature models adding enclosure customization and small circuit modifications. This study is focused on the first model, the Dunlop Crybaby GCB-95 which is considered to have the classic wah tone.</p>
+<p><img alt="dunlop-crybaby-pedal" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-pedal.jpg"/></p>
+
+<p><strong>Table of Contents.</strong></p>
+<p><a href="#link1">1. The Wah-Wah Effect.</a><br/><a href="#link2">2. The Dunlop Cry Baby GCB-95 Circuit.</a><br/>    <a href="#link21">2.1 Dunlop CryBaby Wah GCB-95 Guts / PCB Layout.</a><br/>    <a href="#link22">2.2 Dunlop Cry Baby GCB-95 Frequency Response.</a><br/>    <a href="#link23">2.3 Dunlop CryBaby GCB-95 VS. VOX V847 Differences.</a><br/>    <a href="#link24">2.4 Dunlop CryBaby GCB-95 Circuit Bias</a><br/>    <a href="#link25">2.5 Dunlop Cry Baby GCB-95 Components Part List / Bill of Materials.</a><br/><a href="#link3">3. Power Supply.</a><br/><a href="#link4">4. Input Buffer.</a><br/><a href="#link5">5. Active Filter.</a><br/><a href="#link6">6. Output Stage.</a><br/><a href="#link7">7. How the Dunlop Cry Baby GCB-95 works.</a><br/><a href="#link8">8. Dunlop Cry Baby GCB-95 Wah Modifications.</a><br/><a href="#link9">9. Resources.</a></p>
+<h2> <a name="link1"></a><strong>1. The Wah-Wah Effect.</strong></h2>
+<p>The Wah-Wah pedal was invented in November 1966 by Lester Kushner and Brad Plunkett working at Warwick Electronics, a division of Whirlpool that owned Thomas Organ Company and Vox. Thomas Organ patented the Wah circuit design but by the time the patent was granted, there were already dozens of copies of the pedal in the market. Enforcing the patent was too expensive so no attempt was made to stop the knockoffs.</p>
+<p>Dunlop started manufacturing the Cry Baby GCB-95 in 1982, copying the original VOX design under license, becoming the most sold pedal of all times. Dunlop Wah-Wahs models are: GCB-95, GCB-95F Classic, GCB-95Q, GCB-535Q, EW-95V, 105Q Bass and 1999 Purple, White, Red or Gray Limited Edition.</p>
+<p>Signature models include: JH-1 Jimi Hendrix, JH-1FW Jimi Hendrix Fuzz Wah, DB-01 Dimebag Darrel, ZW-45 Zakk Wylde, SC-95/SW-95 Slash Signature, EVH Signature, KH-95 Kirk Hammett, JC-95 Jerry Cantrell, etc...  </p>
+<p><img alt="cry-baby-wah-signature-models" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-signature-models.jpg"/></p>
+
+<h2><a name="link2"></a><strong>2. The Dunlop Cry Baby GCB-95 Circuit.</strong></h2>
+<p>The Dunlop <a href="images/crybaby-gcb-95/cry-baby-wah-gcb-95-schematic.png" rel="noopener" target="_blank">Cry Baby GCB-95 schematic</a> can be broken down into four blocks: Power Supply, Input Buffer, Active Filter and Output Stage.<img alt="cry-baby-wah-gcb-95-schematic-parts-small" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-schematic-parts.jpg"/></p>
+<p>The circuit is undoubtedly inspired on the <a href="vox-v847-analysis.html">VOX V847</a>. One of the major concerns of the original VOX design was the tone sucking due to the low input impedance of the Input Stage which was 69.5KΩ. Dunlop fixed this problem adding a buffer which raises the input impedance to 1MΩ preserving the guitar original tone. Besides the Input Buffer there are only two changes in the circuit:</p>
+<ul>
+<li> R<sub>4</sub> size is reduced (from 510Ω to 390Ω): creating a slightly higher voltage gain in the Q<sub>1</sub> stage.</li>
+<li>R<sub>8</sub> is also reduced (from 100KΩ to 82KΩ): this change just varies a bit the bias of Q<sub>1</sub>, not affecting the tone at all. It is just a component resource change.<br/></li>
+</ul>
+<p>The design is built using 3 cascaded transistor stages with a couple of passive components and an inductor; the simple circuit makes the power consumption below 1mA.</p>
+<p>The gist of the design remains in how the resonant frequency of an LC filter made up of a fixed inductor L<sub>1</sub> and a fixed capacitor C<sub>2</sub> can be changed using a variable resistor VR<sub>1</sub>.</p>
+
+<p><a name="link21"><strong>2.1 Dunlop CryBaby Wah GCB-95</strong><strong> Guts / PCB Layout.</strong></a></p>
+<p>Before 1990 all Dunlop Wah pedals had wires between the jacks and the circuit board. In mid-1990 Dunlop changed the PCB design and started mounting the jacks directly on the PCB. Also, from mid-1991 onwards, a buffer circuit was added before the actual wah circuit (it is there if your PCB says ”Rev F” or higher).</p>
+<p><img alt="cry-baby-wah-gcb-95-guts-before1990" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-guts-before1990.jpg"/></p>
+<p><img alt="cry-baby-wah-gcb-95-guts-after1990" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-guts-after1990.jpg"/></p>
+<p>The current revision looks much like the models that have been running since mid-1992. For more detailed info about the different versions of the circuit you can check the <a href="http://stinkfoot.se/archives/546" rel="noopener noreferrer" target="_blank">StinkFoot</a> website.<img alt="dunlop-crybaby-gcb95-pcb" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-pcb.jpg"/></p>
+<p>The single layer PCB fits without problems inside the big pedal enclosure using through-hole components.<br/></p>
+<p><a name="link22"><strong>2.2 Dunlop Cry Baby GCB-95 Frequency Response.</strong></a></p>
+<p>The frequency response is characterized by a resonant peak centered in 750 Hz (with the variable resistor VR<sub>1</sub> at mid position). The peak sweeps up and down from 450 Hz to 1.6 kHz. The selected frequencies are amplified up to 18dB while the surrounding ones are attenuated:</p>
+<p><img alt="dunlop-crybaby-gcb95-frequency-response" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-frequency-response.png"/></p>
+<p><a name="link23"><strong>2.3 Dunlop CryBaby GCB-95 VS. VOX V847 Differences.</strong></a></p>
+<p>The circuit of these 2 pedals is pretty similar; the Dunlop design includes the Input Buffer to preserve the signal integrity but the price (Dunlop slightly cheaper), quality construction and sound are really similar. Players often decide between the two of them just on the looks.</p>
+<p>Dunlop CryBaby GCB-95 Vs VOX V847 Frequency Response: The crybaby has slightly less bass content. You can check in the graph below how the low freq harmonics are more present in the VOX than in the Dunlop due to the Input Buffer which filters part of this bass content.</p>
+<p><img alt="VOX V847 vs Dunlop GCB95 Comparison" class="article-img" src="images/crybaby-gcb-95/VOX%20V847%20vs%20Dunlop%20GCB95%20Comparison.png"/></p>
+
+<p><a name="link24"><strong>2.4 Dunlop CryBaby GCB-95 Circuit Bias</strong></a></p>
+<p>The most important DC bias points are shown in the image below. It is useful for circuit failure troubleshooting:</p>
+<p><img alt="dunlop cry baby wah gcb 95 bias" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-bias.jpg"/></p>
+<p><a name="link25"><strong>2.5 Dunlop Cry Baby GCB-95 Components Part List / Bill of Materials.</strong></a></p>
+<p>Q<sub>0 </sub>  MPSA13<br/>Q<sub>1</sub>   MPSA18<br/>Q<sub>2</sub>   MPSA18<br/>C<sub>in1</sub>   0.01uF<br/>C<sub>in2</sub>   22pF<br/>C<sub>1</sub>   0.01uF<br/>C<sub>2</sub>   0.01uF<br/>C<sub>3</sub>   4.7uF<br/>C<sub>4</sub>   0.22uF<br/>C<sub>5</sub>   0.22uF<br/>C<sub>6   </sub>220uF<br/>C<sub>7</sub><sub>   </sub>0.1uF<br/>L<sub>1</sub>   500mH<br/>R<sub>in1 </sub>  2.2MΩ<br/>R<sub>in2 </sub>  1.8MΩ<br/>R<sub>in3</sub>   1KΩ<br/>R<sub>in4</sub>   10KΩ<br/>R<sub>1 </sub>  68KΩ<br/>R<sub>2 </sub>  1K5Ω<br/>R<sub>3 </sub>  22KΩ<br/>R<sub>4</sub>   390Ω<br/>R<sub>5</sub>   470KΩ<br/>R<sub>6</sub>   470KΩ<br/>R<sub>7</sub>   33KΩ<br/>R<sub>8</sub>   82KΩ<br/>R<sub>9</sub>   1KΩ<br/>R<sub>10</sub>  10KΩ<br/>VR<sub>1</sub>  100KΩ<br/>Input/Output Jack Connector.<br/>True Bypass Switch.</p>
+
+<h2><strong><a name="link3"></a>3. Power Supply.</strong></h2>
+<p>The simple Power Supply Stage provides a stable energy supply to the circuit.<img alt="cry-baby-wah-gcb-95-power-supply" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-power-supply.png"/></p>
+<p>The 9V supply will feed the transistors. The ZL9M3 is a 9.1 zener diode which helps to regulate the power line (protecting the circuit from voltage peaks over 9.1V) and also prevents reverse polarity connections.</p>
+<ul>
+<li>Capacitors C6 and C7 between 9V and ground remove noise from the power line.</li>
+</ul>
+
+<h2><a name="link4"></a><strong>4. Input Buffer.</strong></h2>
+<p>The first stage is an Emitter Follower / Common Collector NPN amplifier, with unity voltage gain, high input impedance and low output impedance which makes it very suitable for buffering the signal, avoiding high-frequency signal loss:<img alt="cry-baby-wah-gcb-95-input-buffer" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-input-buffer.png"/></p>
+<ul>
+<li>The 0.01uF input capacitor Cin<sub>1</sub> isolates the guitar from any pedal DC potential, protecting the pickups in case of circuit failure and removing hum.<br/></li>
+<li>The resistors Rin<sub>1</sub> and Rin<sub>2</sub> form a voltage divider in order to bias the transistor Q<sub>0</sub>.</li>
+<li>Resistor Rin3 in the collector is included to suppress the oscillation tendency.</li>
+</ul>
+<p><img alt="dunlop-crybaby-gcb95-input-stage-frequency-response" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-input-stage-frequency-response.png"/></p>
+<p><strong>Dunlop Cry Baby GCB-95 Input Impedance:</strong> </p>
+<p>For simplification we can ignore R<sub>in3</sub>, the input impedance is Rin1 in parallel with Rin2 and the input impedance of the emitter follower. It can be calculated following the formula:<br/></p>
+<p><div>\[ Z_{in}= R2//Rin2//Zin_{BJT}= 2M2//1M8//(5000 \cdot 10K)=1M\]</div></p>
+<p>1MΩ can be considered a good input impedance to avoid signal degradation. The effect of the resistor R<sub>in3</sub> reduces this value to 750KΩ which is still a good input resistance value. <br/></p>
+<p>note: The hybrid-pi model and mathematics behind the Voltage Gain and Input Impedance calculation are similar as in Tube Screamer input buffer, <a href="tube-screamer-analysis.html#impedance">check it for further details.</a></p>
+
+<h2><a name="link5"></a><strong>5. Active Filter.</strong></h2>
+<p>The Active Filter stage is a Common-Emitter Amplifier with Voltage Shunt Feedback network:</p>
+<p><img alt="cry-baby-wah-gcb-95-active-filter" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-active-filter.png"/></p>
+<ul>
+<li>The C<sub>1</sub> is a bypass capacitor that isolates the Input Buffer from the Active filter.</li>
+<li>The resistor R<sub>1 </sub>is almost all the input impedance of this Active Filter stage and helps to raise the input impedance of this stage preserving signal integrity.<br/></li>
+<li>Resistors R<sub>6</sub> and R<sub>8</sub> form a voltage divider for determining the bias applied to the base of Q<sub>1</sub> through the inductor L<sub>1</sub> and resistor R<sub>2</sub>.</li>
+</ul>
+<p><strong>Active Filter Voltage Gain.</strong></p>
+<p>In Common Emitter amps, the voltage gain is calculated as G<sub>V</sub> = R<sub>C</sub>/R<sub>E</sub> = 22K/390 = 56.4 = 35dB. The effect of the feedback network has to be taken into consideration, reducing in practice the gain to 19dB. The feedback network from collector to base is composed by the resistance R<sub>6</sub> 470KΩ and R<sub>8</sub> 82KΩ to ground (The inductor in parallel with the resistor R<sub>7</sub> 33KΩ, can be considered as a shortcut).</p>
+<p>Applying negative feedback in the transistor amplifier results in an overall reduced voltage gain and transistor input impedance with some improvements like stabilized frequency response and immunity against transistor variations.</p>
+<p>The output of the Q<sub>2</sub> is connected to the 100K V<sub>R1</sub> voltage divider, with the rocketing foot action the voltage gain delivered by the Active Filter Stage is regulated, from 19dB to 1dB.</p>
+<h2><a name="link6"></a><strong>6. Output Stage.</strong></h2>
+<p>The last stage is an Emitter Follower used as a low output impedance amplifier with approximately unity gain. The topology is almost the same as in the Input Buffer.<br/></p>
+<p><img alt="cry-baby-wah-gcb-95-output-stage" class="article-img" src="images/crybaby-gcb-95/cry-baby-wah-gcb-95-output-stage.png"/></p>
+<p>This block will buffer the signal taken from the wiper of the VR1 potentiometer.</p>
+<ul>
+<li>The Q<sub>2</sub> transistor is biased through the resistor R5.</li>
+<li>Resistor R<sub>10</sub> is a DC return for the Emitter Follower.</li>
+<li>Resistor R<sub>9</sub> in the collector is included to suppress the tendency to oscillation.</li>
+</ul>
+<p>The output jack of the pedal is taken before the variable resistor VR<sub>1 </sub>and is not affected by the position of the foot pedal. The position of the potentiometer does not affect the output volume level.</p>
+
+<p><strong>6.1 Dunlop Cry Baby GCB-95 Output impedance.</strong></p>
+<p>Once again the output impedance can be estimated using the hybrid-pi model, but in this case, the formula is complex and does not give any intuitive idea. Alternatively, the value can be calculated using PSpice accurate simulation giving a value of 5KΩ. The real value is between 630Ω and 8.6KΩ (The position of the VR1 potentiometer effects the value of the output impedance) which can be considered as good output impedance. For more details check the <a href="vox-v847-analysis.html#link41">V847 output impedance calculation</a> which is the same circuit as the GCB95.</p>
+<h2><a name="link7"></a><strong>7. How the Dunlop Cry Baby GCB-95 works.</strong></h2>
+<p>The core of the wah design remains in the cap C<sub>2</sub> which close the feedback loop between the output (Q<sub>2</sub> emitter) and the input stage of the circuit:</p>
+<p>The Active Filter Stage amplifies the feedbacked signal coming from the Q<sub>2</sub> emitter through C<sub>2</sub> and R<sub>2</sub>. Because of this amplification of the signal applied across the C<sub>2</sub> capacitor, the apparent reactance seen by the input signal looking into the capacitor is different from the real one.</p>
+<p>This apparent magnitude of the cap C<sub>2</sub> reactance magnitude depends on the gain of the signal of the first stage which is fixed by the position of the rocket pedal potentiometer VR1:</p>
+<ul>
+<li>If the pedal is in the lower position, Gain = min, Current through feedback cap C<sub>2</sub> = min, Apparent reactance = max, Apparent capacitance = min.</li>
+<li>If the pedal is in the upper position, Gain = max, Current through feedback cap C<sub>2</sub> = max, Apparent reactance = min, Apparent capacitance = max.</li>
+</ul>
+<p>Connecting a complementary reactance (inductor L<sub>1</sub>) will produce a resonant circuit which is adjusted by tuning the apparent capacitance of C<sub>2</sub>.</p>
+<p>Note: The impedance of an element can be expressed as Z = R + jX</p>
+<ul>
+<li>In ideal resistors Z = R (impedance = resistance [O])</li>
+<li>In ideal capacitor Z = jX (impedance = reactance [O])</li>
+</ul>
+<p>Capacitor Reactance: It is the opposition of the Capacitor to the change of voltage through it. The built-up electric field resists the change of voltage between the capacitor pins. (reactance) XC = -1/wC (capacitance). Reactance is measured in Ohms, not Farads. The Farads is the measure of the capacitance, an intrinsic property of the capacitor element.</p>
+<h2><a name="link8"></a><strong>8. Dunlop Cry Baby GCB-95 Wah Modifications.</strong></h2>
+<p>The Dunlop CryBaby GCB-95 can be modified in the same way as the VOX V847.</p>
+
+<p><strong>8.1 GCB-95 True Bypass Mod.<br/></strong></p>
+<p>This mod uses a 3PDT switch to bypass the whole circuit in the typical boutique pedal arrangement. Removing the standard switch and installing the 3PDT, it can be done before or after the Input Buffer stage, most of the people do it before the Input Buffer because is easiest to do and to reverse.<img alt="3PDT Switch" class="article-img" src="images/crybaby-gcb-95/3PDT.jpg"/>In the StinkFoot website, there is a great article about <a href="http://stinkfoot.se/archives/546" rel="noopener noreferrer" target="_blank">how to do True Bypass for the GCB-95.</a></p>
+
+<p><strong>8.2 Modifying the Wah-Wah Q factor or "Vocal Mod".<br/></strong></p>
+<p>The Quality Factor is a parameter that characterizes how narrow or spread is the selected frequency band.</p>
+<p>The 33KΩ resistor R<sub>7</sub> adjusts this sharpness of the resonant peak. This modification is also known as “Vocal Mod”, some users replace the 33K for a bigger one like 39KΩ, 68KΩ or even 100KΩ to have more vocal sounding.</p>
+<p><img alt="dunlop-crybaby-gcb95-vocal-mod" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-vocal-mod.png"/></p>
+<p>In the above graph, the effect of the R<sub>7</sub> is shown, reducing its value, the Q factor is reduced, and the filter bell is spread. <br/></p>
+
+<p><strong>8.3. Modifying the Sweep Range or "Bass Players Mod".</strong></p>
+<p>The C<sub>2</sub> cap determines the center frequency of the wah sweep. Changing C2 the whole wah sweep range moves up or down. In the images below the shift of the sweep range can be appreciated, using 0.1uF, 0.01uF (default) and 0.001uF.</p>
+<p><img alt="dunlop-crybaby-gcb95-sweep-range-C201" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-sweep-range-C201.png"/></p>
+<p><img alt="dunlop-crybaby-gcb95-sweep-range-C2001" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-sweep-range-C2001.png"/></p>
+<p><img alt="dunlop-crybaby-gcb95-sweep-range-C20001" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-sweep-range-C20001.png"/></p>
+<p>Bigger values move it down towards bass, smaller values move it up. Bass players like to increase the value (typically 0.068µF) for a better bass wah response.</p>
+
+<p><strong>8.4. More Bass and Gain Modification.</strong></p>
+<p>The emitter resistor R<sub>4</sub> controls the gain level of the effected signal. Reducing it will result in a slight addition of gain and bass content. In the figure below you can see how smaller R<sub>4</sub> values modify the frequency response:</p>
+<p><img alt="dunlop-crybaby-gcb95-bass-gain-mod" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-bass-gain-mod.png"/></p>
+<p><strong>8.5 More Mid Content Modification.</strong></p>
+<p>This mod subtle sets the midrange content. Increasing the value of the R<sub>2</sub> resistor the heel-down position will sound slightly more strong and emphasized. Typical values for this mod are 2KΩ and 2.7KΩ (default R<sub>2</sub> resistor is 1.5KΩ).</p>
+<p><img alt="dunlop-crybaby-gcb95-more-mid-mod" class="article-img" src="images/crybaby-gcb-95/dunlop-crybaby-gcb95-more-mid-mod.png"/></p>
+<p> <strong>8.6 The V847 Wah-Wah Inductor.</strong></p>
+<p>In all vintage pedals, there is some component which is often impossible-to-find/expensive which somehow adds the best sound or the legendary original tone. In this case, the Fasel inductor from the first series is considered the holy grail.<br/></p>
+<p>There are several options in the market to play with, everything with a DC resistance between 10 to 200Ω (15O typ.), and inductance between 200mH to 1H (500mH typ.) can be used: The Dunlop Yellow/Red Fasel, TDK, Sabbadius Soul Inductor, Coloursound Inductor, Wipple inductor, SOD inductors, miniature audio transformers and coils from industrial filters.</p>
+
+<p><strong>8.7 Budda Bud-Wah Mod:</strong></p>
+<p>The Bud-Wah is basically a GCB-95 basic schematic with premium grade components and equipped with True Bypass. However, the sound of the Bud-Wah against the <em>standard</em> GCB-95 is sometimes reported as sharper/strident where the notes tend to get lost easier. In order to improve the sound and get a "Hendrix" tone, 2 components need to be changed:</p>
+<ul>
+<li><strong>C2</strong> (in GCB-95 ) = 0.022 uF = C5 ( in Bud-Wah) – ok to jump with .01 uF on back side of board.</li>
+<li><strong>R7</strong> (in GCB-95 ) = 20K= R5 (in Bud-Wah) - ok to jump with 47K on back side of board.<br/>Lowering R7 works as a <em>voice </em><em>mod</em> (section 8.2), only going the other direction with R7 that found the sweet spot. The change allows for more of the original note to come through while retaining a very lush wah.</li>
+</ul>
+<p>For those who want the standard sweep range with a sound more like the current Bud-Wah, we suspect that changing R7 to 20K and retaining the .01 uF sweep capacitor will likely produce this result based on the results of the above mods.</p>
+<p>As an additional info for builders, this is the part equivalence between the GCB-95 and the Bud-Wah:</p>
+<div class="table-scroll"><table border="0">
+<tbody>
+<tr>
+<td><strong>GCB-95</strong></td>
+<td>    </td>
+<td><strong>Bud-Wah (rev. B)</strong></td>
+</tr>
+<tr>
+<td>
+<p>Rin1<br/>Rin2<br/>Rin3<br/>Rin4<br/>R1 <br/>R2 <br/>R3 <br/>R4 <br/>R5 <br/>R6 <br/>R7 <br/>R8 <br/>R9 <br/>R10 <br/>Cin1<br/>Cin2<br/>C1 <br/>C2 <br/>C3 <br/>C4 <br/>C5 <br/>C7 <br/>C6</p>
+</td>
+<td> </td>
+<td>
+<p>R16<br/>R13 + R20 in series (1.8M + 100K)<br/>R2<br/>R14<br/>R15 (2%)<br/>R1<br/>R4<br/>R9<br/>R7<br/>R6<br/>R5<br/>R3 (2%)<br/>R18<br/>R8 <br/>C9<br/>C10<br/>C1<br/>C5<br/>C3<br/>C6<br/>C8<br/>C11<br/>C4</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>9. Resources.</strong></p>
+<p><a href="http://www.geofex.com/article_folders/wahpedl/wahped.htm" rel="noopener noreferrer" target="_blank">The Technology of Wah Pedals </a>by Geofex.<br/><a href="http://stinkfoot.se/archives/557" rel="noopener noreferrer" target="_blank">Stinkfoot Wah mods.</a><br/></p>
+
+<p>Our sincere appreciation to Mike S. for helping us with the article.</p>
+<p>Thanks for reading, all feedback is appreciated   </p>
+
+<p> Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054635/https://www.electrosmash.com/crybaby-gcb-95" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Dunlop%20Crybaby%20GCB-95%20Circuit%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="dallas-rangemaster.html">&larr; Dallas Rangemaster Treble Booster Analysis</a>
+    <a class="prevnext" href="emg81.html">EMG81 Pickup Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

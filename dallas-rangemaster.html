@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dallas Rangemaster Treble Booster Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Dallas Rangemaster Treble Booster Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Dallas Rangemaster Treble Booster Analysis</h1>
+
+<p>The Dallas Rangemaster Treble Booster is a booster guitar pedal that especially emphasizes the upper mid and treble frequencies (coloring the signal). It was designed in London (UK) by Dallas Musical Ltd in 1965.  At that time, the British tube amplifiers such as the Vox AC30 or Marshall JTM45, tended to produce a slightly dark, muddy tones when overdriven, this box fixed that issue. The effect became popular because of its sweet coloration, slightly bending the signal and giving a soft compression when maxed out.  </p>
+<p><img alt="dallas rangemaster treble booster analysis" class="article-img" src="images/dallas-rangemaster/dallas_rangemaster_treble_booster_analysis.jpg"/><br/>The grey metal box was designed to sit on top of the amp and not on the floor as most of the pedals do nowadays, it features a simple ON/OFF sliding switch and a potentiometer to adjust the volume. The apparent simplicity of the circuit and the limited supply of this discontinued effect make it a perfect target for builder and guitar pedal enthusiasts.</p>
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. The Dallas Rangemaster Original Parts</a>.<br/><a href="#link2">2. Dallas Rangemaster Treble Booster Schematic.</a><br/>     <a href="#link21">2.1 Input Impedance.</a><br/>     <a href="#link22">2.2 Output Impedance.</a><br/>     <a href="#link23">2.3 Voltage Gain.</a><br/>     <a href="#link24">2.4 Dallas Rangemaster Signal.</a><br/><a href="#link3">3. Frequency Response.</a><br/><a href="#link4">4. Biasing the Dallas Rangemaster Treble Booster.</a><br/>     <a href="#link41">4.1 Effects of the Bias Point over the Output Signal.</a><br/><a href="#link5">5. Dallas Rangemaster Treble Booster Mods.</a><br/>     <a href="#link51">5.1 Positive / Negative Ground Circuits.</a><br/>     <a href="#link52">5.2 Input Cap Mod.</a><br/>     <a href="#link53">5.3 Output Cap Mod.</a><br/>     <a href="#link54">5.4 Input Pull-Down Resistor Mod.</a><br/>     <a href="#link55">5.5 Output Pull-Down Resistor Mod. </a><br/>     <a href="#link56">5.6 Bias the Rangemaster with a 100KΩ potentiometer instead of fixed 68K R2 Mod.</a><br/><a href="#link6">6. Resources.</a></p>
+
+<p><strong><a id="link1"></a>1. The Dallas Rangemaster Original Parts:</strong></p>
+<p>The Dallas Rangemaster was designed with the available parts at that time (the 1960's), carbon comp resistors, Mullard germanium transistor, no PCB (all the components are mounted over a piece of a terminal strip), an <em>exotic </em>English potentiometer, etc:</p>
+<p><img alt="dallas rangemaster inside " class="article-img" src="images/dallas-rangemaster/dallas_rangemaster_inside.jpg"/></p>
+
+<ul>
+<li><strong> </strong><strong>Carbon Comp Resistors:</strong> Carbon comp is an old technology, noisier than modern metal film 1% resistors. These vintage resistors could bring more organic sound (but also are blamed to bring the noise). For other vintage effects like the Fuzz Face that (noisy by definition), carbon comp resistors are a great choice (adding a bit more noise to a high gain fuzz wont hurt anyone). On the other hand, for a booster (like the Rangemaster) maybe carbon comp technology is not a good idea (you want to keep all as clean as possible), so modern film resistors are a better choice.</li>
+</ul>
+<p><img alt="carbon comp resistor" class="article-img" src="images/dallas-rangemaster/carbon_comp_resistor.jpg"/></p>
+<ul>
+<li> <strong>The potentiometer:</strong> The original Dallas Rangemaster uses a UK Welwyn 10k ohm (sometimes 20k) unit with two mounting screws. The potentiometer body was made of bakelite and isolated from the chassis, but this feature does not add any benefit for the pedal.</li>
+</ul>
+<p><img alt="rangemaster weleyn potentiometer" class="article-img" src="images/dallas-rangemaster/rangemaster_potentiometer.jpg"/></p>
+<ul>
+<li><strong>The original Germanium transistor</strong> was the Mullard OC44, long time ago discontinued. They are claimed to sound good with a soft clipping knee but also noisy, microphonic, temperature dependent and gain variable.</li>
+</ul>
+<p><img alt="mullard transistor" class="article-img" src="images/dallas-rangemaster/mullard-transistor.jpg"/></p>
+<ul>
+<li><strong>Capacitors:</strong> There is not much magic involved on the caps, they are just common available technologies: 47uF is aluminum electrolytic, de 5nF and 10nF are films. </li>
+</ul>
+<p><img alt="axial capacitor" class="article-img" src="images/dallas-rangemaster/cap.jpg"/></p>
+<h2><strong><a id="link2"></a>2. Dallas Rangemaster Treble Booster Schematic.</strong></h2>
+<p>The circuit is beautifully simple, a single stage Common Emitter PNP amplifier:</p>
+<p><img alt="dallas rangemaster schematic parts" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-schematic-parts.png"/></p>
+
+<ul>
+<li><strong>C1:</strong> Is the series 5nF input cap, it will remove any DC level from the input signal and also create a high-pass filter together with R1, R2 and the input impedance of the Q1 transistor. This cap is crucial for the pedal equalization. You can read about this filter in the Frequency Response section and also in the Mods part.</li>
+<li><strong>The resistors R1 (470KΩ) and R2 (68KΩ)</strong> create a Voltage Divider across the supply. They provide the required bias voltage to the base of the transistor and define the operating point of the pedal. Biasing the pedal in this way (with a resistor divider in Q1's base) reduces the effect of β (gain) variations, which is pretty common in Germanium transistors.</li>
+<li><strong>RV:</strong> Is an audio (logarithmic) 10K potentiometer. It will control the amount of volume of gain applied to the input signal, check the Voltage Gain section for more info.</li>
+<li><strong>R3:</strong> is a 3.9KΩ emitter resistor for the Common Emitter amplifier, it will provide negative feedback to the transistor,  keeping the bias point stable.</li>
+<li><strong>C3:</strong> 47uF electrolytic cap, makes the guitar signal to bypass the R3 resistor. This makes the signal to get higher gain despite the bias point established by R3. </li>
+<li><strong>C2:</strong> it is the 10nF output series capacitor. Its task is to clean any DC for the output signal.</li>
+<li><strong>C4:</strong> The power supply is simply formed by a single 47uF, there is no protection against reverse polarity connections but makes sense because the original effect was designed to work only on battery. If you want more info about power supply improvements/mods, check the modifications section.</li>
+</ul>
+<h3><strong><a id="link21"></a>2.1 Dallas Rangemaster Input Impedance.</strong></h3>
+<p>The input impedance could be calculated as:<br/></p>
+<p>Zin = (R1//R2) // (Zin transistor)</p>
+<p>Zin = (R1//R2) // (rπ) = 470KΩ // 68KΩ// 12.5KΩ = 10KΩ to 12KΩ approx.</p>
+<p>Where:</p>
+<p>rπ = [(β+1)xVt]/Ieq = β/gm = 100/0.008 = 12.5KΩ</p>
+<p>β = 100, we are using this value by default in the whole article, you can do the numbers using any other value.</p>
+<p>gm = Ie/Vt = 0.2mA/25mV = 0.008</p>
+<p>Ie= 0.2mA you can check how this is calculated in the biasing section.</p>
+<p>The "//" symbol means <a href="https://en.wikipedia.org/wiki/Resistor#Series_and_parallel_resistors" rel="noopener noreferrer" target="_blank">"resistors in parallel".</a></p>
+
+<p><img alt="dallas rangemaster hydrid pi equivalent" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-hydrid-pi-equivalent.png"/></p>
+<p>As a rule of thumb, a high input impedance (around 1MΩ) is always desired; it reduces tone sucking, pickups loading and possible interactions/interference between pedals. </p>
+<p>12KΩ is a poor input impedance value (Zin), but part of the Rangemaster sound owes its fame due to the way its low Zin interacts with passive pickups. This loading will smooth the highs and helps the guitar volume control the clean it up. So, the input impedance is an important factor on the pedal's tone, if the effect is not driven by a guitar but by a high input impedance buffer, the Rangemaster may sound bright and thin. This is why many people like to place this effect the first in the pedalboard (or keeping it in an isolated loop)</p>
+<p><strong><a id="link22"></a>2.2 Dallas Rangemaster Output Impedance.</strong><br/>The output impedance in a Common Emitter amplifier is Rv (the transistor's Rc).</p>
+<p>Zin = RV = 0 to 10KΩ</p>
+<p>Ideally, a guitar pedal design aims for low output impedance, it makes the circuit to interact nicely with the rest of the pedals on the board. 10K is not bad; most of the designs keep the output impedance below 1K but 10K is still good.</p>
+
+<p><strong><a id="link23"></a>2.3 Voltage Gain.</strong></p>
+<p>The C3 cap that bypasses the R3 resistor makes the voltage gain formula:</p>
+<p>Gv = gm  x Rc =  0.008 x 10K = 80 = 38dB.</p>
+<p>note:</p>
+<ul>
+<li>gm = 0.008 it was calculated in the Input Impedance section.</li>
+<li>38dB is a high voltage gain for a booster pedal, other similar pedals like the <a href="mxr-microamp.html">MXR MicroAmp have a lower voltage gain of 26dB.</a> This is not necessarily a good or a bad thing, but the Rangemaster will for sure be able to drive signals harder.</li>
+</ul>
+
+<p>Note: The DC Voltage across the Volume control: The electronic design of this pedal makes that the RV potentiometer keeps a DC voltage across its terminals. This means that the sound will <em>scratch</em> and whenever the volume is touched (even if you use the original plastic- non-conductive original discontinued Wilk potentiometers)</p>
+
+<p><strong><a id="link24"></a>2.4 Dallas Rangemaster Signal.</strong></p>
+<p>The maximum swing operating point in the Rangemaster happens when Vb=7V approx. and Vc=4V approx. But as you will see in the Bias Section, the considered best sounding biasing happens with  Vb=8V approx. and Vc=2V approx. The transistor amplifier is not at the center of the linear region, and it will result in an asymmetric soft clipping:</p>
+<p><img alt="dallas rangemaster output waveform " class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-output-waveform-all.png"/></p>
+<p>When the Vol control is maxed out, the signal will be boosted and also driven into soft clipping, this will color the signal and make the sound quite particular. Germanium parts are famous for their soft clipping and biased off the middle of its swing area, the signal will be compressed in one of their semi cycles, making the sound asymmetrically warmer and rounder.</p>
+
+
+<p><strong><a id="link3"></a>3. Dallas Rangemaster Treble Booster Frequency Response.</strong></p>
+<p>The frequency response is dominated by the high-pass filter created by the C1 and the input impedance of the pedal. But there are 2 more caps (C2 and C3) that also create high-pass filters:</p>
+<ul>
+<li><strong>C1</strong>: creates a high-pass filter with a fc=1/2πC1xZin = 1/(2 x π x 5nF x 12KΩ) = 2.6KHz</li>
+<li><strong>C2</strong>: creates a high-pass filter with a fc=1/2πC1xRload = 1/(2 x π x 10nF x 1MΩ) = 15.9Hz (not in the audio band)</li>
+<li><strong>C3</strong>: creates a high-pass filter with a fc=1/2πC3xR3 = 1/(2 x π x 47uF x 3.9KΩ) = 0.8Hz (not in the audio band)</li>
+</ul>
+<p>The most important filter for the audio response is C1, attenuating the harmonics below 2.6KHz and giving full gain to the treble.</p>
+<p><img alt="dallas rangemaster frequency response" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-standard-frequency-response.png"/></p>
+<p> The magic of this equalization is that frequencies over 2.6KHz will have full gain and a soft clipping when the strings are strummed hard. Giving some warm tone to the high frequencies. </p>
+
+
+<p><strong><a id="link4"></a>4. Biasing the Dallas Rangemaster Treble Booster:</strong></p>
+<p>Germanium transistors have an Hfe (also called β and Gain) value that changes from part to part. As a result of that the bias point of the pedal will change from one unit to another, to fix that and try to make the best sound out of the pedal we have two options:</p>
+<ul>
+<li>Find the germanium transistor with the perfect HFE gain 90:  Any value between 75 and 100 would be great. The problem is that germanium transistors went out of fashion 30 years ago, there are no lines of production and finding NOS batches with a decent gain is almost impossible. In the '60s this was a viable option, nowadays not so much.</li>
+</ul>
+<ul>
+<li>Bias the circuit properly: When Dallas designed the Rangemaster, they probably had access to good transistors with controlled gain, so they just set a pair of fixed resistors (R1 and R2). Now that the transistors are not so numerous, we can just adjust this 2 resistors and make the pedal sound its best.<br/>The sound of the Rangemaster is heavily dependant on the bias point. Usually, transistors are biased to the middle of their swing area so they can produce the biggest non-distorted output signal (maximum headroom). This is not the case of the Rangemaster, where the bias is a bit off the center creating an asymmetric gain.</li>
+</ul>
+<p><br/><strong>The Perfect Bias point:</strong></p>
+<p>It is commonly agreed that the ideal bias point for the Dallas Rangemaster Treble Booster is to have Q1 collector voltage at -7.0V (any value between -6.9 and -7.1 would be great), if you refer the voltage to ground and not to +9V (like the image below) the perfect Vc=+2V ( any value between 1.9 and 2.1).</p>
+<p>The easiest way to achieve the best sounding bias is to substitute the 69KΩ R2 by a 100KΩ or 200KΩ trimmer resistor (a Bourns multiturn resistor is expensive but the best part for this task):</p>
+<p><img alt="dallas rangemaster bias points" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-bias-points.png"/> </p>
+<p>Calculating the Base voltage: </p>
+<p>Vb = Vcc x R1/(R1+R2)/= 9 x (470KΩ/(470KΩ + 68KΩ)) = 7.8V (8V approx.)</p>
+
+<p>The Base voltage (defined by R1 and R2) will determine the Base current:</p>
+<p>Vb = Vbe + (β+1) x Ib x R3</p>
+<p>ib  = (Vb - Vbe) / (R3 x (β+1))</p>
+<p>ib = (7.8 - 0.3) / (3.9KΩ * (100+1))</p>
+<p>ib = 0.0195mA</p>
+<p>note:</p>
+<ul>
+<li>Vbe=0.3V for most of Germanium transistors.</li>
+<li>We are using a default value of transistor Hfe = β = 100</li>
+</ul>
+<p>The collector current and Collector Voltage will be:</p>
+<p>Ic = β x ib = 100 x 0.0190= 1.9mA (2mA approx)</p>
+<p>Vc= -Ib x Rv = -0.2mA x 10KΩ = -2V. </p>
+
+<p>It is important to understand, that following the equation, if the β value changes, the bias point will change too. This is why using a trimmer resistor instead of R2 will compensate for this β variation.  </p>
+
+<p><strong><a id="link41"></a>4.1 Effects of the Bias Point over the Output Signal.</strong></p>
+<p>The bias point has a direct effect over the output waveform shape and the sound of the Rangemaster. In the image below you can see the output signal with different Vb values when the Volume knob is maxed out:</p>
+<p><img alt="dallas rangemaster bias point output signal" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-bias-point-output-signal.png"/></p>
+<p>You can see how the default configuration (Vbase=8V) is not the <em>cleanest</em> option. Setting a Vb=6.8V (7V approx.), like the light green trace will give us more headroom and clean sound. But part of the character and mojo of this pedal remains on its biasing.</p>
+<p>note: For all these graphs we have used a Q1 transistor with gain = 100.</p>
+
+
+
+<p><strong><a id="link5"></a>5. Dallas Rangemaster Treble Booster Mods.</strong></p>
+<p>The simplicity of the circuit makes builders experiment adding some extra features so players can have some more knobs and switches to play with.</p>
+
+<p><strong><a id="link51"></a>5.1 Positive / Negative Ground Circuits.</strong></p>
+<p>There are 4 ways to ground the Rangemaster circuit:</p>
+<p><img alt="dallas rangemaster positive negative ground circuits" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-positive-negative-ground-circuits.png"/></p>
+
+<ul>
+<li><strong>PNP Positive Ground:</strong> it is the original circuit. It sounds fantastic but the problem with it is that if you want to use an external DC adapter (and not only batteries) it will create a short circuit (see how the input and output jacks are referenced to +9V and not ground). The original box never faced this issue because it only works on batteries. So please do not use a daisy chain power adaptor with a positive ground guitar pedal.</li>
+</ul>
+<p><img alt="how to daisy chain pedals" class="article-img" src="images/dallas-rangemaster/how-to-daisy-chain-pedals.jpg"/></p>
+<ul>
+<li><strong>PNP Negative Ground: </strong>it is a modern mod that adapts the pedal to be used with a standard daisy chain power supply. The input and output caps remove any DC so the input/output jacks can be re-grounded to the real GND. The problem with this approach is that the circuit would be very prone to oscillations/hissing/motorboat noise. The long return currents from the input and output jacks make the pedal unstable. Most of the times, it would work, especially because the Rangemaster does not have a massive gain ( like other popular PNP Negative ground circuits like the Fuzz Face that are very problematic), however, I would not recommend this circuit. If you want to use a real negative ground circuit, use the last option (MAX1044 mod).</li>
+</ul>
+<ul>
+<li><strong>NPN Negative Ground: Using an NPN transistor</strong>, the pedal can be grounded in a standard manner, removing any problems with power supplies and oscillation. Any low gain NPN transistor would work here: 2N5088, 2N3904, 2N4401, BC108, BC109, BC109C, BC183, BC183L, BC209C (all of them are Silicon). The problem with this circuit is that there are not so many NPN germanium transistors out there.   </li>
+</ul>
+<ul>
+<li><strong>PNP Real Negative Ground:</strong> We can use a MAX1044 (or the equivalents: ICL7660, TC1044) to create a "real" -9V. You can use this -9V in the circuit making it compatible with a daisy chained power supply and without oscillation. Note that you have to be careful with the MAX1044 layout to reduce any noise from the charge pump. This mod is also used and described on the <a href="https://aionelectronics.com/wp-content/uploads/2018/04/aion-radian-rangemaster-documentation.pdf" rel="noopener noreferrer" target="_blank">Radian Rangemaster Project by Aion Electronics.</a></li>
+</ul>
+<p><img alt="dallas rangemaster mods " class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-mods.png"/></p>
+<p><strong><a id="link52"></a>5.2 Input Cap Mod.</strong></p>
+<p>The Dallas Rangemaster Input Cap modification is the most popular one. By simply changing the C1 input cap we can transform the frequency response making it more limited or wide. It is easy to implement, just using an ON-OFF-ON SW1 switch. There are two typical sets of cap values (5/10/15nF and 5/47/100nF) that you can use for this mod:</p>
+<ul>
+<li>If you want to keep the original tone of the Rangemaster and make subtle adjustments over it, the typical values are 5nF (standard value), 10nF and 15nF. Check the graph below to see how the frequency response is modified:</li>
+</ul>
+<p><img alt="dallas rangemaster standard frequency response standrard 10n 15n" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-standard-frequency-response-standrard-10n-15n.png"/></p>
+<ul>
+<li>If you want to be more aggressive, some players use the 5nF (standard value), 47nF and 100nF. This values are far from the original sound but may make the pedal more versatile, making the booster more wide frequency and not just for the treble. Check the graph below to see how the frequency response is modified:</li>
+</ul>
+<p><img alt="dallas rangemaster frequency response standrard 47n 100n" class="article-img" src="images/dallas-rangemaster/dallas-rangemaster-frequency-response-standrard-47n-100n.png"/></p>
+
+
+<p><strong><a id="link53"></a>5.3 Dallas Rangemaster Output Cap Mod.</strong></p>
+<p>This modification is not as popular as the Input Cap Mod and for a reason. Although it has to be admitted that 10nF is a low value for an output cap (many pedals use caps in the 100nF to 47uF range for this). Changing the C3 value will modify the filter created by this cap and the "load" or next pedal/amplifier in the chain. Users have different setups or "loads" so the result is variable. </p>
+<p>In the same way, as in the Input Cap Mod, this feature could be implemented by using an ON-OFF-ON switch to change between 1nF, 10nF (standard value), 1uF. But if you have a good load (around 100KΩ to 1MΩ) the cut-off filter frequency (fc=1/2piRC) will not affect the audio band.</p>
+
+<p><strong><a id="link54"></a>5.4 Input Pull-Down Resistor:</strong> The original Rangemaster was designed to be used between the guitar and the amp, with no other effects around. If you plan to use it together with other effects is recommended to use a pull-down input resistor (anything between 1MΩ – 10MΩ) to avoid the input cap to pop when activated.</p>
+
+<p><strong><a id="link55"></a>5.5 Output Pull-Down Resistor:</strong> similar to the input pull-down resistor, if the Rangemaster is going to be used together with more effects and activated/bypassed on stage, its good to place an output pull-down resistor to discharge the output cap and avoid pops when activated (anything between 1MΩ – 10MΩ). None of the input/output pull-down resistors will affect the sound.</p>
+
+<p><strong><a id="link56"></a>5.6 Bias the Rangemaster with a 100KΩ potentiometer instead of fixed 68KΩ R2:</strong></p>
+<p>A 100KΩ or even a 200KΩ potentiometer (Burns multiturn resistors are great for this task) can be used to adjust the bias point and make the pedal to sound its best. By using it we can fix the problems with low gain germanium transistors and adjust the Vb to the optimal +8V. You can get more info about this is the Bias Section.</p>
+<p><img alt="Bourns 3296 Trimmer Potentiometer" class="article-img" src="images/dallas-rangemaster/Bourns-3296-Trimmer-Potentiometer.jpg"/></p>
+<p><strong><a id="link6"></a>6. Resources</strong></p>
+<ul>
+<li><a href="https://gitec-forum.de/wp/wp-content/uploads/poteg-10-08-05-3-range-master.pdf" rel="noopener noreferrer" target="_blank">Rangemaster Technology</a> from "Guitar Amplifiers"</li>
+<li><a href="http://www.geofex.com/article_folders/rangemaster/drm.htm" rel="noopener noreferrer" target="_blank">Dallas Rangemaster Study By RG Keen</a>, the first and best document out there.</li>
+<li><a href="https://www.premierguitar.com/articles/the-rangemaster-1" rel="noopener noreferrer" target="_blank">The Rangemaster</a> by Premier Guitar.</li>
+</ul>
+
+<p>My sincere appreciation to J. Blake Arnold for your help with this analysis. </p>
+<p>Thanks for reading, all feedback is appreciated: This email address is being protected from spambots. You need JavaScript enabled to view it.<script type="text/javascript">
+				document.getElementById('cloakab9dafe4f1672457161fbba78f2e8260').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addyab9dafe4f1672457161fbba78f2e8260 = '&#105;nf&#111;' + '&#64;';
+				addyab9dafe4f1672457161fbba78f2e8260 = addyab9dafe4f1672457161fbba78f2e8260 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_textab9dafe4f1672457161fbba78f2e8260 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloakab9dafe4f1672457161fbba78f2e8260').innerHTML += '<a ' + path + '\'' + prefix + ':' + addyab9dafe4f1672457161fbba78f2e8260 + '\'>'+addy_textab9dafe4f1672457161fbba78f2e8260+'<\/a>';
+		</script></p>
+
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054639/https://www.electrosmash.com/dallas-rangemaster" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Dallas%20Rangemaster%20Treble%20Booster%20Circuit%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="boss-ds1-analysis.html">&larr; Boss DS-1 Distortion Analysis</a>
+    <a class="prevnext" href="crybaby-gcb-95.html">Dunlop CryBaby GCB-95 Cicuit Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

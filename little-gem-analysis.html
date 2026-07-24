@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Gem Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; Little Gem Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Little Gem Analysis</h1>
+
+<address>Motivated by <a href="http://www.blueguitar.org/new/schem/_ss/smokey.txt" rel="noopener noreferrer" target="_blank">Dave Stork article</a> in blueguitar.org, Ruoffgroove designed the Little Gem Amp, an enhanced version of the Smokey Amp, using the LM386 integrated circuit and a handful of components.<a href="http://ghosteffects.blogspot.com/2008/11/lm386-chip-guitar-amp.html" rel="noopener noreferrer" target="_blank"></a></address><address> </address><address><strong>Table of contents</strong></address>
+<p><a href="#link1">1. Little Gem Schematic.</a><br/>    <a href="#link11">1.1 Gain &amp; Volume Controls.</a><br/>    <a href="#link12">1.2 Stabilization Techniques.</a><br/><a href="#link2">2. Little Gem Frequency Response.</a><br/><a href="#link3">3. Little Gem Modifications.</a><br/><a href="#link4">4. Resources.</a></p>
+
+
+<p><a id="link1" name="link1"></a><strong>1. Little Gem Schematic.</strong></p>
+<p>This guitar mini amplifier takes the basic <a href="smokey-amp-analysis.html">Smokey Amp circuit</a> and adds several improvements like power supply decoupling caps, a Zobel Network and Gain / Master Volume controls.<a href="images/little-gem-analysis/little-gem.gif" rel="noopener" target="_blank"></a></p>
+<h3><strong><a id="link11" name="link11"></a>1.1 Gain &amp; Volume Controls.</strong></h3>
+<p><strong>Gain:</strong> To make the LM386 a more versatile amplifier, a 5K logarithmic R<sub>1</sub> potentiometer is placed between pins 1 and 8 to adjust the gain from 26 (28dB) to 200 (46db) following the general LM386 voltage gain formula:</p>
+<p> <img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
+
+<p><strong>Volume:</strong> The volume control is just a voltage divider with an R3 rheostat in the last stage of the circuit.</p>
+<p><strong>TIP:  </strong>The 5K potentiometer R1 can be reduced to 2K or even 1K (like in the <a href="ruby-amp-analysis.html">Ruby Amp</a>). Doing so, the minimum Gain is increased and the control seems to have more responsiveness and works better over nearly the whole way of the pot. </p>
+<h3><a id="link12" name="link12"></a><strong>1.2 Stabilization Techniques.</strong></h3>
+<p>Unlike the Smokey Amp, the Little Gem does include some tricks to avoid noise and instability:</p>
+<ul>
+<li>The supply pin 6 is bypassed to ground with a 100uF C<sub>1</sub> capacitor to prevent oscillation, should be placed as close to the chip as possible.</li>
+<li>Pin 2 input (-) signal is coupled with a 0.01uF C<sub>2</sub> cap so not to disturb the internal biasing and remove any DC offset of the input signal. This capacitor may also reduce the bass response because it produces a high-pass filter together with the LM386 input impedance (which is 50KΩ according to the datasheet) so, frequencies below 318Hz are attenuated:</li>
+</ul>
+<p>fc = 1/ (2 x π x R x C) = 1/ (2 x π x 50KΩ x 10nF) = 318.3Hz.</p>
+<p>This bass roll-off is not bad if you want to avoid a small speaker driver from farting out. If you are using a big quality speaker this 10nF cap could be increased to 100nF or 470nF so the deep bass freqs will be also reproduced).</p>
+
+<p><strong>Zobel Network</strong>:<br/>A Zobel Network formed by an R<sub>2</sub> 10Ω resistor and a C<sub>3</sub> 0.047uF cap to ground is introduced in the output path, in order to stabilize the amp and restore the clean tones wiping some spurs that manifested themselves as spiky farting tones.</p>
+<p>The typical component values of a Zobel Network are a few ohms resistor and a 10 to 100 nF capacitor.<br/>These values are quite generic since the Zobel is not a compensating circuit for the amplifier but for the load (speaker), and the load is pretty generic in audio amplifiers. This network smooths out the rising curve of the speaker's impedance, preventing oscillation and also linearizing crossover loads.</p>
+
+<p>The way to derive the component values for the Zobel is following:</p>
+<ul>
+<li>The resistor is chosen to equal the nominal resistance (32Ω, 8Ω, 4Ω, etc.)</li>
+<li>The capacitor is calculated using C= Le/R<sub>2</sub>, where Le= inductance of speaker's coil.</li>
+</ul>
+<p>Zobel Network placement: in some occasions Zobels mounted on circuit board cause oscillation, that is why it should be placed as close to the chip as possible or even more effectively hardwired straight to speaker binding posts.</p>
+<h2><a id="link2" name="link2"></a><strong>2. Little Gem Frequency Response</strong></h2>
+<p>The output C<sub>4</sub> 220uF coupling cap together with the rheostat (volume pot) and the load (speaker) creates a high pass filter also called <em>bass cut</em> filter. Unfortunately, the cut-off filter frequency depends on the Volume pot position. Going from 119 Hz at top volume to 29Hz at min volume:</p>
+<ul>
+<li><strong>fcmin:</strong> with the volume pot wiper in the <em>min</em> position (set in top-down position), producing minimum output volume, the load is connected to ground. find below the frequency response in red color.</li>
+</ul>
+<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<ul>
+<li><strong>fcmax</strong>: with the volume pot wiper in the <em>max</em> position (set in top-up position), generating maximum output volume,  the load is in parallel with the volume resistor, find below the frequency response in blue color.</li>
+</ul>
+<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+
+<p>The cut-off frequency at minimum volume is 29 Hz, this value can be too low because the 50-60Hz harmonics from the power network may create a hum. However at this volume level, it does not matter, it is too weak to be noticed.</p>
+<h2><a id="link3" name="link3"></a><strong>3. Little Gem Mods.</strong></h2>
+<p>The most requested modification is to add an auxiliary headphone output. One again, <a href="http://runoffgroove.com/faq.html" rel="noopener noreferrer" target="_blank">RunoffGroove proposed</a> an easy solution:</p>
+<p>The speaker will be muted when the headphones are plugged. The resistor between the headphone plug sleeve and ground will reduce the headphones volume level. The reference recommended value is 10Ω, but depending on the headphones impedance, which varies from one to another model, can be adjusted to suit the user taste.</p>
+<h2><a id="link4" name="link4"></a><strong>4. Resources</strong></h2>
+<p><a href="http://www.runoffgroove.com/littlegem.html" rel="noopener noreferrer" target="_blank">Little Gem home</a> in Runoffgroove.<br/><a href="http://ghosteffects.blogspot.com/2008/11/lm386-chip-guitar-amp.html" rel="noopener noreferrer" target="_blank">GhostEffects.co.uk Little Gem</a>.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers</a>, the Holy Scripture.<br/><a href="http://runoffgroove.com/faq.html" rel="noopener noreferrer" target="_blank">Little Gem faq and mods</a> in Runoffgroove.<br/><a href="http://www.wavecor.com/html/zobel_networks.html" rel="noopener noreferrer" target="_blank">Zobel Networks info in Wavecor.com</a><br/><a href="http://chipmusic.org/forums/topic/2321/how-to-stabilize-the-parasitic-oscillations-of-a-386-amplifier/" rel="noopener noreferrer" target="_blank">LM386 Stabilization tricks</a> in ChipMusic.org</p>
+<p>My sincere appreciation to T. Juergen, Oliver Adelstein and Tim Anderson for your support.</p>
+
+<p> Thanks for reading, all feedback is appreciated  </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054723/https://www.electrosmash.com/little-gem-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Little%20Gem%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="1wamp.html">&larr; 1Wamp Electric Guitar Amplifier - Open Hardware</a>
+    <a class="prevnext" href="marshall-mg10.html">Marshall MG10 Amplifier Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

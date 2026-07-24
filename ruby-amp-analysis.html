@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby Amp Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; Ruby Amp Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Ruby Amp Analysis</h1>
+
+<p>The Ruby Amp is an LM386 based guitar amplifier. It is an enhanced version of the previous <a href="little-gem-analysis.html">Little Gem Amp</a> also designed by Runoffgroove. The main improvements of the Ruby Amp vs the Little Gem are new the input buffer, a renovated volume control, and an updated Gain potentiometer.</p>
+<p><img alt="ruby-amp-by-Infrasonic-Sightings" class="article-img" src="images/ruby-amp-analysis/ruby-amp-by-Infrasonic-Sightings.gif"/></p>
+<p><strong> Table of Contents</strong></p>
+<p><a href="#link1">1. Ruby Amp Schematic Diagram.</a><br/>    <a href="#link11">1.1 Input Buffer.</a><br/>    <a href="#link12">1.2 Volume Circuit.</a><br/>    <a href="#link13">1.3 Gain Circuit.</a><br/>    <a href="#link14">1.4. Stabilization Techniques.</a><br/><a href="#link2">2. Ruby Amp Frequency Response.</a><br/><a href="#link3">3. Ruby Amp Adjustment.</a><br/><a href="#link4">4. Ruby Amp Mods.</a><br/>    <a href="#link41">4.1 Ruby Bassman Analysis.</a><br/>        <a href="#link411">4.1.1 Frequency Response.</a><br/>    <a href="#link42">4.2 Ruby Hiwatt Analysis.</a><br/>        <a href="#link421">4.2.1 Frequency Response.</a><br/>    <a href="#link43">4.3 Headphones Plug.</a><br/>    <a href="#link44">4.4 Pre-set Gain Ceiling.</a><br/>    <a href="#link45">4.5 12v Power Supply. </a><a href="#link45"></a>   </p>
+
+<h2><a id="link1" name="link1"></a><strong>1. Schematic Diagram.</strong></h2>
+<p>The original super-simple Smokey Amp was reviewed by RunOffGroove who created the Little Gem, now once again the circuit gets reviewed adding new capabilities: </p>
+<ul>
+<li>The input buffer (which keeps isolated the guitar and preserves the tone) The N-Channel JFET  input buffer will solve one of the main LM386 op-amp lacks: the low input impedance.</li>
+<li>The new placement of the Gain potentiometer follows the LM386 recommendation and is a better solution than the previous Little Gem rheostat.</li>
+</ul>
+<p><img alt="Ruby Amp Schematic" class="article-img" src="images/ruby-amp-analysis/ruby-amp.gif"/><strong><a id="link11" name="link11"></a>1.1 Input Buffer</strong></p>
+<p>The input buffer is a basic JFET common drain transistor amplifier (this part of the circuit was probably inspired by the <a href="http://www.muzique.com/" rel="noopener noreferrer" target="_blank">Jack Orman designs</a>).It presents a high input impedance avoiding tone sucking, keeping the treble detail. It also has a low impedance output drive with unity gain.<img alt="ruby-amp-buffer" class="article-img" src="images/ruby-amp-analysis/ruby-amp-buffer.gif"/></p>
+<ul>
+<li>The input impedance is determined by the value of R<sub>1</sub> and it is 1M5. The value of R<sub>2</sub> is not critical and any value from 3.3K to 10K would work without much change on the tone. It is better to use lower resistor values since this allows more drive on the negative portion of the audio cycle where the only pull-down is the source resistor.</li>
+</ul>
+<ul>
+<li>The output impedance will depend on the JFET transistor but is on the order of a few hundred ohms.</li>
+</ul>
+<h3><a id="link12" name="link12"></a><strong>1.2 Volume Circuit</strong></h3>
+<p>The R<sub>3</sub> Volume potentiometer limits the amount of signal into the 386. As the Volume is increased, you will start getting nice breakup. Remember that the input voltage bounds for LM386 are ±0.4V, over/under these levels, the signal will be clipped.</p>
+<h3><a id="link13" name="link13"></a><strong>1.3 Gain Circuit</strong></h3>
+<p>The 1K logarithmic potentiometer (R<sub>4</sub>) is placed between pins 1 and 8 in order to adjust the gain from 41 (28dB) to 200 (46db). Following the general LM386 voltage gain formula (from the datasheet):</p>
+<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
+<h3><a id="link14" name="link14"></a><strong>1.4. Stabilization Techniques</strong></h3>
+<p>Following the LM386 application notes, some measures should be taken to increase the stability and prevent signal degradation:</p>
+<ul>
+<li><strong>Capacitor on pin 7:</strong> Unlike the Little Gem, the Ruby Amp does include a 100nF C<sub>3</sub> capacitor from pin 7 to ground in the 386 IC. It is used to avoid the power supply noise to be amplified and reach the output. In this way, the high-gain input stage of the chip is isolated from the supply noise.</li>
+</ul>
+<ul>
+<li><strong>Capacitor on power supply rails: </strong>The supply pin 6 is bypassed to ground with a 100uF C<sub>2</sub> capacitor to forestall oscillation. It should be placed as close to the chip as possible.</li>
+</ul>
+<ul>
+<li><strong>Zobel Network: </strong>This network formed by a series 10Ω R<sub>5</sub> resistor and a 47nF C<sub>4</sub> cap to ground is introduced in the output path. This will stabilize the amp and restore the clean tones wiping some spurs. The RC network is a compensating circuit for the load (speaker), not for the amplifier. For more info, <a href="little-gem-analysis.html#link12">check the similar design used also in the Little Gem Amp.</a></li>
+</ul>
+<h2><a id="link2" name="link2"></a><strong>2. Frequency Response</strong></h2>
+<p>The frequency response is tailored by two buffered cascaded high-pass filters:<br/><img alt="ruby-blocks" class="article-img" src="images/ruby-amp-analysis/ruby-blocks.gif"/></p>
+<ul>
+<li>The first high-pass filter cut-off frequency is around 360Hz and it is formed by C<sub>1</sub> and R<sub>3</sub> (note that the volume resistor wiper is loaded by the LM386 input resistance, which is 50K). The cut-off frequency is variable or "volume dependent" following the equation below. However, this unwished variation is very small and only present at low volume levels, this tiny tone change is barely noticeable:<br/></li>
+</ul>
+<p> <img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p> <img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+
+<ul>
+<li>The second high-pass filter formed by C<sub>5</sub> and the speaker load (8Ω) is a classic bass cut filter, that will start rolling off bass under 90Hz to keep the small speaker from farting out and also removing any DC component from the output signal. For more detailed info check the <a href="smokey-amp-analysis.html#freq">"Smokey Amp Frequency Response"</a>.</li>
+</ul>
+<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+
+
+<p>So taking both filters into consideration, the graph gain vs frequency looks like this:</p>
+<p><img alt="Ruby Amp Frequency Response" class="article-img" src="images/ruby-amp-analysis/ruby-original-freq.gif"/></p>
+<p>The graph above shows from blue to red the responses from minimum to maximum volume respectively. The Gain is fixed to 100 (40dB) for this experiment.<br/>The first HP filter formed by C<sub>1</sub> and R<sub>3</sub> has a cut-off frequency of 360Hz approx. (Fc1), under this frequency, the signal level decreases at 20dB/dec.<br/>The second HP filter formed by C<sub>5</sub> and the speaker load has a cut-off frequency of 90Hz (Fc2), under this frequency the signal level decreases at 40dB/dec.</p>
+<p>Should be noted that the input buffer plays an important role in the frequency response. Due to the intrinsic LM386 low input impedance, in previous designs like the Smokey Amp or the Little Gem the circuit could be load by the guitar pickups. Using a high input impedance buffer, the guitar signal integrity is granted and all tones are preserved.</p>
+<h2><a id="link3" name="link3"></a><strong>3. Adjusting a Little Gem - Set Up.</strong></h2>
+<p>The Gain/Volume pots are highly interactive, Runoffgroove gives some advice:</p>
+<ul>
+<li><strong>Clean sound:</strong> set the Volume pot to max and slowly turn up the Gain pot. Find the point just before the sound starts to break up and you have the maximum clean volume available</li>
+<li><strong>Overdrive sound:</strong> turn up the Gain pot to the desired maximum gain and adjust the Volume pot.</li>
+</ul>
+<p>If you have the Gain pot set high and you are still not getting desirable overdrive, you'll have to turn up the Volume pot to let more signal pass to the 386.</p>
+<h2><a id="link4" name="link4"></a><strong>4. Mods</strong></h2>
+<p>There is a bunch of possible modifications, the most famous are the "Bassman" and "HiWatt" versions, adding a headphone jack, a Gain Ceiling and 12V power supply:</p>
+<h3><a id="link41" name="link41"></a><strong>4.1 Ruby Bassman Analysis</strong></h3>
+<p>This mod tries to imitate the old Fender Bassman tone:</p>
+<ul>
+<li>With the Volume pot at half rotation and below, you will notice smooth and sparkly cleans with good depth.</li>
+<li>With the Volume pot set high, you will hear nice overdrive that is great for blues playing. The transition from dirty to clean can be controlled with your picking or strumming, adding an extra dimension to your playing.<img alt="Ruby Bassman Schematic" class="article-img" src="images/ruby-amp-analysis/ruby-bassman.gif"/></li>
+</ul>
+<p>Bassman modification step by step:</p>
+<ul>
+<li>Replace the .047uF cap from the FET source pin to the volume pot with a 0.1uF C<sub>1</sub> cap.</li>
+<li>Place a 220pF C<sub>6</sub> cap from lug 3 to lug 2 on the volume pot.</li>
+<li>Remove the Gain pot and place 2K2 R<sub>4</sub> fixed resistor between pins 1 and 8.<br/></li>
+</ul>
+<p>In the Ruby Bassman, the Gain is level fixed to 30, remember that the Original Ruby Gain is variable from 41 to 200, so the signal, in this case, will be less distorted.</p>
+<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>Where Z<sub>1-5</sub> and Z1-8 are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
+<h4><a id="link411" name="link411"></a><strong>4.1.1 Ruby Bassman Frequency Response</strong></h4>
+<p><img alt="Ruby Bassman Frequency Response" class="article-img" src="images/ruby-amp-analysis/ruby-bassman-freq.gif"/></p>
+<p>The graph shows from blue to read the responses from minimum to maximum Volume respectively. As mentioned before in this amp the Gain is fixed at 30.<br/>The tone of this mod is very close to the original amp, it only adds a little more bass as you will see in the Ruby vs Bassman vs Hiwatt comparison chart. In this mod, the first high-pass filter shifts down the cut-off freq, from 360Hz to 211Hz approx, adding some bass and body to the signal. If you add this factor to the fact that the Gain level is lower, the resulting amp will have smoother cleans and will tend to the overdrive rather than distortion.</p>
+<h3><strong><a id="link42" name="link42"></a>4.2 Ruby Hiwatt Analysis.</strong></h3>
+<p>This mod reported by Ricky Don Vance (aka RDV) introduces some elements to tailor the Original Ruby in a way that can remind a <a href="https://en.wikipedia.org/wiki/Hiwatt" rel="noopener noreferrer" target="_blank">Hiwatt amplifier.</a><br/>In RDV opinion, the 386 based amps have a deficit of high-end frequencies, so this adjustment tries to boost the treble by placing a 15nF C<sub>1</sub> cap instead of the 47nF after the JFET buffer, limiting the low-end going into the circuit. This changes also reduce the gain, so the Gain is set to maximum 200 to compensate this side effect.<br/>Another 1nF cap C<sub>6</sub> across the volume control is also placed to fight treble loss.</p>
+<p><img alt="Ruby Schematic Schematic" class="article-img" src="images/ruby-amp-analysis/ruby-hiwatt.gif"/>Hiwatt modification step by step:</p>
+<ul>
+<li>Replace the old 47nF C<sub>1</sub> cap for a new smaller 15nF cap after the Jfet.</li>
+<li>Increase the Volume R3 pot from 10K to 50K.</li>
+<li>Add a 1nF C<sub>6</sub> treble bleed cap between lugs 3 and 2 of the volume pot.</li>
+<li>Tied together pins 1 &amp; 8 for a gain of 200.</li>
+</ul>
+<p>The voltage gain is fixed in 200:</p>
+<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.<br/></p>
+<h4><a id="link421" name="link421"></a><strong>4.2.1 Ruby Hiwat Frequency Response.</strong></h4>
+<p><img alt="Ruby Hiwatt Frequency Response" class="article-img" src="images/ruby-amp-analysis/ruby-hiwatt-freq.gif"/></p>
+<p>The graph shows from blue to red the responses from minimum to maximum volume respectively. The gain is fixed to 200 (46dB).<br/>The HP filter formed by the input caps C<sub>1</sub> and C<sub>6</sub> and the Volume pot R<sub>3</sub> produces the bass boost of the higher frequencies.<br/>The Bass Cut filter formed by C<sub>5</sub> and the load (speaker) effect is added to the previous filter reducing dramatically the gain below 90Hz.</p>
+<p>Unlike the Bassman mod, the tone of the Hiwatt mod is pretty different from original Ruby, the filters shape the signal boosting the high-end tones as RDV expected. The extra gain contributes to get a different sound.</p>
+<p><em>“Ricky Don Vance reports that using a 15n input cap and increasing the volume pot value to 50k will produce Pete Townshend tones when driven by a booster. Also, adding a .001uF treble bleed cap between lugs 3 and 2 of the pot will help retain high-end clarity at lower volumes. Finally, Ricky left pins 1 and 8 open for added headroom.”</em></p>
+<p><strong>Original Ruby vs Bassman vs Hiwatt tone comparison:</strong></p>
+<p><img alt="Ruby vs Bassman vs Hiwatt Frequency Comparison" class="article-img" src="images/ruby-amp-analysis/ruby-freq-comparison.gif"/></p>
+<p>In this graph, the three amps frequency responses are represented together: The original Ruby and the Bassman mod have similar responses although the last one has slightly more bass. The original Ruby gain is set to 40. The Hiwatt curve has a clear boost in the treble harmonics compared to Ruby.</p>
+<h3><a id="link43" name="link43"></a><strong>4.3 Additional Headphone Plug</strong></h3>
+<p>The Ruby Amp can be modified to have an auxiliary headphones plug, in the same way that the Little Gem does. For more info, check the <a href="little-gem-analysis.html#link3">Little Gem modifications</a>.</p>
+
+<p><a id="link44" name="link44"></a><strong>4.4 Pre-set Gain Ceiling</strong></p>
+<p>Use a 1k, 2k, or 5k trimmer in place of the Gain pot. This will allow a pre-set for the amount of gain and distortion over the Volume pot travel.</p>
+<h3><a id="link45" name="link45"></a><strong>4.5 1Using 2v Supply Power.</strong></h3>
+<p>A 9v power source is indicated on the schematic and layout, but <a href="http://hammer.ampage.org/" rel="noopener noreferrer" target="_blank">Mark Hammer</a> recommends using 8 AA batteries. The 12v supplied by the battery pack provides longer battery life and increased headroom. All LM386 National Semiconductor and NMJ/JRC386 (New) Japan Radio Company chips are suitable for this mod.</p>
+<h2><a id="link5" name="link5"></a><strong>5. Resources.</strong></h2>
+<p><a href="http://www.runoffgroove.com/ruby.html" rel="noopener noreferrer" target="_blank">Ruby Amp by Runoffgroove.</a><br/><a href="http://www.diystompboxes.com/smfforum/index.php?action=printpage;topic=20411.0" rel="noopener noreferrer" target="_blank">Hiwatt Mod by RDV</a> in DIYstompboxes.<br/><a href="http://hammer.ampage.org/" rel="noopener noreferrer" target="_blank">Mark Hammer</a> 12V Modification.<br/><a href="http://www.muzique.com/lab/buffers.htm" rel="noopener noreferrer" target="_blank">Input Buffers Design</a> by Jack Orman.<br/><a href="http://www.sensorsmag.com/sensors-mag/the-five-minute-filter-university-august-session-1112" rel="noopener noreferrer" target="_blank">Cascading Passive Filters</a> by Ed Ramsden.<br/><a href="http://nwavguy.blogspot.com/2011/02/headphone-impedance-explained.html" rel="noopener noreferrer" target="_blank">Headphones Impedance Explained</a> by NwvGuy.<a href="http://www.myspace.com/infrasonicsightings/photos/2564255" rel="noopener noreferrer" target="_blank"><br/></a></p>
+
+<p>I appreciate the David Amann and Stefano Martini assistance in this article.</p>
+<p>Thanks for reading, all feedback is appreciated   </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054707/https://www.electrosmash.com/ruby-amp-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Ruby%20Amp%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="noisy-cricket-analysis.html">&larr; Noisy Cricket Analysis</a>
+    <a class="prevnext" href="smokey-amp-analysis.html">Smokey Amp Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster -->
+<html lang="en-gb" dir="ltr" class="com_content view-article itemid-435 home j39 mm-hover  no-touch" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/analytics.js"></script><script src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/analytics(1).js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app221.us.archive.org';v.server_ms=225;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/bundle-playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://www.electrosmash.com/dallas-rangemaster","20220428125121","https://web.archive.org/","web","/_static/",
+	      "1651150281");
+</script>
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+	<!--<base href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/">--><base href=".">
+	
+	<meta name="keywords" content="dallas, rangemaster, treble, booster, circuit, schematic, analysis, mods, germanium, transistors, oc44, frequency response, voltage, gain, calculation, input impedance, negative, ground, positive, ground, mx1044, tc1044, pull-down, bias, biasing, filter">
+	<meta name="rights" content="Creative Commons: Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) ">
+	<meta name="author" content="Ray">
+	<meta name="description" content="Electronic analysis of the Dallas Rangemaster Treble Booster circuit.">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis</title>
+	<link href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster" rel="canonical">
+	<link href="https://web.archive.org/web/20220428125121im_/https://www.electrosmash.com/templates/purity_iii/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/css-0ef93-36470.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/css-3adb1-08286.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/css-9b7d3-58108.css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+
+	</style>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"ecd4dd014c9b454ab3017d7bb93025f1","system.paths":{"root":"","base":""}}</script>
+	<script src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/MathJax.js" id=""></script>
+	<script src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/js-44af3-08326.js" type="text/javascript"></script>
+	<script src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/acymailing_module.js" type="text/javascript" async="async"></script>
+	<script src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/js-a8ba7-58108.js" type="text/javascript"></script><style type="text/css">.instashow-gallery-media-counter em,.instashow-gallery-media-info-counter em{font-style:normal}@font-face{font-family:Iconsfont;src:url(data:application/vnd.ms-fontobject;base64,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);src:url(data:application/vnd.ms-fontobject;base64,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) format('embedded-opentype'),url(data:application/x-font-ttf;base64,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) format('truetype'),url(data:application/font-woff;base64,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) format('woff'),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiID4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWV0YWRhdGE+R2VuZXJhdGVkIGJ5IEljb01vb248L21ldGFkYXRhPgo8ZGVmcz4KPGZvbnQgaWQ9Imljb21vb24iIGhvcml6LWFkdi14PSIxMDI0Ij4KPGZvbnQtZmFjZSB1bml0cy1wZXItZW09IjEwMjQiIGFzY2VudD0iOTYwIiBkZXNjZW50PSItNjQiIC8+CjxtaXNzaW5nLWdseXBoIGhvcml6LWFkdi14PSIxMDI0IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4MjA7IiBob3Jpei1hZHYteD0iNTEyIiBkPSIiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlNjAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1jb21tZW50IiBkPSJNNTEyIDQyLjY2N2MzMi43NjggMCA2NC42NCAyLjk0NCA5NS42OCA4LjA2NGwyMjQuMzItMTM2LjA2NHYyMjYuNjI0YzExNi45MjggODIuMTEyIDE5MiAyMDggMTkyIDM0OS4zNzYgMCAyNDcuNDI0LTIyOS4yNDggNDQ4LTUxMiA0NDhzLTUxMi0yMDAuNTc2LTUxMi00NDhjMC0yNDcuNDI0IDIyOS4yNDgtNDQ4IDUxMi00NDh6TTUxMiA4NzQuNjY3YzI0Ny40MjQgMCA0NDgtMTcxLjkwNCA0NDgtMzg0IDAtMTMwLjExMi03NS43MTItMjQ0LjkyOC0xOTEuMjMyLTMxNC4zNjhsMi4wNDgtMTQ4LjQxNi0xNTAuNjU2IDkwLjU2Yy0zNC42ODgtNy40MjQtNzAuNzg0LTExLjc3Ni0xMDguMTYtMTEuNzc2LTI0Ny40MjQgMC00NDggMTcxLjkwNC00NDggMzg0czIwMC41NzYgMzg0IDQ0OCAzODR6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMTsiIGdseXBoLW5hbWU9Imljb24tbGlrZSIgZD0iTTk1OS4xNjggNDI1LjQ1MWwtMzk4LjcyLTQ3NS4wMDhjLTQ0LjY3Mi00Ny4wNDAtNTMuMDU2LTQ3LjA0MC05Ny43MjggMGwtMzk3Ljg4OCA0NzUuMDA4Yy0zMy45MiA1MC45NDQtNjQuODMyIDEwNS4wODgtNjQuODMyIDE4MC4zNTIgMCAxNDAuMjI0IDEwNS43OTIgMjY4Ljg2NCAyNTYgMjY4Ljg2NCAxMDYuNjI0IDAgMTkwLjU5Mi01OC4zMDQgMjU2LTEyNy40ODggNjguNjA4IDY1LjE1MiAxNDkuMzc2IDEyNy40ODggMjU2IDEyNy40ODggMTUwLjIwOCAwIDI1Ni0xMjguNjQgMjU2LTI2OC44NjQgMC03NS4yNjQtMjQuOTYtMTI5LjQ3Mi02NC44MzItMTgwLjM1MnpNODk2IDQzOC42OTljNDkuNjY0IDYyLjI3MiA2NCAxMDguMzUyIDY0IDE2Ny4xMDQgMCAxMDkuNTY4LTgxLjUzNiAyMDkuMDg4LTE5MiAyMDkuMDg4LTkzLjMxMiAwLTIwMC41NzYtOTYuNjQtMjU2LTE2NS42OTYtNTYuODk2IDcxLjYxNi0xNjIuNjg4IDE2Ni41MjgtMjU2IDE2NS43Ni0xMTMuNDcyLTAuOTYtMTkyLTk5LjU4NC0xOTItMjA5LjE1MiAwLTU4Ljc1MiAxOC4wNDgtMTAxLjY5NiA2NC0xNjUuMjQ4bDM4NC00NTguMTc2IDM4NCA0NTYuMzJ6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMjsiIGdseXBoLW5hbWU9Imljb24tcGxhY2VtYXJrIiBob3Jpei1hZHYteD0iNzY4IiBkPSJNMzg0LTg1LjMzM2MtNjMuODcyLTAuMzItMzg0IDQ3OS40MjQtMzg0IDY0MCAwIDIxMi4wOTYgMTcxLjkwNCAzODQgMzg0IDM4NHMzODQtMTcxLjkwNCAzODQtMzg0YzAtMTU4LjQtMzIxLjE1Mi02NDAuMzItMzg0LTY0MHpNMzg0IDg3NC42NjdjLTE3Ni43MDQgMC0zMjAtMTQzLjI5Ni0zMjAtMzIwIDAtMTMzLjgyNCAyNjYuODE2LTU0NC4yNTYgMzIwLTU0NCA1Mi4zNTItMC4yNTYgMzIwIDQxMS45NjggMzIwIDU0NCAwIDE3Ni43MDQtMTQzLjI5NiAzMjAtMzIwIDMyMHpNMzg0IDM5NC42NjdjLTg4LjM4NCAwLTE2MCA3MS42MTYtMTYwIDE2MHM3MS42MTYgMTYwIDE2MCAxNjAgMTYwLTcxLjYxNiAxNjAtMTYwLTcxLjYxNi0xNjAtMTYwLTE2MHpNMzg0IDY1MC42NjdjLTUyLjk5MiAwLTk2LTQzLjAwOC05Ni05NiAwLTUzLjA1NiA0My4wMDgtOTYgOTYtOTZzOTYgNDMuMDA4IDk2IDk2LTQzLjAwOCA5Ni05NiA5NnoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlODAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1wbGF5IiBkPSJNNjQgNDIuNjY3YzAtMzUuMDA4IDI5LjUwNC02NCA2NC02NCAyMS41MDQgMCA0My4wMDggMTQuNTI4IDY0IDI0bDcyMC41MTIgMzYwYzE3LjQ3MiA4LjUxMiA0Ny40ODggMjUuOTg0IDQ3LjQ4OCA2NHMtMzAuMDE2IDU1LjQ4OC00Ny40ODggNjRsLTcyMC41MTIgMzYwYy0yMC45OTIgOS40NzItNDIuNDk2IDI0LTY0IDI0LTM0LjQ5NiAwLTY0LTI4Ljk5Mi02NC02NHYtNzY4eiIgLz4KPC9mb250PjwvZGVmcz48L3N2Zz4=) format('svg');font-weight:400;font-style:normal}.instashow-icon{font-family:Iconsfont;font-size:160%}.instashow-iconspan{padding:2px}.instashow-icon,.instashow-icon+*{display:inline-block;vertical-align:middle}.instashow-icon+*{margin-left:.4em}.instashow-icon-comment::before{content:'\e600'}.instashow-icon-like::before{content:'\e601'}.instashow-icon-placemark::before{content:'\e602'}.instashow-spinner{display:block;position:relative}.instashow-spinner::before{display:none;position:absolute;box-sizing:border-box;top:0;right:0;bottom:0;left:0;border:12px solid #ddd;border-radius:50%;box-shadow:0 0 30px rgba(255,255,255,.3);-webkit-animation-timing-function:cubic-bezier(.22,.61,.36,1);animation-timing-function:cubic-bezier(.22,.61,.36,1);content:''}.instashow-show .instashow-spinner::before{display:block;-webkit-animation:instashow-spinner 1.5s infinite;animation:instashow-spinner 1.5s infinite}@-webkit-keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}@keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}.instashow{font-family:Roboto,Arial,sans-serif;font-size:12px;line-height:1.4;color:#444;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}.instashow,.instashow *{direction:ltr!important}.instashow a{color:#2196f3;-webkit-transition:all .3s ease;transition:all .3s ease;text-decoration:none}.instashow a:hover{color:#444}.instashow,.instashow a,.instashow div,.instashow figure,.instashow img,.instashow li,.instashow p,.instashow span,.instashow ul{border-top:none;border-right:none;border-bottom:none;border-left:none;margin:0;padding:0}.instashow,.instashow div,.instashow figure,.instashow img,.instashow p,.instashow ul{display:block}.instashow img{max-width:none;max-height:none}.instashow-gallery-media{display:none;box-sizing:border-box;float:left;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-perspective:900px;perspective:900px}.instashow-gallery-view-active .instashow-gallery-media,.instashow-gallery-view-active-next .instashow-gallery-media,.instashow-gallery-view-active-prev .instashow-gallery-media{display:block}.instashow-gallery-media-link{display:block;position:relative;overflow:hidden;width:100%;height:100%}.instashow-gallery-media-marker{display:none;position:absolute;z-index:2;top:.6em;right:.6em;width:1.8em;height:1.8em;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-marker svg{display:block;width:100%;height:100%;fill:rgba(255,255,255,.8)}.instashow-gallery-media:hover .instashow-gallery-media-marker{opacity:.3}.instashow-gallery-media-carousel .instashow-gallery-media-marker-carousel,.instashow-gallery-media-video .instashow-gallery-media-marker-video{display:block}.instashow-gallery-media-cover{display:block;position:absolute;visibility:hidden;z-index:2;top:0;right:0;bottom:0;left:0;opacity:0;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-link:hover .instashow-gallery-media-cover{visibility:visible;opacity:0.8}.instashow-gallery-media-link:hover .instashow-gallery-media-cover~.instashow-gallery-media-image{-webkit-transform:scaleX(1.1) scaleY(1.1) translateZ(0);transform:scaleX(1.1) scaleY(1.1) translateZ(0)}.instashow-gallery-media-counter{display:block;position:absolute;visibility:hidden;z-index:3;box-sizing:border-box;top:50%;right:0;left:0;opacity:0;-webkit-transform:translateY(0) scale(.8);transform:translateY(0) scale(.8);font-size:200%;text-align:center;line-height:1;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}span.instashow-gallery-media-counter{padding:3px}.instashow-gallery-media-link:hover .instashow-gallery-media-counter{visibility:visible;opacity:1;-webkit-transform:translateY(-50%) scale(1);transform:translateY(-50%) scale(1)}.instashow-gallery-media-counter .instashow-icon{font-size:160%}.instashow-gallery-media-image{display:block;position:relative;visibility:hidden;width:100%;height:100%;opacity:0;-webkit-transform:scaleX(1) scaleY(1) translateZ(0);transform:scaleX(1) scaleY(1) translateZ(0);-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-loaded .instashow-gallery-media-image{visibility:visible;opacity:1}.instashow-gallery-media-image img{display:block;position:relative;min-width:auto!important;min-height:auto!important;max-width:none!important;max-height:none!important}.instashow-gallery-media-square .instashow-gallery-media-image img{width:100%!important;height:100%!important}.instashow-gallery-media-portrait .instashow-gallery-media-image img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-gallery-media-album .instashow-gallery-media-image img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-gallery-media-info{display:block;position:absolute;visibility:hidden;z-index:3;width:80%;max-height:80%;opacity:0;-webkit-transform:translateX(-50%) translateY(-40%);transform:translateX(-50%) translateY(-40%);text-align:center;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-info-no-description{-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0);font-size:120%}.instashow-gallery-media-link:hover .instashow-gallery-media-info{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) translateY(-47%);transform:translateX(-50%) translateY(-47%)}.instashow-gallery-media-info-counter{line-height:1}.instashow-gallery-media-info-counter+.instashow-gallery-media-info-counter{margin-left:16%}.instashow-gallery-media-info-counter~.instashow-gallery-media-info-description{margin-top:12%}.instashow-gallery-media-info-description{display:block;overflow:hidden;font-size:14px}.instashow-gallery-media-info-cropped::after{display:block;line-height:1;letter-spacing:2px;content:'...'}.instashow-gallery-loader{position:absolute;z-index:12;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(255,255,255,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-gallery-loader.instashow-show{visibility:visible;opacity:1}.instashow-gallery-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-gallery-control-arrow{position:absolute;z-index:10;width:74px;height:74px;top:50%;border-radius:50%;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-control-arrow-disabled{visibility:hidden;opacity:0}.instashow-gallery-control-arrow::after,.instashow-gallery-control-arrow::before{display:block;position:absolute;height:2px;width:12px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-gallery-control-arrow-previous{left:0;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}.instashow-gallery-control-arrow-previous::after,.instashow-gallery-control-arrow-previous::before{top:37px;right:16px;border-radius:0 10px 10px 0}.instashow-gallery-control-arrow-previous::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-previous::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-previous:active{-webkit-transform:translate3d(-50%,-50%,0) scale(.9);transform:translate3d(-50%,-50%,0) scale(.9)}.instashow-gallery-control-arrow-next{right:0;-webkit-transform:translate3d(50%,-50%,0);transform:translate3d(50%,-50%,0)}.instashow-gallery-control-arrow-next::after,.instashow-gallery-control-arrow-next::before{top:37px;left:16px;border-radius:10px 0 0 10px}.instashow-gallery-control-arrow-next::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-next::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-next:active{-webkit-transform:translate3d(50%,-50%,0) scale(.9);transform:translate3d(50%,-50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow{right:auto;left:50%}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous{top:0;-webkit-transform:rotate(90deg) translate3d(-50%,50%,0);transform:rotate(90deg) translate3d(-50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous:active{-webkit-transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next{top:auto;bottom:0;-webkit-transform:rotate(90deg) translate3d(50%,50%,0);transform:rotate(90deg) translate3d(50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next:active{-webkit-transform:rotate(90deg) translate3d(50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(50%,50%,0) scale(.9)}.instashow-gallery-control-scroll{position:absolute;visibility:hidden;z-index:10;opacity:0;background:rgba(0,0,0,.35);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll{width:3px;top:6px;right:6px;bottom:6px}.instashow-gallery-horizontal .instashow-gallery-control-scroll{height:3px;right:6px;bottom:6px;left:6px}.instashow-gallery:hover .instashow-gallery-control-scroll{visibility:visible;opacity:1}.instashow-gallery-control-scroll-slider{position:absolute;background:#000;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll-slider{width:100%}.instashow-gallery-horizontal .instashow-gallery-control-scroll-slider{height:100%}.instashow-gallery{position:relative;overflow:hidden;float:none;clear:both}.instashow-gallery-wrapper{overflow:hidden}.instashow-gallery-container{-webkit-transition:all 0s linear;transition:all 0s linear}.instashow-gallery-container::after,.instashow-gallery-container::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-view{position:relative;box-sizing:border-box;z-index:1}.instashow-gallery-view::after,.instashow-gallery-view::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-fade .instashow-gallery-view{position:absolute;visibility:hidden;opacity:0;top:0;left:0;pointer-events:none}.instashow-gallery-fade .instashow-gallery-view-active{visibility:visible;pointer-events:all}.instashow-gallery-slide .instashow-gallery-view{float:left;pointer-events:none}.instashow-gallery-slide .instashow-gallery-view-active,.instashow-gallery-slide .instashow-gallery-view-active-next,.instashow-gallery-slide .instashow-gallery-view-active-prev{pointer-events:all}.instashow-gallery-empty{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-gallery-empty-text{position:absolute;left:50%;top:50%;padding:26px 26px 23px;border-radius:4px;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);background:#fff;white-space:nowrap;font-size:14px;line-height:1.2}.instashow-popup-twilight{position:absolute;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(0,0,0,.5);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-show .instashow-popup-twilight{visibility:visible;opacity:1}.instashow-popup-media{position:relative;overflow:hidden;width:640px;border-radius:4px;background:#fff}.instashow-popup-media::after,.instashow-popup-media::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-has-comments{width:1040px;height:640px}.instashow-popup-media-picture{position:relative;overflow:hidden;width:640px;min-height:200px;background:#2d2d2d}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:640px;float:left}.instashow-popup-media-picture-loader{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(45,45,45,.5);z-index:1}.instashow-popup-media-picture-loaded .instashow-popup-media-picture-loader{display:none}.instashow-popup-media-picture-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-picture img{display:block}.instashow-popup-media-album .instashow-popup-media-picture img,.instashow-popup-media-square .instashow-popup-media-picture img{width:100%}.instashow-popup-media-portrait .instashow-popup-media-picture img{margin:0 auto}.instashow-popup-media-has-comments .instashow-popup-media-picture img{position:absolute}.instashow-popup-media-has-comments.instashow-popup-media-square .instashow-popup-media-picture img{width:100%;height:100%}.instashow-popup-media-has-comments.instashow-popup-media-portrait .instashow-popup-media-picture img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-popup-media-has-comments.instashow-popup-media-album .instashow-popup-media-picture img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-popup-media-video{position:relative;cursor:pointer}.instashow-popup-media-video video{width:100%;height:100%}.instashow-popup-media-video::before{display:block;position:absolute;visibility:visible;top:50%;left:50%;opacity:.8;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);font:400 64px/1 Iconsfont;-webkit-transition:all .3s ease;transition:all .3s ease;content:'\e800'}.instashow-playing .instashow-popup-media-video::before{visibility:visible;opacity:0;-webkit-transform:translateX(-50%) translateY(-50%) scale(2);transform:translateX(-50%) translateY(-50%) scale(2)}div.instashow-popup-media-info{box-sizing:border-box;padding:16px}.instashow-popup-media-info-container{position:relative;min-height:200px}.instashow-popup-media-has-comments .instashow-popup-media-info-container{float:left;width:399px;min-height:640px}.instashow-popup-media-info-loader{position:absolute;top:0;right:0;bottom:0;left:0}.instashow-popup-media-info-loaded .instashow-popup-media-info-loader{display:none}.instashow-popup-media-info-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-info-origin::after,.instashow-popup-media-info-origin::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-author{display:block;float:left;line-height:1;font-weight:700;font-size:14px}span.instashow-popup-media-info-author-picture{display:inline-block;overflow:hidden;box-sizing:border-box;vertical-align:middle;width:40px;height:40px;border-radius:50%;background:-webkit-radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),-webkit-linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);background:radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);padding:2px}span.instashow-popup-media-info-author-picture img{display:block;width:100%;height:100%;background:#fff;border:2px solid #fff;border-radius:50%;box-sizing:border-box}span.instashow-popup-media-info-author-name{display:inline-block;vertical-align:middle;margin-left:5px}a.instashow-popup-media-info-original{display:block;float:right;margin-top:8px;padding:5px 16px 6px;color:#fff;background:#3897f0;border-radius:4px;line-height:1;font-size:12px;font-weight:700}a.instashow-popup-media-info-original:hover{color:#fff;background:#268dea}.instashow-popup-media-info-meta{line-height:1}.instashow-popup-media-info-meta::after,.instashow-popup-media-info-meta::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-origin+div.instashow-popup-media-info-meta{margin-top:16px}.instashow-popup-media-info-properties{float:left;width:80%;white-space:nowrap}.instashow-popup-media-info-properties-item{display:inline-block;font-size:12px}.instashow-popup-media-info-properties-item+.instashow-popup-media-info-properties-item{margin-left:20px}.instashow-popup-media-info-properties-item em{font-style:normal}.instashow-popup-media-info-properties-item-location{width:60%}.instashow-popup-media-info-properties-item-location em{overflow:hidden;max-width:90%;text-overflow:ellipsis}.instashow-popup-media-info-passed-time{float:right;width:20%;text-align:right;line-height:1.68;font-size:12px}div+div.instashow-popup-media-info-content{margin:12px -16px -16px;padding:16px;border-top:1px solid rgba(0,0,0,.08)}.instashow-popup-media-has-comments .instashow-popup-media-info-content{overflow:auto;height:503px}.instashow-popup-media-info-description,p.instashow-popup-media-info-comments-item{line-height:1.45;font-size:13px}div.instashow-popup-media-info-comments-item{margin:12px 0;font-size:13px}.instashow-popup-media-info-comments-item-author,.instashow-popup-media-info-description-author{font-weight:700}.instashow-popup-media-appearing{position:absolute;top:36px;left:100px}.instashow-popup-media-next,.instashow-popup-media-previous{opacity:0;z-index:1}@media only screen and (min-width:1840px){.instashow-popup-media-hr{width:840px;height:840px}.instashow-popup-media-hr.instashow-popup-media-has-comments{width:1240px}.instashow-popup-media-hr .instashow-popup-media-picture{width:840px;height:840px}}@media only screen and (max-width:1280px){.instashow-popup-media{width:430px}.instashow-popup-media-has-comments{width:740px;height:430px}.instashow-popup-media-picture{width:430px}.instashow-popup-media-picture img{width:100%}.instashow-popup-media-has-comments .instashow-popup-media-picture img{width:auto}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:430px}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:310px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item+.instashow-popup-media-info-container-properties-item{margin-left:12px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item-location{width:40%}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:320px}}@media only screen and (max-width:1024px){.instashow-popup-media{width:auto}.instashow-popup-media-has-comments{width:auto;height:auto}.instashow-popup-media-picture{width:100%;height:auto!important;border-right:none!important}.instashow-popup-media-picture img{width:100%!important;height:auto!important;position:static!important;top:auto!important;-webkit-transform:none!important;transform:none!important}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:100%}.instashow-popup-media-info-container-properties-item-location{width:60%!important}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:auto}.instashow-popup-media-appearing{position:absolute;top:36px;right:100px;left:100px}}@media only screen and (max-width:780px){.instashow-popup-media-appearing{position:absolute;top:0;left:0;right:0}}@media only screen and (max-width:480px){span.instashow-popup-media-info-properties-item-location{display:block;margin-top:16px;margin-left:0!important;width:auto!important}}.instashow-popup-media .instashow-popup-media-carousel-nav{position:absolute;right:0;bottom:0;left:0;text-align:center;padding:12px 0}.instashow-popup-media .instashow-popup-media-carousel-nav-item{display:inline-block;width:20px;height:20px;padding:5px;box-sizing:border-box;cursor:pointer}.instashow-popup-media .instashow-popup-media-carousel-nav-item::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-media .instashow-popup-media-carousel-nav-item-active::before,.instashow-popup-media .instashow-popup-media-carousel-nav-item:hover::before{background:#fff}.instashow-popup-control-close{position:absolute;z-index:12;width:32px;height:36px;top:0;right:68px;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-close::after,.instashow-popup-control-close::before{display:block;position:absolute;width:18px;height:3px;top:7px;left:10px;border-radius:10px;background:#fff;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-close::before{-webkit-transform-origin:0 50%;transform-origin:0 50%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-close::after{-webkit-transform-origin:100% 50%;transform-origin:100% 50%;-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}.instashow-popup-control-close:active{-webkit-transform:scale(.8);transform:scale(.8)}@media only screen and (max-width:1024px){.instashow-popup-control-close{right:auto;width:35px;height:35px;top:48px;left:115px;border-radius:50%}.instashow-popup-control-close::after,.instashow-popup-control-close::before{top:11px;left:12px;width:16px;height:2px}.instashow-popup-control-close::after{-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}}@media only screen and (max-width:780px){.instashow-popup-control-close{top:15px;left:15px}}.instashow-popup-control-arrow{position:absolute;z-index:10;top:20px;bottom:20px;width:100px;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-control-arrow.instashow-disabled{visibility:hidden;opacity:0;-webkit-transform:scale(.85);transform:scale(.85)}.instashow-popup-control-arrow span{display:block;position:absolute;width:20px;height:40px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-arrow span::after,.instashow-popup-control-arrow span::before{display:block;position:absolute;width:28px;height:3px;top:20px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-arrow-previous{left:0}.instashow-popup-control-arrow-previous span{left:24px}.instashow-popup-control-arrow-previous span::after,.instashow-popup-control-arrow-previous span::before{border-radius:0 10px 10px 0}.instashow-popup-control-arrow-previous span::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow-previous span::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next{right:0}.instashow-popup-control-arrow-next span{right:24px}.instashow-popup-control-arrow-next span::after,.instashow-popup-control-arrow-next span::before{right:0;border-radius:10px 0 0 10px}.instashow-popup-control-arrow-next span::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next span::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow:hover span{-webkit-transform:translateY(-50%) scaleY(.85);transform:translateY(-50%) scaleY(.85)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-previous span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(-30%);transform:translateY(-50%) scaleY(.8) translateX(-30%)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-next span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(30%);transform:translateY(-50%) scaleY(.8) translateX(30%)}@media only screen and (max-width:780px){.instashow-popup-control-arrow{display:none!important}}.instashow-popup{position:fixed;visibility:hidden;z-index:9999;top:0;right:0;bottom:0;left:0;text-align:left}.instashow-popup.instashow-show{visibility:visible}.instashow-popup-wrapper{position:absolute;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;max-height:100%;top:0;right:0;bottom:0;left:0}div.instashow-popup-container{display:inline-block;position:relative;visibility:hidden;box-sizing:border-box;left:50%;padding:36px 100px;opacity:0;-webkit-transform:translateX(-50%) scale(.9);transform:translateX(-50%) scale(.9);-webkit-transition:all .25s ease;transition:all .25s ease}.instashow-show div.instashow-popup-container{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) scale(1);transform:translateX(-50%) scale(1);-webkit-transition:all .35s ease;transition:all .35s ease}@media only screen and (max-width:780px){div.instashow-popup-container{padding:0}}.instashow-gallery .instashow-error{position:absolute;z-index:20;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-error-panel{padding:26px 27px 27px 92px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAAGW4ZPmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ0OEZFOTU2NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ0OEZFOTU3NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NDQ4RkU5NTQ2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDQ4RkU5NTU2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5wtTv1AAAGNElEQVR42mK8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) 20px 20px no-repeat #fff;line-height:1.4;font-size:13px}.instashow-gallery div.instashow-error-panel{position:absolute;max-width:600px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border-radius:4px}.instashow-error-title{font-weight:700}div.instashow-error-caption{margin-top:3px}</style>
+	<script type="text/javascript">
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	if(typeof acymailingModule == 'undefined'){
+				var acymailingModule = [];
+			}
+			
+			acymailingModule['emailRegex'] = /^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*\@([a-z0-9-]+\.)+[a-z0-9]{2,10}$/i;
+
+			acymailingModule['NAMECAPTION'] = 'Name';
+			acymailingModule['NAME_MISSING'] = 'Please enter your name';
+			acymailingModule['EMAILCAPTION'] = 'example@email.com';
+			acymailingModule['VALID_EMAIL'] = 'Please enter a valid e-mail address';
+			acymailingModule['ACCEPT_TERMS'] = 'Please check the Terms and Conditions';
+			acymailingModule['CAPTCHA_MISSING'] = 'The captcha is invalid, please try again';
+			acymailingModule['NO_LIST_SELECTED'] = 'Please select the lists you want to subscribe to';
+		
+acymailingModule['excludeValuesformAcymailing29511'] = [];
+acymailingModule['excludeValuesformAcymailing29511']['name'] = 'Name';
+acymailingModule['excludeValuesformAcymailing29511']['email'] = 'example@email.com';
+
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	</script>
+
+	
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+		//]]>
+	</script>
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/templates/purity_iii/css/ie8.css" type="text/css" />
+<![endif]-->
+	<style></style></head>
+
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(675,27,25,2,"web","https://www.electrosmash.com/dallas-rangemaster","20220428125121",1996,"/_static/",["/_static/css/banner-styles.css?v=fantwOh2","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div class="t3-wrapper corporate"> <!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+	
+<!-- MAIN NAVIGATION -->
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
+
+	<!-- OFF-CANVAS -->
+		<!-- //OFF-CANVAS -->
+
+	<div class="container">
+
+		<!-- NAVBAR HEADER -->
+		<div class="navbar-header">
+
+			<!-- LOGO -->
+			<div class="logo logo-image">
+				<div class="logo-image">
+					<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/" title="ElectroSmash">
+													<img class="logo-img" src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/logo-electrosmash.png" alt="ElectroSmash">
+						
+												
+						<span>ElectroSmash</span>
+					</a>
+				</div>
+			</div>
+			<!-- //LOGO -->
+
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".t3-navbar-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+			
+	    
+		</div>
+		<!-- //NAVBAR HEADER -->
+
+		<!-- NAVBAR MAIN -->
+				<nav class="t3-navbar-collapse navbar-collapse collapse"><ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Chips<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/jrc4558-analysis">JRC4558  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mn3007-bucket-brigade-devices">MN3007 BBDs </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/lm386-analysis">LM386 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pt2399-analysis">PT2399 </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Amps<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/little-gem-analysis">Little Gem Amp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-mg10">Marshall MG10 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/noisy-cricket-analysis">Noisy Cricket  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/ruby-amp-analysis">Ruby Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/smokey-amp-analysis">Smokey Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/http://www.electrosmash.com/schematics#amps">Amps Schematics.</a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Pedals<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/back-talk-analysis">Back Talk Reverse Delay </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/big-muff-pi-analysis">Big Muff Pi  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/boss-ce-2-analysis">Boss CE-2 Chorus </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/boss-ds1-analysis">Boss DS-1 Distortion </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster">Dallas Rangemaster </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/crybaby-gcb-95">Dunlop CryBaby GCB-95  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/fuzz-face">Fuzz Face </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/tube-screamer-analysis">Ibanez Tube Screamer </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/klon-centaur-analysis">Klon Centaur </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-microamp">MXR MicroAmp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-guvnor-analysis">Marshall Guvnor </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-distortion-plus-analysis">MXR Distortion + </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-dyna-comp-analysis">MXR Dyna Comp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-phase90">MXR Phase 90 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/proco-rat">ProCo Rat </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/sitar-swami-analysis">Sitar Swami </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/vox-v847-analysis">Vox V847 Wah Wah </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/emg81">EMG81 Pickup </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Projects<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield-uno">pedalSHIELD UNO </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield">pedalSHIELD DUE </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield-mega">pedalSHIELD MEGA </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedal-pi">Pedal-Pi </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/time-manipulator">Time Manipulator </a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/forum-electrosmash?lang=en">Forum </a>
+
+</li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220428125121/https://shop.electrosmash.com/">Shop</a>
+
+</li>
+</ul></nav>
+		
+		<nav class="t3-navbar navbar-collapse collapse">
+			<div class="t3-megamenu" data-responsive="true">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active" data-id="435" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/" data-target="#">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown mega" data-id="510" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Chips<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="492" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/jrc4558-analysis" data-target="#">JRC4558  </a>
+
+</li>
+<li itemprop="name" data-id="519" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mn3007-bucket-brigade-devices" data-target="#">MN3007 BBDs </a>
+
+</li>
+<li itemprop="name" data-id="468" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/lm386-analysis" data-target="#">LM386 </a>
+
+</li>
+<li itemprop="name" data-id="1643" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pt2399-analysis" data-target="#">PT2399 </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="444" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Amps<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="993" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="489" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/little-gem-analysis" data-target="#">Little Gem Amp </a>
+
+</li>
+<li itemprop="name" data-id="526" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-mg10" data-target="#">Marshall MG10 </a>
+
+</li>
+<li itemprop="name" data-id="491" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/noisy-cricket-analysis" data-target="#">Noisy Cricket  </a>
+
+</li>
+<li itemprop="name" data-id="490" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/ruby-amp-analysis" data-target="#">Ruby Amp  </a>
+
+</li>
+<li itemprop="name" data-id="488" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/smokey-amp-analysis" data-target="#">Smokey Amp  </a>
+
+</li>
+<li itemprop="name" data-id="746" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/http://www.electrosmash.com/schematics#amps" data-target="#">Amps Schematics.</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="511" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Pedals<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu" style="width: 600px" data-width="600"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="515" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/back-talk-analysis" data-target="#">Back Talk Reverse Delay </a>
+
+</li>
+<li itemprop="name" data-id="518" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/big-muff-pi-analysis" data-target="#">Big Muff Pi  </a>
+
+</li>
+<li itemprop="name" data-id="524" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/boss-ce-2-analysis" data-target="#">Boss CE-2 Chorus </a>
+
+</li>
+<li itemprop="name" data-id="1088" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/boss-ds1-analysis" data-target="#">Boss DS-1 Distortion </a>
+
+</li>
+<li itemprop="name" data-id="1713" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster" data-target="#">Dallas Rangemaster </a>
+
+</li>
+<li itemprop="name" data-id="905" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/crybaby-gcb-95" data-target="#">Dunlop CryBaby GCB-95  </a>
+
+</li>
+<li itemprop="name" data-id="842" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/fuzz-face" data-target="#">Fuzz Face </a>
+
+</li>
+<li itemprop="name" data-id="1664" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="512" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/tube-screamer-analysis" data-target="#">Ibanez Tube Screamer </a>
+
+</li>
+<li itemprop="name" data-id="1433" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/klon-centaur-analysis" data-target="#">Klon Centaur </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="548" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-microamp" data-target="#">MXR MicroAmp </a>
+
+</li>
+<li itemprop="name" data-id="1667" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-guvnor-analysis" data-target="#">Marshall Guvnor </a>
+
+</li>
+<li itemprop="name" data-id="1632" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-distortion-plus-analysis" data-target="#">MXR Distortion + </a>
+
+</li>
+<li itemprop="name" data-id="1244" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-dyna-comp-analysis" data-target="#">MXR Dyna Comp </a>
+
+</li>
+<li itemprop="name" data-id="573" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-phase90" data-target="#">MXR Phase 90 </a>
+
+</li>
+<li itemprop="name" data-id="553" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/proco-rat" data-target="#">ProCo Rat </a>
+
+</li>
+<li itemprop="name" data-id="520" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/sitar-swami-analysis" data-target="#">Sitar Swami </a>
+
+</li>
+<li itemprop="name" data-id="525" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/vox-v847-analysis" data-target="#">Vox V847 Wah Wah </a>
+
+</li>
+<li itemprop="name" data-id="547" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/emg81" data-target="#">EMG81 Pickup </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="796" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Projects<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1108" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield-uno" data-target="#">pedalSHIELD UNO </a>
+
+</li>
+<li itemprop="name" data-id="797" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield" data-target="#">pedalSHIELD DUE </a>
+
+</li>
+<li itemprop="name" data-id="1437" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedalshield-mega" data-target="#">pedalSHIELD MEGA </a>
+
+</li>
+<li itemprop="name" data-id="1312" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/pedal-pi" data-target="#">Pedal-Pi </a>
+
+</li>
+<li itemprop="name" data-id="1662" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="1663" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="1668" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/time-manipulator" data-target="#">Time Manipulator </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="745" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/forum-electrosmash?lang=en" data-target="#">Forum </a>
+
+</li>
+<li itemprop="name" data-id="816" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220428125121/https://shop.electrosmash.com/" data-target="#">Shop</a>
+
+</li>
+</ul>
+</div>
+
+		</nav>
+    <!-- //NAVBAR MAIN -->
+
+	</div>
+</header>
+<!-- //MAIN NAVIGATION -->
+
+
+
+
+
+
+  
+
+
+  
+
+
+	
+<div id="t3-mainbody" class="container t3-mainbody">
+	<div class="row">
+
+		<!-- MAIN CONTENT -->
+		<div id="t3-content" class="t3-content col-xs-12 col-sm-8  col-md-9">
+						<div class="item-page clearfix">
+
+
+<!-- Article -->
+<article>
+	<meta itemprop="inLanguage" content="en-GB">
+	<meta itemprop="url" content="/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster">
+
+      
+<header class="article-header clearfix">
+	<h1 class="article-title" itemprop="headline">
+					<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster" itemprop="url" title="Dallas Rangemaster Treble Booster Analysis">
+				Dallas Rangemaster Treble Booster Analysis</a>
+			</h1>
+
+			</header>
+    
+    
+  <!-- Aside -->
+    <!-- //Aside -->
+
+  
+  
+  
+	
+  
+	
+	<section class="article-content clearfix">
+		<p><span style="font-family: verdana, geneva; font-size: 10pt;">The Dallas Rangemaster Treble Booster is a booster guitar pedal that especially emphasizes the upper mid and treble frequencies (coloring the signal).&nbsp;<span style="font-family: verdana, geneva; font-size: 13.3333px;">It was designed in London (UK) by Dallas Musical Ltd in 1965.&nbsp;</span> At that time, the&nbsp;British tube amplifiers such as the Vox AC30 or Marshall JTM45, tended to produce a slightly dark, muddy tones when overdriven, this box fixed that issue. The effect became popular because of its sweet coloration, slightly bending the signal and giving a soft compression when maxed out.&nbsp;&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-family: verdana, geneva; font-size: 10pt;"></span><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas_rangemaster_treble_booster_analysis.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas_rangemaster_treble_booster_analysis.jpg" alt="dallas rangemaster treble booster analysis" width="432" height="214" style="display: block; margin-left: auto; margin-right: auto;" title="dallas rangemaster treble booster analysis"></a></span><br><span style="font-family: verdana, geneva; font-size: 10pt;">The grey metal box was designed to sit on top of the amp and not on the floor as most of the pedals do nowadays, it features a simple ON/OFF sliding switch and a potentiometer to adjust the volume. The apparent simplicity of the circuit and the limited supply of this discontinued effect make it a perfect target for builder and guitar pedal enthusiasts.</span></p>
+ 
+<h1><span style="font-family: verdana, geneva; color: #000000; font-size: 12pt;"><strong><span style="font-size: 14pt;">Table of Contents.</span></strong></span></h1>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link1">1. The Dallas Rangemaster Original Parts</a>.</span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link2">2. Dallas Rangemaster Treble Booster Schematic.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link21">2.1 Input Impedance.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link22">2.2 Output Impedance.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link23">2.3 Voltage Gain.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link24">2.4 Dallas Rangemaster Signal.</a></span><br><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link3"><span style="font-size: 10pt; font-family: verdana, geneva;">3. Frequency Response.</span></a><br><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link4"><span style="font-size: 10pt; font-family: verdana, geneva;">4. Biasing the Dallas Rangemaster Treble Booster.</span></a><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link41">4.1 Effects of the Bias Point over the Output Signal.</a></span><br><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link5"><span style="font-size: 10pt; font-family: verdana, geneva;">5. Dallas Rangemaster Treble Booster Mods.</span></a><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link51">5.1 Positive / Negative Ground Circuits.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link52">5.2 Input Cap Mod.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link53">5.3 Output Cap Mod.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link54">5.4 Input Pull-Down Resistor Mod.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link55">5.5 Output Pull-Down Resistor Mod. </a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;">&nbsp; &nbsp; &nbsp;<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link56">5.6 Bias the Rangemaster with a 100KΩ potentiometer instead of fixed 68K R2 Mod.</a></span><br><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster#link6"><span style="font-size: 10pt; font-family: verdana, geneva;">6. Resources.</span></a></p>
+<p>&nbsp;</p>
+<p><span style="font-family: verdana, geneva; font-size: 14pt;"><strong><a id="link1"></a><span style="font-size: 14pt; color: #000000;">1. The Dallas Rangemaster Original Parts:</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The Dallas Rangemaster was designed with the available parts at that time (the 1960's), carbon comp resistors, Mullard germanium transistor, no PCB (all the components are mounted over a piece of a terminal strip), an&nbsp;<em>exotic&nbsp;</em>English potentiometer, etc:</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas_rangemaster_inside.jpg" style="color: #00466e;"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas_rangemaster_inside-small.jpg" alt="dallas rangemaster inside " width="800" height="230" style="display: block; margin-right: auto; margin-left: auto;" title="dallas rangemaster inside "></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>&nbsp;</strong><strong>Carbon Comp Resistors:</strong>&nbsp;Carbon comp is an old technology, noisier than modern metal film 1% resistors. These vintage resistors could bring more organic sound (but also are blamed to bring the noise). For other vintage effects like the Fuzz Face that (noisy by definition), carbon comp resistors are a great choice (adding a bit more noise to a high gain fuzz wont hurt anyone). On the other hand, for a booster (like the Rangemaster) maybe carbon comp technology is not a good idea (you want to keep all as clean as possible), so modern film resistors are a better choice.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/carbon_comp_resistor.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/carbon_comp_resistor.jpg" alt="carbon comp resistor" width="291" height="40" style="display: block; margin-right: auto; margin-left: auto;" title="carbon comp resistor"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;">&nbsp;<strong>The potentiometer:</strong>&nbsp;The original Dallas Rangemaster uses a UK Welwyn 10k ohm (sometimes 20k) unit with two mounting screws. The potentiometer body was made of bakelite and isolated from the chassis, but this feature does not add any benefit for the pedal.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/rangemaster_potentiometer.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/rangemaster_potentiometer.jpg" alt="rangemaster weleyn potentiometer" width="178" height="106" style="display: block; margin-right: auto; margin-left: auto;" title="rangemaster weleyn potentiometer"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>The original Germanium transistor</strong>&nbsp;was the Mullard OC44, long time ago discontinued. They are claimed to sound good with a soft clipping knee but also noisy, microphonic, temperature dependent and gain variable.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/mullard-transistor.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/mullard-transistor.jpg" alt="mullard transistor" width="278" height="57" style="display: block; margin-right: auto; margin-left: auto;" title="mullard transistor"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>Capacitors:</strong>&nbsp;There is not much magic involved on the caps, they are just common available technologies: 47uF is aluminum electrolytic, de 5nF and 10nF are films.&nbsp;</span></li>
+</ul>
+<p><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/cap.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/cap.jpg" alt="axial capacitor" width="295" height="36" style="display: block; margin-right: auto; margin-left: auto;" title="axial capacitor"></a></p>
+<h1><span style="font-family: verdana, geneva;"><strong><span style="color: #000000;"><span style="font-size: 14pt; color: #000000;"><a id="link2"></a>2. Dallas Rangemaster Treble Booster Schematic.</span></span></strong></span></h1>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The circuit is beautifully simple, a single stage Common Emitter PNP amplifier:</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-schematic-parts.png"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-schematic-parts.png" alt="dallas rangemaster schematic parts" width="451" height="323" style="display: block; margin-left: auto; margin-right: auto;"></span></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C1:</strong> Is the series 5nF input cap, it will remove any DC level from the input signal and also create a high-pass filter together with R1, R2 and the input impedance of the Q1 transistor. This cap is crucial for the pedal equalization. You can read about this filter in the Frequency Response section and also in the Mods part.</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-family: verdana, geneva;"><strong>The resistors R1 (470KΩ) and R2 (68KΩ)</strong> create a Voltage Divider across the supply. They provide <span style="font-family: verdana, geneva;">the required bias voltage&nbsp;</span>to the base of the transistor and define the operating point of the pedal. Biasing the pedal in this way (with a resistor divider in Q1's base)&nbsp;</span><span style="font-family: verdana, geneva;">reduces the effect of&nbsp;β (gain) variations, which is pretty common in Germanium transistors.</span></span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>RV:</strong> Is an audio (logarithmic) 10K potentiometer. It will control the amount of volume of gain applied to the input signal, check the Voltage Gain section for more info.</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>R3:</strong> is a 3.9KΩ emitter resistor for the Common Emitter amplifier, it will provide negative feedback to the transistor,&nbsp; keeping the bias point stable.</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C3:</strong> 47uF electrolytic cap, makes the guitar signal to bypass the R3 resistor. This makes the signal to get higher gain despite the bias point established by R3.&nbsp;</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C2:</strong> it is the 10nF output series capacitor. Its task is to clean any DC for the output signal.</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C4:</strong> The power supply is simply formed by a single 47uF, there is no protection against reverse polarity connections but makes sense because the original effect was designed to work only on battery. If you want more info about power supply improvements/mods, check the modifications section.</span></li>
+</ul>
+<h2><span style="font-family: verdana, geneva;"><strong><span style="color: #000000;"><span style="font-size: 12pt; color: #000000;"><a id="link21"></a>2.1 Dallas Rangemaster Input Impedance.</span></span></strong></span></h2>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-family: verdana, geneva;">The input impedance could be calculated as:</span><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><br></span></span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Zin = (R1//R2) // (Zin transistor)</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-family: verdana, geneva;">Zin = (R1//R2) // (rπ) = 470KΩ // 68KΩ// 12.5KΩ = 10KΩ to 12KΩ approx.</span></span></p>
+<p><span style="text-decoration: underline; font-family: verdana, geneva; font-size: 10pt;">Where:</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-family: verdana, geneva;">r</span><span style="font-family: verdana, geneva;">π = [(<span style="font-family: verdana, geneva; font-size: 13.3333px;">β</span>+1)xVt]/Ieq = <span style="font-family: verdana, geneva; font-size: 13.3333px;">β</span>/gm = 100/0.008 = 12.5KΩ</span></span></p>
+<p style="padding-left: 30px;"><span style="color: #222222; font-family: verdana, geneva; font-size: 10pt;">β = 100, we are using this value by default in the whole article, you can do the numbers using any other value.</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">gm = Ie/Vt = 0.2mA/25mV = 0.008</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Ie= 0.2mA you can check how this is calculated in the biasing section.</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">The "//" symbol means&nbsp;<span style="font-family: verdana, geneva; font-size: 13.3333px; color: #3366ff;"><a href="https://web.archive.org/web/20220428125121/https://en.wikipedia.org/wiki/Resistor#Series_and_parallel_resistors" style="color: #3366ff;">"resistors in parallel".</a></span></span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-hydrid-pi-equivalent.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-hydrid-pi-equivalent.png" alt="dallas rangemaster hydrid pi equivalent" style="display: block; margin-left: auto; margin-right: auto;" title="dallas rangemaster hydrid pi equivalent"></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">As a rule of thumb, a high input impedance (around 1M<span style="font-family: verdana, geneva;">Ω</span>) is always desired; it reduces tone sucking, pickups loading and possible interactions/interference between pedals.&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">12KΩ is a poor input impedance value (Zin), but part of the Rangemaster sound owes its fame due to the way its low Zin interacts with passive pickups. This loading will smooth the highs and helps the guitar volume control the clean it up. So, the input impedance is an important factor on the pedal's tone, if the effect is not driven by a guitar but by a high input impedance buffer, the Rangemaster may sound bright and thin. This is why many people like to place this effect the first in the pedalboard (or keeping it in an isolated loop)</span></p>
+<p><span style="font-family: verdana, geneva;"><strong style="font-family: verdana, geneva; font-size: 35px;"><span style="font-size: 12pt;"><a id="link22"></a><span style="color: #000000;">2.2 Dallas Rangemaster Output Impedance.</span></span></strong></span><br><span style="font-family: verdana, geneva;"></span><span style="font-family: verdana, geneva;">The output impedance in a Common Emitter amplifier is Rv (the transistor's Rc).</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva;">Zin = RV = 0 to 10KΩ</span></p>
+<p><span style="font-family: verdana, geneva;">Ideally, a guitar pedal design aims for low output impedance, it makes the circuit to interact nicely with the rest of the pedals on the board. 10K is not bad; most of the designs keep the output impedance below 1K but 10K is still good.</span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="color: #000000; font-size: 12pt; font-family: verdana, geneva;"><span style="color: #000000;"><strong><span style="font-size: 10pt;"><a id="link23"></a><span style="color: #000000; font-size: 12pt;">2.3 Voltage Gain.</span></span></strong></span></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The C3 cap that bypasses the R3 resistor makes the voltage gain formula:</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Gv = gm&nbsp; x Rc =&nbsp; 0.008 x 10K = 80 = 38dB.</span></p>
+<p><span style="font-family: verdana, geneva;">note:</span></p>
+<ul>
+<li><span style="font-family: verdana, geneva;">gm =&nbsp;0.008 it was calculated in the Input Impedance section.</span></li>
+<li><span style="font-family: verdana, geneva;">38dB is a high voltage gain for a booster pedal, other similar pedals like the <a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-microamp">MXR MicroAmp have a lower voltage gain of 26dB.</a>&nbsp;This is not necessarily a good or a bad thing, but the Rangemaster will for sure be able to drive signals harder.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="text-decoration: underline;">Note:</span> The DC Voltage across the Volume control: The electronic design of this pedal makes that the RV potentiometer keeps a DC voltage across its terminals. This means that the sound will <em>scratch</em> and whenever the volume is touched (even if you use the original plastic- non-conductive original discontinued Wilk potentiometers)</span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"><strong><span style="font-size: 12pt;"><a id="link24"></a><span style="color: #000000;">2.4 Dallas Rangemaster Signal.</span></span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The maximum swing operating point in the Rangemaster happens when Vb=7V approx. and Vc=4V approx. But as you will see in the Bias Section, the considered best sounding biasing happens with&nbsp;&nbsp;Vb=8V approx. and Vc=2V approx. The transistor amplifier is not at the center of the linear region, and it will result in an asymmetric soft clipping:</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-output-waveform-all.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-output-waveform-all.png" alt="dallas rangemaster output waveform " width="800" height="260" style="display: block; margin-left: auto; margin-right: auto;" title="dallas rangemaster output waveform"></a></span></p>
+<p><span style="font-size: 10pt;"><span style="font-family: verdana, geneva;"></span><span style="font-family: verdana, geneva;">When the Vol control is maxed out, the signal will be boosted and also driven into soft clipping, this will color the signal and make the sound quite particular.&nbsp;<span style="font-family: verdana, geneva;">Germanium parts are famous for their soft clipping and biased off the middle of its swing area, the signal will be compressed in one of their semi cycles, making the sound asymmetrically warmer and rounder.</span></span></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: verdana, geneva; font-size: 12pt;"><strong><a id="link3"></a><span style="font-size: 14pt; color: #000000;">3. Dallas Rangemaster Treble Booster Frequency Response.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The frequency response is dominated by the high-pass filter created by the C1 and the input impedance of the pedal. But there are 2 more caps (C2 and C3) that also create high-pass filters:</span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C1</strong>: creates a high-pass filter with a fc=1/2πC1xZin =&nbsp;1/(2 x π x 5nF x 12K<span style="font-size: 13.3333px;">Ω</span>) =&nbsp;2.6KHz</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C2</strong>:&nbsp;creates a high-pass filter with a fc=1/2πC1xRload =&nbsp;1/(2 x π x 10nF x 1M<span style="font-size: 13.3333px;">Ω</span>) =&nbsp;15.9Hz (not in the audio band)</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>C3</strong>:&nbsp;creates a high-pass filter with a fc=1/2πC3xR3 =&nbsp;1/(2 x π x 47uF x 3.9K<span style="font-size: 13.3333px;">Ω</span>) =&nbsp;0.8Hz (not in the audio band)</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The most important filter for the audio response is C1, attenuating the harmonics below 2.6KHz and giving full gain to the treble.</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-standard-frequency-response.png" style="color: #00466e;"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-standard-frequency-response.png" alt="dallas rangemaster frequency response" width="800" height="340" style="display: block; margin-right: auto; margin-left: auto;" title="dallas rangemaster frequency response"></span></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">&nbsp;The magic of this equalization is that frequencies over 2.6KHz will have full gain and a soft clipping when the strings are strummed hard. Giving some warm tone to the high frequencies.&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt; font-family: verdana, geneva;"><strong><span style="font-family: verdana, geneva;"><a id="link4"></a><span style="color: #000000;">4. Biasing the Dallas Rangemaster Treble Booster:</span></span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">Germanium transistors have an Hfe (also called&nbsp;<span style="color: #222222; font-family: arial, sans-serif; font-size: small;">β and</span> Gain) value that changes from part to part. As a result of that the bias point of the pedal will change from one unit to another, to fix that and try to make the best sound out of the pedal we have two options:</span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="text-decoration: underline;">Find the germanium transistor with the perfect HFE gain 90:</span>&nbsp; Any value between 75 and 100 would be great. The problem is that germanium transistors went out of fashion 30 years ago, there are no lines of production and finding NOS batches with a decent gain is almost impossible. In the '60s this was a viable option, nowadays not so much.</span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-family: verdana, geneva;"></span><span style="font-family: verdana, geneva;"><span style="text-decoration: underline;">Bias the circuit properly:</span> When Dallas designed the Rangemaster, they probably had access to good transistors with controlled gain, so they just set a pair of fixed resistors (R1 and R2). Now that the transistors are not so numerous, we can just adjust this 2 resistors and make the pedal sound its best.</span></span><br><span style="font-family: verdana, geneva; font-size: 10pt;">The sound of the Rangemaster is heavily dependant on the bias point. Usually, transistors are biased to the middle of their swing area so they can produce the biggest non-distorted output signal (maximum headroom). This is not the case of the Rangemaster, where the bias is a bit off the center creating an asymmetric gain.</span></li>
+</ul>
+<p><br><span style="font-family: verdana, geneva; font-size: 10pt; color: #000000;"><strong><span style="font-family: verdana, geneva;">The Perfect Bias point:</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">It is commonly agreed that the ideal bias point for the Dallas Rangemaster Treble Booster is to have Q1 collector voltage at -7.0V (any value between -6.9 and -7.1 would be great), if you refer the voltage to ground and not to +9V (like the image below) the perfect Vc=+2V ( any value between 1.9 and 2.1).</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The easiest way to achieve the best sounding bias is to substitute the 69KΩ R2 by a 100KΩ or 200KΩ trimmer resistor (a Bourns multiturn resistor is expensive but the best part for this task):</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-bias-points.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-bias-points.png" alt="dallas rangemaster bias points" width="576" height="413" style="display: block; margin-left: auto; margin-right: auto;"></a>&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">Calculating the Base voltage:&nbsp;</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Vb = Vcc x R1/(R1+R2)/= 9 x (470K<span style="font-family: verdana, geneva;">Ω</span>/(470K<span style="font-family: verdana, geneva;">Ω</span> + 68K<span style="font-family: verdana, geneva;">Ω</span>)) = 7.8V (8V approx.)</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The Base voltage (defined by R1 and R2) will determine the Base current:</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Vb = Vbe + (<span style="font-family: verdana, geneva;">β</span>+1) x Ib x R3</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">ib&nbsp; = (Vb - Vbe) / (R3 x (β+1))</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">ib = (7.8 - 0.3) / (3.9K<span style="font-family: verdana, geneva;">Ω</span> * (100+1))</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">ib = 0.0195mA</span></p>
+<p><span style="text-decoration: underline; font-size: 10pt; font-family: verdana, geneva;"><span style="font-family: verdana, geneva;">note:</span></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;">Vbe=0.3V for most of Germanium transistors.</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;">We are using a default value of transistor Hfe = β = 100</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The collector current and Collector Voltage will be:</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Ic = <span style="font-family: verdana, geneva;">β</span> x ib = 100 x 0.0190= 1.9mA (2mA approx)</span></p>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva; font-size: 10pt;">Vc= -Ib x Rv = -0.2mA x 10K<span style="font-family: verdana, geneva;">Ω</span> = -2V.&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span><span style="font-family: verdana, geneva;">It is important to understand, that following the equation, if the&nbsp;β value changes, the bias point will change too. This is why using a trimmer resistor instead of R2 will compensate for this&nbsp;<span style="font-family: verdana, geneva;">β&nbsp;</span>variation.&nbsp;&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 12pt;"><strong><span style="font-family: verdana, geneva;"><a id="link41"></a><span style="color: #000000;">4.1 Effects of the Bias Point over the Output Signal.</span></span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The bias point has a direct effect over the output waveform shape and the sound of the Rangemaster. In the image below you can see the output signal with different Vb values when the Volume knob is maxed out:</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-bias-point-output-signal.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-bias-point-output-signal.png" alt="dallas rangemaster bias point output signal" width="1000" height="323" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">You can see how the default configuration (Vbase=8V) is not the <em>cleanest</em> option. Setting a Vb=6.8V (7V approx.), like the light green trace will give us more headroom and clean sound. But part of the character and mojo of this pedal remains on its biasing.</span></p>
+<p><span style="font-size: 10pt;"><span style="text-decoration: underline;">note:</span> For all these graphs we have used a Q1 transistor with gain = 100.</span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 12pt; font-family: verdana, geneva;"><strong><span style="font-family: verdana, geneva;"><a id="link5"></a><span style="font-size: 14pt; color: #000000;">5. Dallas Rangemaster Treble Booster Mods.</span></span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The simplicity of the circuit makes builders experiment adding some extra features so players can have some more knobs and switches to play with.</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 12pt;"><strong><a id="link51"></a><span style="color: #000000;">5.1 Positive / Negative Ground Circuits.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">There are 4 ways to ground the Rangemaster circuit:</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-positive-negative-ground-circuits.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-positive-negative-ground-circuits-small.png" alt="dallas rangemaster positive negative ground circuits" width="1000" height="235" style="display: block; margin-left: auto; margin-right: auto;" title="dallas rangemaster positive negative ground circuits"></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>PNP Positive Ground:</strong> it is the original circuit. It sounds fantastic but the problem with it is that if you want to use an external DC adapter (and not only batteries) it will create a short circuit (see how the input and output jacks are referenced to +9V and not ground). The original box never faced this issue because it only works on batteries. So please do not use a daisy chain power adaptor with a positive ground guitar pedal.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/how-to-daisy-chain-pedals.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/how-to-daisy-chain-pedals.jpg" alt="how to daisy chain pedals" width="400" height="189" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>PNP Negative Ground: </strong>it is a modern mod that adapts the pedal to be used with a standard daisy chain power supply. The input and output caps remove any DC so the input/output jacks can be re-grounded to the real GND. The problem with this approach is that the circuit would be very prone to oscillations/hissing/motorboat noise. The long return currents from the input and output jacks make the pedal unstable. Most of the times, it would work, especially because the Rangemaster does not have a massive gain ( like other popular PNP Negative ground circuits like the Fuzz Face that are very problematic), however, I would not recommend this circuit. If you want to use a real negative ground circuit, use the last option (MAX1044 mod).</span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>NPN Negative Ground: Using an NPN transistor</strong>, the pedal can be grounded in a standard manner, removing any problems with power supplies and oscillation. Any low gain NPN transistor would work here:&nbsp;2N5088, 2N3904, 2N4401, BC108, BC109, BC109C, BC183, BC183L, BC209C (all of them are Silicon). The problem with this circuit is that there are not so many NPN germanium transistors out there.&nbsp; &nbsp;</span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><strong>PNP Real Negative Ground:</strong>&nbsp;We can use a MAX1044 (or the equivalents: ICL7660, TC1044) to create a "real" -9V. You can use this -9V in the circuit making it compatible with a daisy chained power supply and without oscillation. Note that you have to be careful with the MAX1044 layout to reduce any noise from the charge pump. This mod is also used and described on the <a href="https://web.archive.org/web/20220428125121/https://aionelectronics.com/wp-content/uploads/2018/04/aion-radian-rangemaster-documentation.pdf">Radian Rangemaster Project by Aion Electronics.</a></span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-mods.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-mods-small.png" alt="dallas rangemaster mods " width="1000" height="264" style="display: block; margin-left: auto; margin-right: auto;" title="dallas rangemaster mods "></a><span style="font-size: 12pt;"></span></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-size: 12pt;"><strong><span style="font-family: verdana, geneva;"><a id="link52"></a><span style="color: #000000;">5.2 Input Cap Mod.</span></span></strong></span></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">The Dallas Rangemaster Input Cap modification is the most popular one. By simply changing the C1 input cap we can transform the frequency response making it more limited or wide. It is easy to implement, just using an ON-OFF-ON SW1 switch. There are two typical sets of cap values (5/10/15nF and 5/47/100nF) that you can use for this mod:</span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;">If you want to keep the original tone of the Rangemaster and make subtle adjustments over it, the typical values are 5nF (standard value), 10nF and 15nF. Check the graph below to see how the frequency response is modified:</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-standard-frequency-response-standrard-10n-15n.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-standard-frequency-response-standrard-10n-15n.png" alt="dallas rangemaster standard frequency response standrard 10n 15n" width="800" height="340" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;">If you want to be more aggressive, some players use the 5nF (standard value), 47nF and 100nF. This values are far from the original sound but may make the pedal more versatile, making the booster more wide frequency and not just for the treble.&nbsp;<span style="font-family: verdana, geneva;">Check the graph below to see how the frequency response is modified:</span></span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/dallas-rangemaster-frequency-response-standrard-47n-100n.png"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/dallas-rangemaster-frequency-response-standrard-47n-100n.png" alt="dallas rangemaster frequency response standrard 47n 100n" width="800" height="340" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p>&nbsp;</p>
+<p style="text-align: left;"><span style="font-family: verdana, geneva; font-size: 12pt;"><strong><a id="link53"></a><span style="color: #000000;">5.3 Dallas Rangemaster Output Cap Mod.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">This modification is not as popular as the Input Cap Mod and for a reason. Although it has to be admitted that 10nF is a low value for an output cap (many pedals use caps in the 100nF to 47uF range for this). Changing the C3 value will modify the filter created by this cap and the "load" or next pedal/amplifier in the chain. Users have different setups or "loads" so the result is variable.&nbsp;</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">In the same way, as in the Input Cap Mod, this feature could be implemented by using an ON-OFF-ON switch to change between 1nF, 10nF (standard value), 1uF. But if you have a good load (around 100K<span style="font-family: verdana, geneva;">Ω</span> to 1M<span style="font-family: verdana, geneva;">Ω</span>) the cut-off filter frequency (fc=1/2piRC) will not affect the audio band.</span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-size: 12pt;"><strong style="font-family: verdana, geneva;"><a id="link54"></a><span style="color: #000000;">5.4 Input Pull-Down Resistor:</span></strong></span><span style="font-family: verdana, geneva;">&nbsp;The original Rangemaster was designed to be used between the guitar and the amp, with no other effects around. If you plan to use it together with other effects is recommended to use a pull-down input resistor (anything between 1M<span style="font-family: verdana, geneva;">Ω</span> – 10M<span style="font-family: verdana, geneva;">Ω</span>) to avoid the input cap to pop when activated.</span></span></p>
+<p><span style="font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-size: 12pt;"><strong style="font-family: verdana, geneva;"><a id="link55"></a><span style="color: #000000;">5.5 Output Pull-Down Resistor:</span></strong></span><span style="font-family: verdana, geneva;">&nbsp;similar to the input pull-down resistor, if the Rangemaster is going to be used together with more effects and activated/bypassed on stage, its good to place an output pull-down resistor to discharge the output cap and avoid pops when activated <span style="font-family: verdana, geneva;">(anything between 1M</span><span style="font-family: verdana, geneva;">Ω</span><span style="font-family: verdana, geneva;">&nbsp;– 10M</span><span style="font-family: verdana, geneva;">Ω</span><span style="font-family: verdana, geneva;">)</span>. None of the input/output pull-down resistors will affect the sound.</span></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 12pt;"><strong><a id="link56"></a><span style="color: #000000;">5.6 Bias the Rangemaster with a 100K<span style="font-family: verdana, geneva;">Ω</span> potentiometer instead of fixed 68K<span style="font-family: verdana, geneva; font-size: 12pt;">Ω</span> R2:</span></strong></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;">A 100K<span style="font-family: verdana, geneva; font-size: 13.3333px;">Ω or even a 200K<span style="font-family: verdana, geneva; font-size: 13.3333px;">Ω</span></span> potentiometer (Burns multiturn resistors are great for this task) can be used to adjust the bias point and make the pedal to sound its best. By using it we can fix the problems with low gain germanium transistors and adjust the Vb to the optimal +8V. You can get more info about this is the Bias Section.</span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/images/tech/rangemaster/Bourns-3296-Trimmer-Potentiometer.jpg"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/Bourns-3296-Trimmer-Potentiometer.jpg" alt="Bourns 3296 Trimmer Potentiometer" width="150" height="163" style="display: block; margin-left: auto; margin-right: auto;" title="Bourns 3296 Trimmer Potentiometer"></a></span></p>
+<p><span style="font-family: verdana, geneva;"><strong><span style="font-size: 14pt; color: #000000;"><span style="color: #000000;"><a id="link6"></a>6. Resources</span></span></strong></span></p>
+<ul>
+<li><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220428125121/https://gitec-forum.de/wp/wp-content/uploads/poteg-10-08-05-3-range-master.pdf">Rangemaster Technology</a> from "Guitar Amplifiers"</span></li>
+<li><span style="font-family: verdana, geneva; font-size: 10pt;"><a href="https://web.archive.org/web/20220428125121/http://www.geofex.com/article_folders/rangemaster/drm.htm">Dallas Rangemaster Study By RG Keen</a>, the first and best document out there.</span></li>
+<li><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220428125121/https://www.premierguitar.com/articles/the-rangemaster-1">The Rangemaster</a> by Premier Guitar.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="font-size: 10pt;"><span style="color: #333333; font-family: verdana, geneva; font-size: 13.3333px;">My sincere appreciation to J. Blake Arnold for your help with this analysis.</span>&nbsp;</span></span></p>
+<p><span style="font-family: verdana, geneva; font-size: 10pt;"><span style="color: #333333; font-size: 10pt; text-align: right;">Thanks for reading, all feedback is appreciated: <span style="color: #000000;"><span id="cloak4b2aa08b94521498d63a1cdd142b5543"><a href="mailto:info@electrosmash.com">info@electrosmash.com</a></span><script type="text/javascript">
+				document.getElementById('cloak4b2aa08b94521498d63a1cdd142b5543').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy4b2aa08b94521498d63a1cdd142b5543 = '&#105;nf&#111;' + '&#64;';
+				addy4b2aa08b94521498d63a1cdd142b5543 = addy4b2aa08b94521498d63a1cdd142b5543 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text4b2aa08b94521498d63a1cdd142b5543 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak4b2aa08b94521498d63a1cdd142b5543').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy4b2aa08b94521498d63a1cdd142b5543 + '\'>'+addy_text4b2aa08b94521498d63a1cdd142b5543+'<\/a>';
+		</script></span></span></span></p>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"><span style="font-size: 12pt;"><span style="color: #333333; font-size: 10pt;"></span></span></span></p>
+<p>&nbsp;</p>
+<p style="margin-top: 12px; line-height: 18px; color: #555555; font-family: Arial, Helvetica, sans-serif; text-align: center;"><span style="color: #808080; font-size: 8pt; font-family: verdana, geneva;"><span style="color: #0000ff;"><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/rights" style="font-weight: bold; color: #0063e1;"><span style="color: #0000ff;">Some Rights Reserved</span></a></span>, you are free to copy, share, remix and use all material.<br>Trademarks, brand names and logos are the property of their respective owners.</span></p>	</section>
+  
+  <!-- footer -->
+    <!-- //footer -->
+
+			<hr class="divider-vertical"><ul class="pager pagenav">
+	<li class="previous">
+		<a class="hasTooltip" title="" aria-label="Previous article: Arduino Audio Meter" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/arduino-audio-meter" rel="prev" data-original-title="Arduino Audio Meter">
+			<span class="icon-chevron-left" aria-hidden="true"></span> <span aria-hidden="true">Prev</span>		</a>
+	</li>
+	<li class="next">
+		<a class="hasTooltip" title="" aria-label="Next article: Marshall The Guvnor Analysis" href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-guvnor-analysis" rel="next" data-original-title="Marshall The Guvnor Analysis">
+			<span aria-hidden="true">Next</span> <span class="icon-chevron-right" aria-hidden="true"></span>		</a>
+	</li>
+</ul>
+	
+	
+	</article>
+<!-- //Article -->
+
+
+</div><div><a href="https://web.archive.org/web/20220428125121/http://www.artio.net/" style="font-size: 8px; visibility: visible; display: inline;" title="Web development, Joomla, CMS, CRM, Online shop software, databases">Joomla SEF URLs by Artio</a></div>
+		</div>
+		<!-- //MAIN CONTENT -->
+
+		<!-- SIDEBAR RIGHT -->
+		<div class="t3-sidebar t3-sidebar-right col-xs-12 col-sm-4  col-md-3 ">
+			<div class="t3-module module " id="Mod192"><div class="module-inner"><h3 class="module-title "><span>Instagram photos</span></h3><div class="module-ct">  
+
+<div id="jux_social_instagram_feed" class="jux_social_instagram_feed_192">
+    <style type="text/css">
+    #instaShowGallery_1 {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-counter,
+    #instaShowGallery_1 .instashow-gallery-media-info-counter {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-info-description {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-cover {
+         background: #000000;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll-slider {
+        background: rgb(68, 68, 68);
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow::after {
+        background: #008eff;
+    }
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::after {
+        background: #25b5ff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-twilight {
+  opacity: 0.9;      background: #2b2b2b;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author {
+        color: #000000;
+    }
+    #instaShowPopup_1 .instashow-popup-media-info-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 a.instashow-popup-media-info-original {
+        background: #3897f0;
+    }
+    #instaShowPopup_1 a.instashow-popup-media-info-original:hover {
+        background: rgb(38, 141, 234);
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-properties {
+        color: #6d6d6d;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-passed-time {
+        color: #989898;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content {
+        color: #343434;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a {
+        color: #113c6e;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+    #instaShowPopup_1 .instashow-popup-control-close::before,
+    #instaShowPopup_1 .instashow-popup-control-close::after {
+        background: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video::before {
+        color: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video:hover::before {
+        color: #ffffff;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        #instaShowPopup_1 .instashow-popup-control-close {
+            background: #ffffff;
+        }
+        #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+        #instaShowPopup_1 .instashow-popup-control-close::before,
+        #instaShowPopup_1 .instashow-popup-control-close::after,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+            background: #676767;
+        }
+
+        #instaShowPopup_1 .instashow-popup-media-video::before {
+            color: #676767;
+        }
+    }
+</style><div data-is="" data-is-api="https://www.electrosmash.com/modules/mod_jux_social_instagram_feed/juxinstagram/api/index.php" data-is-source="@electro.smash" data-is-filter-only="" data-is-filter-except="" data-is-limit="0" data-is-cache-media-time="0" data-is-responsive="{ &quot;768&quot;: { &quot;columns&quot;: 2, &quot;rows&quot;: 2, &quot;gutter&quot;:10} , &quot;480&quot;:{ &quot;columns&quot;: 1, &quot;rows&quot;: 1, &quot;gutter&quot;: 10}}" data-is-width="auto" data-is-height="auto" data-is-columns="1" data-is-rows="5" data-is-gutter="10" data-is-arrows-control="false" data-is-scroll-control="false" data-is-drag-control="false" data-is-free-mode="false" data-is-loop="false" data-is-scrollbar="false" data-is-direction="horizontal" data-is-auto="0" data-is-auto-hover-pause="true" data-is-effect="slide" data-is-speed="600" data-is-easing="ease" data-is-popup-deep-linking="false" data-is-popup-speed="400" data-is-popup-easing="ease" data-is-lang="en" data-is-mode="popup" data-is-info="likesCounter, commentsCounter, description" data-is-popup-info="username, instagramLink, likesCounter, commentsCounter, location, passedTime, description, comments" data-is-color-gallery-bg="#ffffff" data-is-color-gallery-counters="#ffffff" data-is-color-gallery-description="#ffffff" data-is-color-gallery-overlay="#000000" data-is-color-gallery-arrows="#008eff" data-is-color-gallery-arrows-bg="#ffffff" data-is-color-gallery-arrows-hover="#25b5ff" data-is-color-gallery-arrows-bg-hover="#ffffff" data-is-color-gallery-scrollbar="#ffffff" data-is-color-popup-overlay="#2b2b2b" data-is-color-popup-bg="#ffffff" data-is-color-popup-username="#000000" data-is-color-popup-username-hover="#3897f0" data-is-color-popup-instagram-link="#3897f0" data-is-color-popup-instagram-link-hove="#268dea" data-is-color-popup-counters="#6d6d6d" data-is-color-popup-passed-time="#989898" data-is-color-popup-anchor="#113c6e" data-is-color-popup-anchor-hover="#3897f0" data-is-color-popup-text="#343434" data-is-color-popup-controls="#676767" data-is-color-popup-controls-hover="#ffffff" data-is-color-popup-mobile-controls="#676767" data-is-color-popup-mobile-controls-bg="#ffffff" data-is-debug="true" id="instaShowGallery_1" class="instashow instashow-gallery instashow-gallery-horizontal instashow-gallery-slide" style="width: auto; height: 1275px;"><div class="instashow-gallery-loader instashow-show"><div class="instashow-spinner"></div></div> 
+
+    <div class="instashow-gallery-wrapper" style="width: 263px; height: 1275px;"><div class="instashow-gallery-container" style="width: 0px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+</div>
+
+<script type="text/javascript">
+    var jux_style_hover = "1";
+    // console.log(jux_style_hover);
+</script></div></div></div><div class="t3-module module " id="Mod28"><div class="module-inner"><h3 class="module-title "><span>New Updates</span></h3><div class="module-ct"><ul class="latestnews mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/arduino-audio-meter" itemprop="url">
+			<span itemprop="name">
+				Arduino Audio Meter			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/dallas-rangemaster" itemprop="url">
+			<span itemprop="name">
+				Dallas Rangemaster Treble Booster Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/time-manipulator" itemprop="url">
+			<span itemprop="name">
+				Time Manipulator - Arduino Delay/Echo/Reverb			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/marshall-guvnor-analysis" itemprop="url">
+			<span itemprop="name">
+				Marshall The Guvnor Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/germanium-fuzz" itemprop="url">
+			<span itemprop="name">
+				You Can Build the Perfect Germanium Fuzz			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/mxr-distortion-plus-analysis" itemprop="url">
+			<span itemprop="name">
+				MXR Distortion + Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod29"><div class="module-inner"><h3 class="module-title "><span>Most Visited</span></h3><div class="module-ct"><ul class="mostread mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/tube-screamer-analysis" itemprop="url">
+			<span itemprop="name">
+				Tube Screamer Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/fuzz-face" itemprop="url">
+			<span itemprop="name">
+				Fuzz Face Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/proco-rat" itemprop="url">
+			<span itemprop="name">
+				Pro Co Rat Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/boss-ds1-analysis" itemprop="url">
+			<span itemprop="name">
+				Boss DS-1 Distortion Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/klon-centaur-analysis" itemprop="url">
+			<span itemprop="name">
+				Klon Centaur Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/crybaby-gcb-95" itemprop="url">
+			<span itemprop="name">
+				Dunlop CryBaby GCB-95 Cicuit Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod184"><div class="module-inner"><h3 class="module-title "><span>Follow us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><span style="font-size: 10pt; color: #333333;">You can also follow us on:</span></p>
+<p><a href="https://web.archive.org/web/20220428125121/https://www.facebook.com/ElectroSmash"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/facebook.png" alt="facebook"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220428125121/https://plus.google.com/+Electrosmash/about"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/google.png" alt="google"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220428125121/https://www.instagram.com/electro.smash/"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/instagram.png" alt="instagram"></a></p>
+<p><a href="https://web.archive.org/web/20220428125121/https://www.pinterest.com/electrosmash/"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/pinterest.png" alt="pinterest"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220428125121/https://www.youtube.com/user/ElectroSmashTV"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/youtube.png" alt="youtube"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220428125121/https://twitter.com/electro_smash"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/twitter.png" alt="twitter"></a></p></div>
+</div></div></div>
+		</div>
+		<!-- //SIDEBAR RIGHT -->
+
+	</div>
+</div> 
+
+
+
+  
+
+
+  
+
+
+	
+<!-- BACK TOP TOP BUTTON -->
+<div id="back-to-top" data-spy="affix" data-offset-top="300" class="back-to-top hidden-xs hidden-sm affix-top">
+  <button class="btn btn-primary" title="Back to Top"><i class="fa fa-caret-up"></i></button>
+</div>
+<script type="text/javascript">
+(function($) {
+	// Back to top
+	$('#back-to-top').on('click', function(){
+		$("html, body").animate({scrollTop: 0}, 500);
+		return false;
+	});
+    $(window).load(function(){
+        // hide button to top if the document height not greater than window height*2;using window load for more accurate calculate.    
+        if ((parseInt($(window).height())*2)>(parseInt($(document).height()))) {
+            $('#back-to-top').hide();
+        } 
+    });
+})(jQuery);
+</script>
+<!-- BACK TO TOP BUTTON -->
+
+<!-- FOOTER -->
+<footer id="t3-footer" class="wrap t3-footer">
+
+			<!-- FOOTER SPOTLIGHT -->
+		<div class="container hidden-xs">
+				<!-- SPOTLIGHT -->
+	<div class="t3-spotlight t3-footer-sl  row">
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod185"><div class="module-inner"><h3 class="module-title "><span>About us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220428125121/https://shop.electrosmash.com/about-us/">&nbsp;&nbsp;<img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/smash-electro.jpg" alt="smash electro"></a></p>
+<p><a href="https://web.archive.org/web/20220428125121/https://shop.electrosmash.com/about-us/"><span style="font-size: 10pt; color: #333333;">Smashing audio electronics since MMXIII</span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod183"><div class="module-inner"><h3 class="module-title "><span>Email Newsletter</span></h3><div class="module-ct"><div class="acymailing_module" id="acymailing_module_formAcymailing29511">
+	<div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing29511">
+		<form id="formAcymailing29511" action="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/" onsubmit="return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing29511&#39;)" method="post" name="formAcymailing29511">
+		<div class="acymailing_module_form">
+						<table class="acymailing_form">
+				<tbody><tr>
+												<td class="acyfield_email acy_requiredField">
+								<input id="user_email_formAcymailing29511" onfocus="if(this.value == &#39;example@email.com&#39;) this.value = &#39;&#39;;" onblur="if(this.value==&#39;&#39;) this.value=&#39;example@email.com&#39;;" class="inputbox" type="text" name="user[email]" style="width:90%" value="example@email.com" title="example@email.com">
+							</td> </tr><tr>
+					
+					<td class="acysubbuttons">
+												<input class="button subbutton btn btn-primary" type="submit" value="Subscribe" name="Submit" onclick="try{ return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing29511&#39;); }catch(err){alert(&#39;The form could not be submitted &#39;+err);return false;}">
+											</td>
+				</tr>
+			</tbody></table>
+						<input type="hidden" name="ajax" value="0">
+			<input type="hidden" name="acy_source" value="module_183">
+			<input type="hidden" name="ctrl" value="sub">
+			<input type="hidden" name="task" value="notask">
+			<input type="hidden" name="redirect" value="https%3A%2F%2Fwww.electrosmash.com%2Fdallas-rangemaster">
+			<input type="hidden" name="redirectunsub" value="https%3A%2F%2Fwww.electrosmash.com%2Fdallas-rangemaster">
+			<input type="hidden" name="option" value="com_acymailing">
+						<input type="hidden" name="hiddenlists" value="1">
+			<input type="hidden" name="acyformname" value="formAcymailing29511">
+									</div>
+		</form>
+	</div>
+	</div>
+
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod186"><div class="module-inner"><h3 class="module-title "><span>Contact us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220428125121/https://www.electrosmash.com/contact-us"><span style="font-size: 10pt; color: #333333;">e-mail us at <span id="cloak1cd9a6c8d23ea69311c3def4da3df105"><a href="mailto:info@electrosmash.com">info@electrosmash.com</a></span><script type="text/javascript">
+				document.getElementById('cloak1cd9a6c8d23ea69311c3def4da3df105').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy1cd9a6c8d23ea69311c3def4da3df105 = '&#105;nf&#111;' + '&#64;';
+				addy1cd9a6c8d23ea69311c3def4da3df105 = addy1cd9a6c8d23ea69311c3def4da3df105 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text1cd9a6c8d23ea69311c3def4da3df105 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak1cd9a6c8d23ea69311c3def4da3df105').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy1cd9a6c8d23ea69311c3def4da3df105 + '\'>'+addy_text1cd9a6c8d23ea69311c3def4da3df105+'<\/a>';
+		</script></span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod188"><div class="module-inner"><h3 class="module-title "><span>Rights</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p style="text-align: left;">&nbsp;&nbsp;<a href="https://web.archive.org/web/20220428125121/https://creativecommons.org/licenses/by-nc/3.0/"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/88x31.png" alt="88x31"></a></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/open_source_logo.png" alt="open source logo" width="180" height="38"></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Dallas Rangemaster Treble Booster Circuit Analysis_files/open_hardware_logo.png" alt="open hardware logo" width="180" height="38"></p>
+<p style="text-align: left;">&nbsp;</p></div>
+</div></div></div>
+							</div>
+			</div>
+<!-- SPOTLIGHT -->
+		</div>
+		<!-- //FOOTER SPOTLIGHT -->
+	
+	<section class="t3-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 copyright ">
+					
+          <small>
+            <a href="https://web.archive.org/web/20220428125121/http://twitter.github.io/bootstrap/" title="Bootstrap by Twitter" target="_blank">Bootstrap</a> is a front-end framework of Twitter, Inc. Code licensed under <a href="https://web.archive.org/web/20220428125121/https://github.com/twbs/bootstrap/blob/master/LICENSE" title="MIT License" target="_blank">MIT License.</a>
+          </small>
+          <small>
+            <a href="https://web.archive.org/web/20220428125121/http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> font licensed under <a href="https://web.archive.org/web/20220428125121/http://scripts.sil.org/OFL">SIL OFL 1.1</a>.
+          </small>
+				</div>
+							</div>
+		</div>
+	</section>
+
+</footer>
+<!-- //FOOTER -->
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://web.archive.org/web/20220428125121/https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29544239-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!--
+playback timings (ms):
+  captures_list: 131.125
+  exclusion.robots: 0.225
+  exclusion.robots.policy: 0.217
+  RedisCDXSource: 10.908
+  esindex: 0.01
+  LoadShardBlock: 96.73 (3)
+  PetaboxLoader3.datanode: 127.067 (4)
+  CDXLines.iter: 20.068 (3)
+  load_resource: 75.993
+  PetaboxLoader3.resolve: 27.713
+--><div class="instashow instashow-popup" id="instaShowPopup_1"><div class="instashow-popup-twilight"></div><div class="instashow-popup-wrapper"><div class="instashow-popup-container"><div class="instashow-popup-control-close"></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-previous"><span></span></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-next"><span></span></div></div></div></div></body></html>

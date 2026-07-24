@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuzz Face Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Fuzz Face Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Fuzz Face Analysis</h1>
+
+<p>The Fuzz Face is a distortion guitar pedal designed in London by Arbitrer Electronics Ltd in the autumn of 1966. It produces a characteristic high distorted sound called <em>fuzz</em>.<br/>Ivor Arbiter took the round shaped enclosure idea from a microphone stand and it was the first pedal including a DPDT stomp-switch. The effect became very popular because Jimi Hendrix played it and there were not many distortion pedals around at that time.<img alt="fuzz face pedal" class="article-img" src="images/fuzz-face/fuzz-face-pedal.jpg"/></p>
+<p>The gist of the Fuzz Face remains in the simple circuit that uses eleven components (2 transistors, 4 resistors, 3 caps and 2 pots) and the astonishing tones created with them; delivering a soft asymmetrical clipping that changes to hard clipping in both semi-cycles under the fuzz pot action.</p>
+<p>Arbitrer Electronics manufactured the pedal from 1966 to 1975, Dallas Music Industries did a final batch in 1975-77, after that the production stopped. During its lifetime the pedal went through some minor cosmetic but major sonic changes. The fuzz face was re-issued from 1986 to 2000. In 1993 Dunlop took over the production selling the fuzz face in different flavors. Today, both the <em>Dallas Arbiter</em> and<em> Fuzz Face</em> trademarks are owned by Dunlop Manufacturing Inc.</p>
+<p>This analysis covers the first Arbitrer Fuzz Face model equipped with PNP germanium transistors from the first releases which are considered the best sounding.</p>
+
+<p><strong>Table of Contents.</strong></p>
+<p><a href="#link1">1. The Fuzz Face Models.</a><br/>     <a href="#link11">1.1 The transistors.</a><br/><a href="#link2">2. Fuzz Face Circuit.</a><br/>     <a href="#link21">2.1 Fuzz Face Layout.</a><br/>     <a href="#link22">2.2 Components Part List / Bill of Materials.</a><br/>     <a href="#link23">2.3 Circuit Bias Points.</a><br/><a href="#link3">3. Fuzz Face Input Stage.</a><br/>     <a href="#link31">3.1 Input Impedance.</a><br/>     <a href="#link32">3.2 Voltage Gain.</a><br/><a href="#link4">4. Fuzz Face Output Stage.</a><br/>     <a href="#link41">4.1 Output Impedance.</a><br/>     <a href="#link42">4.2 Voltage Total Gain.</a><br/>     <a href="#link43">4.3 Power Supply.</a><br/><a href="#link5">5. Fuzz Face Global Feedback Network.</a><br/><a href="#link6">6. Fuzz Face Frequency Response.</a><br/><a href="#building-the-perfect-fuzz">7. Building the Perfect Fuzz Face</a><br/><a href="#link7">8. Resources.</a><br/>     <a href="#link71">8.1 Datasheets.</a><br/></p>
+
+<p><a id="link1" name="link1"></a><strong>1. The Fuzz Face Models:</strong><br/></p>
+<p>The earliest models were covered in red, light or dark gray Hammerite paint with the Fuzz Face logo in white or black, the text in the <em>smile</em> reveals the pedal's age. The earliest ones were <em>Arbiter-England</em>, then they became <em>Dallas-Arbiter England</em> sometime in 1968 since then there have been a variety of words in the smile.</p>
+<p>These days Dunlop manufactures a number of different finishes and sizes using various transistor flavors:<img alt="fuzz face pedals family" class="article-img" src="images/fuzz-face/fuzz-face-family.jpg"/></p>
+<p><a name="link11"></a><strong>1.1 The Fuzz Face Transistors.</strong></p>
+<p>The transistors are the most sensitive part of the design with a whole mythology that has grown up around them. There are two main possibilities:</p>
+<ul>
+<li>Germanium transistors: are claimed to have a warmer, creamier smoother sound.</li>
+<li>Silicon transistors: with higher gain are a bit harsher with some more high end.</li>
+</ul>
+<p>Germanium transistors are considered to have an overall better sounding to this effect with some drawbacks: germanium manufacturing is not as consistent and controlled as silicon and they have shorter lifespan and more temperature sensitivity.</p>
+<p>Dennis Cornell: <em>"All the transistors worked in a very similar way and all did the job, but they did give a slightly different tone. I think the Arbiter-England one didn’t use the NKT275 germanium transistor; in those days we used the AC128</em>."</p>
+<p><em>"There were always problems with them, so I’d get involved in testing and repairing because they just didn’t all work right!"</em><img alt="ac128-small" class="article-img" src="images/fuzz-face/ac128.jpg"/></p>
+<p>This last quote from D. Cornell explains why the production switched to the modern, temperature independent, cheaper and stable silicon transistors like the BC183L, BC183KA, BC130C, BC108C, BC109C, BC209C, and BC239C. <br/></p>
+<p><strong>Germanium Transistor Selection: </strong>It is important to select the right transistor from the whole batch in order to archive the best effect performance. Germanium transistors tend to have high leakage current and an inconsistent gain value. This gain variation is crucial in the design, the best match uses a low gain in the first stage (β=70-80 approx.) and a high gain in the second stage (β=110-130 approx.).<br/>However, there are some other options, for a more compressed sound you can use β=90-120 for Q<sub>1</sub> and β=150-190 Q<sub>2</sub>.<br/>There are <a href="http://www.geofex.com/article_folders/fuzzface/fftech.htm" rel="noopener noreferrer" target="_blank">some circuits</a> that help to measure the transistor gain.</p>
+
+<p><a id="link2" name="link2"></a><strong>2. The Fuzz Face Circuit.</strong></p>
+<p>The circuit is a simple 2 stage amplifier with a feedback network path. It can be broken down into three parts: Input Stage, Output Stage and Feedback Network. The last block (the Feedback Network) will affect the rest of the analysis because it will influence the most important parameters: voltage gain, input impedance, output impedance and frequency response.<img alt="fuzz face original schematic parts" class="article-img" src="images/fuzz-face/fuzz-face-original-schematic-parts.png"/></p>
+<p>The fuzz face design was inspired in other contemporary fuzz pedals like the Maestro Fuzz Tone (designed by Glen Snotty) and the Sola Sound ToneBender (designed by Gary Hurst) although the Fuzz Face was an easier circuit than the competitors with only 2 transistors instead of 3.</p>
+<p>There is some controversy of when and where the 2-transistor topology appeared: the Tone Bender MK1.5 is similar to the Dick Denney designed Vox Distortion Booster circuit, nearly identical to the Italian made Vox Tone Bender circuit, and the Arbiter Fuzz Face circuit.</p>
+
+<p><a id="link21" name="link21"></a><strong>2.1 Fuzz Face Layout.</strong></p>
+<p>The single layer PCB with through-hole components fits without problems inside the oversized cast iron enclosure. In the picture below you can see the original enclosure (left) compared with the new compact Dunlop box (right):<br/></p>
+<p><img alt="fuzz face guts" class="article-img" src="images/fuzz-face/fuzz-face-guts-by-spayne99.jpg"/>The original Fuzz Face uses single layer PCB with through-hole components. The right side of the board have all the pads to attach the cables to the battery clip, jacks, potentiometers and the DPDT foot-switch.</p>
+<p><img alt="fuzz face pcb layout" class="article-img" src="images/fuzz-face/fuzz-face-pcb.jpg"/></p>
+<p><a id="link22" name="link22"></a><strong>2.2 Fuzz Face Components Part List / Bill of Materials:</strong></p>
+<p>This is the reduced list of components needed to build a Fuzz Face:<br/></p>
+<p>1    C<sub>1</sub>:    2.2 uF<br/>1    C<sub>2</sub>:    20 uF<br/>1    C<sub>3</sub>:    0.01 uF<br/>1    R<sub>1</sub>:    33KΩ<br/>1    R<sub>2</sub>:    470Ω<br/>1    R<sub>3</sub>:    8.KΩ<br/>1    R<sub>4</sub>:    100KΩ<br/>1    R<sub>vol</sub>:    500KΩ (Audio tap)<br/>1    R<sub>fuzz</sub>:    1KΩ (Linear tap)<br/>2    Q<sub>1</sub>, Q<sub>2</sub>:    AC128<br/>     Jack in, Jack out, battery clip, DPDT foot-switch.<br/><br/></p>
+<p><a id="link23" name="link23"></a><strong>2.3 Fuzz Face Circuit Bias:</strong></p>
+<p>These are the most important DC bias points of the circuit.<img alt="fuzz face bias circuit" class="article-img" src="images/fuzz-face/fuzz-face-bias.jpg"/><strong>note: </strong></p>
+<ul>
+<li>For the bias values showed above, the fuzz potentiometer is set to the midpoint (500Ω)</li>
+<li>The DC voltages might change due to transistor β variations, in this case, we are using a Q<sub>1</sub> with β=85 and Q<sub>2</sub> with β=120. If you want the see the <a href="#link71">AC128 PSpice simulation model, check the last part of this article</a>.</li>
+<li>The important settings to get the best sound out of a Fuzz Face is to have Q1<sub>VC</sub>=-0.5 to -0.7 and Q2<sub>VC</sub>=-4.5V. For this purpose, some designers include trimmer resistors to substitute R1 and R3 so the VC of the transistors can be easily adjusted. More info on <a href="http://www.physics.mcgill.ca/~grant/Stuff/fuzzface.txt" rel="noopener noreferrer" target="_blank">physics.mcgill.ca/~grant/Stuff/fuzzface.txt</a></li>
+</ul>
+
+<p><a id="link3" name="link3"></a><strong>3. Fuzz Face Input Stage.</strong></p>
+<p>The input stage is a Common Emitter (Collector Follower) PNP amplifier, it provides a high voltage gain with low input impedance and high output impedance. It is not the ideal input stage for signal integrity but the best for simplicity and fast high gain.<br/><img alt="fuzz face input stage" class="article-img" src="images/fuzz-face/fuzz-face-input-stage.png"/></p>
+<ul>
+<li>The 2.2uF input capacitor C<sub>1</sub> blocks any DC level, removing hum and protecting the pedal/guitar against dangerous DC levels.</li>
+<li>The 33KΩ R<sub>1</sub> resistor sets the main input stage parameters like the voltage gain, bias points, and maximum collector current.</li>
+</ul>
+
+<p><a name="link31"></a><strong>3.1 Fuzz Face Input Impedance:</strong></p>
+<p>Is equal to the input impedance of a common emitter stage. It can be calculated as:</p>
+<p>Zin = Zin of PNP Common Emitter = rπ</p>
+<div>\[\\r_{\pi } = \frac{(\beta +1)\cdot Vt}{I_{EQ}}=\frac{(\beta +1)}{gm}= \frac{(70+1)}{0.0088}= 8K\]</div>
+<p>For this math calculation the feedback network is ignored but in practice, it will lower the input impedance to 5KΩ approx. The Fuzz Face has a very low input impedance that will change with the position of the R<sub>FUZZ</sub> potentiometer (between 5.2KΩ and 8.4KΩ in the simulation). So the feedback network has a negative impact on this parameter.<br/></p>
+<p>As a rule of thumb, Z<sub>in</sub> should be at least 1 MΩ. In other pedals with <em>similar</em> input stages<a href="big-muff-pi-analysis.html#link23"> like the one in the Big Muff Pi</a> a series resistor is placed at the input in order to higher the impedance (at the cost of creating a voltage divider that reduces the available input signal).  </p>
+<p>The Fuzz Face low input impedance will load the guitar pickups. This is the reason why they do not respond well when they are placed after other pedals. A practical advice is to put your Fuzz Face first on the pedal chain, just after the guitar. The germanium transistor needs to see the inductance/impedance from the guitar pickups. If they see a buffer at the input, they tend to sound awful.<br/></p>
+
+<p><strong><a name="link32"></a>3.2 Voltage Gain of the Input Stage:</strong></p>
+<p>In a <a href="http://en.wikipedia.org/wiki/Common_emitter" rel="noopener noreferrer" target="_blank">Common Emitter</a> transistor the voltage gain can be calculated following the equation:</p>
+<div>\[A_{V}=-g_{m}\cdot R_{C}= -g_{m}\cdot R_{1}= 0.0088 \cdot 33K = 290\: (49dB)\]</div>
+<p>note: The gm value of a transistor is defined as:</p>
+<div>\[g_{m}=\frac{I_{e}}{V_{T}}= \frac{0.22mA}{25mV}= 0.0088\]</div>
+<p>where:</p>
+<ul>
+<li>I<sub>E</sub> is the DC emitter current, can be calculated looking at the <a href="#link23">bias points</a> of the circuit, in a simplified form I<sub>E</sub>=(V<sub>CC</sub>-V<sub>C</sub>)/R<sub>1</sub>=(9V-1.6V)/33K= 0.22mA</li>
+<li>V<sub>T</sub> is the thermal voltage of a transistor, at room temperature the value is approximately 25mV.</li>
+</ul>
+<p>In the real life, the input stage will not reach 49dB of gain, the feedback network will reduce this levels to 18.6 dB approx. In the image below the voltage gain of the input stage is shown varying the fuzz potentiometer. </p>
+<p><img alt="fuzz face input stage voltage gain" class="article-img" src="images/fuzz-face/fuzz-face-input-stage-voltage-gain.png"/>The above graph shows a high pass filter with a cut-off frequency of 14Hz (18.6 -15. 6 = 3dB) all frequencies below 14Hz will suffer an attenuation 6dB/oct. This is due to the RC filter created by C<sub>1</sub> and the input impedance (5KΩ approx.):</p>
+<p><div>\[fc=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot Z_{in}\cdot  C_{1}}=\frac{1}{2\pi \cdot 5K \cdot 2.2uF}= 14Hz\]</div><br/></p>
+<p>note: The <em>hump</em> originated when the fuzz control is set to minimum (the <em>lowest</em> dark green trace) is due to the C<sub>2</sub> bypass capacitor which creates also filter (C<sub>2</sub> - R<sub>FUZZ</sub>). This effect is more noticeable when the gain of the pedal is low because it has more signal feedback coming from the output through R<sub>4</sub>. When the gain goes high the feedback is smaller and the high pass filter influence is less important. The relationship between feedback and gain is explained in the <a href="#link5">Feedback Network Section.</a><br/></p>
+
+<p><strong><em>FF Sound Signature I: Asymmetrical Clipping:</em></strong><strong><em>  </em></strong>For maximum dynamic range Common Emitter amplifiers are usually biased to have a collector voltage (V<sub>C</sub>) equal to V<sub>CC</sub>/2, in this case, it should be -4.5V. In the Fuzz Face the Q<sub>1</sub> collector voltage sits around -1.6V,  so the voltage swing on the positive semi-cycle is much bigger than in the negative semi-cycle. </p>
+<p>For small signals (less than 50mV<sub>pp</sub>), the input stage will first hit soft saturation on the negative semi-cycle of signal like in the image below, this asymmetric clipping distortion is very <em>musical</em>.</p>
+<p><img alt="fuzz face input stage signals" class="article-img" src="images/fuzz-face/fuzz-face-input-stage-signals-small.png"/></p>
+<p> When the input signal has a higher level, the input stage will soft-saturate in both semi-cycles like in the image below. This feature of giving soft asymmetric distortion to small signals and clipping harder in both semi-cycles on big input signals (strong chords) gives a nice touch sensitivity which enhances the expressive possibilities.<br/></p>
+<p><img alt="fuzz face input stage signals" class="article-img" src="images/fuzz-face/fuzz-face-input-stage-signals.png"/></p>
+<p><a id="link4" name="link4"></a><strong>4. Output Stage.</strong></p>
+<p>The output stage is again a PNP Common Emitter Amplifier, this time with a variable emitter degeneration resistor (R<sub>FUZZ</sub>=1KΩ).<br/><img alt="fuzz face output stage" class="article-img" src="images/fuzz-face/fuzz-face-output-stage.png"/></p>
+<p><a name="link41"></a><strong>4.1 Fuzz Face Output Impedance:</strong></p>
+<p>The value of the output impedance can be calculated using the formula:<br/></p>
+<p>Z<sub>out </sub>= R<sub>VOL</sub>//470Ω<br/>Z<sub>out MAX </sub>= R<sub>VOL</sub>//470Ω=500K//470Ω = 469Ω</p>
+<p>The fuzz face output impedance is affected by the feedback network and has a real value of 15KΩ (measured at 1KHz with R<sub>VOL</sub>=500KΩ). This value varies with the volume control level and the fuzz control position. However, it can be considered as a bad output impedance, it is too high and can carry problems when it is placed in the pedal chain.<br/></p>
+<p>The output capacitor C<sub>3</sub> blocks the DC level from saturating any device following the Fuzz Face. It creates a high pass filter together with R<sub>VOL</sub> that will determine the lowest frequency that gets out of the pedal. Making this cap bigger will let more low frequencies out. The cut frequency of this HPFilter is:</p>
+<p><div>\[fc=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{vol}\cdot  C_{3}}=\frac{1}{2\pi \cdot 500K \cdot 0.01uF}= 31Hz\]</div></p>
+<p>The minimum cut frequency is 31Hz, it goes higher when R<sub>VOL</sub> goes down. It means that with low volume levels, the amount of bass frequencies of the signal are slightly reduced, making C<sub>3</sub> bigger will let more low harmonics out. You can read more about it in the <a href="#link6">Frequency Response section.</a></p>
+
+<p> <a name="lin42"></a><strong>4.2 Fuzz Face Total Voltage Gain:</strong></p>
+<p>The emitter degeneration resistor R<sub>FUZZ</sub> creates a local negative feedback, making the second amplifier stage more stable and immune to gain variations due to temperature, bias current and transistor intrinsic properties.</p>
+<p>With this emitter resistance added, the Common Emitter PNP major parameters (ignoring by the moment the feedback network) can be determined by the ratio between the collector resistors (R<sub>2</sub> + R<sub>3</sub>) to and the emitter resistor (the portion of R<sub>FUZZ</sub> not <em>shorted</em> to ground through the 20uF cap).</p>
+<div>\[A_{V}=\frac{R_{C}}{R_{E}}= \frac{R_{2}+R_{3}}{R_{pot1}}\]</div>
+<div>\[A_{V}min=\frac{470+8K2}{1K}= 8.2\: (18dB)\]</div>
+<p>The voltage gain (A<sub>V</sub>) can go from 8.2 to as high as the transistor's basic internal gain (when R<sub>FUZZ</sub> is maxed out).</p>
+<p>If we take into consideration the feedback network, once again the second stage will not reach values as 18dB. In this case, the total voltage gain measured at Q<sub>2</sub> collector is around 19.5dB. Remember that the input stage had a gain of 18.6 dB, that leaves the second stage a total amount of 1dB of gain (19.5-18.6=0.9dB). The general amount of gain is considerably reduced due to the feedback network.</p>
+<p><img alt="fuzz-face-output-stage-voltage-gain-at-collector" class="article-img" src="images/fuzz-face/fuzz-face-output-stage-voltage-gain-at-collector.png"/></p>
+<p>In the above image, the output voltage at Q<sub>2</sub> is shown under the action of the R<sub>FUZZ</sub> potentiometer (the volume is set to max). It exhibits an attenuation in the low frequencies (high pass filter) with a f<sub>c</sub>=14Hz inherited from the input stage.</p>
+<p><strong>BUT</strong> the output of the pedal is not directly taken from Q<sub>2</sub> collector, there is a voltage divider created by R<sub>2</sub> and R<sub>3</sub> (the power supply is effectively at AC ground). This divider reduces the gain by a factor of R<sub>2</sub>/(R<sub>2</sub>+R<sub>3</sub>) = 470/(470+8K2) = 0.054 (-25dB), so the real gain of the output stage is:</p>
+<p>G<sub>VTOTAL</sub> = GV<sub>PEDAL</sub> - Attenuation of R2/(R2+R3)= 19.5 - 25 = -5.5dB</p>
+<p>This voltage divider created by R2 and R3 will greatly reduce the output level. The value usually does not get as low as -5.5dB, the series resistor of the battery should be taken into consideration and will raise the output level. </p>
+<p>It might look funny but It has a reason: the output signal is not much larger than the input signal to keep the huge amount of signal available from over-driving the input of the pedal or amplifier following it. The fuzz is not designed to overdrive the following <em>system</em> by level.<br/></p>
+<p><img alt="fuzz face output stage voltage gain" class="article-img" src="images/fuzz-face/fuzz-face-output-stage-voltage-gain.png"/></p>
+<p>note: FF sounds different with different batteries and with the same battery as it gets run down. The internal series resistance of the battery is added to the 470Ω R<sub>3</sub> resistor, modifying the value by a significant amount.</p>
+
+<p><strong>Emitter degeneration capacitor C<sub>2</sub>:</strong><br/>Any impedance between C<sub>2</sub> emitter and ground (R<sub>FUZZ</sub>) will reduce the gain of the output stage, it is a form of local negative feedback. Increasing this impedance will reduce the gain. If we are looking for high gain it is a common practice to have part or all of the emitter resistor grounded with a bypass capacitor. </p>
+<p>Capacitors present an impedance that decreases with frequency, the bias (DC) points will remain the same but high guitar (AC) signals will get higher voltage gain. In terms of design, the bypass capacitor C<sub>2</sub> should have a reactance, at the lowest frequency you are interested to amplify, less than the value of R<sub>FUZZ</sub>. We can use the formula:<br/></p>
+<div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{pot1}\cdot  C_{2}}=\frac{1}{2\pi \cdot 1K \cdot 20uF}= 7.9Hz\]</div>
+<p><br/>All the frequencies over 8Hz get full amplification. The 20uF is so big that almost all the frequencies get full amplification.<br/></p>
+
+<p><em><strong>FF Sound Signature II: Soft Clipping - Hard Clipping: </strong></em>As the second stage is driven harder, it can reach hard clipping in both semi-cycles of the signal. The clipping begins softly for smaller signals (and gains) and then with the fuzz potentiometer action the clipping goes harder with harder playing. The second amplifier stage can make the clipping harder, with sharper <em>squared</em> corners under the fuzz potentiometer action.</p>
+<p><img alt="fuzz face soft hard clippping" class="article-img" src="images/fuzz-face/fuzz-face-output-stage-soft-hard-clipping.png"/></p>
+<p><a name="link43"></a><strong>4.3 Fuzz Face Power Supply.</strong></p>
+<p>For component economy, the power supply does not include any capacitors to remove ripple from the power line which is something common in <em>raw</em> fuzz pedals. The usual solution in guitar pedals is to add some power filtering by placing 47~100uF cap together with a 100nF from the +9v to ground.</p>
+
+<p><a name="link5"></a><strong>5. Fuzz Face Global Feedback Network.</strong></p>
+<p>Amplifiers use current or voltage as input or outputs, you can check the <a href="http://en.wikipedia.org/wiki/Negative_feedback_amplifier#Two-port_analysis_of_feedback" rel="noopener noreferrer" target="_blank">amplifier classification</a>. The fuzz face has a negative feedback called <a href="http://en.wikipedia.org/wiki/Negative_feedback_amplifier#Two-port_analysis_of_feedback" rel="noopener noreferrer" target="_blank"><em>shunt-series feedback</em></a> (Current Controlled Current Source <strong>CCCS</strong>). Part of the output current is taken from Q<sub>2</sub> emitter and introduced as current in Q<sub>1</sub> base, so the feedback resistor R<sub>4</sub> is shunt connected with the input and in series connected with the output<img alt="fuzz face feedback network" class="article-img" src="images/fuzz-face/fuzz-face-feedback-network.png"/></p>
+<p>Why using feedback?</p>
+<p>In amplifier design the degenerative (negative) feedback is used to:</p>
+<ul>
+<li>Desensitize the gain: make the gain value less sensitive to transistors (i.e component variation caused by temperature).</li>
+<li>Reduce nonlinear distortion: make the gain constant.</li>
+<li>Reduce the noise: minimizing the contribution to the output of unwanted electrical signals.</li>
+<li>Control the input/output impedance: raising or lowering their values.</li>
+<li>Extend the bandwidth of the amplifier.</li>
+</ul>
+<p>The properties above are obtained at the expense of a reduction of gain. As a rule of thumb with more feedback, there is less global gain, following  the formula:</p>
+<p><div>\[\\A_{FB}=\frac{A_{OL}}{1+B_{FB}A_{OL}}\]</div><br/></p>
+<p>Where</p>
+<ul>
+<li>A<sub>FB </sub>= Total current gain of the amp in the closed loop.</li>
+<li>A<sub>OL </sub>= Current gain of the amp in open loop</li>
+<li>B = Feedback constant (not to be confused with the transistors β parameter).</li>
+</ul>
+
+<p><strong>How does the feedback work in the Fuzz Face?</strong></p>
+<p>The job of the feedback network is basically to reduce the huge gain of the Fuzz Face stages, making the whole circuit more stable and independent from problematic germanium transistors:</p>
+<ul>
+<li> When the fuzz control (1KΩ pot) is set to minimum, a big amount of signal is sent back to the input, creating a big feedback loop and reducing the total pedal gain (left image below).</li>
+<li>When the fuzz control increases the attack, the 20uF C<sub>2</sub> cap will gradually shunt the negative feedback to the ground, thus letting the circuit operate with more gain (right image below).</li>
+</ul>
+<p><img alt="fuzz face feedback network action" class="article-img" id="fuzz face feedback network action" src="images/fuzz-face/fuzz-face-feedback-options.png"/><br/></p>
+<p><a id="link5" name="link6"></a><strong>6. Fuzz Face Frequency Response.</strong></p>
+<p>The FF frequency response is shaped by the three capacitors C<sub>1</sub>, C<sub>2</sub> and C<sub>3</sub>:</p>
+<ul>
+<li>C<sub>1</sub>: The 2.2uF input cap creates a high pass filter together with the input pedal impedance (5KΩ approx.), removing dangerous DC levels, hum and overloading bass. </li>
+</ul>
+<p><div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot Z_{in}\cdot  C_{1}}=\frac{1}{2\pi \cdot 5K \cdot 2.2uF}= 14Hz\]</div><br/></p>
+<p>All harmonics below 14Hz will have 6dB/oct of attenuation</p>
+<ul>
+<li>C<sub>2</sub>: Shunts part of the signal to ground, but its value is so high (20uF) that in the worst case only signals below 8Hz (and the audio spectrum) will be affected, so the contribution for the general frequency response can be discarded.<br/></li>
+<li>C<sub>3</sub>: The output cap creates also a high pass filter, removing the excess of bass that the Fuzz Face delivers:<br/></li>
+</ul>
+<p><div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{vol}\cdot  C_{3}}=\frac{1}{2\pi \cdot 500K \cdot 0.01uF}= 31Hz\]</div><br/></p>
+<p>All harmonics below 31Hz will have 6dB/oct of attenuation. If the level goes down, the 500KΩ resistor will be reduced and the filter will remove more bass.</p>
+<p><a href="http://www.guitarworld.com/interview-eric-johnson-discusses-his-dunlop-signature-fuzz-face-pedal" rel="noopener noreferrer" target="_blank">Eric Johnson</a> seems to prefer a 100KΩ level resistor over the stock 500KΩ. Using a smaller resistor, the filter will cut more lows out (f<sub>c</sub>=160Hz) which will result in a brighter sound.</p>
+
+<p>The plot below represents the total frequency response of the fuzz face, the different lines show the effect of the volume potentiometer.  As the volume goes lower (blue line), the graph shows a steeper slope with more high content. This is due to the C<sub>3</sub> output high pass filter effect ( C<sub>3</sub> - R<sub>VOL</sub>)</p>
+<p>The graph also shows a general roll off of the bass harmonics under 14Hz, this is due to the high pass filter created by C<sub>2</sub> and Z<sub>in </sub>(input impedance of the pedal).</p>
+<p>Broadly speaking the frequency response of the Fuzz Face is not very innovative, it just removes some bass and keeps all the highs which contribute to have powerful distortion. Other fuzz pedals like the <a href="big-muff-pi-analysis.html#link41">Big Muff Pi have a more distinctive frequency response</a> that could shape the tone in a more innovative way.</p>
+<p><img alt="fuzz face frequency response" class="article-img" src="images/fuzz-face/fuzz-face-output-signal.png"/></p>
+<p>This last image below shows in red color the typical output signal, characterized by an asymmetric waveform and a hard-clipping when the fuzz potentiometer is maxed. The big amount of gain will clip the signal easily creating large amounts of higher harmonic content. Note that the output signal is not completely flat when it clips (it is slightly tilted), this feature adds more character to the sound .</p>
+<p> <img alt="fuzz face output signal" class="article-img" src="images/fuzz-face/fuzz-face-output-signal.png"/></p>
+
+<p><a id="building-the-perfect-fuzz" name="link6"></a><strong>7. Building the Perfect Fuzz.</strong></p>
+<p>The Fuzz Face circuit has 9 components. Seems like simple stuff, and in principle it is, but the actual implementation of the pedal has plenty of black magic and mystery associated, and it takes a lot of effort to get the things sounding just right.</p>
+<p><a href="germanium-fuzz.html"><strong>We have created a project</strong></a> so you can build the perfect Fuzz with all the knowledge and experience that we have while keeping the tweaks and character that make this vintage pedal distortion to sound round and harmonically pleasant.</p>
+<p><img alt="the perfect fuzz face" class="article-img" src="images/fuzz-face/perfect-fuzz-face.jpg"/></p>
+
+
+
+<p><a id="link9" name="link7"></a><strong>8. Resources.</strong></p>
+<p><a href="http://www.geofex.com/article_folders/fuzzface/fftech.htm" rel="noopener noreferrer" target="_blank">The Technology of the Fuzz Face</a> by R.G Keen.<br/><a href="http://www.bossarea.com/loadpage.asp?file=boxes/ce-2.xml" rel="noopener noreferrer" target="_blank"></a><a href="http://screaminfx.com/tech/what-is-the-best-fuzz-pedal.htm" rel="noopener noreferrer" target="_blank">Fuzz Face Description</a> by ScreaminFX. <br/><a href="assets/fuzz-face/fuzz%20face%20overton_william_e_200605_mast.pdf.pdf" rel="noopener" target="_blank">Electrical Engineering Thesis by William E. Overton</a> focused on the Fuzz Face. <br/><a href="http://www.dingotone.com/wordpress/wp-content/uploads/2012/06/Discussion-about-fuzzface-batteries-V1.pdf" rel="noopener noreferrer" target="_blank">Discussion Paper About Fuzz FAce Batteries</a> by DingoTone.com <br/><a href="http://fuzzcentral.ssguitar.com/fuzzface.php" rel="noopener noreferrer" target="_blank">Arbitrer Fuzz Face</a> by Fuzzcentral. <br/> </p>
+<p><a id="link91" name="link71"></a><strong>8.1 Datasheets.</strong></p>
+<p><a href="assets/fuzz-face/ac128_datasheet1.pdf" rel="noopener" target="_blank">AC128 Transistor datasheet 1 pdf</a><br/><a href="assets/fuzz-face/ac128_datasheet2.pdf" rel="noopener" target="_blank">AC128 Transistor datasheet 2 pdf</a></p>
+
+<p>PsPice models used for AC128 Fuzz Face simulation:</p>
+<ul>
+<li>AC128 with β=85</li>
+</ul>
+<p>.MODEL GERPNP_LOWGAIN PNP(IS=85.8N BF=85.000 NF=1.000 VAF=102.207 <br/>+IKF=9.981M ISE=0.435N NE=1.200 BR=20.000 NR=1.000 VAR=20.000 <br/>+IKR=1.248M ISC=120.8N NC=1.200 RB=173.312 IRB=5.000U RBM=43.328 <br/>+RE=20.000 RC=60.000 CJE=6.000P VJE=0.400 MJE=0.400 TF=0.150U<br/>+XTF=9.996 VTF=2.000 ITF=9.983M PTF=1.000 CJC=3.750P<br/>+VJC=0.600 MJC=0.330 XCJC=0.650 TR=2.865U<br/>+CJS=0.0 VJS=0.700 MJS=0.500 XTB=1.000 EG=0.670<br/>+XTI=4.000 KF=5.000F AF=1.000 FC=0.750)<br/>.END</p>
+<ul>
+<li>AC128 with β=120.</li>
+</ul>
+<p>.MODEL GERPNP_HIGHGAIN PNP(IS=120.8N BF=120.000 NF=1.000 VAF=102.207 <br/>+IKF=9.981M ISE=0.435N NE=1.200 BR=20.000 NR=1.000 VAR=20.000 <br/>+IKR=1.248M ISC=120.8N NC=1.200 RB=173.312 IRB=5.000U RBM=43.328 <br/>+RE=20.000 RC=60.000 CJE=6.000P VJE=0.400 MJE=0.400 TF=0.150U<br/>+XTF=9.996 VTF=2.000 ITF=9.983M PTF=1.000 CJC=3.750P<br/>+VJC=0.600 MJC=0.330 XCJC=0.650 TR=2.865U<br/>+CJS=0.0 VJS=0.700 MJS=0.500 XTB=1.000 EG=0.670<br/>+XTI=4.000 KF=5.000F AF=1.000 FC=0.750)<br/>.END</p>
+
+<p> My sincere appreciation for D.Clark support.Thanks for reading, all feedback is appreciated  This email address is being protected from spambots. You need JavaScript enabled to view it.<script type="text/javascript">
+				document.getElementById('cloak4b8ca6496745495128e1b0a7718fd950').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy4b8ca6496745495128e1b0a7718fd950 = '&#105;nf&#111;' + '&#64;';
+				addy4b8ca6496745495128e1b0a7718fd950 = addy4b8ca6496745495128e1b0a7718fd950 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text4b8ca6496745495128e1b0a7718fd950 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak4b8ca6496745495128e1b0a7718fd950').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy4b8ca6496745495128e1b0a7718fd950 + '\'>'+addy_text4b8ca6496745495128e1b0a7718fd950+'<\/a>';
+		</script></p>
+
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.</p>
+<p>Trademarks, brand names and logos are the property of their respective owners.</p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054615/https://www.electrosmash.com/fuzz-face" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Fuzz%20Face%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="emg81.html">&larr; EMG81 Pickup Analysis</a>
+    <a class="prevnext" href="klon-centaur-analysis.html">Klon Centaur Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

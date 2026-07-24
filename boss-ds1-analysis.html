@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boss DS-1 Distortion Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Boss DS-1 Distortion Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Boss DS-1 Distortion Analysis</h1>
+
+<p>The Boss DS-1 is a distortion guitar pedal released in 1978 by Boss. It was the first distortion pedal made by Boss with a distinctive hard-clipping sound perfect for high gain rock and metal still keeping the character of the original guitar. The Boss DS-1 together with the TubeScreamer and the ProCo Rat cover almost all the spectrum of tastes for vintage classic rock/hard rock guitar distortion.</p>
+<p><img alt="boss ds1" class="article-img" src="images/boss-ds1-analysis/boss-ds1-intro.jpg"/>Referring to the electronic design, the current Boss DS-1 has a simple circuit: some transistor stages with an op-amp core and hard clipping diodes. This analysis is focused in the latest pedal schematic revision which is easy to find and prone to modifications.</p>
+<h2><strong>Table of Contents:</strong></h2>
+<p><a href="#circuit_versions">1- Boss DS-1 Circuit Versions.</a><br/><a href="#schematic">2. Schematic.</a><br/>     <a href="#jfet">2.1 JFET Bypass Switching / True Bypass.</a><br/>     <a href="#true">2.2 Part List / Bill of Materials.</a><br/>     <a href="#layout">2.3 Circuit Layout. </a><br/><a href="#power">3. Power Supply Stage.</a><br/><a href="#input">4. Input Stage.</a><br/>     <a href="#impedance">4.1 Input Impedance Calculation.</a><br/>     <a href="#input_frequency">4.2 Input Stage Frequency Response.</a><br/><a href="#transistor-booster">5. Transistor Booster Stage.</a><br/>     <a href="#transistor-frequency">5.1 Transistor Booster Frequency Response.</a><br/><a href="#op-amp">6. Op-Amp Gain Stage.</a><br/>     <a href="#op-amp-voltage">6.1 Voltage Gain Calculation.</a><br/>     <a href="#op-amp-frequency">6.2 Op-Amp Gain Frequency Response.</a><br/>     <a href="#c10-capacitor">6.3 The effect of the C<sub>10</sub> Capacitor.</a><br/><a href="#tone-level">7. Tone / Level Stage.</a><br/>     <a href="#tone-level-frequency">7.1 Tone/Level Frequency Response.</a><br/><a href="#output-buffer">8. Output Buffer.</a><br/><a href="#signature">9. Boss DS-1 Distortion Sound Signature.</a><br/><a href="#resources">10. Resources.</a></p>
+
+<h2><a id="circuit_versions"></a><strong>1- Boss DS-1 Circuit Versions</strong></h2>
+<p>During its life, the Boss DS-1 Distortion has had two schematic revisions due to components availability:</p>
+<p><strong>a. 1978 Original First Release</strong> using the Toshiba TA7136AP pre-amplifier (it is not an op-amp) with the circuit labeled as “DS-1”. Made in Japan,  with a distinguishable silver screw. <br/>In terms of sound, it gives the warmest distortion, offering glints of grittiness and smoothness at the same time. This first model had some inconveniences like momentary LED and the need for an external power supply. As usual, this model is the most expensive/difficult to find and it is claimed to produce the best sound.</p>
+<p><strong>b. 1994 Second Release</strong> using the Rohm BA728N op-amp (Made in Japan). The previous TA7136AP integrated circuit was at the end of its stock life, so the whole circuit design was modified (re-labeled as “DS1-A”) to accommodate a standard easy to find and replace dual op-amp.<br/>This model is not very loud with a transparent drive. It is versatile; almost clean at lower gain setting with a serious edge at high gain (slight hiss is noticeable at higher gain settings). From now on, all the models are commonly called post '94.<br/></p>
+<p><strong>c. 2000 Third Release</strong> using the Mitsubishi M5223AL op-amp (Made in Taiwan) and also using the previous “DS1-A” circuit diagram that will prevail until today. It is the loudest among all the models, at higher gain settings the distortion is fizzy (poorly made fuzz) with some noise. There are some popular mods to improve its tone making it thicker/stronger and more versatile (Tri-Gain / JHS / Keeley / Analogman)</p>
+<p><strong>d. 2006 Forth Release</strong> when the New Japan Radio NJM2904L op-amp was introduced with the usual DS1-A circuit. Cheap, easy to find and perfect for mods.</p>
+
+<h2><a id="schematic" name="schematic"></a><strong>2. Boss DS1 Distortion Schematic.</strong></h2>
+<p>The Boss DS1 circuit can be broken down into 5 big blocks: Input Stage, Transistor Booster, Op-Amp Gain Stage, Tone Control, Output Buffer and Power Supply.</p>
+<p><img alt="boss ds1 distortion schematic parts small" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-schematic-parts.jpg"/></p>
+<p>The design idea is simple: The Input and Output Buffers will isolate the circuit, keeping the signal path clean and tone-sucking free. The transistor booster will pre-amplify the signal and all the distortion is produced using a variable op-amp gain circuit with diodes shorting the output to ground, producing hard clipping. This distortion stage is followed by a passive tone filter and level control. The Power Supply provides energy and bias points to all the circuit.</p>
+<p>The circuit presented here is adapted to be used with a 3PDT switch, simplifying the circuit for DIY.</p>
+<h2><a id="true_bypass" name="jfet"></a><strong>2.1 Boss DS-1 JFET Bypass Switching / True Bypass.</strong></h2>
+<p>The original Boss DS-1 circuit has a JFET Bypass Switch Circuit to enable/disable the effect using a simple cheap momentary push button. The idea is simple: it can activate the effect routing the signal through the circuit or deactivate it, bypassing the pedal core BUT keeping the input and output buffers always in the signal path.</p>
+<p>If you want to read more about the switching circuit operation, check the TubeScreamer pedal explanation, this part of the circuit is exactly the same: <a href="tube-screamer-analysis.html#jfet">TubeScreamer JFET Switch Operation.</a></p>
+<p>On the other hand, true bypass switches (3PDT) are considered to give a clean and transparent path for the bypassed signal. A 3PDT switch (<em>Triple Pole Double Throw)</em> will also allow you to light a power-on LED at the same time, which is pretty convenient. The 3PDT drives the guitar signal either through the effect circuitry, or straight input-to-output, the guitar signal does not even touch the input of the effect.<img alt="3PDT Switch" class="article-img" src="images/boss-ds1-analysis/3PDT.jpg"/></p>
+<p>For mass production true bypass switches are difficult to mount and not cheap, some big pedal circuit manufacturers (like Boss) prefer to use complex but cheap JFET bypass circuits that also can carry other benefits like keeping always the input/output buffer in the signal chain (if desired).</p>
+<h3><a id="bom" name="true"></a> <strong>2.2 Boss DS1 </strong><strong>Part List / Bill of Materials (Tue Bypass).</strong><br/></h3>
+<p>C1,C3        47n<br/>C2,C8,C9   0.47u<br/>C4            250p<br/>C5            68n<br/>C7            100p<br/>C10           0.01u<br/>C11           0.022u<br/>C12           0.1u<br/>C13           0.047u<br/>C14           1u<br/>C15           47uF<br/>C23           100uF<br/>D1             1N4004<br/>D4,D5,D8    D1N4148<br/>Q1,Q2,Q3   2SC2240<br/>R1,R22      1K<br/>R2,R7        470K<br/>R3,R8,R18,R21,R24,R25    10K<br/>R4,R5,R10,R11,R23    100K<br/>R9            22<br/>R13          4.7K<br/>R14,R15    2.2K<br/>R16,R17    6.8K<br/>R39            47K<br/>R19,R20    1M<br/>U1            NJM3404A ( or equivalent M5223AL, BA728N)<br/>VR1,VR2    100KB<br/>VR3          20KB<br/>J1, J2       6.35mm Jacks.</p>
+<h3><strong><a id="layout"></a>2.3 Boss DS1 Circuit Layout </strong></h3>
+<p>The circuit uses a single layer PCB with standard through-hole components which makes it easy and cheap to produce. All the potentiometers, jacks and battery are wired and hand soldered which is quite labor intensive.<br/></p>
+<p> <img alt="boss ds1 distortion pcb small" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-pcb.jpg"/></p>
+<p><strong>note:</strong> Original Images from <a href="http://gitaradiy.pl/artykul/id/5.html" rel="noopener noreferrer" target="_blank">gitaradiy.pl</a> and <a href="http://www.diystompboxes.com/smfforum/index.php?topic=64731.0" rel="noopener noreferrer" target="_blank">miqbal on diystompboxes.com</a></p>
+
+<p><strong>Boss DS-1 Operational Amplifier:</strong></p>
+<p>Although the circuit has been the same through the ages, the unusually SIL (Single in Line) packaged op-amp has changed several times:</p>
+<ul>
+<li>At the beginning (1978), the DS-1 was using the Toshiba TA7136AP opamp. This remained unchanged for about 16 years.</li>
+<li>In 1994 the op-amp was replaced by the Rohm BA728N. </li>
+<li>6 year later, in 2000 the opamp was again changed by the Mitsubishi M5223AL </li>
+<li>The last change was in 2006 when the New Japan Radio NJM2904L opamp was introduced.</li>
+</ul>
+<p><img alt="TA7136AP operational amplifier DS1" class="article-img" src="images/boss-ds1-analysis/TA7136AP.jpg"/></p>
+<p>All these op-amp changes where due to manufacturing stock/part obsolescence.</p>
+<h2><a id="power" name="power"></a><strong>3. Power Supply Stage.</strong></h2>
+<p>The Power Supply Stage is a simple resistor divider that provides the power (+9V) and bias voltage (+4.5V) to the pedal:</p>
+<p><img alt="boss ds1 distortion power supply" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-power-supply.png"/></p>
+<ul>
+<li>The resistor divider (R24, R25) generates +4.5 volts to be used as a virtual ground (bias voltage).</li>
+<li>The capacitors C23 (100uF) and C15 (47uF) are bulk capacitance that stabilizes the power supply lines.</li>
+<li>The diode D1 is protection against reverse polarity connections, in case the player connects a wrong power adapter.</li>
+<li>A stereo guitar input jack could be used as an on-off switch, connecting the battery (-) pin to ground when the guitar jack is plugged.</li>
+</ul>
+
+<h3><a id="input" name="input"></a><strong>4. Input Stage.</strong></h3>
+<p>The input buffer is a plain Emitter Follower (aka Common Collector) with unity gain and high input impedance that preserves signal quality eliminating tone sucking (high-frequency loss):</p>
+<p><img alt="boss ds1 distortion input buffer" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-input-buffer.png"/></p>
+<p>The Q1 part is a 2SC2240 Toshiba transistor, cheap low-noise/high-gain (β=200-700), nothing special here, it just does the job.<br/></p>
+<ul>
+<li>The capacitor C1 isolates the guitar from any pedal dangerous DC level and filters the inaudible low-frequency signals with a cut frequency of 7.2Hz (fc=1/2πC<sub>1</sub>Z<sub>in</sub>) </li>
+<li>The R1 input series will protect the base of the transistor from surge currents (electrostatic discharges from the guitar jack tip). </li>
+<li>R2 is just a moderate high-value resistor that biases the base of the transistor to 4.5V.</li>
+<li>R3 is the emitter resistance, 10K is a pretty standard value for an Emitter Follower buffer.<br/></li>
+</ul>
+
+<h3><a id="impedance" name="impedance"></a>4.1 Input Impedance Calculation.</h3>
+<p>In an Emitter Follower the input impedance can be calculated as  β * R<sub>emitter </sub>, so the total impedance of the pedal is:</p>
+<p>Z<sub>in</sub>= R<sub>1</sub> +(R<sub>2</sub>//β*R<sub>3</sub>) = R<sub>2</sub> = 470KΩ</p>
+<p>note: the simplifaction of the formula  (Z<sub>in</sub>= R<sub>2</sub>) is because the resistor R<sub>1</sub> is too small compared to R<sub>2</sub> (1KΩ&lt;&lt;470KΩ) and β*R<sub>3</sub> is too big compared to R<sub>2</sub> (200*10KΩ&gt;&gt;470KΩ), you can also make all the numbers and reach to the same conclusion.</p>
+<p>If you want a further explanation of how to make all the numeric calculations, check the <a href="tube-screamer-analysis.html#impedance">Tube Screamer Input Impedance Calculation</a>; the circuit is very similar and all the maths are there. <br/></p>
+<p>470KΩ is a high input impedance to avoid loading guitar pickups and tone sucking, although the rule of thumb is to interface the guitar to an input impedance that is 1 MΩ minimum.</p>
+
+<h3><a id="input_frequency"></a><strong>4.2 Input Stage Frequency Response.</strong><br/></h3>
+<p><img alt="boss ds1 input buffer freq response" class="article-img" src="images/boss-ds1-analysis/boss-ds1-input-buffer-freq-response.png"/></p>
+<p>The frequency response of this input buffer is dominated by the high pass filter created by C<sub>1</sub> and R<sub>2</sub> which has a cut frequency of 7.2Hz (f<sub>c</sub>=1/(2πRC)). Frequencies at 7.2Hz are attenuated -3dB with a roll-off or 6dB/oct. The aim of this stage is just to buffer the signal and remove the DC level </p>
+
+<h2><a id="transistor-booster"></a><strong>5. Transistor Booster Stage.</strong></h2>
+<p>This stage applies some frequency filtering and signal boosting before the op-amp stage. The idea is to raise the signal levels so the next stage can work with acceptable levels although as we can see later, the signal is maybe <em>too boosted</em> after this stage.<br/></p>
+<p><img alt="boss ds1 distortion transistor booster" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-transistor-booster.png"/></p>
+
+<p>The first part of this stage are 2 consecutive high pass filters:</p>
+<ul>
+<li>C2 and R4 with a cut frequency of 3.3Hz</li>
+<li>C3 and R5 with a cut frequency of 33Hz. <br/></li>
+</ul>
+<p>The basic idea behind this filters is to remove the excess of bass before the (next) distortion stage, a guitar signal with too much bass harmonics could make the distortion slow, dumped or muddy.</p>
+
+<p>The transistor stage is a Common Emitter amplifier, the approx. voltage gain in this topology is collector resistance divided by the emitter resistance (R<sub>C</sub>/R<sub>E </sub>or R8/R9 = 10K/22 = 454 = 53dB), but the effect of the feedback resistor and capacitor (R7 and C4) will lower this gain to 35dB  have to be taken into consideration.</p>
+<p>The maths behind this topology so-called Shunt Feedback resistor are a bit complex and if you want to see the full numeric development check the <a href="big-muff-pi-analysis.html#input2">Big Muff Pi Input Booster Stage</a>, the topology is the same with some small values changes. In a nutshell, the original high gain (454) is reduced to a <em>more sensible</em> value of 56 (35dB) with better immunity to noise/temperature and oscillation.</p>
+<p>However, a gain of 56 times is a huge amount of it, if we have a guitar input signal of 200mVpp, after the transistor booster the signal level is 11.2Vpp, the waveform will be distorted because the pedal supply is 9V. This gain will create a clipping that looking at the image below is asymmetric (cycles have a slightly different duration) and has a soft knee or soft clipping:</p>
+
+<p><img alt="boss ds1 transistor booster waveform" class="article-img" src="images/boss-ds1-analysis/boss-ds1-transistor-booster-waveform.png"/>note: in the image above:</p>
+<ul>
+<li>Guitar input signal in blue color 200mVpp.</li>
+<li>Output signal after the Transistor Booster Stage in red color 9Vpp (clipped). </li>
+</ul>
+<p>Q2 Transconductance:</p>
+
+<h3><a id="transistor-frequency"></a><strong>5.1 Transistor Booster Frequency Response.</strong></h3>
+<p><img alt="boss ds1 transistor booster freq response" class="article-img" src="images/boss-ds1-analysis/boss-ds1-transistor-booster-freq-response.png"/></p>
+<p>The response of the Transistor Booster stage has an attenuation of the low frequencies because of the 2 high pass filters discussed above, so the freqs below 33Hz are attenuated (6dB/oct) and reaching the bottom of the graph at 3.3Hz the signal has a -12dB/oct roll-off</p>
+<p>The signal has a raw gain of 35dB (56 times bigger) on frequencies above 3.3KHz that makes this stage to boost the guitar signal to the (soft) clipping.</p>
+
+<h2><a id="op-amp"></a><strong>6. Op-Amp Gain Stage.</strong></h2>
+<p>The Operational Amplifier block is the heart of the circuit, it is build using a variable non inverting op-amp amplifier with two diodes to do the clip/distortion action and some passive RC filters ( passband = low pass + high pass) to set the clipping and the frequency at which it occurs. <img alt="boss ds1 distortion op amp gain stage" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-op-amp-gain-stage.png"/></p>
+<p>At the beginning of the stage, there is an RC network (C<sub>5</sub>-R<sub>10</sub>) that creates a high pass filter with a cut frequency of 23Hz (f<sub>c</sub>=1/2πRC). This is not an intentional filter, just a cap is needed to couple the previous transistor gain stage and a moderate-high value resistor is needed to bias the + pin of the op-amp at virtual ground (+4.5V).</p>
+<ul>
+<li>R10 is a high-value resistor that biases the input of the op-amp to 4.5V.  </li>
+<li>The diode D<sub>8</sub> is placed to protect the op-amp input. At the op-amp input, signals will float around 4.5V biased by R<sub>10</sub>, and in case that signal coming from the previous stage tries to drive the op-amp input below the negative rail, the diode will clip at -0.7V  (-V<sub>F</sub>) not allowing dangerous voltages to be present at the + pin.</li>
+</ul>
+<p>Q2's collector is biased around +5.8V, and when going into saturation, without D8, U1 pin 3 would be driven to -1.3V. When an op-amp input is driven beyond the rails, bad things happen. Some opamps are damaged, some will latch-up, most take time for the input stage to recover from being over-driven, and that screws up the sound. </p>
+<p>It is important to mention that by the time this diode is conducting, the opamp is already clipping. Therefore D8 has nothing to do with asymmetrical clipping or any kind of guitar signal modification. </p>
+<ul>
+<li>R39 will protect the input of the op-amp keeping the current limited on the + pin. </li>
+</ul>
+<p><strong>note:</strong> If you are using the Mitsubishi M5223AL op-amp you will need a 1K pull-up resistor from the second op-amp output to +9V. This resistor is labeled as R40 and will force the op-amp to work into class-A reducing distortion. Read the last page of the M5223A datasheet for more information.</p>
+<p><img alt="op amp classA" class="article-img" src="images/boss-ds1-analysis/op-amp-classA.jpg"/></p>
+<p>The first half of the NJM2904L dual op-amp is a simple buffer, it won't add (or remove) anything to the guitar signal. It buffers interfaces the previous Transistor Booster stage with the second half of the op-amp that will do all the magic.<br/></p>
+
+<h3><a id="op-amp-voltage"></a><strong>6.1 Voltage Gain Calculation.</strong></h3>
+<p>The second half of the NJM2904L is a non-inverting amplifier that will boost the signal up to 22.3 times (26.5 dBs) following the formula:</p>
+<p>Gv<sub>op-amp max</sub> = 1 + ( VR1)/( R<sub>13</sub>) = 1 +(100K/4.7K) = 22.3 (26.5dB)</p>
+<p>Gv<sub>op-amp min</sub> = 1 + ( 0‎Ω )/( R<sub>13</sub> ) = 1+(0K/4.7K) = 1 (0dB)</p>
+<p>The clipping stage defines the distortion signature sound, it is built using 2 back to back diodes that shunt the signal to AC ground (4.5V), this kind of clipping technique gives a “hard-clipping” sound also used in the MXR Micro-amp or the RAT opposed to the “<em>soft-clipping</em>” style created by placing the diodes on the feedback loop of the op-amp and  used in other pedals like the Tube-Screamer.   <br/></p>
+<p>With the 26.5 dB of gain, the audio signal will be bigger than the V<sub>F</sub> of the diode (1S1588 or 1S2473 or equivalent 1N4148) that is around 0.7V in any position, creating a hard clipping action:</p>
+<p> <img alt="boss ds1 distortion waveform" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-waveform.png"/></p>
+<p>The image above shows the waveform after the clipping diodes, it exhibits a clear squared shape limited between +0.7V and -0.7V which is the V<sub>F</sub> of the diodes. Playing with the distortion potentiometer the edge of the waveform can be softened by in any case the overall look is pretty squared and distorted. </p>
+<ul>
+<li> Capacitor C7 (100pF) reduces the high harsh harmonics at the very top of the audio spectrum. It controls it by allowing highs through the feedback loop.</li>
+<li> The high-pass filter created by C8 and R13 (and part of the VR1 pot depending on its position) will remove freqs below 72Hz (or lower depending on the VR1 position)</li>
+</ul>
+<p> fc<sub>max</sub> = 1/(2πC<sub>8</sub>R<sub>13</sub>) = 1/(2*3.14*0.47u*4.7K) = 72Hz</p>
+<p> fc<sub>min</sub> = 1/(2πC<sub>8</sub>(R<sub>13</sub>+VR1)) = 1/(2*3.14*0.47u*104.7K) = 3Hz</p>
+<p>At max distortion, harmonics over 72Hz get the full gain of the distortion stage, and everything below it gets progressively less gain and distortion. Bass notes are less clipped, so the distortion is frequency selective (similar to what happens in the Tube Screamer, but in that case, the freq limit is 720 instead of 72Hz).<br/></p>
+<ul>
+<li>  As mentioned above, the diodes D4 and D5 will clip when the amplified signal goes over/below the forward voltage (V<sub>F</sub>) which is around 0.7V.</li>
+</ul>
+
+<h3><a id="op-amp-frequency"></a><strong>6.2 Op-Amp Gain Frequency Response.</strong></h3>
+<p><img alt="boss ds1 op amp stage freq response" class="article-img" src="images/boss-ds1-analysis/boss-ds1-op-amp-stage-freq-response.png"/></p>
+<p>The frequency response of the Op-Amp Gain stage is set in the low frequencies by the high-pass filter formed by C8 &amp; R13 (fc=72Hz). Also, C5 &amp; R10 reduce harmonics below 23Hz at the limit of the audio spectrum that will help either way to reduce oscillation.</p>
+<p>On the high frequencies by the low-pass filter formed by R14 and C10 will attenuate harmonics over 7.2Khz, this is better explained in the section below. The cap C7 will also reduce harmonics at very high frequencies, softening a bit the distortion and reducing oscillation problems.<br/></p>
+<p>The minimum gain is 0dB and can go up to 26.5dB depending on the position of the <em>distortion</em> potentiometer, this amount of gain is not massive (the Tube Screamer has 41dB, the Proco Rat has 67dB) but the fact that the previous stage has a gain of 35dB makes that the resulting signal is completely clipped.</p>
+<h3><strong><a id="c10-capacitor"></a>6.3 The effect of the C<sub>10</sub> Capacitor.</strong></h3>
+<p>There is an obvious RC network (R14 &amp; C10) with C10 in parallel with D4 and D5 clipping devices. The D4 &amp; D5 diodes load the R14 - C10 network and drastically alter the cutoff freq. When either D4 or D5 are conducting, the impedance at R14 - C10 junction is greatly reduced. This is a non-linear circuit, the best way to analyze the behavior is in the time-domain, as is shown in the figure in 6.1. section.</p>
+<p>The image below is only applicable to the case where the signal is so small (below clipping) that the diodes don't conduct, where the resistor R14 and C10 form a low pass filter with fc=7.2KHz that will mellow the signal, but most of the time D4 or D5 are conducting...</p>
+<p><img alt="boss ds1 op amp stage NO C10 freq response" class="article-img" src="images/boss-ds1-analysis/boss-ds1-op-amp-stage-NO-C10-freq-response.png"/> </p>
+<p>Generally speaking, the C10 cap makes the distortion less grainy, making a rounder-pleasant distortion.</p>
+
+<h2><strong><a id="tone-level"></a>7. Tone / Level Stage.</strong><br/></h2>
+<p>The Boss DS-1 uses a passive <em>Big Muff Pi style</em> tone control, which scoops the mids and attenuates the lows or highs, depending on which way you turn the knob. The circuit consists of a simple fixed -6dB/oct low pass filter (formed by R16 and C12 with an fc=234Hz) and a fixed -6dB/oct high pass filter (formed by C11 and R17 with an fc=1063Hz) using the VR3 pot to mix the two signals. The cut-off points of both filters are calculated so that their interweaving effect create a frequency scoop/notch around 500Hz when the tone control is set to the middle position.<br/></p>
+<p><img alt="boss ds1 distortion tone level stage" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-tone-level-stage.png"/></p>
+<ul>
+<li>After the initial tone shaping carried out by the first part of the circuit and the VR3, the VR2 pot regulates the level by bleeding part of the signal to AC ground.</li>
+</ul>
+
+<h3><strong><a id="tone-level-frequency"></a>7.1 Tone/Level Frequency Response.</strong></h3>
+<p> <img alt="boss ds1 tone level freq response" class="article-img" src="images/boss-ds1-analysis/boss-ds1-tone-level-freq-response.png"/></p>
+<p>The frequency response of the Tone control looks similar to the <a href="big-muff-pi-analysis.html#link41">Big Muff Pi</a>, the Boss DS-1 has a scoop around 500Hz. This equalization enhance the bass and treble of the signal and is used in hard rock, other pedals <a href="tube-screamer-analysis.html#tone-stage">like the Tube Screamer</a> have a completely different approach boosting the mids creating a mid-hump.</p>
+<p> There is an overall -12dB (4 times) loss and at the notch the loss is about -20db (500Hz) but there is no problem with this because in the previous stage after the diode clipping the signal has a 1.4Vpp amplitude, with -12dB loss the resulting signal will be 350mVpp (1.4Vpp/4times) which is fine for an output level and won't distort the input stage of the next pedal on the chain or the guitar amplifier.</p>
+
+<h2><strong><a id="output-buffer"></a>8. Output Buffer.</strong><br/></h2>
+<p>The output buffer has exactly the same circuit as the input buffer, its task is to keep a low output impedance for better signal integrity in the guitar-pedals-amp chain. Like the Input Stage, this unity gain buffer is implemented with a plain Emitter Follower with a 10K emitter resistor R21, biased from the 4.5V source with R19 in parallel with R20 (1M//1M=500K). <br/></p>
+<p><img alt="boss ds1 distortion output buffer" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-output-buffer.png"/></p>
+<ul>
+<li>The input capacitor C13 and R20 create a high pass filter with fc=3.4Hz (fc=1/2piRC), the idea is just to remove the DC levels so the transistor can be correctly biased.</li>
+<li> The 2SC2240 is a cheap high-gain transistor, a simple unity gain buffer does not have high requirements for the transistor.</li>
+<li>R21 is the emitter resistance, 10K is a standard value for an Emitter Follower buffer.</li>
+<li>C14 and R23 form a high pass filter with an fc=1.6Hz below the audio spectrum. The purpose of this filter is just to remove the DC levels from the final output signal.</li>
+</ul>
+
+<h2><a id="signature" name="signature"></a><strong>9. Boss DS-1 Distortion Sound Signature.</strong></h2>
+<p>The sound footprint of the current Boss DS-1 Distortion could be defined by its exaggerated amount of gain, the hard clipping of the grounded diodes and the freq response shaped by different filters through the whole pedal. These are the key elements:<br/></p>
+<ul>
+<li>In the Op Amp Clipping Stage, the diodes (D4 &amp; D5) are back to back connected to AC ground (+4.5V), so the clip is harder and as a hard knee giving a strong character.</li>
+</ul>
+<ul>
+<li>In the Transistor Booster Stage, the Q2 asymmetric clipping gives rise to even-order harmonics which are more sonically pleasing. Modders will unbalance the D4-D5 network to make their clipping even more asymmetric.</li>
+</ul>
+<ul>
+<li>The Tone-Level stage with a mid-scoop is used in fuzz pedals (Big Muff Pi) and some Marshall amps being popular among hard-rock/metal players. Other pedals like the Tube screamer have a complete opposite freq response (mid boost), so this characteristic is a great part of the pedal personality</li>
+</ul>
+<ul>
+<li>The Transistor Boosting Stage has a huge amount of gain, it amplifies the incoming signal 56 times (35dB). This transistor overdrives the signal from the early stages of the pedal and will condition the behavior of the whole effect. This is the reason why a lot of mods like the 'Vintage Ripper', the 'Fat Mod for DS-1' or the 'Huevos Grandes' increase the size of R9 from 22Ω to 1KΩ, this makes the voltage gain of the Transistor Booster Stage to decrease from the default 35dB(56 times) to a more moderate value of 17dB (7 times).</li>
+</ul>
+<p><img alt="boss ds1 distortion r10 22 1K mod" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-r10-22-1K-mod.png"/></p>
+<p>In consequence, by replacing R9 for a 1K resistor, the signal gets boosted just 7 times (17dB), so any typical guitar input signal of 100mVpp after the transistor booster stage has a level of 100mVpp x 7 = 0.7Vpp a low level that will not clip the op-amp stage. This makes the user have a higher grade of control and variation; from a simple boosting to hard clipping.</p>
+<p><img alt="boss ds1 distortion r10 22 1K mod waveform" class="article-img" src="images/boss-ds1-analysis/boss-ds1-distortion-r10-22-1K-mod-waveform.png"/></p>
+<p>In the image above you can see the difference between using an R9 of 22Ω (default) or using the 1KΩ resistor. Using the 1K value the amount of the clipping control is wider. </p>
+<p>A bigger R9 applies negative feedback through the Q2 emitter and lowers the collector current. The emitter feedback reduces the distortion. Both the emitter feedback and the lower collector current decrease Q2's voltage gain, which lessens the effect of the negative feedback through R7 and C4. By lessening the effect of R7 and C4, the low-freq cutoff from C3 is moved down and the high-freq cutoff from C4 is moved up. I think this is why people say that increasing R9 "flattens the frequency response". </p>
+
+<p>This all-time classic Boss DS1 design has a lot of subtle things going under the radar that even the original designers do not fully grasp, in my opinion, the Klon Centaur is the pinnacle of this factor. In most cases, the electronic design of a good sounding pedal is a mix of luck, engineering, and black magic.<br/></p>
+
+<h2><a id="resources" name="resources"></a><strong>10. Resources.</strong></h2>
+<p><a href="http://www.premierguitar.com/articles/boss-ds-1-mods-1" rel="noopener noreferrer" target="_blank">Boss DS-1 Mods by PremerGuitar.</a><br/><a href="https://www.google.co.uk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=6&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjjrLf_kPjKAhVJQhQKHWwRBb0QFggzMAU&amp;url=http%3A%2F%2Ffreestompboxes.org%2Fmembers%2F5thumbs%2FBuild%2520Your%2520Own%2520DS-1%2520Distortion.pdf&amp;usg=AFQjCNFMDjbk99WQUAbbBf6BpH26tBD9pw" rel="noopener noreferrer" target="_blank">Build your Own DS-1 Distortion.</a><br/><a href="http://www.pedalhaven.com/two-easy-boss-ds-1-distortion-pedal-modifications/" rel="noopener noreferrer" target="_blank">Marshall JCM &amp; Octave Fuzz Mods by pedalheaven.</a><br/><a href="http://www.soft.com.sg/forum/showthread.php?70396-Boss-DS-1-A-detailed-take!" rel="noopener noreferrer" target="_blank">Boss DS-1 A Detailed Take by GoodSpeed64.</a><br/><a href="http://www.physics.unlv.edu/~bill/PHYS483/op_amp_filt.pdf" rel="noopener noreferrer" target="_blank">OpAmp Filter Examples</a> by University Las Vegas Nevada.<br/><br/></p>
+<p>My sincere appreciation to Dave Harvey, Romeo G. Cesar, G. Brandt, K. Carpenter and D. Knapp for your support writing this article.</p>
+
+<p>Thanks for reading, all feedback is appreciated This email address is being protected from spambots. You need JavaScript enabled to view it.<script type="text/javascript">
+				document.getElementById('cloak3ad0103095af294b30421feaab13f06f').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy3ad0103095af294b30421feaab13f06f = '&#105;nf&#111;' + '&#64;';
+				addy3ad0103095af294b30421feaab13f06f = addy3ad0103095af294b30421feaab13f06f + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text3ad0103095af294b30421feaab13f06f = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak3ad0103095af294b30421feaab13f06f').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy3ad0103095af294b30421feaab13f06f + '\'>'+addy_text3ad0103095af294b30421feaab13f06f+'<\/a>';
+		</script></p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054709/https://www.electrosmash.com/boss-ds1-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Boss%20DS1%20Distortion%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="boss-ce-2-analysis.html">&larr; Boss CE-2 Analysis</a>
+    <a class="prevnext" href="dallas-rangemaster.html">Dallas Rangemaster Treble Booster Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

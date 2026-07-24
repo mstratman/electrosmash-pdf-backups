@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JRC4558 Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Chips &rsaquo; JRC4558 Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>JRC4558 Analysis</h1>
+
+<p>The JRC4558 integrated circuit by<a href="https://www.jrc.co.jp/eng/" rel="noopener noreferrer" target="_blank"> Japan Radio Company</a> is a dual operational amplifier internally compensated and constructed with bipolar transistors on a single silicon chip. The high voltage gain (100 dB typ.), good input impedance (5 MΩ typ.) and versatile power supply (± 4 to 18 Volts) make it perfect to fit in pedal circuit designs. This chip has industry standard pinout, meaning that there are several different suppliers manufacturing pin compatible 4558 devices and also it can replace other standard dual op-amps like the <a href="http://www.ti.com/product/TL072" rel="noopener noreferrer" target="_blank">TL072</a>, <a href="http://www.ti.com/product/NE5532" rel="noopener noreferrer" target="_blank">NE5532</a> or the <a href="http://www.ti.com/product/OPA2134" rel="noopener noreferrer" target="_blank">OPA2134</a>. The first RC4558 monolithic dual opamp was developed by Raytheon Semiconductors in 1974.</p>
+<p>The 4558 dual amp is linked with the history of the guitar pedals development. Many designers included this part in some of the most successful effects like the Orange Squeezer, DOD YJM 30, Boss OD1, Tube Screamer or Peavey equipment.  <img alt="4558 Pedals" class="article-img" src="images/jrc4558-analysis/4558-pedals.png"/>This IC was undoubtedly chosen in the beginning by Japanese design engineers because it was one of the cheapest dual opamps on the market with acceptable audio performance. As such, it was used in huge volumes of Japanese audio equipment. Despite its questionable audio performance, it seems to be well suited to duty in overdrive circuits. </p>
+<h2><strong> Table of Contents:</strong></h2>
+<p>1. <a href="#circuit">Internal Circuit.</a><br/>    1.1 <a href="#current">Current Supply.</a><br/>    1.2 <a href="#input">Input Stage.</a><br/>        1.2.1<a href="#ltp"> Long Tailed Pair Differential Amplifier.</a><br/>        1.2.2 <a href="#mirror">Current Mirror.</a><br/>    1.3 <a href="#vas">Voltage Amplifier Stage.</a><br/>    1.4 <a href="#output">Output Stage.</a><br/>    1.5 <a href="#multiplier">Vbe Multiplier Bias Circuit.</a><br/>    1.6 <a href="#feedback">Feedback Path.</a><br/>2. <a href="#myth">The JRC4558 Myth.</a><br/>3. <a href="#resources">Resources.</a></p>
+
+<h2><a id="circuit" name="circuit"></a><strong>1. JRC4558 Internal Circuit.</strong></h2>
+<p>The JRC4558 internal schematic is based on the Lin Topology (named after <a href="http://www.washingtonpost.com/wp-dyn/content/article/2009/03/28/AR2009032801762.html" rel="noopener noreferrer" target="_blank">Hung C. 'Jimmy' Lin an RCA researcher</a>) following the <a href="https://en.wikipedia.org/wiki/Operational_amplifier#Internal_circuitry_of_741-type_op-amp" rel="noopener noreferrer" target="_blank">classic 741 type opamp structure</a> with some modifications. Find below the simplified circuit provided by JRC, broken down into blocks: Current Supply, Input Stage, Voltage Amplifier Stage (VAS), Output Stage (OPS) and Feedback Path.<br/><img alt="JRC internal circuit schematic" class="article-img" src="images/jrc4558-analysis/jrc4558-color-schematic.png"/></p>
+<h3><a id="current"></a><strong>1.1 JRC4558 Current Supply.</strong></h3>
+<p>The Active Current Supply it is a utility stage which provides a constant flow of current to the different blocks. A stable current source is important in order to improve linearity and noise rejection. This stage highlighted in green color is formed by Q<sub>1</sub>, Q<sub>7</sub>, Q<sub>13</sub>, Q<sub>14</sub>, Q<sub>15</sub>, R<sub>1</sub>, R<sub>9</sub> and D<sub>2</sub>:</p>
+<p><img alt="JRC4558 Current Supply" class="article-img" src="images/jrc4558-analysis/jrc4558-input-stage.png"/></p>
+<p>The JFET Q<sub>15</sub> is a self-biased current source, it will provide a constant current source independent from the voltage supply. The start-up of this part of the circuit is simple:</p>
+<ul>
+<li>When the +Vcc voltage source is turned on, no current is yet flowing through the JFET Q<sub>15</sub>. Then the voltage drop across the Zener diode D2 and V<sub>GS</sub> will be zero. With zero V<sub>GS</sub> the transistor enters in saturation region allowing a large current to flow through the JFET, so the current will increase. As the current increases, a voltage drop will develop across the Zener, until the diode will be reversed biased. The gate will become negatively biased with regards to the source, negative values of V<sub>GS</sub> will start to shut Q<sub>15</sub> off. Eventually, a stable equilibrium will be attained through feedback, where V<sub>GS</sub> is just right for the current flowing through the JFET. </li>
+</ul>
+<p>Once the drain-source voltage reaches a certain minimum value, enters saturation where I<sub>DS</sub> current is approximately constant. So, the JFET current source sets the constant current I<sub>15</sub> through Zener diode D<sub>2</sub> making I<sub>15</sub> = I<sub>z</sub><br/></p>
+<p><img alt="Jfet N Channel Graph" class="article-img" src="images/jrc4558-analysis/jrc4558-color-schematic-small.png"/></p>
+<p>The Zener diode D<sub>2</sub>, when reverse biased has a constant voltage drop (Vz). As long as the Zener current (Iz) is between certain levels (Iz<sub>min</sub> and Iz<sub>max</sub>) called holding current, the voltage across the Zener diode (V<sub>Z</sub>) will be constantly working in the Voltage Regulation Area:<img alt="Diode Zener Graph" class="article-img" src="images/jrc4558-analysis/diode-zener-graph.png"/></p>
+<p>The Zener diode stabilized voltage V<sub>Z</sub> drives an emitter follower Q<sub>14</sub> loaded by a constant emitter resistor R<sub>9</sub> sensing the load current. As a result, the output current I<sub>9</sub> is almost constant even if the load resistance and/or voltage changes. The circuit operates as a constant current source:</p>
+<p><img alt="" class="article-img" src="images/jrc4558-analysis/gif.latex"/></p>
+<p>The external current mirror load of this current source is connected to the collector so that almost the same current flows through it and the emitter resistor.</p>
+<ul>
+<li> Q<sub>13</sub> and Q<sub>7</sub> are configured as a classic current mirror, meaning that the current through Q<sub>13</sub> (I<sub>13</sub>) will be mirrored in Q<sub>7</sub>, making I<sub>13</sub> = I<sub>7</sub></li>
+<li>Q<sub>1</sub> is a plain current PNP constant current source.</li>
+</ul>
+<h3><a id="input"></a><strong>1.2 JRC4558 Input Stage:</strong></h3>
+<p>The input stage is formed by a Long Tailed Pair (LTP) differential amplifier with a current mirror. This stage highlighted in red color is formed by Q<sub>1</sub>, Q<sub>2</sub>, Q<sub>3</sub>, Q<sub>4</sub>, Q<sub>5</sub>, R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, and C<sub>1</sub>:<img alt="JRC4558 Input Stage" class="article-img" src="images/jrc4558-analysis/jrc4558-input-stage.png"/><a id="ltp" name="ltp"></a><strong>1.2.1 JRC4558 Long Tailed Pair Differential Amplifier.</strong></p>
+<p>The Long Tail Pair phase inverter or <em>Schmit</em> is formed by a pair of identical and matched PNP transistors in common emitter configuration (Q<sub>2</sub> and Q<sub>3</sub>). The current mirror  Q<sub>4</sub>  and Q<sub>5 </sub> in the collector of Q<sub>2</sub> and Q<sub>3</sub> is the<em> active load</em> of the LTP. This topology is generally the best choice for an operational amplifier, it provides high input impedance, good voltage gain, common noise rejection as well as extra inputs for a summing feedback.</p>
+<p>The circuit nature is to amplify the difference of its input signals Vin+ and Vin-, providing cancellation to all even distortion, making the amp immune to fluctuations of the supply voltage. To acquire real benefits from using an LTP input, the currents flowing through the differential transistors must be equalized. A very effective way to do it is using a current mirror.</p>
+<h4><br/><a id="mirror"></a><strong>1.2.2 JRC4558 Current Mirror.</strong></h4>
+<p>It consists of a high H<sub>fe</sub> (β) differential dual transistor Q<sub>4</sub> and Q<sub>5</sub>, with matched transistor parameters. The thermal coupling between both transistors is ideal since they share the same package. There most important reasons to use a current mirror are to enhance the gain and the signal integrity:</p>
+<p> 1. Signal integrity is improved because the current mirror gives equal quiescent current for each side of the LTP. This balance is good for the linearity and Common Mode Ratio (CMRR) figure.</p>
+<p> 2. The JRC4885 differential amplifier has a single-ended output, where the gain is the half if we compare it with a differential output circuit. the current mirror will improve this intrinsic 50% losses.<br/></p>
+
+<h3><a id="vas" name="vas"></a><strong>1.3 JRC4558 Voltage Amplifier Stage (VAS).</strong></h3>
+<p>The high gain voltage amplifier stage is the core of the power amplifier. Its task is to amplify the low amplitude input signal to a suitable level. This VAS circuit works in class-A mode since they basically require only a small amount of current, and therefore power losses over the active device can be retained reasonably small.</p>
+<p>This stage highlighted in orange color is formed by Q<sub>6</sub>, Q<sub>10</sub>, and R<sub>4</sub>:<img alt="JRC4558 Voltage Amplifier Stage" class="article-img" src="images/jrc4558-analysis/jrc4558-vas.png"/></p>
+<p>The VAS consists of a common emitter amplifier with two NPN transistors Q<sub>6</sub> and Q<sub>10</sub> connected in a Darlington configuration,  making the current gain higher and using the output side of the current mirror Q<sub>7</sub> as its collector load to achieve high gain.<br/>β<sub>DARLINGTON</sub> = β<sub>Q1</sub> * β<sub>Q2</sub> + β<sub>Q1</sub> + β<sub>Q2</sub></p>
+<p>The drawback of the Darlington topology is an approximate doubling of base-emitter voltage. Since there are two junctions between the base and emitter of the Darlington transistor, the equivalent base-emitter voltage is the sum of both base-emitter voltages. </p>
+<p>Vbe<sub>DARINGTON</sub> = Vbe<sub>Q6</sub> + Vbe<sub>Q10</sub> = 2Vbe</p>
+
+<h3><a id="output" name="output"></a><strong>1.4 JRC4558 Output Stage.</strong></h3>
+<p>The Output Stage (OPS) is a Class AB push-pull emitter follower amplifier with the bias current set by the Vbe Multiplier. This block is highlighted in blue color and is formed by Q<sub>11</sub>, Q<sub>12</sub>, R<sub>6</sub>, R<sub>7</sub>, and R<sub>8</sub>:<img alt="JRC4558 Vbe multiplier + Output Stage" class="article-img" src="images/jrc4558-analysis/jrc4558-vbe-multiplier-output-stage.png"/></p>
+<p> The function of the Output Stage is to provide enough current gain so that voltage potential provided by VAS can exist over the low load output impedance.</p>
+<p>This stage is efficiently driven by the VAS. Variations in the bias with temperature, or between parts with the same type number are common, so crossover distortion and quiescent current may be subject to significant variation. The output range of the JRC4558 is about 1.5 volts less than the supply voltage, owing in part to Vbe of the output transistors Q<sub>11</sub> and Q<sub>12</sub>.</p>
+<p><img alt="JRC4558 Output Stage" class="article-img" src="images/jrc4558-analysis/jrc4558-output-stage.png"/><br/>The output resistors  R<sub>6</sub>, R<sub>7</sub> and R<sub>8</sub> inserted between output pair emitters also known as <em>ballast resistors</em>, are used to even out differences between internal emitter resistances of transistors, thus their current sharing is improved. The resistor values are usually pretty low,  improving thermal stability, preventing the complementary transistors from directly loading each other and making quiescent current stable.</p>
+<h3><a id="multiplier" name="multiplier"></a><strong>1.5 JRC4558 V<sub>be</sub> Multiplier Bias Circuit.</strong></h3>
+<p>A V<sub>be</sub> Multiplier bias circuit also known as <em>Bias Servo</em>, <em>Amplified Diode</em>, <em>Rubber Diode</em> or <em>Rubber</em><em> Zener</em> is placed in order to compensate the crossover distortion and protect the Output Stage from thermal shutdown. This block is highlighted in pink color and formed by Q<sub>8</sub>, Q<sub>9</sub>, and R<sub>4</sub>:<img alt="JRC4558 Vbe Multiplier" class="article-img" src="images/jrc4558-analysis/jrc4558-vbe-multiplier.png"/></p>
+<p>In the output push-pull topology, the transistors Q<sub>11</sub> and Q<sub>12</sub> do not start conducting until the input signal exceeds their forward voltage, which is the Vbe, typically around ±0.6 V. Counteract is to bias the transistors so that their idling voltage never drops below the forward voltage.</p>
+<p> A specific amount of current, known as bias current, is constantly fed to the transistors’  bases in order to ensure that the transistors keep conducting for a desired amount of time, sacrificing the efficiency.<br/>Without a controlled bias voltage, the quiescent collector currents of the output power amplifiers may be excessive, causing thermal failure.</p>
+<p><img alt="Crossover Distortion" class="article-img" src="images/jrc4558-analysis/crossover.png"/>The classic Vbe Multiplier topology consists on one transistor and two resistors. The JRC4558 uses a two transistor approach, a variation from the classic one:</p>
+<p><img alt="Vbe Multiplier Topologies" class="article-img" src="images/jrc4558-analysis/vbe-multiplier-topologies.png"/><br/>The Vbe Multiplier acts as a variable resistor which is mounted to the same silicon device as the output transistors, so they are thermally coupled. Temperature changes of the device affect the gain of the servo transistor; this consequently changes the voltage drop over the Vbe Multiplier circuit.<br/>To improve the temperature coefficient between the Vbe multiplier matching and the output stage. The circuit Vbe Multiplier is equipped with an additional transistor Q8.</p>
+<h3><a id="feedback" name="feedback"></a><strong>1.6 JRC4558 Feedback Path.</strong></h3>
+<p>The task of the Feedback Path is to send in some way part of the output signal to the VAS. It has an important part in error correcting as well as in bandwidth and gain limiting.<br/>The capacitor C<sub>2</sub> provides frequency selective negative feedback. This technique is called <em>Miller Compensation</em> or <em>Dominant Pole Compensation</em> because it introduces a dominant pole which masks the effects of other poles into the open loop frequency response.</p>
+<p><img alt="JRC4558 Block Diagram" class="article-img" src="images/jrc4558-analysis/jrc4558-block-diagram.png"/></p>
+<p>The feedback goes from the VAS transistor’s collector to its base, limiting the bandwidth and decreasing gain at higher frequencies and therefore improving stability at higher frequencies preventing oscillation.</p>
+<h2><a id="myth"></a><strong>2. The JRC4558 Myth.</strong></h2>
+<p>Some guitar players believe that the JRC4558D original chip from the 80s has superior sounding characteristics, especially when it is placed in certain pedals like the Tube Screamer. In this case, <a href="tube-screamer-analysis.html#myth">the op-amp is claimed to be the holy grail if you want to get the original vintage sound</a>; many enthusiasts search and open mass produced electronics from the 70s and 80s looking for the original series chips. <br/>Japan Radio Corporation <em>JRC</em> (established in Sept. 1959) issued millions of these JRC4558D shiny-finished chips from the late 70s until mid-80s. They appear in every piece of Nippon electronics from this period. </p>
+<p>The company JRC, later on, changed its name to New Japan Co. Ltd (NJM), and moved their production facilities to East Asia. They continued to produce 4558 op-amps -labeled as NJM4558D- but the factory was equipped with new production equipment.  A few years later, NJM started re-issuing the JRC4558D (matte-finished), but again not produced at the old plant. The specs are the same as the old one, but the suspicion still lingers - since they changed facilities, are the reissue chips really as good as the old ones?.. the myth stats here.</p>
+<ul>
+<li>In the beginning, the JRC4558D was used for one single reason: it was cheap. So it was placed in tons of Japanese electronic equipment, a junky cheap old stereo or a clock radio could have several hidden inside it.</li>
+<li>You can also pay 30$ on eBay for NOS (New Old Stock) chips, which in theory are original parts manufactured in the 80s that have never been sold at retail. </li>
+<li>There is also that tale about NJM keeping all the original machinery used in the JRC4558 old manufacturing and able to produce again the chip if someone order more than 50 millions of parts.</li>
+</ul>
+<p>Some people claim that they can really appreciate the difference between two 4558 chips from different manufacturers or even between two identical JRC4558 from the same manufacturer. However, in a guitar pedal there are a lot of factors that can modify the sound even more than the opamp can do: the components placement, values tolerance, circuit layout, soldering joints, temperature, power supply, etc ... by actual listening test as well as oscilloscope traces and spectrum analysis, there is no audible difference between today's 0.5$ NJM4558D and the old ones.</p>
+<p>There is also plenty of alternatives to the JRC4558 chip, different users may have different opinions about their performance, but anyway all pin compatible:</p>
+<ul>
+<li><strong>NJM4558</strong> by New Japan Radio Company.</li>
+<li><strong>RC4559</strong> by Texas Instruments.</li>
+<li><strong>NJM4556</strong> by Japan Radio Company. Sound signature of the original with extra dynamics and attack</li>
+<li><strong>TLC272</strong> by Texas Instruments.It has a nice, complex distorted sound.</li>
+<li><strong>TL072</strong> by Texas Instruments, ST Microelectronics, and SGS Thomson Microelectronics.</li>
+<li><strong>TL062</strong> by Texas Instruments, ST Microelectronics, SGS Thomson Microelectronics, and Motorola.</li>
+<li><strong>TL082</strong> by National Semiconductor, Texas Instruments, ST Microelectronics, and Motorola.</li>
+<li><strong>LM1458</strong> by National Semiconductor and Fairchild Semiconductor.</li>
+<li><strong>LM833</strong> by National Semiconductor,ST Microelectronics, SGS Thomson Microelectronics, Motorola and ON Semiconductor.</li>
+<li><strong>OPA2107</strong> by Analog Devices. Rounder sound, makes it ideal for blues players</li>
+<li><strong>OP275</strong> by Analog Devices.</li>
+<li><strong>OPA2604</strong> by  Burr-Brown and Texas Instruments.</li>
+<li><strong>TLC2272, TLC2202</strong> by Texas Instruments.</li>
+<li><strong>LT1213</strong> by Linear Technology.</li>
+<li><strong>MC33078</strong> by Texas Instruments. With very nice highs.</li>
+</ul>
+<h2><strong><a id="resources" name="resources"></a>3. Resources</strong></h2>
+<p><a href="http://www.datasheetcatalog.org/datasheets/270/489253_DS.pdf" rel="noopener noreferrer" target="_blank">JRC4558 Datasheet.</a><br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers</a>, the Holy Scripture.<br/><a href="http://socrates.berkeley.edu/~phylabs/bsc/PDFFiles/bsc4.pdf" rel="noopener noreferrer" target="_blank">JFET Current Sources</a>, by the University of California at Berkeley.<br/><a href="http://en.wikipedia.org/wiki/Current_source" rel="noopener noreferrer" target="_blank">Current Sources</a> in Wikipedia.<br/><a href="http://www.hagtech.com/pdf/vbe.pdf" rel="noopener noreferrer" target="_blank">Vbe Multipliers</a> by Jim Hagerman.<br/><a href="http://users.ece.gatech.edu/mleach/ece4435/sp08/TL071ckt.pdf" rel="noopener noreferrer" target="_blank">TL071 Blocks Diagram</a> by Georgia Tech School of Engineering.<br/><a href="http://www.geofex.com/article_folders/tstech/tsxtech.htm" rel="noopener noreferrer" target="_blank">The Technology of Tube Screamer</a> by R.G. Keen.<br/><a href="http://www.calvin.edu/~pribeiro/courses/engr332/Handouts/ho18opamp.pdf" rel="noopener noreferrer" target="_blank">IC Opamps Evolution Through the Ages</a> by Thomas H.Lee.</p>
+
+<p>My sincere appreciation to „Nandor” for your assistance.</p>
+<p>Thanks for reading, all feedback is appreciated </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220522231430/https://www.electrosmash.com/jrc4558-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20JRC4558.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="mn3007-bucket-brigade-devices.html">&larr; Bucket Brigade Devices: MN3007</a>
+    <a class="prevnext" href="lm386-analysis.html">LM386 Audio Amplifier Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

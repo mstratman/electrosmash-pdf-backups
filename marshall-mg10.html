@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marshall MG10 Amplifier Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; Marshall MG10 Amplifier Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Marshall MG10 Amplifier Analysis</h1>
+
+<p>The MG-10 is a 10W solid stage guitar amplifier by Marshall. It features 6-1/2" speaker, 2 channels: clean and overdrive, volume and tone controls, MP3 input and additional headphones output. It gives a solid robust feeling, built like a tank in chipboard wood with a weight of 4.8Kgs and 296x314x175cms dimensions.</p>
+<p><img alt="marshall-mg10-intro" class="article-img" src="images/marshall-mg10/marshall-mg10-intro.png"/></p>
+<p>Although its sound features are not the finest, this practice amplifier is popular because it is cheap, reliable and it is Marshall. The clean channel plays fairly well, the overdrive channel sound is pretty flat and thin if you plan to use distortion better use a pedal or a guitar effects processor before it. The tone control adds some limits and the amp emits practically no noise. For the money, it is not a bad home amp, small, portable and with the fancy logo.</p>
+<p><strong>Table of contents:</strong></p>
+<p><a href="#link1">1. Marshall MG10 Schematic.</a><br/><a href="#link2">2. Power Supply</a><br/><a href="#link3">3. Input Stage.</a><br/>     <a href="#link31">3.1 Marshall MG10 Input Impedance.</a><br/>     <a href="#link32">3.2 Input Stage Frequency Response</a>.<br/><a href="#link4">4. Overdrive Channel.</a><br/>     <a href="#link41">4.1 Overdrive Channel Frequency Response.</a><br/><a href="#link5">5. Clean Channel.    </a>        <br/><a href="#link6">6. Tone Control.</a><br/><a href="#link7">7. Low Pass Filter.</a><br/><a href="#link8">8. Power Amplifier.</a><br/>     <a href="#link81">8.1 Zobel Network and Feedback Loop.</a><br/><a href="#link9">9. Speaker Cone.</a><br/><a href="#link10">10. Resources.</a></p>
+<p><br/><strong><a id="link1" name="link1"></a>1. Marshall MG10 Schematic.</strong></p>
+<p>The Marshall MG-10 circuit can be broken down into 6 blocks:  Input Stage, Overdrive Stage, Tone Control, Filter, Power Supply and Power Amplifier:</p>
+<p><img alt="marshall-mg10-schematic-parts" class="article-img" src="images/marshall-mg10/marshall-mg10-schematic-parts-big.jpg"/>The pre-amplifier is designed using 4 op-amp stages for signal amplification and filtering; a simple passive tone control and a low pass filter complete the pre-amp. The TDA2030A 14W monolithic solid state IC is used for the power amplifier. This architecture also used in the MG15 with small modifications.<br/></p>
+<p><img alt="marshall-mg10-front-panel" class="article-img" src="images/marshall-mg10/marshall-mg10-front-panel.jpg"/></p>
+<p>The Amplifier has 4 knobs: Clean and Distortion Channel Volumes, Gain, and Tone. The Gain knob controls the level of overdrive, the Tone knob adjusts the amount of treble in the sound and the Level knobs control the output volume of the amplifier.</p>
+
+<p><strong>Marshall MG10 PCB Layout.</strong></p>
+<p>The printed circuit board is constructed to be integrated into the metal chassis which is screwed up to the chipboard cabinet. The PCB is attached to the chassis using the input/output jacks and potentiometers, not using additional screws. For better heat sinking, the power amplifier and the transformer are attached directly to the frame.<img alt="Marshall MG10 Amplifier Guts" class="article-img" src="images/marshall-mg10/marshall-mg10-amplifier-500.png"/>The single layer PCB uses standard DIP integrated circuits and passive insertion components. All connectors and knobs are directly soldered over the board minimizing the number of cables.<img alt="Marshall MG10 PCB" class="article-img" src="images/marshall-mg10/marshall-mg10-pcb-1000.png"/></p>
+<p><strong>Marshall MG10 Part List / Bill of Materials.</strong></p>
+<p>In the first row the quantity of items are shown:</p>
+<p>    2    CX1,CX2      472p<br/>    2    C1,C12        0.022u<br/>    1    C2              10p<br/>    1    C3              0.1u<br/>    1    C4              10pF<br/>    5    C5,C6,C9,C17,C24    10u<br/>    1    C7              0.15u<br/>    1    C8              220p<br/>    3    C10,C39,C40 10n<br/>    1    C11            560p<br/>    1    C13            1nF<br/>    1    C14            470p<br/>    1    C15            47pF<br/>    1    C16            100nF<br/>    1    C19            0.0015u<br/>    1    C20            0.0022u<br/>    3    C21,C29,C30    100n<br/>    1    C22            4.7n<br/>    1    C23            1000u<br/>    1    C25            220n<br/>    4    C27,C28,C31,C32    47u<br/>    2    C33,C34        2200u<br/>    4    D1,D2,D7,D8 1N4148<br/>    1    D3,D4,D5,D6 1N4007<br/>    1    JRA-1102    FUSE<br/>    2    SW1:A/B     DPDT<br/>    1    LED1          GREEN<br/>    1    LED2          RED<br/>    1    LED3          Red 5mm<br/>    2    R1,R46       10K<br/>    4    VR2,R2,R6,R9    1M<br/>    4    R3,R5,R44,R45    1K<br/>    1    R4             6K8<br/>    1    R7             820<br/>    1    R8             560<br/>    2    R10,R11      47K<br/>    5    R13,R14,R18,R19,R26    100K<br/>    2    R15,R24      390<br/>    4    R20,R21,R29,R30    3K3<br/>    2    R22,R23      330<br/>    1    R25            3K9<br/>    1    R28            560K<br/>    1    R31            1K5<br/>    4    R32,R38,R39,R40    33<br/>    1    R34            0.1<br/>    2    R35,R36      180<br/>    1    R37            2K2<br/>    1    R41            680<br/>    1    SP1 8ohm    SPEAKER<br/>    1    Transformer<br/>    2    VR1,VR3      5K<br/>    1    VR4            50K<br/>    2    ZD1,ZD2     15V/0.5W<br/>    1    IC              BA4560<br/>    1    IC              TL072<br/>    1    IC              TDA2030A</p>
+
+<p><a id="link2" name="link2"></a><strong>2. Power Supply</strong></p>
+<p>The Power Supply Stage provides energy and bias voltage to all the circuitry, the whole power consumption is estimated in 40W:<img alt="Marshall MG10 Power Supply" class="article-img" src="images/marshall-mg10/marshall-mg10-power-supply.png"/></p>
+<p>The schematic is based in a 220VAC to ±12.6VAC center tapped transformer with a full wave rectifier followed by a shunt regulator.</p>
+<ul>
+<li>The capacitors CX<sub>1</sub> and CX<sub>2</sub> are surge suppressor filters that attenuate mains and switching transients.</li>
+<li>The Fuse protects the device from dangerous inrush currents shutting down everything in case of failure.</li>
+<li>The power-on LED<sub>3</sub> diode attached to +15V indicates the correct power supply state.</li>
+</ul>
+<p>The rectifier is a circuit that converts AC into DC by allowing the current pass only into one direction. To do so a diode bridge (D<sub>3</sub>, D<sub>4</sub>, D<sub>5</sub>, and D<sub>6</sub>) is used in order to rectify the full wave of the input 220AC signal.</p>
+<p><strong>Supply Regulation</strong>:</p>
+<p>A Shunt Regulator is used to stabilize the supply at 15V. It is simple circuit based on a single Zener diode (two diodes ZD<sub>1</sub> and ZD<sub>2</sub> for dual supply ±15).</p>
+<p>The output voltage of the regulator can never be higher than the Zener voltage (15V). The resistors R<sub>35</sub> and R<sub>36</sub> separate the regulator’s input and output voltage (including ripple) from each other and prevents the Zener from directly loading and shunting the supply. Shunt regulator is always quite inefficient due to the constant power loss over the series resistors.</p>
+<h2><a id="link3" name="link3"></a><strong>3. Input Stage.</strong></h2>
+<p>The Input Stage is a non-inverting operational amplifier that will provide high input impedance, voltage gain, and signal filtering.<img alt="Marshall MG10 Input Stage" class="article-img" src="images/marshall-mg10/marshall-mg10-input-stage.png"/></p>
+<p>The input stage may be affected by transient-voltage/current spikes caused by faulty equipment or DC fluctuation. D<sub>1</sub> and D<sub>2</sub> (1N4148) back-to-back diodes connected between the supply rails and input are limiter clamping diodes, used to protect the circuit from input signals above 15V+V<sub>F</sub> (15.65V) or below -15V-V<sub>F</sub> (-15.65V) which can damage the circuitry.</p>
+<p>The Voltage Gain of this stage is frequency dependant, but in the mid frequencies, the value of the non inverting amplifier gain is:</p>
+<div>\[ G_{V}=1+\frac{R_{4}}{R_{3}//R_{7}}=1+\frac{6.8K}{1K//820}= 16.1 \, (24dB) \]</div>
+<h3><strong><a id="link31" name="link31"></a>3.1 Marshall MG10 Input Impedance.</strong></h3>
+<p>The input impedance on the Marshall MG10 is the input resistor R<sub>1</sub> plus the parallel of R<sub>2</sub> and the TL072 input resistance (106MΩ in the datasheet).</p>
+<p><div>\[Z_{in}=R_{1} + R_{2}//Z_{in \: TL072}=10K + 1M//106M = 1.01Mohm\]</div></p>
+<p>It can be considered as good input impedance, not loading the guitar pickups and preventing tone sucking (as a rule of thumb the input impedance of an amplifier should be at least 1MΩ).</p>
+
+<h3><a id="link32" name="link32"></a><strong>3.2 Input Stage Frequency Response.</strong></h3>
+<p>The input cap C<sub>1, forms a high-pass filter, in conjunction with a resistor R1, R2 and the op-amp input resistance removing possible hum. It stabilizes and isolates the rest of the circuit from the input.</sub></p>
+<p>There is also a second order high pass filter, implemented by the parallel gain network which introduces 2 poles at f<sub>c1</sub> and f<sub>c2</sub>:</p>
+<div>\[f_{c1}=\frac{1}{2 \pi \cdot R_{7} \cdot C_{7}} ==\frac{1}{2 \pi \cdot 820 \cdot 0.15 \mu F } = 1.29 KHz\]</div>
+<div>\[f_{c2}=\frac{1}{2 \pi \cdot R_{3} \cdot C_{3}} ==\frac{1}{2 \pi \cdot 1K \cdot 0.1 \mu F } = 1.59 KHz\]</div>
+<p>Therefore the harmonics below 1.4 KHz approx. are attenuated at 40dB/dec.</p>
+<p><img alt="Marshall MG10 Input Stage Frequency Response" class="article-img" src="images/marshall-mg10/marshall-mg10-input-stage-frequency.png"/></p>
+<p>There is two small 10pF capacitors (C<sub>2</sub> and C<sub>4</sub>) that act as low pass filters, softening harsh content of the waveform and giving more stability to the input stage</p>
+<h2><a id="link4" name="link4"></a><strong>4. Overdrive Channel - Clipping Amplifier.</strong></h2>
+<p>The Clipping Amplifier is selected with the DPDT (Double Pole Double Throw) Switch1. The switch can also make the signal to bypass this part of the circuit resulting in a clean sound.<img alt="Marshall MG10 Overdrive Stage" class="article-img" src="images/marshall-mg10/marshall-mg10-overdrive-stage.png"/></p>
+<p>It is made of a variable gain inverting op-amp amplifier with two diodes to perform the clip action and two filters in the feedback loop to shape the amount of clipping and the frequency at which it occurs.</p>
+<p><strong>Voltage Gain:</strong></p>
+<p>Not considering for the moment the diodes LED<sub>1</sub> and LED<sub>2</sub>, and the capacitor C<sub>8</sub>, the gain of an inverting op-amp stage is defined by the formula:</p>
+<div>\[G_{V}= - \frac{R_{6}//VR_{2}}{R_{8}}\]</div>
+<p>The gain of the stage can be varied changing the overdrive VR<sub>2</sub> control setting, resulting in a max gain of:</p>
+<div>\[G_{Vmax}\rightarrow VR_{2}=1M\rightarrow G_{Vmax}= \frac{500K}{560}=892 \: (59dB)\]</div>
+<p>note: The G<sub>Vmin</sub> can be considered as 1 (0dB) despite the values of VR<sub>2</sub> below 560Ω that will create a <em>negative </em>gain (less than 1).</p>
+<p>However, the voltage gain of this stage will not reach values like 892 (59dB). As it will be seen in the next point the gain is limited by the clipping diodes action. The top gain will be around 20 and the additional range (from 20 to 892) will set the sharpness of the clipped signal.</p>
+<p>The gain of the clipping circuit is huge (892 max.) if it is compared with other success overdrive designs like the Tube Screamer (118 max.). This fact together with the use of red/green LED diodes for the clipping action instead of silicone ones, results in a harsh distortion with abrupt and drastic waveform, not very responsive, also known as the <em>bee tin</em>.</p>
+<p>After the op-amp there is a R<sub>46 </sub>VR<sub>3</sub> voltage divider that introduces a min. attenuation of  VR<sub>3</sub>/(VR<sub>3</sub>+R<sub>6</sub>) = 5K/15K = 0.3 = -10dB.</p>
+<p> <strong>Clipping Diodes:</strong></p>
+<p>The symmetric clipping is produced by 2 diodes LED<sub>1</sub> and LED<sub>2</sub> in the feedback loop of the amplifier; LED<sub>1</sub> clips the positive semi-cycle signal while LED<sub>2</sub> trims the negative signal semi cycle. Using different diode colors may add a small degree of asymmetry to the clipping, which is considered more tube-like sounding.</p>
+<p>When the voltage difference (positive or negative) between the op-amp output and the (-) input is bigger than the led diodes forward voltage V<sub>F</sub>, the diode will turn on. As the diode turns on forward biased, the equivalent resistance of the diode goes from an open circuit (very high) to a very low value (few ohms), changing the gain of the inverting op-amp from a high value down to 1 and <em>clipping</em> the signal.</p>
+<p>Clipping when </p><div>\[V_{out}-V_{in}&gt;V_{F}\]</div>
+<p>With V<sub>F</sub> for led diodes is around 2V and Vin from a guitar of 100mV approx. With a gain of 20 or higher, the signal will be clipped.   </p>
+
+<h3><strong><a id="link41" name="link41"></a>4.1 Clipping Amplifier Frequency response.</strong></h3>
+<p><img alt="Marshall MG10 Clipping Amplifier Frequency Response" class="article-img" src="images/marshall-mg10/marshall-mg10-clipping-gain.png"/></p>
+<ul>
+<li>The big capacitor C<sub>6</sub> (10uF) filters the bass harmonics below the audio range (~50 Hz.).</li>
+<li>The small C<sub>8</sub> (220pF) acts softening the corners of the clipped waveform and mellowing out the high end of the distortion. The cut-off frequency depends on the overdrive potentiometer VR<sub>2</sub>. With maximum gain f<sub>c</sub>= 1/(2π x 220pF x 1MΩ) = 723Hz, reducing the gain the cut-off shifts to the high frequencies. </li>
+</ul>
+<h2><strong><a id="link5" name="link5"></a>5. Clean Channel.</strong></h2>
+<p>When the clean channel is selected, the whole Clipping Stage is bypassed. The signal is taken from the input stage and feed to the VR<sub>1</sub> potentiometer in the typical passive Volume configuration.</p>
+
+<h2><a id="link6" name="link6"></a><strong>6. Tone Control.</strong></h2>
+<p>The Marshall MG10 is using a simplified <em>Contour</em> tone control which adjusts the tone with only one potentiometer VR<sub>4</sub>.<img alt="Marshall MG10 Tone Control" class="article-img" src="images/marshall-mg10/marshall-mg10-tone-control.png"/></p>
+<p>The circuit is an asymmetric notch filter, with the stop band situated at 1 KHz approx. </p>
+<p><img alt="Marshall MG10 Contour Tone" class="article-img" src="images/marshall-mg10/marshall-mg10-contour-tone.png"/></p>
+<p>The tone control adjusts the mid-range of the signal. Keeping the bass and treble while reducing or eliminating the center mid-range 1KHz results in what is popularly known as a <em>scooped</em> sound, popular among metal players. The bass and treble cannot be modified, so the control is limited. <br/></p>
+<p>Due to the asymmetry, after the stop band the high-frequency contents will lose up to 10dB. </p>
+<p>Note: Tone circuit input is grounded via the input jack to reduce noise and pops when the guitar is not plugged.</p>
+
+<h2><strong><a id="link7" name="link7"></a>7. Filter</strong></h2>
+<p>After the Tone Control, there is severe low pass filter made of two consecutive active filters: 2nd order Sallen key + 3rd order Sallen key.</p>
+<p>The aim of this filtering is to completely remove high-frequency harmonics before the power amplification in order to adjust the waveform contents to the speaker cone frequency band and avoid noisy harsh responses.<img alt="Marshall MG10 Filter" class="article-img" src="images/marshall-mg10/marshall-mg10-filter.png"/></p>
+<p>The mathematics to calculate the cut frequency of this filters are similar to the <a href="boss-ce-2-analysis.html#link7">Boss CE2 Sallen Key Filters</a>. Alternatively, the simple <a href="http://sim.okawa-denshi.jp/en/OPseikiLowkeisan.htm" rel="noopener noreferrer" target="_blank">2nd</a> or <a href="http://sim.okawa-denshi.jp/en/Sallenkey3Lowkeisan.htm" rel="noopener noreferrer" target="_blank">3rd Order Sallen-Key Low Pass Filter Design Tool by Okawa Electric Design</a> can be used to get the cut-off frequencies.</p>
+<ul>
+<li>In the Second Order Sallen Key: </li>
+</ul>
+<p>fc<sub>0</sub> = 10.7 KHz</p>
+<ul>
+<li>Third Order Sallen Key: A common configuration to implement 3rd order Sallen-Key is using a passive 1st order RC filter + a 2nd order standard Sallen-Key.</li>
+</ul>
+<p>fc<sub>1</sub> = 461.5 Hz<br/>fc<sub>2</sub> = 1. 65 KHz<br/>fc<sub>3</sub> = 4.1 KHz</p>
+<p>The Filter will remove a big content of the high frequencies as shown below:</p>
+<p><img alt="Marshall MG10 Filter Frequency" class="article-img" src="images/marshall-mg10/marshall-mg10-sallen-key-filter.png"/></p>
+<p><a id="link8" name="link8"></a><strong> </strong><strong>8. Power Amplifier.</strong></p>
+<p>The Marshall MG-10 uses the TDA2030A monolithic Power Amplifier, it is intended for use as a low-frequency class AB amplifier. Typically it provides 14W output power (d = 0.5%), the guaranteed output power is 12W on a 4Ω load and 8W on an 8Ω.<img alt="Marshall MG10 Power Amplifier" class="article-img" src="images/marshall-mg10/marshall-mg10-power-amplifier.png"/></p>
+<p>The IC incorporates internal short circuit protection system for automatically limiting the dissipated power so as to keep the working point of the output transistors within their safe operating area. A thermal shut-down system is also included.</p>
+<p><img alt="Marshall MG10 Power Amplifier Frequency" class="article-img" src="images/marshall-mg10/marshall-mg10-power-amplifier-frequency.png"/></p>
+<h3><a id="link81" name="link81"></a><strong>8.1 The Zobel Network and Feedback Loop.</strong></h3>
+<p>The impedance equalization circuit for the load, also known as a Zobel circuit, is used to counteract the rising impedance of a voice coil caused by inductive reactance.  </p>
+<p>Using a Zobel the power amp is stabilized and clean tones restored, wiping some spurs that manifested themselves as spiky farting on otherwise clean tones. Typical component values of a Zobel Network, which consist of series connected resistor and capacitor are 10 to 100 nF caps and a resistance close to the speaker impedance.</p>
+<ul>
+<li>R<sub>ZOBEL</sub> = R<sub>32</sub>//<sub>R38</sub>//R<sub>39</sub>//R<sub>40</sub>//R<sub>41</sub> = 33//33//33//33 = 8.25Ω</li>
+<li>Capacitor C<sub>25</sub> is 220nF (a general value also used in other Marshall designs)</li>
+</ul>
+
+<p><strong>Power Amp Feedback:</strong></p>
+<p>The power amplifier uses feedback current compensation. The current feedback voltage is obtained by passing the speaker return current through a current sensing resistor R<sub>34</sub> (0.1Ω/2W). C<sub>34</sub> blocks any AC voltage feedback, only allowing DC and very low frequencies to pass. The current feedback signal from R<sub>34</sub> gets divided down by R<sub>31</sub>, C<sub>24</sub> blocks any DC feedback through that path that.</p>
+<p>The feedback makes amplifier remains more stable and the amount of distortion is greatly reduced will reduce the Gain. Other effects are promoting lower speaker damping, and mid scooped frequency response.</p>
+
+<h2><a id="link9" name="link9"></a><strong>9. Marshall MG10 Speaker Cone.</strong></h2>
+<p>The speaker cone labeled as 160RFB08-1 and manufactured by CHANGZHOU CHUNIL CORP established in Changzhou, China in 2004. It was invested by Munil Chun who has over 30 years speaker engineering experience in Korea.</p>
+<p><img alt="Marshall MG10 Speaker" class="article-img" src="images/marshall-mg10/marshall-mg10-speaker.JPG"/></p>
+<p>The Specifications of the speaker are: </p>
+<div class="table-scroll"><table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" height="18" width="435">General Specifications</td>
+</tr>
+<tr>
+<td height="18">nominal diameter</td>
+<td>6 1/2" ,160 mm</td>
+</tr>
+<tr>
+<td height="18">power rating</td>
+<td>10 watts RMS</td>
+</tr>
+<tr>
+<td height="18">nominal impedance</td>
+<td>8 ohms</td>
+</tr>
+<tr>
+<td height="18">sensitivity (1W/1M)</td>
+<td>91 dB</td>
+</tr>
+<tr>
+<td height="18">frequency range</td>
+<td>110 - 13.000 Hz</td>
+</tr>
+<tr>
+<td height="18">chassis type</td>
+<td>pressed steel</td>
+</tr>
+<tr>
+<td height="18">voice coil diameter</td>
+<td>1" 25 mm</td>
+</tr>
+<tr>
+<td height="18">voice coil material</td>
+<td>round copper</td>
+</tr>
+<tr>
+<td height="18">magnet type</td>
+<td>ceramic</td>
+</tr>
+<tr>
+<td height="18">magnet weight</td>
+<td>5.3. oz,   0.15 kg</td>
+</tr>
+</tbody>
+</table></div>
+
+<div class="table-scroll"><table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" height="18">Thiele &amp; Small Parameters</td>
+</tr>
+<tr>
+<td height="18">Fs</td>
+<td>110 Hz</td>
+</tr>
+<tr>
+<td height="18">Re</td>
+<td>6.5 ohms</td>
+</tr>
+<tr>
+<td height="18">Qes</td>
+<td>2.035</td>
+</tr>
+<tr>
+<td height="18">QMS</td>
+<td>8.458</td>
+</tr>
+<tr>
+<td height="18">Qts</td>
+<td>1.640</td>
+</tr>
+<tr>
+<td height="18">Vas</td>
+<td>13.514 ℓ</td>
+</tr>
+<tr>
+<td height="18">Sd</td>
+<td>16.742 m<sup>2</sup></td>
+</tr>
+<tr>
+<td height="18">No</td>
+<td>0.859 %</td>
+</tr>
+<tr>
+<td height="18">Mms</td>
+<td>6.146 g</td>
+</tr>
+<tr>
+<td height="18">Cms</td>
+<td>339.520 ㎛/N</td>
+</tr>
+<tr>
+<td height="18">Mmd</td>
+<td>4.900 g</td>
+</tr>
+<tr>
+<td height="18">BL</td>
+<td>3.686Tm</td>
+</tr>
+</tbody>
+</table></div>
+
+<div class="table-scroll"><table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" height="18">Mounting information</td>
+</tr>
+<tr>
+<td height="18">diameter</td>
+<td>6.5   ", 165 mm</td>
+</tr>
+<tr>
+<td height="18">overall depth</td>
+<td>2.40 ", 61mm</td>
+</tr>
+<tr>
+<td height="18">bolt circle diameter</td>
+<td>6.10 ", 155 mm</td>
+</tr>
+<tr>
+<td height="18">baffle cutout diameter</td>
+<td>5.70 ", 145 mm</td>
+</tr>
+<tr>
+<td height="18">mounting slot dimensions</td>
+<td>0.20*0.27 ",   5*7 mm</td>
+</tr>
+<tr>
+<td height="18">number of mounting slots</td>
+<td>4</td>
+</tr>
+<tr>
+<td height="18">unit weight</td>
+<td>17.64 oz, 0.5 kg</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>The amplifier speaker colors a lot the tone, being physically impossible to construct a speaker that would have a flat response on a wide band. The response do not shift are than 3dB, considered high quality. The Marshall MG10 response varies around 5dB.<img alt="Marshall MG10 Speaker SPL" class="article-img" src="images/marshall-mg10/marshall-mg10-speaker-spl.jpg"/></p>
+<ul>
+<li>The frequency response rolls-off heavily after 5 KHz, this is characteristic for guitar speakers and very typical for all 8” to 15” drivers intended for woofer or mid-range duty. The early high-frequency cut is beneficial in guitar amplification since it attenuates harsh sounding frequencies caused by signal clipping.</li>
+<li>There is another drop in bandwidth at approximately below 80 Hz, very close to the fundamental frequency of the open low E string. Limiting all frequencies below 80 Hz can add a great deal of clarity to the sound.</li>
+</ul>
+<p><img alt="Marshall MG10 Speaker Impedance" class="article-img" src="images/marshall-mg10/marshall-mg10-speaker-impedance.jpg"/></p>
+<ul>
+<li>The graph shows the typical <em>mid scooped</em> impedance curve. It has high impedance at speaker resonance (~100 Hz).  It also has rising impedance with increasing frequency because it contains an inductor (the voice coil). Inductors impede the flow of alternating current: the higher the frequency, the greater the impedance. </li>
+</ul>
+
+<h2><a id="link10" name="link10"></a><strong>10. Resources.</strong><br/></h2>
+<p><a href="http://music-electronics-forum.com/t21820/" rel="noopener noreferrer" target="_blank">Power Amplifier Feedback</a> by Music Electronics Forum.<br/><a href="http://www.amparchives.com/" rel="noopener noreferrer" target="_blank">All Marshall MG Series Schematics</a> by Amp Archives. </p>
+
+
+
+<p>Thanks for reading, all feedback is appreciated    </p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054647/https://www.electrosmash.com/marshall-mg10" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Marshall%20MG10%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="little-gem-analysis.html">&larr; Little Gem Analysis</a>
+    <a class="prevnext" href="noisy-cricket-analysis.html">Noisy Cricket Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

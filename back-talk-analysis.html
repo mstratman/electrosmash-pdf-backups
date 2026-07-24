@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back Talk Reverse Delay Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Back Talk Reverse Delay Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Back Talk Reverse Delay Analysis</h1>
+
+<p>The Back Talk Reverse Delay pedal is included in the <em>Miscellaneous Series Effects</em> released in 2001 by Danelectro. Built in a sturdy die-cast enclosure and running on 9V, it is a cost-effective pure digital backward delay, suitable for creative possibilities, going from subtle delay to psychedelic oscillating noisy sounds.</p>
+<p><img alt="back-delay-reverse-delay-pcbs" class="article-img" src="images/back-talk-analysis/back-delay-reverse-delay-pcbs.png"/></p>
+<h2><strong>Table of Contents:</strong></h2>
+<p><a href="#reversedelay1">1. The Reverse Delay Effect.</a><br/>      <a href="#controls11">1.1 Reverse Delay Back Talk Control Knobs.</a><br/><a href="#circuit2">2. Back Talk Reverse Delay Circuit.</a><br/>      <a href="#analog21">2.1 The Analog PCB Circuit.</a><br/>            <a href="#bias211">2.1.1 Voltage Bias Block.</a><br/>            <a href="#input212">2.1.2 Input Buffer Stage.</a><br/>            <a href="#output213">2.1.3 Output Buffer Stage.</a><br/>      <a href="#digital22">2.2 The Digital PCB Circuit.</a><br/>            <a href="#power221">2.2.1 Power Supply Stage.</a><br/>            <a href="#por222">2.2.2 Power On Reset Circuit.</a><br/>            <a href="#adc223">2.2.3 Potentiometers &amp; Footswitch ADC Block.</a><br/>            <a href="#codec224">2.2.4 Audio Codec.</a><br/>            <a href="#memory225">2.2.5 Memory Management.</a><br/><a href="#clon3">3. Back Talk Reverse Delay Clon.</a><br/><a href="#resources4">4. Resources.</a><br/>      <a href="#datacheets41">4.1 Back Talk Reverse Delay Datasheets.</a></p>
+<pre></pre>
+<h2><a id="reversedelay1" name="reversedelay1"></a><strong>1. The Reverse Delay Effect.</strong></h2>
+<p>The concept behind reverse delay device is simple: The input signal is passed through a memory buffer, where it is delayed for a short time and then sent reversed to the output. </p>
+<p>Mixing the reverse delayed sound with the original signal, the pedal produces a single repeat following the original sound, but feedbacking a percentage of the delayed signal back to the input produces a repeating echo effect, where each subsequent echo is a little quieter than the previous one. <br/>If the feedback gain is more than unity, the echoes will build up in level rather than decaying, resulting in an uncontrollable psychedelic howl.</p>
+<p><img alt="Back Talk Reverse Delay Signal Diagram" class="article-img" src="images/back-talk-analysis/back-delay-diagram.png"/>To illustrate the operation, a sawtooth signal is used as a guitar input signal.</p>
+<ol>
+<li>Original sawtooth input wave.</li>
+<li>In the beginning of the process, the wave is chopped according to the pedal knobs.</li>
+<li>Each of these pieces are reversed and delayed. </li>
+<li>At last, the original blue wave (2) and the reverse delayed green one (3) are blended creating the sound effect.</li>
+</ol>
+
+<p><img alt="Back Talk Reverse Delay Signal" class="article-img" src="images/back-talk-analysis/back-talk-signal.png"/></p>
+<h3><strong><a id="controls11" name="controls11"></a>1.1 Reverse Delay Back Talk Control Knobs.</strong></h3>
+<p>The pedal is commanded by 3 knobs: Mix, Speed, and Repetitions which will adjust the effect sound features:</p>
+<ul>
+<li>Mix: Controls the blend between the original <em>dry</em> signal and the <em>wet</em> processed signal, giving more presence to the genuine input wave or to the effected sound.</li>
+<li>Repetitions: Sets the number of times that the sampled delayed signal will be repeated over the original signal, creating an echo effect and controlling its depth. </li>
+<li>Speed: Adjusts the sample delay window, in other words, the amount of time that the signal is delayed and the duration of the delay. To illustrate this factor, in the below figure the reverse delay effect is applied over two sawtooth signals with a different speed/delay window:</li>
+</ul>
+<p>     <img alt="Back Talk Reverse Delay Speed Knob" class="article-img" src="images/back-talk-analysis/back-talk-speed.png"/></p>
+
+<p><a id="circuit2" name="circuit2"></a> <strong>2. Back Talk Reverse Delay Circuit.</strong></p>
+<p>The circuit is implemented in two PCBs: the <em>Analog PCB</em> and the <em>Digital PCB</em>, linked by a 7-pin connector. <br/>The input signal enters into the pedal through the Analog PCB, being buffered and prepared to the digital signal processing in the Digital PCB. After the digital effect is added by the Digital PCB, the signal is sent back to the Analog PCB to be buffered again and be prepared to the output.<img alt="Back Delay Reverse Delay Exploded View" class="article-img" src="images/back-talk-analysis/back-delay-reverse-delay-exploded-view.png"/></p>
+<h3><strong><a id="analog21" name="analog21"></a>2.1 The Analog PCB Circuit.</strong></h3>
+<p>The small input/output buffer board is a single layer PCB which contains 3 stages: the Voltage Bias, the Input Buffer, and the Output Buffer. <br/><img alt="Back Talk Reverse Delay Analog PCB" class="article-img" src="images/back-talk-analysis/back-delay-reverse-delay-analog-board.png"/>The circuit is based on<a href="jrc4558-analysis.html"> the famous 4558 dual op-amp IC</a>, one half of it will be used as Input Buffer and the other half as an Output Buffer. The 7-pin connector will send and receive signals between this PCB and the Digital Board.<img alt="Back Talk Reverse Delay Analog Board Circuit" class="article-img" src="images/back-talk-analysis/back-talk-analog-pcb-circuit.png"/></p>
+<h4><a id="bias211" name="bias211"></a><strong>2.1.1 Voltage Bias Block.</strong></h4>
+<p>The Voltage Bias Block provides the voltage levels to the 4558 dual op-amp and electrical protection against reverse polarity supply.<img alt="Back Talk Reverse Delay Voltage Bias" class="article-img" src="images/back-talk-analysis/back-talk-voltage-bias.png"/></p>
+<ul>
+<li>The resistor divider (R<sub>114</sub>, R<sub>115</sub>) generates +2.4 volts from +4.8V. The +2.4V resistors junction is decoupled to ground with a large value electrolytic capacitor C<sub>907</sub> (100uF) to remove all ripple from the supply voltage. </li>
+<li>The diode D101 protects the pedal against reverse polarity connections.</li>
+<li>The stereo in jack is used as an on-off switch, switching the battery (-) terminal to ground when the guitar jack is connected.</li>
+</ul>
+<h4><a id="input212" name="input212"></a><strong>2.1.2 Input Buffer Stage.</strong></h4>
+<p>The Input Buffer grants high input impedance, frequency filtering and voltage gain, keeping signal integrity and preparing it to be digitalized.<br/><img alt="Back Talk Reverse Delay Input Buffer" class="article-img" src="images/back-talk-analysis/back-talk-input-buffer.png"/><br/>Not considering for the moment the caps C<sub>3</sub> and C<sub>4</sub>, the non-inverting amplifier gain can be calculated as:</p>
+<p><img alt="" class="article-img" src="images/back-talk-analysis/gif.latex"/></p>
+<p>The capacitors C<sub>3</sub> and C<sub>4</sub> create a pass-band filter (low pass + high pass) where:</p>
+<ul>
+<li>Low pass = R<sub>6</sub>C<sub>3</sub> network with f<sub>c</sub>=1/(2πR<sub>6</sub>C<sub>3</sub>) </li>
+<li>High pass = R<sub>7</sub>C<sub>4</sub> network with f<sub>c</sub>=1/(2πR<sub>7</sub>C<sub>4</sub>)</li>
+</ul>
+<p>This pass-band filter is <a href="tube-screamer-analysis.html#non-inverting">similar to the non-inverting amp in the Tube Screamer</a>. It will add a subte honky tone but besides this small tone modification, it is important for digital effects to eliminate the excess of bass and treble due to the bandwidth limitation in the analog to digital conversion stage.</p>
+<ul>
+<li>The network C<sub>5</sub> R<sub>8</sub> R<sub>10</sub> and the input impedance of the 4558 (Z<sub>in</sub>=50MΩ) also creates a high pass filter to remove the DC component from the input line.</li>
+<li>The resistor R<sub>9</sub> next to the input jack to ground is a pull-down resistor which avoids popping sounds when the pedal is switched on. The input pull-down resistor becomes the maximum input impedance of the pedal.</li>
+</ul>
+
+<h4><a id="output213" name="output213"></a><strong>2.1.3 Output Buffer Stage.</strong></h4>
+<p>The Output Buffer procures low output impedance, filtering and some voltage Gain, keeping signal integrity and preparing it to the output.<br/><img alt="Back Talk Reverse Delay Output Buffer" class="article-img" src="images/back-talk-analysis/back-talk-output-buffer.png"/><br/>The op amp is in inverting configuration, C<sub>6</sub> will smooth high harsh harmonics and C<sub>8</sub> is a bass cut filter, muting the excess of bass to be delivered to the next stage.</p>
+
+
+<p><a id="digital22" name="digital22"></a><strong>2.2 The Digital PCB Circuit.</strong></p>
+<p>The 2-layers PCB can be broken down into simpler blocks: Power Supply stage, Potentiometers &amp; Footswitch ADC block, Audio Codec and Memory Management.<br/><img alt="Back Talk Reverse Delay Digital PCB" class="article-img" src="images/back-talk-analysis/back-delay-reverse-delay-digital-board.png"/><br/>The circuit is based in the 8-bit Atmel microcontroller AT1200S which manages few peripherals. The input signal coming from the Analog Board is primarily digitalized by the PCM3500E Audio Codec and the resulting data is processed by the Micro using the RAM memory to generate the reverse delay effect. Finally, the digital signal is translated back to analog levels using again the PCM3500E Codec. Two linear voltage regulators will grant 5.0 and 3.6 of voltage supply for the parts.<img alt="Back Talk Reverse Delay Digital Board Circuit" class="article-img" src="images/back-talk-analysis/back-delay-digital-board-circuit.png"/></p>
+<h4><a id="power221" name="power221"></a><strong>2.2.1 Power Supply Stage.</strong></h4>
+<p>The Power Supply Stage is made up of two Holtek voltage regulators, they will provide voltage supply to all stages in the pedal. </p>
+<p><img alt="Back Talk Reverse Delay Power Supply" class="article-img" src="images/back-talk-analysis/back-talk-power-supply.png"/></p>
+<ul>
+<li>The IC5 HT7550 is a three-terminal 5V@100mA low dropout CMOS linear voltage regulator, supplying 5.0 volts.</li>
+<li>The 9V battery primary voltage source and the 5.0V output are decoupled to ground with several capacitors C<sub>9</sub>, C<sub>8</sub>, C<sub>29</sub><sub> </sub>(4.7uF elec.)C<sub>30 </sub>(4.7uF elec.) and C<sub>5</sub> (100uF elec) to remove all ripple from supply voltage.</li>
+<li>The R<sub>14</sub>C<sub>41</sub> network generates +4.8V <em>Slow</em> supply, which is used only by the 4558 Dual Op-Amp and the HC4066 Analog Switch, grants a smooth supply ramp due capacitor C<sub>41</sub> charge/discharge time:</li>
+</ul>
+<p>Time <sub>Charge/Discharge</sub> = 5<sub>*</sub>R<sub>14*</sub>C<sub>41 </sub>= 5<sub>*</sub>100Ω<sub>*</sub>10uF = 5ms</p>
+<ul>
+<li> The IC4 HT7136 is a three-terminal 3.6V@30mA low dropout CMOS linear voltage regulator, supplying 3.6 volts only to the Audio Codec.</li>
+<li>The 9V battery primary voltage source and the 3.6V output are decoupled to ground with several capacitors C<sub>7</sub>, C<sub>10</sub>, and C<sub>6</sub> (100uF elec.) to remove all ripple from supply voltage.</li>
+</ul>
+<h4><strong><a id="por222" name="por222"></a>2.2.2 Power On Reset Circuit.</strong></h4>
+<p>It is important to keep under control the system at start-up estate. Otherwise, the microcontroller may initially operate in an unpredictable fashion.<img alt="Back Talk Reverse Delay Power On Reset" class="article-img" src="images/back-talk-analysis/back-talk-por.png"/></p>
+<p>The Power-On-Reset circuit asserts a reset signal whenever Vcc supply falls below a reset threshold. The reset time-out period can be adjusted using C<sub>42</sub>. Reset remains asserted for an interval programmed by C<sub>42</sub>, after Vcc has risen obove the threshold voltage.</p>
+
+<h4><strong><a id="adc223" name="adc223"></a>2.2.3 Potentiometers &amp; Footswitch ADC Block.</strong></h4>
+<p>The VR3 Mix, VR1 Speed, VR2 Repetitions 3K3 potentiometers and the pedal footswitch SW1 are read by the microcontroler through an Analog to Digital Converter IC7 TLC0834C.<img alt="Back Talk Reverse Delay ADC" class="article-img" src="images/back-talk-analysis/back-talk-adc.png"/></p>
+<p>The microcontroler does not have enough embedded ADCs to read all the analog levels from the potentiometers and the footswitch, so as to do it and save the maximum resources, the Texas Instruments TLC0834C ADC is used. The result of these measures are sent in a single serial line to the microcontroller to be processed.</p>
+<ul>
+<li>D-Latches from IC10 HC373 multiplex the port B of the micro, keeping these lines accessible for other purposes at the same time.</li>
+</ul>
+
+<h4><strong><a id="codec224" name="codec224"></a>2.2.4 Audio Codec.</strong></h4>
+<p>The Audio Codec is a single chip that encodes the guitar analog input as a digital serial signal to be taken by the microcontroller. It also decodes the processed digital signals from the microcontroller back into analog. So, the Codec contains both an Analog-to-digital converter (ADC) and Digital-to-analog converter (DAC) running off the same clock at 11.286 MHz.<img alt="Back Talk Reverse Delay Audio Codec" class="article-img" src="images/back-talk-analysis/back-talk-audio-codec.png"/></p>
+<p>The PCM3500E by Burr-Brown contains 16-bit Delta Sigma ADC and DAC, with a sampling frequency of 22.05KHz (11.286/512). The chip also includes anti-aliasing filter, digital high-pass filter for DC blocking, and output low-pass filter to enhance performance.</p>
+<p>The <em>dry</em> input signal is <em>encoded</em> or digitalized by the ADC block of the PCM3500 and sent in serial mode to the micro. The microcontroller manage and modify the digitalized signal adding the back delay effect and finally the <em>wet</em> signal is translated back to analog using the DAC block of the PCM3500.</p>
+<ul>
+<li>Using the Analog Switch HC4066 commanded by the microcontroller, the input signal can skip all the digital signal processing and go straight to the output when the pedal is in off/bypass mode.</li>
+<li>The Power on diode D<sub>1</sub> is turned on when the push footswitch is pressed, showing whether the effect is active or not.</li>
+</ul>
+
+<h4><strong><a id="memory225" name="memory225"></a>2.3 Memory Management.</strong></h4>
+<p>All delay based pedals need some mechanism to store the audio in order to play it later as a delayed version. This method can be magnetic tape in old <em>pure</em> analog effects, capacitors in bucket brigade delay devices or just RAM memory in <em>pure</em> digital pedals.</p>
+<p>The two ISS ram chips supply 8-bits of 32K memory each one, these parts can be associated as 32K of 16-bits memory. The Audio Codec works at 16-bits with a sampling period of 22.05KHz, with this speed, the memory system is able to store 32K/22.05KHz = 1.45 seconds of delay.  </p>
+<p>In the Back Talk pedal, the main bottleneck in the hardware design is the way to manage two 28 pined memory chips with a limited free lines. To do so, 16 d-type latches are needed to extend the number of available lines multiplexing the port B of the micro.<img alt="Back Talk Reverse Delay Memory Management" class="article-img" src="images/back-talk-analysis/back-talk-memory.png"/></p>
+<p>The Microcontroler receives the digitalized guitar signal from the PCM3500 Audio Codec in serial mode. Then, the data serial string is processed and sent in parallel to the RAM memory through the HC373 D-latches; the IC9 D-Latch is used to drive the address lines and the IC8 manage the memory I/O lines.</p>
+<p>Depending on the user potentiometers (mix, speed, repetitions) the micro will apply different adjustments in the feedback, deep of memory buffer and mixing algorithm.</p>
+<ul>
+<li>The HC137 3-to-8 Line Decoder is in charge of enable the latches and also address the memory extending the number of available lines. The diodes D<sub>3</sub>, D<sub>4</sub>, D<sub>5</sub> and D<sub>6</sub> are used to adjust levels between parts.</li>
+<li>The IC12 HC368 Hex inverting buffers adapt the levels to negative logic to engage ICs.</li>
+</ul>
+
+<h2><a id="clon3" name="clon3"></a><strong>3. Back Talk Reverse Delay Clon.</strong></h2>
+<p>After understanding the circuit and Danelectro approach for this pedal, it can be concluded that the reverse engineering clone is pretty discouraging. Despite the relatively complex PCB layout and all surface montage devices, some of then obsoletes, the git of the pedal remains in the source code of the microcontroller which is not available.</p>
+<p>The hardware design indicates that the program code must be complex as well; the serial data encryption and decryption for the Audio Codec and the ADC, the 24 latches, 2 memories and decoder management for real time signal processing is not trivial.</p>
+<p>Anyway, is a good learning exercise to see how the big ones design DSP pedals, so you can for sure gain some ideas for you own designs, good luck!</p>
+
+<h2><a id="resources4" name="resources4"></a><strong>4. Resources.</strong></h2>
+<p><a href="https://web.archive.org/web/20220504054741/http:/en.wikipedia.org/wiki/Danelectro">Danelectro pedals</a> in Wikipedia.<br/><a href="http://www.muzique.com/news/pulldown-resistors/" rel="noopener noreferrer" target="_blank">Pulldown Resistors</a> by AMZFX.<br/><a href="http://www.muzique.com/news/pulldown-resistor-vs-input-impedance/" rel="noopener noreferrer" target="_blank">Pulldown Resistors vs Input Impedance</a> by AMZFX.<br/><a href="http://www.soundonsound.com/sos/jul03/articles/sequencerdelay.asp" rel="noopener noreferrer" target="_blank">Sequencer Delay Masterclass</a> in Sound on Sound.<br/><a href="http://dafx10.iem.at/papers/RaffelSmith_DAFx10_P42.pdf" rel="noopener noreferrer" target="_blank">Practical Modeling of Bucket-Brigade-Device CircitsCircits</a> by C. Raffel &amp; J. Smith.</p>
+<h3><a id="datacheets41" name="datacheets41"></a><strong>4.1 Back Talk Reverse Delay Datasheets.</strong></h3>
+<p>IC1, IC2, <a href="http://www.issi.com/pdf/61C256AH.pdf" rel="noopener noreferrer" target="_blank">IS61C256AH 32Kx8 CMOS High Speed Static RAM Memory.</a><br/>IC3, <a href="http://www.ti.com/lit/ds/symlink/pcm3500.pdf" rel="noopener noreferrer" target="_blank">PCM3500E 16bit Mono audio Codec / 16bit Delta Sigma ADC/DAC</a>.<br/>IC4, <a href="http://www.holtek.com.tw/english/docum/consumer/71xx_1.htm" rel="noopener noreferrer" target="_blank">HT7136 30mA 3.6V voltage regulator</a>.<br/>IC5, <a href="http://www.holtek.com.tw/english/docum/consumer/75xx_1.htm" rel="noopener noreferrer" target="_blank">HT7550 100mA 5.0V voltage regulator</a>.<br/>IC6, <a href="http://www.atmel.com/Images/doc0838.pdf" rel="noopener noreferrer" target="_blank">AT90S1200 8bit Microcontroler 1K Flash memory</a>.<br/>IC7, <a href="http://www.ti.com/lit/ds/symlink/tlc0838.pdf" rel="noopener noreferrer" target="_blank">TLC0834C Analog to Digital converter with serial control.</a> <br/>IC8, IC9, IC10, <a href="http://www.ti.com/lit/ds/symlink/sn74hc373.pdf" rel="noopener noreferrer" target="_blank">HC373 Octal Transparent D-type Latches with 3-state outputs. </a><br/>IC11, <a href="http://www.ti.com/lit/ds/symlink/cd74hc137.pdf" rel="noopener noreferrer" target="_blank">HC137 3-to-8 Line Decoder Demultiplexer with Address Latches.</a><br/>IC12, <a href="http://www.ti.com/lit/ds/symlink/sn74hc368.pdf" rel="noopener noreferrer" target="_blank">HC368 Hex inverting buffers and line drivers with 3-state output</a>.<br/>IC13, <a href="http://www.ti.com/lit/ds/symlink/sn74hc4066.pdf" rel="noopener noreferrer" target="_blank">HC4066 Quad Analog Switch.</a></p>
+<p>Thanks for reading, all feedback is appreciated  </p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054741/https://www.electrosmash.com/back-talk-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Back%20Talk%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    
+    <a class="prevnext" href="big-muff-pi-analysis.html">Big Muff Pi Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

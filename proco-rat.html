@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Co Rat Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Pro Co Rat Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Pro Co Rat Analysis</h1>
+
+<p>The Pro Co Rat is a distortion pedal by Pro Co Sound designed by Scott Burnham and Steve Kiraly in Kalamazoo, Michigan 1978. The original circuit and appearance suffered some changes over the different revisions but the tone remained the same. </p>
+<p>Due to the pedal success there are several versions designed by Pro Co like the Juggernaut (1979), R2DU (1984), RAT2 (1988), Turbo RAT (1989), Vintage RAT (1991), BRAT (1997), Deucetone RAT (2002), Juggernaut Bass RAT (2003), You Dirty RAT (2004),'85 Whiteface RAT Reissue (2010).<img alt="ProCo Rat Pedal Intro Image" class="article-img" src="images/proco-rat/prc85rat_intro.jpg"/></p>
+<p>Although the pedal was originally built as custom-order product in 1978, Pro Co began to mass produce it in 1979. In 2008 production moved to China and is now manufactured by Neutrik for Pro Co Sound.</p>
+<h2><strong> Table of Contents:</strong></h2>
+<p><a href="#link1">1. Pro Co Rat Schematic.</a><br/><a href="#link2">2. Power Supply Stage.</a><br/><a href="#link3">3. Clipper Amplifier.</a><br/>     <a href="#link31">3.1 Voltage Gain.</a><br/>   <a href="#link32">  3.2 Low/High Pass Filtering.</a><br/>     <a href="#link33">3.3 LM308 Op-Amp Selection.</a><br/>    <a href="#link34"> 3.4 Diode Clipping.</a><br/><a href="#link4">4. Tone Control.</a><br/><a href="#link5">5. Output Stage.</a><br/><a href="#link6">6. Pro Co Rat Frequency Response.</a><br/><a href="#link7">7. Resources.</a></p>
+<h2><a name="link1"></a><strong>1. Pro Co Rat Schematic</strong></h2>
+<p>The Pro Co Rat circuit can be broken down into four simpler blocks: Power Supply, Clipper Amplifier, Tone Control and Output Stage:</p>
+<p><img alt="Pro Co Rat Schematic Parts" class="article-img" src="images/proco-rat/pro-co-rat-schematic-parts.jpg"/></p>
+<p>The design is based on the LM308 single op-amp. The distortion is produced using a variable gain circuit with diodes clipping the waveform. The distortion stage is followed by a tone filter and an output buffer stage that ends up with a tone control.</p>
+<p><strong>Pro Co Rat Circuit Layout.</strong></p>
+<p>It uses a single layer PCB with standard through-hole components which easily fits in the steel enclosure. The different version/revisions use different substrates.</p>
+<p><img alt="proco rats pcb" class="article-img" src="images/proco-rat/proco-rats-pcb.jpg"/></p>
+<p><strong>Pro Co Rat Parts List/Bill of Materials.</strong></p>
+<p>C<sub>1</sub>, C<sub>9</sub>    22nF<br/>C<sub>2</sub>    1nF<br/>C<sub>3</sub>    30pF<br/>C<sub>4</sub>    100pF<br/>C<sub>5</sub>    2.2uF<br/>C<sub>6</sub>, C<sub>7</sub>    4.7uF<br/>C<sub>8</sub>    3.3nF<br/>C<sub>10</sub>, C<sub>13</sub>    1uF<br/>C<sub>11</sub>    100uF<br/>C<sub>12</sub>    0.1uF<br/>D<sub>1</sub>, D<sub>2</sub>    1N914<br/>D<sub>3</sub>    1N4002<br/>Q<sub>1</sub>    2N5458<br/>R<sub>VOLUME</sub>,R<sub>TONE</sub>,R<sub>DISTORTION</sub>  100K-A<br/>R<sub>1</sub>, R<sub>2</sub>, R<sub>8</sub>    1M<br/>R<sub>3</sub>, R<sub>6</sub>    1K<br/>R<sub>4</sub>, R<sub>10</sub>    47<br/>R<sub>5</sub>    560<br/>R<sub>7</sub>    1.5K<br/>R<sub>9</sub>    10K<br/>R<sub>11</sub>, R<sub>12</sub>    100K<br/>U<sub>1</sub>    LM308  </p>
+<h2><a name="link2"></a><strong>2. Power Supply Stage.</strong></h2>
+<p>The Power Supply stage provides 9V for the active circuits (op-amp and transistor). Generating 4.5 volts using a simple voltage divider (R<sub>11</sub>, R<sub>12</sub>) to be used as virtual ground.</p>
+<p><img alt="Pro Co Rat Power Supply" class="article-img" src="images/proco-rat/pro-co-rat-power-supply.png"/></p>
+<ul>
+<li>Caps C<sub>11</sub> and C<sub>12</sub> remove ripple from the 9V supply, the C<sub>13</sub> does the same in the 4.5V line.</li>
+<li> R10 47Ω resistor filter noise in power line, this low-value resistor together with the caps C<sub>11</sub> and C<sub>12</sub> will create a low pass filter which attenuates high-frequency impulse noise.</li>
+<li>Diode D<sub>3</sub> is placed for reverse polarity protection.</li>
+</ul>
+<h2><a name="link3"></a><strong>3. Clipper Amplifier.</strong></h2>
+<p>The Clipping Amplifier is the core of the circuit, it is made of a non-inverting op-amp amplifier with variable voltage gain and some filters to shape the distortion response. Two diodes D<sub>1</sub> and D<sub>2</sub> will perform the hard clip action.</p>
+<p><img alt="Pro Co Rat Clipping Stage" class="article-img" src="images/proco-rat/pro-co-rat-clipping-stage.png"/></p>
+<ul>
+<li>The 1MΩ input resistor R<sub>1</sub> next to the input jack to ground is a pull-down resistor, which avoids popping sounds when the pedal is switched on. This input pull-down resistor becomes the maximum input impedance of the pedal.</li>
+<li>The 22nF cap C<sub>1 </sub>blocks DC and provides simple high pass filtering. All the interesting guitar signal will pass through, only harmonics below 7.2Hz will be attenuated. The cut-off frequency is defined by the formula: </li>
+</ul>
+<p><div>\[ f_{c1}=\frac {1} {2\pi \cdot R_{2} \cdot C_{1}}= \frac{1}{2\pi \cdot 1M \cdot 22nF}=7.2Hz \]</div><br/></p>
+<ul>
+<li>The 1K resistor R<sub>3</sub> protects the op-amp from input over currents. The 1nF cap C<sub>2</sub> shunts high freqs to ground and out to mellow the signal.</li>
+<li>The big C<sub>7</sub> is just a coupling capacitor which removes DC content and connects the op-amp to the diodes stage. The resistor R<sub>6</sub> will limit the amount of current through the diodes.</li>
+</ul>
+
+<p><strong>Pro Co Rat Input Impedance.</strong></p>
+<p>The input impedance can be calculated as:</p>
+<p><div>\[ Z_{in}= (R_{1}//R_{2})//(R_{3}+Z_{in LM308}) \]</div></p>
+<p><div>\[ Z_{in}= (1M//1M) // (1K+40M)= 494K \]</div></p>
+<p>note: 494KΩ is a high input impedance and can be considered fairly good for a distortion pedal. Anyway, the best practice is to keep the input impedance at least in 1 MΩ, avoiding tone sucking. By increasing R<sub>1</sub> and R<sub>2</sub> values to 2MΩ for instance, the pedal input impedance will rise to 1MΩ and the pedal will keep better all the guitar original sonic features. <br/></p>
+
+<h3><a name="link31"></a><strong>3.1 Voltage Gain</strong></h3>
+<p>The voltage gain is trimmed with the distortion knob, in the non inverting topology can be calculated as:</p>
+<p><div>\[ G_{v}=1+\frac{R_{DISTORTION}}{R_{4}//R_{5}} \]</div></p>
+<p><div>\[ G_{v min}=1+\frac{0}{47//560}=1\: (0dB) \]</div></p>
+<p><div>\[ G_{v max}=1+\frac{100K}{47//560}=2305 \: (67dB) \]</div></p>
+<p>note: this voltage gain can be considered slightly high for a distortion pedal and similar to other distortion pedals like Big Muff Pi (G<sub>vmax</sub>=60dB), MXR Distortion + (G<sub>vmax</sub>=46dB) or Tube Screamer (G<sub>vmax</sub>=41dB). However, the voltage gain of this stage will not reach such a values as 67dB. The gain will be limited by op-amp characteristics and also by the clipping diodes action, as it will be studied in the Diode Clipping Section.</p>
+
+<h3><a name="link32"></a><strong>3.2 Low/High Pass Filtering.</strong></h3>
+<p>It is usual to find a combination of low pass and high pass filters before or within the clipping stage in distortion pedals. The distortion makes the original guitar signal more harmonically complex, this means that more amounts of distortion are being added, it can be more difficult to give each sound its own space in the band mix. Artificially band-limiting a distorted signal, using both high and low-pass filters, can help it sit more comfortably in a mix, by preventing its spectrum from spreading over too wide an area.</p>
+<p><img alt="pro-co-rat-clipping-response" class="article-img" src="images/proco-rat/pro-co-rat-clipping-response.png"/></p>
+<p>In the image above, the response of the Clipping Amplifier is shown. The signal is band limited in high and low frequencies. This mid hump around 1KHz helps to keep the guitar sound from getting lost in the overall mix of the band.</p>
+<p>Harmonics below 1.5 KHz and 60Hz are attenuated due to the high-pass filters. In high frequencies there is also a roll-off because of the low pass filter and the op-amp gain-bandwidth product, both effects more noticeable at high-gain (blue lines).</p>
+<p><strong>Low pass Filter.</strong></p>
+<p>The small 100pF capacitor C<sub>4</sub> across the feedback resistor works as a low pass filter, softening the corners of the guitar waveform and mellowing out the high end before the clipping.</p>
+<p>The cut-off frequency of the filter is defined by the formula:</p>
+<p><div>\[ f_{c1}=\frac{1}{2\pi \cdot R_{DIST} \cdot C_{4}} \]</div></p>
+<p><div>\[ f_{c1 min}=\frac{1}{2\pi \cdot 100K \cdot 100pF}= 16 KHz \]</div></p>
+<p>The R<sub>DISTORTION</sub> potentiometer will shift the f<sub>c1</sub> frequency, making the action of the 100pF is more dramatic when the distortion control is maxed out at 100K, bringing the cut-off minimum frequency to the audible frequencies (16 KHz) and then softening the distortion. When the distortion knob is not maxed out, the f<sub>c</sub> goes higher being less noticeable.</p>
+<p><strong>High Pass Filter.</strong></p>
+<p>There are two parallel RC networks formed by R<sub>4</sub>C<sub>5</sub> and R<sub>5</sub>C<sub>6</sub> from the (-) input to ground. They are an active high pass filter, placing two poles and attenuating frequencies below the cut-off frequencies:</p>
+<p><div>\[ f_{c2}=\frac{1}{2\pi \cdot R_{4} \cdot C_{5}} =\frac{1}{2\pi \cdot 47 \cdot 2.2uF}= 1539 Hz \]</div></p>
+<p><div>\[ f_{c3}=\frac{1}{2\pi \cdot R_{5} \cdot C_{6}} =\frac{1}{2\pi \cdot 560 \cdot 4.7uF}= 60 Hz \]</div></p>
+<p>Harmonics below 1.5KHz will have an attenuation 20dB/dec and lower harmonics below 60Hz will be severely muted at 40dB/dec. This filtering provoke that bass notes will be attenuated before the clipping action, making the low end less clipped and creating a frequency selective distortion.</p>
+
+<h3><a name="link33"></a><strong>3.3 The Op Amp Selection.</strong></h3>
+<p>The original Rat pedal uses the LM308N Motorola op-amp, the Texas Instruments OP07DP was a replacement op-amp used in the new models. Part of the Rat's tone remains on the choice of the chip as a function of the Slew Rate, the Gain-Bandwidth Product, and the Compensation Capacitor:</p>
+<p><strong>The Slew Rate.</strong></p>
+<p>It refers to how fast the op-amp can swing its output. If the signal to be amplified is <em>too fast</em> (high frequencies), the op-amp will not be able to perform properly, only amplifying signals below the slew rate limit.</p>
+<p><img alt="lm308-slew-rate" class="article-img" src="images/proco-rat/lm308-slew-rate.png"/></p>
+<p>In the image above, the slew rate of the LM308 is shown together with the TL071 (standard op-amp used in stompboxes) for comparison purposes. The TL071 slew rate is 13V/us, the LM308 is 0.3V/us around 40 times slower, it indicates how slow is the Rat op-amp is.</p>
+<ul>
+<li>The slew rate is inversely proportional the compensator capacitor, the smaller the cap the faster the slew rate.</li>
+</ul>
+<p>For a guitar signal (approximated to a sinusoidal) the Slew Rate of the op-amp will limit the rise speed of the signal following the equation:</p>
+<p><div>\[ Slew\: Rate \geq 2 \pi f\cdot V_{p} \]</div></p>
+<p><div>\[ f_{max}=\frac{Slew\: Rate}{2\pi \cdot V_{p}}=\frac{300000}{2\pi \cdot 9V}=5.3\: KHz \]</div></p>
+<p>Where V<sub>peak </sub>is 9V, and the Slew Rate taken from the datasheet image is 300000 V/s.</p>
+<p>That means that the op-amp output will not be able of following harmonics higher than 5.3KHz, so high frequencies will not pass through the amplifier, limiting or muting high harmonics.</p>
+<p><strong>The Gain-Bandwidth Product</strong></p>
+<p>It is relative to the gain setting; the <em>Open Loop Frequency Response</em> (gain-bandwidth product) graph below extracted from the datasheet, shows that not all frequencies can be amplified the same quantity.</p>
+<p><img alt="lm308-gain-bandwidth-product" class="article-img" src="images/proco-rat/lm308-gain-bandwidth-product.png"/></p>
+<p>For the Rat maximum voltage gain, which is 67dB, the frequencies below 500Hz will be amplified without problems, but higher frequencies will have less and less amplification as the graph shows. At 10KHz, for instance, the max. voltage gain will be no more than 30dB.</p>
+<p>In this way, the amplification of the guitar signal is frequency dependent, bass harmonics will take maximum gain while higher freqs will suffer less gain.</p>
+<p><strong>The Compensation Capacitor.</strong></p>
+<p>Bandwidth and Slew Rate are proportional to 1/C<sub>compensation</sub>, the smaller the cap the bigger the Bandwidth and Slew Rate. The typical and suggested value by the datasheet is 30pF (same as used in the Rat design).</p>
+<p><img alt="pro-co-rat-badwidth" class="article-img" src="images/proco-rat/pro-co-rat-badwidth.png"/></p>
+
+<p>The above image shows again how the high freqs are attenuated, using a 30pF cap. Using bigger/smaller caps the Bandwidth and Slew Rate will be reduced/improved.</p>
+<p>Summarizing these 3 effects, part of the signature sound of a Rat is essentially the op-amp collapsing under pressure and how the high-freqs are attenuated and not treated in a linear way. The result of all this will be clipped by the diodes.</p>
+
+<h3><a name="link34"></a><strong>3.4 Diode Clipping.</strong></h3>
+<p>The silicon diodes D<sub>1</sub> and D<sub>2 </sub> do hard-clipping on the pre-amplified signal creating symmetric distortion in a similar way as the MXR Distortion+ or Boss DS-1 do. When the voltage difference (positive or negative) between the op-amp output and ground is bigger than the diodes forward voltage V<sub>F</sub>, the diode will turn on. As the diode turns on forward biased, the signal will be clipped to the V<sub>F </sub>value. The diode D<sub>1</sub> will clip the positive semi-cycle signal to +V<sub>F</sub> and D<sub>2</sub> will clip the negative signal semi-cycle to -V<sub>F</sub>.</p>
+<p>The Rat uses 1N914 standard diodes, any other silicon compatible like 1N4148, 1N4448, or 1N916 can be replaced without troubles.</p>
+<p><img alt="pro-co-rat-clipped-waveform" class="article-img" src="images/proco-rat/pro-co-rat-clipped-waveform.png"/>In the above graph, the input signal is represented in blue color. This original signal will be amplified by the op-amp until the power supply limits (line represented in purple). After the voltage gain, the diodes will clip the signal to ±V<sub>F.</sub></p>
+
+<p><a name="link4"></a><strong>4. Tone Control.</strong></p>
+<p>The passive Tone Control is a simple low pass filter.<img alt="Pro Co Rat Tone Control" class="article-img" src="images/proco-rat/pro-co-rat-tone-control.png"/></p>
+<p>The cut-off frequency can be calculated as:</p>
+<p><div>\[ f_{c}=\frac{1}{2\pi \cdot (R_{TONE} + R_{7}) \cdot C_{8}}  \]</div></p>
+<p><div>\[ f_{c min}=\frac{1}{2\pi \cdot (100K + 1.5K) \cdot 3.3n}= 475Hz \]</div></p>
+<p><div>\[ f_{c max}=\frac{1}{2\pi \cdot (0 + 1.5K) \cdot 3.3n}= 32KHz \]</div></p>
+<p>So the high harmonics above the fc selected by R<sub>TONE</sub> are attenuated like the graph below:</p>
+<p><img alt="pro-co-rat-tone-control-response" class="article-img" src="images/proco-rat/pro-co-rat-tone-control-response.png"/></p>
+<p>The range of the filter is pretty wide, being able to sweep almost all the audio spectrum from 475Hz to 32KHz. The Tone Control combined with all the other filters placed in the pedal will create a mid-hump, to be analyzed in the Frequency Response Section.</p>
+<p><img alt="pro-co-rat-tone-waveform" class="article-img" src="images/proco-rat/pro-co-rat-tone-waveform.png"/></p>
+<p> The clipped waveform will be affected by the low pass filter, as shown above, creating a <em>shark fin </em>shape as the tone control is maxed.</p>
+<h2><strong><a name="link5"></a>5. Output Stage.</strong></h2>
+<p>The Output Stage is a JFET unitary gain amplifier in <a href="http://en.wikipedia.org/wiki/Common_drain" rel="noopener noreferrer" target="_blank">common drain (source follower) configuratio</a>n. It is placed to create a low output impedance, that is good to keep tone integrity in the signal chain. It also isolates the volume stage from the Tone Control in order to make both controls independent, otherwise changing the volume will alter the tone: <img alt="Pro Co Rat Output Stage" class="article-img" src="images/proco-rat/pro-co-rat-output-stage.png"/></p>
+<p>The JFET common drain is useful because it uses a very reduced amount of components, it has a high input impedance (approx R<sub>8</sub>=1MΩ) and a medium-low output impedance (few hundred of ohms).</p>
+<ul>
+<li><strong>Volume Control:</strong> The passive volume control is a standard 100K audio potentiometer which bleeds part of the input signal to ground.</li>
+</ul>
+<h2><a name="link6"></a><strong>6. Frequency Response.</strong></h2>
+<p>The frequency response of the Pro Co Rat is designed to empathize the mid frequencies. In order to do it,  the waveform is filtered through the different stages, removing the harsh high-freq harmonics and the overloading bass presence.</p>
+<ul>
+<li>In the Clipping Amplifier Stage, there is a double RC network which places two poles and attenuates harmonics below 1.5KHz. </li>
+<li>There are several high pass filters, but the Tone circuit and the op-amp bandwidth limit will roll off harmonics higher than 1KHz.</li>
+</ul>
+<p>Frequency Response with Linear time base:</p>
+<p><img alt="Pro Co Rat Frequency Response Linear" class="article-img" src="images/proco-rat/pro-co-rat-frequency-response-linear.png"/></p>
+<p>Frequency Response with Logarithmic time base:</p>
+<p><img alt="Pro Co Rat Frequency Response Logarithmic" class="article-img" src="images/proco-rat/pro-co-rat-frequency-response.png"/></p>
+<p> The frequency response of the Pro Co Rat is similar to the <a href="tube-screamer-analysis.html#frequency">Tube Screamer response</a> showing a mid-hump around 1KHz.</p>
+<h2><a name="link7"></a><strong>7. Resources.</strong></h2>
+<p><a href="http://www.linear.com/docs/1704" rel="noopener noreferrer" target="_blank">LM308 Datasheet. </a><br/><a href="http://www.diystompboxes.com/smfforum/index.php?action=printpage;topic=96351.0" rel="noopener noreferrer" target="_blank">DIYStompboxes thread </a>about the Rat op-amp. <br/><a href="http://www.soundonsound.com/sos/apr10/articles/distortion.htm" rel="noopener noreferrer" target="_blank">Great article about Distortion</a> in SoundonSound.com<br/><a href="http://webpages.charter.net/daosmun/" rel="noopener noreferrer" target="_blank">Pro Co RAT models</a> by Dosum.<br/><a href="http://www.effectsdatabase.com/model/proco/rat" rel="noopener noreferrer" target="_blank">Pro Co RAT in</a> by Effects Data Base.<br/><a href="http://www.musicgarage.fi/2011/07/01/flea-market-find/" rel="noopener noreferrer" target="_blank">Pro Co RAT</a> in Jaska`s Music Garage.<br/><a href="http://filters.muziq.be/model/proco/rat" rel="noopener noreferrer" target="_blank">Pro Co RAT info</a> by Muziq.be</p>
+
+<p>Thanks for reading, all feedback is appreciated.</p>
+<p>        Our sincere appreciation to M. Chiampi for helping us with the article.</p>
+
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054715/https://www.electrosmash.com/proco-rat" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20ProCo%20Rat%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="mxr-phase90.html">&larr; MXR Phase 90 Analysis</a>
+    <a class="prevnext" href="sitar-swami-analysis.html">Sitar Swami Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

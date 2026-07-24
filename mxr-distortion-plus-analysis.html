@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MXR Distortion + Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; MXR Distortion + Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>MXR Distortion + Analysis</h1>
+
+<p>The M-104 MXR Distortion + aka Distortion Plus aka D+ is a distortion guitar pedal designed by MXR and released between 1978 and 1979. The original stompbox did not have external power jack or indicator LED. Jim Dunlop bought the MXR licensing rights and currently manufactures reissues of this classic MXR distortion effect (with a power jack and an LED). </p>
+<p><img alt="mxr distortion plus guitar pedal" class="article-img" src="images/mxr-distortion-plus-analysis/distortion_plus_guitar_pedal.jpg"/></p>
+<p>The MXR Distortion + uses germanium diodes and its sound could be defined as mild fuzzy distortion, like all of the 70's rock and 80's metal recordings that made this iconic pedal famous. The design of this circuit was reliable and used later on as a starting point for the <a href="mxr-microamp.html">M-133 MicroAmp</a> which is, in fact, a <em>un-distorted</em> redesign of this (previous) M-104 MXR Distortion+ pedal. </p>
+
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. MXR Distortion Plus Schematic.</a><br/>     <a href="#link11">1.1 Power Supply Stage.</a><br/>     <a href="#link12">1.2 Op-Amp Amplifier Stage</a><a href="mxr-microamp.html#link11"></a><br/>     <a href="#link13">1.3 Clipping Stage.</a></p>
+<p><a href="#link2">2. MXR Distortion + Frequency Response.</a></p>
+<p><a href="#link3">3. MXR Distortion + Sound Signature</a></p>
+<p><a href="#link4">4. Resources.</a></p>
+<h2><strong><a id="link1"></a>1. MXR Distortion + Schematic.</strong></h2>
+<p>The MXR Distortion + circuit can be divided into three blocks: Op-Amp Stage, Clipping Stage and Power Supply:</p>
+<p><img alt="mxr distortion schematic parts " class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_schematic_parts.png"/></p>
+<p>The simple and reliable design uses only 1 operational amplifier and a pair of germanium diodes in order to create a distortion effect that boosts the guitar signal up to 46dB, with a simple mild-hump frequency response and using only two potentiometers: Output (output level) and Distortion (op-amp gain). It does not feature a Tone control.</p>
+
+
+<p><strong>MXR Distortion + Circuit Layout</strong></p>
+<p>The original circuit is built on a single layer creme colored PCB, this PCB material was extensively used by MXR. All the components are placed on one side of the PCB that contains the inspiring text "<em>hand built by guitar players</em>". The jacks and potentiometers are hand-soldered to the board, which makes it quite labor intense during production. When Dunlop took over MXR, the PCB was redesigned using a more modern approach to the board: the power connector, LED, jacks and potentiometers are directly mounted on the PCB, making it easier/cheaper to be mass produced.<br/></p>
+<p><img alt="MXR Distortion PCB" class="article-img" src="images/mxr-distortion-plus-analysis/MXR_Distortion_PCB.jpg"/></p>
+
+
+<p><strong>The MXR Distortion + Operational Amplifier: The 741</strong></p>
+<p>The 741 is a bipolar op-amp sourced by many manufacturers, designed in 1968 by David Fullagar at Fairchild Semiconductor after Bob Widlar's LM301 integrated circuit design. </p>
+<p>The arrival of the LM741 was a considerable relief, it was the first really practical op-amp, and it was suddenly possible to build complex circuitry with a good chance of it being stable, doing what it should do, and not blowing-up at the first shadow of an excuse. The LM741 worked reliably; the snag with using it for audio was the leisurely slew rate of 0.5 V/µs, which made full output at 20 kHz impossible.</p>
+<p><img alt="lm741" class="article-img" src="images/mxr-distortion-plus-analysis/lm741.jpg"/></p>
+<p>The noise in this part is pretty high (there are no noise specifications in the datasheet), the slew-rate is slow (0.5uV/s) which cannot cope with the audio band (up to 20KHz) but this is not necessarily a bad thing. Other mythic op-amps like the <a href="proco-rat.html#link33">LM308 used in the Pro-Co Rat</a> is even slower (0.3uV/s) and seems to contribute in a positive way to the distorted sound. To put it in context, other modern bipolar op-amps like the 4558 have a slew rate of 1.7uV/s (3 times faster than the 741).</p>
+<p>In the Distortion + different flavors of the 741 were used during its life, the <strong>LM741CN</strong> operational amplifier that was later changed to a <strong>UA741CP</strong> and many others ( JRC741, LM741, etc ) players seem to tell difference between the old original op-amps and the new models. As usual, the vintage impossible-to-find are the best rated because seems to give a thicker/smoother distortion.  </p>
+
+<h3><strong><a id="link11"></a>1.1 The Power Supply Stage.</strong><br/></h3>
+<p>The Power Supply Stage provides bias voltage and energy to the circuit:</p>
+<p><img alt="mxr distortion power supply" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_power_supply.png"/></p>
+
+<p>The curious thing in this stage is the high-value resistors used for the resistor divider. 1MΩ is rather a high value (similar pedals use 100KΩ or 47KΩ for the same operation): </p>
+<ul>
+<li>This factor will reduce the power consumption of the pedal. </li>
+<li>The virtual ground created (+4.5V) will have a 1M//1M = 500KΩ impedance to ground. This will help to increase the input impedance of the circuit.<br/></li>
+<li>The resistors junction (+4.5V) is decoupled to ground with an electrolytic capacitor C6 (1uF) which removes all ripple from the supply voltage.</li>
+</ul>
+<h3><strong><a id="link12"></a>1.2 Op-Amp Amplifier Stage.</strong></h3>
+<p>The core of the circuit is this non-inverting op-amp  which provides high input impedance, voltage gain, and signal filtering:<br/></p>
+<p><img alt="mxr distortion op amp stage" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_op-amp_stage.png"/></p>
+<p>The op-amp is configured in a <em>classic</em> <a href="https://en.wikipedia.org/wiki/Operational_amplifier_applications#Non-inverting_amplifier" rel="noopener noreferrer" target="_blank">non-inverting topology</a>, the resistors R3, R4, and the pot RV set the voltage gain as it will be seen in the Voltage Gain Section. Several capacitors C1, C2, C3, and C4 will filter the guitar signal as it is explained in the Frequency Response Section. </p>
+<ul>
+<li>The 1nF input cap to ground (C1) avoids RF noise going into the circuit, it also helps with ESD discharges.</li>
+<li>The (+) input of the op-amp (pin 3) is biased to 4.5V through the R2 resistor (1MΩ), keeping the virtual ground at 4.5V and being able to amplify bipolar guitar input signals. Usually, the value of this R2 resistor is 10x bigger than the resistor that creates the virtual ground (R6 and R7). In this case, the rule is not applied but the low input current of the op-amp makes that the voltage on pin 3 is pretty close to 4.5V. When using an op-amp with higher bias current/lower input impedance, the voltage on pin 3 could be lower than expected.</li>
+</ul>
+
+
+<p><strong>MXR Distortion + Input Impedance.</strong></p>
+<p>The input impedance is defined by the formula:</p>
+<p>Zin = R1 + ( R2 // Zin<sub>Op-Amp</sub> ) + Z<sub>Virtual Ground</sub><br/></p>
+<p>Zin = 10KΩ + ( 1MΩ // 2MΩ ) + 500KΩ = 1176KΩ</p>
+<p>11MΩ is a good input impedance, not loading the guitar pickups and preventing tone sucking. </p>
+<ul>
+<li>As a rule of thumb, the input impedance of a pedal should be 1MΩ minimum.</li>
+<li>The Virtual Ground impedance (Z<sub>Virtual Ground</sub>) is defined by R6 and R7. Z<sub>Virtual Ground</sub> = 1MΩ//1MΩ. The fact that a very high value resistors are used to create the virtual ground (+4.5V) will help to increase the general input impedance of the pedal. </li>
+</ul>
+
+<p><strong><a id="voltagegain"></a>MXR Distortion +  Voltage Gain.</strong></p>
+<p>The voltage gain is defined by the non-inverting operational amplifier and calculated as follows:</p>
+
+<p>Gv =  1 + (R4 / (RV2 + RV))</p>
+<p>Gv<sub>(min)</sub> =  1 + (1MΩ/ (4.7KΩ + 1MΩ)) = 1.5 (3.5dB)</p>
+<p>Gv<sub>(max)</sub> =  1 + (1MΩ / (4.7KΩ + 0Ω)) =  213 (46.5 dB)</p>
+
+<p>46.5 dB is a big amount of gain, other distortion guitar pedals have similar numbers: <a href="klon-centaur-analysis.html">Klon Centaur </a>(<a href="klon-centaur-analysis.html">40dB</a>), <a href="boss-ds1-analysis.html#transistor-booster">Boss DS-1 (35dB)</a> or <a href="tube-screamer-analysis.html#clip-stage">Tube Screamer (41dB)</a>, but still the Distortion +  is the higher one. </p>
+<p>This big amount of Gain may lead us to think that the op-amp power supply rails may clip the guitar signal. But the 2 diodes (D1 and D2) explained in the next section will limit and clip the guitar waveform when it reaches 700~800mVpp and before the power supply rails get into the mix.</p>
+
+<p><img alt="mxr distortion plus op amp gain" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_plus_op_amp_gain.png"/></p>
+<p>In the image above, the output signal voltage level is shown sweeping the volume potentiometer. The gain goes from 3.5 to 46.5dB as calculated before. The humpy shape of the graph is explained in the Frequency Response section. </p>
+
+<h3><strong><a id="link13"></a>1.3 Clipping Stage.</strong></h3>
+<p>The last stage is the clipping stage that contains two back to back diodes (D1 and D2) connected to ground. This type of topology adds a <em>hard clip</em> distortion, making the audio signal to clip with a hard knee which creates a strong distortion. </p>
+<p><img alt="mxr distortion clippling stage" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_clippling_stage.png"/></p>
+<ul>
+<li><strong>The R5 resistor</strong> is needed to limit the amount of current into the diodes, 10KΩ is a pretty standard value, other pedals like the <a href="boss-ds1-analysis.html">Boss DS-1 uses 2.2K</a><a href="boss-ds1-analysis.html">Ω</a>, the <a href="proco-rat.html">Pro-Co Rat uses 1KΩ</a> and the <a href="images/mxr-distortion-plus-analysis/Klon-Centaur-Schematic-Parts.png" rel="noopener" target="_blank">Klon Centaur 1KΩ</a>.</li>
+<li><strong>The RV-Output 10K potentiometer</strong> will control the output volume using a 10K potentiometer which bleeds part of the input signal to ground.</li>
+</ul>
+
+<p><strong>The MXR Distortion + Diodes: The 1N270 Germanium</strong></p>
+<p>The 1N270 are the germanium diodes used in the MXR Distortion +. They are the most important factor for the distortion sound signature. People also try other popular germanium diodes, like the 1N34A (<a href="klon-centaur-analysis.html#germanium_diodes">used in the Klon Centaur</a>) or the 1N60. They all sound subtly different.</p>
+<p><img alt="germanium diodes" class="article-img" src="images/mxr-distortion-plus-analysis/germanium_diodes.jpg"/></p>
+<p>These germanium diodes have a small forward voltage (Vf=0.3 to 0.45V) and a <em>soft-saturation</em> behavior compared to modern silicon diodes (Vf=0.7V). This low Vf will add extra compression to the distorted guitar signal.</p>
+<p><img alt="mxr distortion plus clipping stage waveform" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_plus_clipping_stage_waveform.png"/></p>
+
+
+
+<p><strong>The 1nF C5 Capacitor:</strong></p>
+<p>The 1nF C5 cap placed in parallel with D1 and D2 is used to filter out the harsh high harmonics. The resistor R5 and C5 form a low pass filter with fc= 1/(2 x π x R5 x C5) =15.9KHz that will mellow the severe clipping applied by the diodes. This kind of cap is used in many other similar pedals like the <a href="boss-ds1-analysis.html">Boss DS-1</a> (using a 2K2 resistor and a 10nF cap ), the <a href="proco-rat.html">Pro-Co RAT</a> (using a 1.5K resistor and a 3.3nF cap).<br/></p>
+<p><img alt="mxr distortion plus c5 capacitor" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_plus_c5_capacitor.png"/></p>
+<p>In the graph above you can see the difference between using or not this 1nf cap in parallel with the clipping diodes. Freqs over 15.9KHz get attenuated generating a softer tone with less bright harmonics.</p>
+
+<h2><a id="link2"></a><strong>2. MXR Distortion + Frequency Response.</strong></h2>
+<p>The tone response of the Distortion Plus features a mid hump around 1.5KHz, helping the guitar to shine over the band mix. To do this a series of caps are used to create filters that shape the frequency response like the graph below:</p>
+<p><img alt="mxr distortion plus frequency response" class="article-img" src="images/mxr-distortion-plus-analysis/mxr_distortion_plus_frequency_response.png"/></p>
+<p>Some other distortion pedals in the same Distortion + category show a mid hump relatively similar: the <a href="tube-screamer-analysis.html#frequency">Tube Screamer at 723Hz</a>, and the <a href="proco-rat.html#link6">Pro-Co Rat at 1KHz</a>.</p>
+
+<p>To do so, 4 capacitors are used to place 4 poles and tailor the tone response:</p>
+<ul>
+<li><strong>C2 (10nF):</strong> Together with the input impedance of the circuit, calculated before as 676KΩ creates a high-pass filter. This input cap will just remove and DC content from the guitar signal, it has no effect at all on the audio signal. The cut-off frequency can be calculated as:</li>
+</ul>
+<p>fc2 = 1 / (2 x π x Zin x C2)</p>
+<p>fc2 = 1 / (2 x π x 676KΩ x 10nF ) = 23.5Hz.</p>
+
+<ul>
+<li><strong>C3 (47nF):</strong> This capacitor and the series resistors R3 and RV from the (-) input to ground act as a high-pass filter. Many other guitar pedals like the <a href="tube-screamer-analysis.html">Tube Screamer (C3)</a>, the <a href="proco-rat.html">Pro-Co Rat (C5, C6)</a>, the <a href="boss-ds1-analysis.html">Boss DS-1 (C8)</a> and the <a href="mxr-microamp.html#link2">MicroAmp (C3)</a> have a cap at the same point. The intention is to attenuate low frequencies that can overload the op-amp, causing instability or hum. The cut frequency can be calculated as:</li>
+</ul>
+<p>fc3 = 1 / (2 x π x (R3 + RV) x C2)</p>
+<p>fc3<sub>(with MAX Gain)</sub> = 1 / (2 x π x (4.7KΩ + 0Ω) x 47nF ) = 720Hz </p>
+<p>fc3<sub>(with MIN Gain)</sub> = 1 / (2 x π x (4.7KΩ + 1MΩ) x 47nF ) = 3Hz</p>
+<p>So the frequency response will slightly change with the gain of the pedal, with maximum gain (RV=0Ω) the bass will start to roll-off at 720Hz, this is why if you look at the hump, from 0 to 720Hz the shape is steeper as the gain is higher.</p>
+
+<ul>
+<li><strong>C5 (1nF):</strong> together with R5 (10KΩ) creates a low-pass filter, the cut-off frequency is calculated as:</li>
+</ul>
+<p>fc5 = 1 / (2 x π x R5 x C5)</p>
+<p>fc5 = 1 / (2 x π x 10KΩ x 1nF ) = 15.9KHz.</p>
+<p>As mentioned before in the Clipping Stage, this 1nF cap will remove the harsh harmonics from the clipping action, resulting in a smoother distortion. </p>
+
+<p><strong>note:</strong> The <strong>C1</strong> and <strong>C4</strong> caps will not affect the frequency response shape; the small 1nF <strong>C1</strong> from the input to ground is placed to reduce RF noise, oscillation, and ESD protection. The big 1uF <strong>C4</strong> cap between the Op-Amp Stage and the Clipping Stage will remove DC voltage, it is big enough so any amp or pedal connected to the output of the Distortion + will have an impedance big enough to not affect the frequency response.</p>
+
+
+
+<p><strong>MXR Distortion + Output Impedance.</strong></p>
+<p>As a rule of thumb, it is good for a guitar pedal to have a low output impedance, values around tens of KΩ are the usual. In the Distortion + the output impedance is calculated as:</p>
+<p>Zout = R5 + Op-Amp output impedance.</p>
+<p>Zout = 10K + 75 = 10K approx.</p>
+<p>note: The output impedance of the 741 operational-amplifier is around 75 ohms.</p>
+
+
+<p><strong><a id="link3"></a>3. MXR Distortion Plus + Sound signature:</strong></p>
+<p>The mild fuzzy sound of the MXR Distortion + comes from the germanium diodes and the op-amp saturation:</p>
+<ul>
+<li><strong>Germanium Diodes Clipping:</strong> The maximum gain that the Op-Amp Stage provides is 46.5dB of gain ( around x200). The Clipping Diode Stage will clip any signal bigger than 350mV (or 700mVpp), so at the beginning of the Distortion potentiometer sweep, when a standard guitar signal (100 - 200mVpp) is amplified more than x3.5 times (10.8dB) the signal will start clip due to the diodes and create a Germanium smooth type distortion.</li>
+</ul>
+<p>Once the guitar signal starts to clip, the Distortion potentiometer still has a long sweep, so the guitar signal will get more and more steep and saturated creating harder distortion sounds.</p>
+<p>The Frequency Response shows a classic lead guitar distortion pedal, this is a mid hum on the 1KHz region that helps to the guitar to lead over the band mix. </p>
+
+<p><strong><a id="link4"></a>4. Resources</strong></p>
+<ul>
+<li><a href="https://www.premierguitar.com/articles/mxr-distortion-plus-mods-1" rel="noopener noreferrer" target="_blank">Premier Guitar MXR Distortion + Mods</a></li>
+<li><a href="http://chilljohnson.tripod.com/" rel="noopener noreferrer" target="_blank">MXR Distortion Effect Project.</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Operational_amplifier#Internal_circuitry_of_741-type_op-amp" rel="noopener noreferrer" target="_blank">741 Op-Amp in Wikipedia.com</a> </li>
+<li><a href="https://www.eetimes.com/document.asp?doc_id=1278805" rel="noopener noreferrer" target="_blank">Op-Amps History in EETimes.com</a></li>
+</ul>
+
+<p>Our sincere appreciation to J. Parać, T. Van Ginkel and JP Desruisseaux  for helping us with the article.</p>
+
+<p> Thanks for reading, all feedback is appreciated.</p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054659/https://www.electrosmash.com/mxr-distortion-plus-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20MXR%20Distortion%20%2B%20Circuit%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="marshall-guvnor-analysis.html">&larr; Marshall The Guvnor Analysis</a>
+    <a class="prevnext" href="mxr-dyna-comp-analysis.html">MXR Dyna Comp Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

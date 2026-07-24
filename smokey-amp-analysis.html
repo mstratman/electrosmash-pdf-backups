@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smokey Amp Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; Smokey Amp Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Smokey Amp Analysis</h1>
+
+<p>The Smokey Amp is maybe the smallest and most inexpensive guitar mini amplifier, it was made to fit in a cigarette pack and to be powered by a 9V battery.<br/>It was designed by Bruce Zinky, an American Electronic Engineer who headed the Fender amplifier "custom shop". He developed the simple, clever concept of Smokey Amp in the early 80's and improved it for production in the 90's. There are two market models: one in a cigarette pack, and one in a clear molded polycarbonate box.<img alt="Smokey Amp by Zinky" class="article-img" src="images/smokey-amp-analysis/smokey-amp-by-zinky.png"/></p>
+<p>The Smokey Amp will also drive any 4, 8 or 16ohm speaker cabinet, including 4x12s, and can even be used on the input of another amp as a fuzz box or booster. There are no controls on the amp, just one input, and one output, meaning that everything is controlled by the guitar volume and tone knobs.</p>
+<h2>Table of contents:</h2>
+<p><a href="#schematic">1. Schematic Diagram.</a><br/><a href="#freq">2. Frequency Response.</a><br/><a href="#mods">3. Smokey Amp Modifications. </a><br/><a href="#resources">4. Resources.</a></p>
+<h2><a id="schematic" name="schematic"></a>1 Smokey Amp Schematic Diagram.</h2>
+<p>This simple circuit only uses an LM386 Integrated Audio Amplifier IC and two capacitors:</p>
+
+<p><strong>Gain Calculation:</strong></p>
+<p>Using the general equation of LM386 amplifier, the voltage gain can be calculated as:</p>
+<p><img alt="" class="article-img" src="images/smokey-amp-analysis/gif.latex"/> </p>
+<p>Where Z1-5 and Z1-8 are the impedances between the respective pins. Note that Z1-5 internal resistance is 15K and Z1-8 is 1.35K.</p>
+<p>So, the gain is set to the maximum, 200 (46dB). With such a high gain, the circuit could be sensitive to component placement and may tend to oscillate. There are several techniques to improve stability and avoid oscillation: power supply decoupling caps, Zobel output network, etc. Zinky skips all of them in order to keep the design simple.</p>
+<p>Pins 1 and 8 are connected together directly instead of using a cap, as the datasheet suggests. With this arrangement, the circuit will archive higher gain, but the DC operating point of the internal transistors will be affected ( which must have some effect over the tone). However, Zinky again drops this suggestion using a straightforward connection between pins and saving another component to be placed.<br/><br/>The 47uF C1 capacitor from pin 7 to ground in LM386, is used to keep the power supply noise from reaching the output. The high-gain input stage of the IC will be isolated from the power supply noise.</p>
+<h2><a id="freq" name="freq"></a>2. Smokey Amp Frequency Response</h2>
+<p>The 47uF C2 output coupling capacitor together with an 8Ω load (speaker) form a high-pass filter that will start rolling off bass under 420Hz in order to keep the small speaker from farting out and also removing any DC component from the output signal.</p>
+<p>fc = 1/ (2 x π x R x C) = 1/ (2 x π x 8Ω x 47uF) = 420Hz.</p>
+<p>This first order high-pass filter has a classic Butterworth characteristic and 20 dB/decade, or 6 dB/octave, slope under the cut-off frequency.<br/>The cut-off frequency point is 70.7% or -3dB (dB = -20log Vout/Vin) of the voltage gain allowed to pass. The frequency range below this cut-off point fc is called the Stop Band while the frequency range above this point is known as the Pass Band.<br/><br/>This kind of filters have the simplest that can be designed: they are <em>transient perfect</em>, meaning that it passes both amplitude and phase shift unchanged (up to 45 degrees in phase shift) across the passband. The phase angle of the output signal leads that of the input and is equal to +45d at cut-off frequency fc.<br/>On the other hand, the speaker has to work in a pretty large range of frequencies, something that small speakers do not do very well.</p>
+<p>A common application of a passive high pass filter, is in audio amplifiers as a coupling capacitor between two amplifier stages and in speaker systems to direct the higher frequency signals to the smaller tweeter type speakers while blocking the lower bass signals or are also used as filters to reduce any low frequency noise or rumble type distortion. When used like this in audio applications the high pass filter is sometimes called a <em>low-cut</em>, or <em>bass cut</em> filter.</p>
+<h2><a id="mods" name="mods"></a>3. Smokey Amp Modifications.</h2>
+<p>The most popular modification in Smokey Amp is to use a bigger output C2 capacitor for extra bass. Using a 220uF cap the fc shifts from 424Hz to 90Hz, increasing the content of low harmonics in the output signal.</p>
+<p>fc = 1/ (2 x π x R x C) = 1/ (2 x π x 8Ω x 220uF) = 90Hz.</p>
+<p>Find below the difference between the output high pass filter using the default 47uf cap (red color) with a 424.1Hz cut-off frequency and the mod 220uf cap (blue color) with a lower 90.6Hz:</p>
+
+<p>If the Smokey Amp is used to drive a cabinet or a headphones it could be worth, but with the original 2 inches speaker, you can forget about getting any bass response out of it.</p>
+<p>There is plenty of room to add more modifications to the original circuit: input buffer to improve the pickup load, gain/vol/tone controls, etc. The beauty of the Smokey Amp remains in its extreme simplicity, so if you are looking for a more complex design, just go for other LM386 based design like <a href="ruby-amp-analysis.html">Ruby Amp</a>, the <a href="little-gem-analysis.html">Little Gem</a>, or the <a href="noisy-cricket-analysis.html">Noisy Cricket Amp</a>.</p>
+<h2><a id="resources" name="resources"></a>4. Resources:</h2>
+<p><a href="http://shahidhussain.com/review/product-review-smokey-amp/" rel="noopener noreferrer" target="_blank">Smokey Amp Review </a>by Shahid Hussain. <br/><a href="http://www.smokeyamps.com/" rel="noopener noreferrer" target="_blank">Smokey Amp Original Site </a>by Zinky. <br/>Dave Stork <a href="http://www.blueguitar.org/new/schem/_ss/smokey.txt" rel="noopener noreferrer" target="_blank">Observations on the Smokey Circuit. </a><br/><a href="http://www.electronics-tutorials.ws/filter/filter_3.html" rel="noopener noreferrer" target="_blank">RC Filter Tutorial </a>by Wayne Storr. <br/>Maxim IC <a href="http://www.maxim-ic.com/app-notes/index.mvp/id/733" rel="noopener noreferrer" target="_blank">Analog Filter Design Notes</a>. <br/>H. Matzner and others <a href="http://www.hit.ac.il/web/upload/file/maabadot_handasa/rf/experiment_5_-_filter_design109.pdf" rel="noopener noreferrer" target="_blank">Passive Filter Design</a>.</p>
+<p>Thanks for reading, all feedback is appreciated </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054653/https://www.electrosmash.com/smokey-amp-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Smokey%20Amp%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="ruby-amp-analysis.html">&larr; Ruby Amp Analysis</a>
+    
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

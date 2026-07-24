@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noisy Cricket Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; Noisy Cricket Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Noisy Cricket Analysis</h1>
+
+<p>The Noisy Cricket by <a href="http://www.beavisaudio.com/" rel="noopener noreferrer" target="_blank">BeavisAudioResearch</a> is a 1/2W guitar amplifier based on JRC/LM386 chip. It is an evolution of the <a href="ruby-amp-analysis.html">Ruby Amp by Runoffgroove</a>, keeping the circuit core idea and introducing new features like a tone control and an overdrive boost switch.<br/></p>
+<p><img alt="Noisy Cricket by BeavisAudioResearch" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket-by-beavisaudio.png"/></p>
+<h2><strong>Table of Contents</strong></h2>
+<p><a href="#schematic">1. Noisy Cricket Schematic Diagram.</a><br/> <a href="#input">1.1 Input Buffer.</a><br/> <a href="#gain">1.2 Voltage Gain.</a><br/> <a href="#tone">1.3 Tone/Volume Circuit.</a> <br/> <a href="#grit">1.4 Grit Mod</a>.<br/> <a href="#stabilization">1.5 Stabilization Techniques. </a><br/><a href="#frequency">2. Frequency Response.</a><br/><a href="#mods">3. Mods - Headphones Plug.</a><br/><a href="#resources">4. Resources.</a></p>
+
+<h2><a id="schematic" name="schematic"></a><strong>1. Noisy Cricket Schematic Diagram.</strong></h2>
+<p>The Noisy Cricket circuit keeps the basic configuration of the previous Ruby Amp:</p>
+<ul>
+<li>A similar <em>Jack Orman</em> Input Buffer.</li>
+<li>Same Gain setting (VR2), Zobel network(R4, C7), Output Cap (C8) and Stabilization Techniques.</li>
+</ul>
+<p>The improvements by BeavisAudioResearch are the boost switch also called "Grit mod" (SW) and a new tone circuit (VR3, C5).<br/><img alt="Noisy Cricket Schematic Diagram" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket.gif"/></p>
+<p><strong>Noisy Cricket Bill of Materials / Parts List</strong></p>
+<p>R1 - 1M<br/>R2 - 3K3<br/>R3 - 4K7<br/>R4 - 10Ω<br/>C1 - 220uF electrolytic.<br/>C2 - 47nF poly film.<br/>C3 - 100nF poly film. <br/>C4 - 100nF poly film.<br/>C5 - 100nF poly film.<br/>C6 - 100nF poly film.<br/>C7 - 47nF poly film<br/>C8 - 220uF electrolytic.<br/>SW1 - SPST toggle.<br/>VR1 - 10K Linear.<br/>VR2 - 100K Linear.<br/>VR3 - 1K Linear.<br/>Q1 - MPF102 <br/>LM386</p>
+<h3><strong><a id="input" name="input"></a>1.1 Noisy Cricket Input Buffer</strong></h3>
+<p>The Input Buffer is a unity gain JFET common drain transistor amplifier, inspired by <a href="http://www.muzique.com/lab/buffers.htm" rel="noopener noreferrer" target="_blank">Jack Orman designs</a>.<br/>It prevents loading by presenting a high input impedance, avoiding tone-sucking (degraded high harmonics).<img alt="Noisy Cricket Input Buffer" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket-input-buffer.gif"/></p>
+<ul>
+<li>The input impedance of the Noisy Cricket is determined by the value of R<sub>1</sub>, so it is 1M. The value of R2 is not too critical and may be any value from 3.3k to 10k without much change in the tone. It is better to use lower values since this allows more drive on the negative portion of the audio cycle where the only pull-down is the source resistor.</li>
+</ul>
+<ul>
+<li>The output impedance of the buffer will depend on the Jfet but is on the order of a few hundred ohms.</li>
+</ul>
+<h3><strong><a id="gain" name="gain"></a>1.2 Noisy Cricket Gain Circuit</strong></h3>
+<p>The 1K logarithmic potentiometer (VR2) is placed between pins 1 and 8 to adjust the voltage gain from 41 (28dB) to 200 (46db), similar to the Ruby Amp. The Gain is calculated following the general LM386 formula: </p>
+
+<p><img alt="" class="article-img" src="images/noisy-cricket-analysis/gif.latex"/></p>
+<p><img alt="" class="article-img" src="images/noisy-cricket-analysis/gif.latex"/></p>
+
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
+<h3><a id="tone" name="tone"></a><strong>1.3 Noisy Cricket Tone/Volume Circuit.</strong></h3>
+<p>The new Tone control placed between the Volume pot and the LM386 is the main contribution to the original Ruby Schematic. </p>
+<p>It is a new idea because in the past all LM386 based circuits tone mods ( <a href="ruby-amp-analysis.html#link4">like Bassman or Hiwatt</a> ) tried to shape the frequency response using a high-pass filter: emphasizing the treble and removing the bass.<br/>Noisy Cricket Tone control introduces a passive low-pass filter that will wipe out treble harmonics and preserve the bass.</p>
+<p><img alt="Noisy Cricket Tone Response" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket-tone.png"/></p>
+<p>As you can see in the above graph, the goal of the tone control is to provide compensatory sonic adjustment, rather than a tonal overhaul. The advantage of this one knob tone circuit is its simplicity but there are also some cons:</p>
+<ul>
+<li>The volume &amp; tone pots are slightly interactive.</li>
+<li>The response of the circuit is limited to some values of the tone pot, meaning that only some range of the tone pot will produce a change in frequency response:<em> "I have the tone pot in mine and in fact it does very little for most of the pots' rotation then</em><em> at the end some of the upper frequencies are attenuated [...]" by <a href="http://www.diystompboxes.com/smfforum/index.php?topic=62471.0;wap2" rel="noopener noreferrer" target="_blank">captntasty in DIYstompboxes.</a></em></li>
+</ul>
+<h3><a id="grit" name="grit"></a><strong>1.4 Noisy Cricket Grit Mod.</strong></h3>
+<p>The <em>Grit Mod</em> is the switch from pins 5 to 7 in the LM386. It drives the circuit a little harder, giving it a little extra edge/breakup. <br/>The pin 7 in LM386 sets the DC idle output voltage to half the power supply. This voltage reference point must be as stable as possible, that is the reason why the cap C<sub>3</sub> is placed from pin 7 to ground: to remove the hum/noise from the Power supply line.</p>
+<p>With the switch on, there is a feedback loop between the output (pin 5) and the DC voltage reference (pin 7), this point will be affected by the audible output signal, sagging the DC point and there will be some buzz on the voltage reference. Any distortion or trembling feedbacked signal in pin 7 will be added to the input signal an amplified giving a subtle distortion or extra break. If you want to learn more about this part, check the <a href="lm386-analysis.html">LM386 Internal Circuit Analysis</a>.</p>
+<h3><a id="stabilization" name="stabilization"></a><strong>1.5 Noisy Cricket Stabilization Techniques.</strong></h3>
+<p>Following the LM386 application notes, some measures should be taken to increase the stability and prevent signal degradation:</p>
+<ul>
+<li><strong>Cap on pin 7</strong>: Like the Ruby Amp, the Noisy Cricket includes a 100nF C<sub>3</sub> capacitor from pin 7 to ground in the 386 IC. It is used to avoid the power supply noise to be amplified and reach the output. In this way, the high-gain input stage of the chip is isolated from the supply noise hum, transients, etc.</li>
+<li><strong>Power Supply Cap</strong>: The supply pin 6 is bypassed to ground with a 220uF C<sub>1</sub> capacitor to avoid oscillation. It should be placed as close to the chip as possible.</li>
+<li><strong>Zobel Network</strong>: Placed from the 386 output to ground in order to stabilize the amp and restore the clean tones wiping some spurs. The RC network is a compensating circuit for the load (speaker), not for the amplifier. It is formed by a generic 10Ω R<sub>4</sub> resistor and a 47nF C<sub>7</sub> cap. For more info, check the <a href="little-gem-analysis.html#link12">similar design used in the Little Gem Amp</a>.</li>
+</ul>
+<h2><a id="frequency" name="frequency"></a><strong>2. Noisy Cricket Frequency Response.</strong></h2>
+<p>The frequency response is tailored by the Bass Cut filter formed by the output cap C<sub>8</sub> and the load (speaker) and the filters of the Volume/Tone circuit previously seen:</p>
+<p><img alt="Noisy Cricket Frequency Response" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket-frequency-response.png"/></p>
+<p>The Tone/Volume circuit together with the bass-cut filter (C8) create a subtle mid-hump which means that the circuit accentuates frequencies between the bass and treble ranges (mid-frequencies). A lot of well know overdrive pedals also use this mid-hump equalization around 1KHz to keep the guitar sound from getting lost in the overall mix of the band (<a href="tube-screamer-analysis.html#frequency">TubeScreamer mid-hump is around 720Hz</a>). </p>
+<p>This frequency response is also very interesting if you are intended to drive a small speaker because they have a better behaviour when reproducing a small range of frequencies. The low amount of bass keeps the speaker away from farting out and the smooth treble makes the tone less shrill.</p>
+<h2><a id="mods" name="mods"></a><strong>3. Noisy Cricket Mods.</strong></h2>
+<p><strong>Output Headphone Plug:</strong> The solution is similar to the RunoffGroove Ruby Headphone Mod, to place an auxiliary output headphone plug wired as in the image:<br/><img alt="Noisy Cricket Headphones Mod Schematic" class="article-img" src="images/noisy-cricket-analysis/noisy-cricket-headphones.png"/></p>
+<p><br/>The resistor R is used to attenuate the output level, otherwise, it will be too loud. The reference value for this resistor is 10Ω but it can be adjusted to meet the user taste and headphones sensibility. This resistor is placed from the sleeve of the connector to ground. It is important to use isolating washers for this jack or use a plastic jack to avoid shortcutting the R between two grounds. </p>
+<p>Should be mentioned that using a different load (headphones instead of the of 8ohm speaker), the cut-off frequency of the bass cut filter formed by C<sub>8</sub> and the load will be slightly shifted down, depending on the headphones impedance + resistor (R) combination. However, this change is about some inappreciable tens of hertz.</p>
+<h2><a id="resources" name="resources"></a><strong>4. Resources.</strong></h2>
+<p><a href="http://beavisaudio.com/" rel="noopener noreferrer" target="_blank">Noisy Cricket by BeavisAudioResearch. </a><br/><a href="http://amps.zugster.net/articles/tone-stacks#OneKnob" rel="noopener noreferrer" target="_blank">Adam's Amplifiers Tone Stacks.</a><br/><a href="http://stuffbillhasdone.blogspot.com/2010/06/guitar-tone-circuit-analysis.html" rel="noopener noreferrer" target="_blank">Guitar Tone Circuit Analysis.</a><br/><a href="http://www.diystompboxes.com/smfforum/index.php?topic=45678.0" rel="noopener noreferrer" target="_blank">Inception thread of Noisy Cricket</a> in DIYstompboxes.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers</a>, the Holy Scripture.</p>
+
+<p>Thanks for reading, all feedback is appreciated</p>
+
+
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054756/https://www.electrosmash.com/noisy-cricket-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Noisy%20Cricket%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="marshall-mg10.html">&larr; Marshall MG10 Amplifier Analysis</a>
+    <a class="prevnext" href="ruby-amp-analysis.html">Ruby Amp Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

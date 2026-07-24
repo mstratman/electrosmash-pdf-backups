@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox V847 Wah-Wah Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Vox V847 Wah-Wah Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Vox V847 Wah-Wah Analysis</h1>
+
+<p>The V847 is a Wah-Wah pedal designed by Lester Kushner and Brad Plunkett and released in 1967 by VOX. It emulates the sound of a trumpet being muted, modifying the guitar tone like a human voice saying the syllable <em>wah</em>.</p>
+<p><img alt="vox-v847-pedal-small" class="article-img" src="images/vox-v847-analysis/vox-v847-pedal.png"/></p>
+<p>Vox produced several versions of the Wah-Wah with small circuit adjustments:</p>
+<ul>
+<li><strong>Vox V847:</strong> It is the classic Wah-Wah model. No true bypass.</li>
+<li><strong>Vox V847A:</strong> Updated version of the classic model, including SMD resistors and an additional input buffer stage.</li>
+<li><strong>Vox V846HW</strong>: It is hand-wired in turret board construction and <em>premium</em> components.</li>
+<li><strong>Vox V845:</strong> Based on the specifications of the original pedal developed by VOX in the '60s.</li>
+<li><strong>Vox V848 Clyde McCoy:</strong> featuring True Bypass and AC input.</li>
+</ul>
+
+
+<p><strong>Table of Contents. </strong></p>
+<p><a href="#link1">1. The Wah-Wah Effect.</a><br/><a href="#link2">2. The Vox V847 Circuit.</a><br/>     <a href="#link21">2.1 The Vox V847 Wah Frequency Response.</a><br/>     <a href="#link22">2.2 The Vox V847 Layout.<br/>     </a><a href="#link23">2.3 The Vox V847 Circuit Bias.<br/>     </a><a href="#link24">2.4 The Vox V847 Components Part List / Bill of Materials.</a><br/><a href="#link3">3. Input Stage.</a><br/>     <a href="#link31">3.1 Input Stage Gain.</a><br/>     <a href="#link32">3.2 Vox V847 Input Impedance.</a><br/><a href="#link4">4. Output Stage</a><br/>     <a href="#link41">4.1 Vox V847 Output impedance.</a><br/><a href="#link5">5. How the Wah-Wah works.</a><br/><a href="#link6">6. Vox V847 Wah Modifications.</a><br/>     <a href="#link61">6.1 Modifying the Wah-Wah Q factor.</a><br/>     <a href="#link62">6.2 Modifying the Sweep Range.</a><br/>     <a href="#link63">6.3 More Bass and Gain Modification.</a><br/>     <a href="#link64">6.4 More Mid Content Modification.</a><br/>     <a href="#link65">6.5 The V847 Wah-Wah Inductor.</a><br/><a href="#link7">7. Resources.</a></p>
+
+<h2><a id="link1" name="link1"></a><strong>1. The Wah-Wah Effect.</strong></h2>
+<p>The Wah-Wah pedal was invented in November 1966 by Lester Kushner and Brad Plunkett at Warwick Electronics, a division of Whirlpool that owned Thomas Organ Company and Vox. The creation of the Wah-Wah effect seems to be a fluke during the solid-state redesign of the Vox Super Beatle/USA Amplifier. </p>
+<p>Vox first units were made in Italy by Jen Elettronica (OEM) and called <em>The Clyde McCoy Wah-Wah</em> model after the famous trumpet player whose 1931 hit <em>Sugar Blues</em> popularized the Wah-Wah sound. Thomas Organ then wanted the effect branded as its own for the American market, changing it to Cry Baby which was sold in parallel to the Italian Vox V846.</p>
+
+<p>Warwick Electronics Inc. was granted US patent 3530224 <a href="http://www.muzique.com/schem/wah-patent.pdf" rel="noopener noreferrer" target="_blank"><em>Foot-Controlled Continuously Variable Preference Circuit for Musical Instruments</em></a> on September 22, 1970.</p>
+<p>The Wah-Wah effect is basically a tone control. The frequency response of it is a band-pass filter which boosts the resonant frequency and attenuates above and below harmonics. The action of rocketing the pedal shifts the resonant frequency. When the pedal is pushed all the way down, the high frequencies are emphasized, and conversely, when the pedal is all the way up, the bass is boosted.</p>
+<p><img alt="Wah Wah Effect " class="article-img" src="images/vox-v847-analysis/wah-wah-effect.png"/></p>
+<h2><a id="link2" name="link2"></a><strong>2. The Vox V847 Circuit.</strong></h2>
+<p>The V847 simple schematic can be broken down into two blocks: Input Stage and Output Stage. </p>
+<p><img alt="Vox V847 Wah Schematic Blocks" class="article-img" src="images/vox-v847-analysis/vox-v847-schematic-parts.png"/></p>
+<p>The circuit is built using 2 cascaded transistor stages with a couple of passive components and an inductor; this reduced design makes the power consumption below 1mA. </p>
+<p>The gist of the design remains in how the resonant frequency of an LC filter made up of a fixed inductor L<sub>1</sub> and a fixed capacitor C<sub>2</sub> can be moved using a variable resistor VR1.</p>
+
+<h3><strong><a id="link21" name="link21"></a>2.1 Vox V847 Wah Frequency Response.</strong></h3>
+<p>The frequency response is characterized by a resonant peak centered in 750 Hz (pedal in a mid position) and can be swept up and down from 450 Hz to 1.6 KHz. The selected frequencies are amplified up to 18dB while the surrounding ones are attenuated as the below image shows:</p>
+<p><img alt="Vox V847 Frequency Response " class="article-img" src="images/vox-v847-analysis/vox-v847-frequency-response.png"/></p>
+<h3><strong><a id="link22" name="link22"></a>2.2 The Vox V847 Layout.</strong></h3>
+<p>The printed circuit board is designed to fit without problems inside the big pedal enclosure.</p>
+<p><img alt="vox-v847-inside-small" class="article-img" src="images/vox-v847-analysis/vox-v847-inside.png"/>The Vox V847 uses a single layer PCB with insertion components. The side of the board contains a Molex style connector to attach the cables to be connected to the potentiometer, footswitch and jack connectors.<img alt="Vox V847 PCB" class="article-img" src="images/vox-v847-analysis/vox-v847-pcb.png"/></p>
+
+<p><strong><a id="link23" name="link23"></a>2.3 The Vox V847 Circuit Bias.</strong></p>
+<p>In the image below, the most important DC bias points are shown. It can be useful in order to troubleshoot and trace circuit failures:</p>
+<h3><img alt="vox-v847-circuit-bias" class="article-img" src="images/vox-v847-analysis/vox-v847-circuit-bias.png"/></h3>
+<h3><a id="link24" name="link24"></a><strong>2.4 Vox V847 Components Part List / Bill of Materials.</strong></h3>
+<p>Q<sub>1</sub>    MPSA18<br/>Q<sub>2</sub>    MPSA18<br/>C<sub>1</sub>    0.01uF<br/>C<sub>2</sub>    0.01uF<br/>C<sub>3</sub>    4.7uF<br/>C<sub>4</sub>    0.22uF<br/>C<sub>5</sub>    0.22uF<br/>L<sub>1</sub>    500mH<br/>R<sub>1</sub>    68KΩ<br/>R<sub>2</sub>    1K5Ω<br/>R<sub>3</sub>    22KΩ<br/>R<sub>4</sub>    510Ω<br/>R<sub>5</sub>    470KΩ<br/>R<sub>6</sub>    470KΩ<br/>R<sub>7</sub>    33KΩ<br/>R<sub>8</sub>    100KΩ<br/>R<sub>9</sub>    1KΩ<br/>R<sub>10</sub>   10KΩ<br/>VR1   100KΩ<br/>Input/Output Jack Connector.<br/>True Bypass Switch.</p>
+<h2><strong><a id="llink3" name="link3"></a>3.  V847 Input Stage.</strong></h2>
+<p>The Input Stage is a Common-Emitter Amplifier with Voltage Shunt Feedback:<img alt="Vox V847 Input Stage" class="article-img" src="images/vox-v847-analysis/vox-v847-input-stage.png"/></p>
+<p>The input capacitor C<sub>1</sub> isolates the guitar from any pedal DC potential, protecting the pickups in case of circuit failure. Resistors R<sub>8</sub> and R<sub>6</sub> form a voltage divider for determining the bias applied to the base of Q<sub>1</sub> through the inductor and resistor R<sub>2</sub>.</p>
+<h3><a id="link31" name="link31"></a><strong>3.1 Input Stage Gain.</strong></h3>
+<p>In common emitter amps, the approximate voltage gain is collector resistance divided by the emitter resistance (G<sub>V</sub> = R<sub>C</sub>/R<sub>E</sub> = 22K/510 = 43 = 32dB), but the effect of the feedback network has to be taken into consideration, reducing in practice the gain to 18dB.<br/></p>
+<p>The feedback network from collector to base is composed by the resistance R<sub>6</sub> 470K and R<sub>8</sub> 100K to ground (The inductor in parallel with the resistor R<sub>7</sub> 33K, can be considered as a shortcut). </p>
+<p>This feedback topology is a method to apply negative feedback to the amplifier, while it results in a reduced overall voltage gain and transistor input impedance, a number of improvements are obtained like stabilized voltage gain, improved frequency response and immunity against variations in temperature and transistors Beta.<br/>The measures and simulations indicate that the gain of this stage is around 18dB. </p>
+<p>The output of the BJT amp is connected to the 100K potentiometer VR1 in a voltage divider configuration, which means that with the rocketing foot action, the gain of the first stage is regulated, from 18dB to 1dB.</p>
+
+
+<p><a id="link32" name="link32"></a><strong>3.2 Vox V847 Input Impedance.</strong></p>
+<p>In order to calculate the input impedance of the V847 the hybrid-pi model is used for analyzing the small signal behavior:<br/>Z<sub>in</sub> = R<sub>1</sub> + (R<sub>2</sub>’ // Rin<sub>Common Emitter Amp</sub>)</p>
+<p>Where:</p>
+<ul>
+<li>R1 = Input resistor which is 68K.</li>
+<li>R2'= R2 can be considered as connected to ground, as it is indeed attached to the Q2 emitter that has a very low output impedance.</li>
+<li>Rin <sub>of the Common Emitter Amp</sub> = rπ + (β+1)xR<sub>4</sub> = (400+1)x510 = 204K</li>
+</ul>
+<p><div>\[ Z_{in}= 68K + (1.5K // 204K) = 68 + (\frac{1.5 \cdot 204}{1.5 + 204})= 69.5K \]</div><br/></p>
+<p>The parallel combination of R<sub>2</sub> and the input resistance of the Common Emitter are much smaller than R<sub>1</sub> due to the feedback loop and the emitter resistance R Hence, the value of the input resistor R<sub>1</sub>=68K accounts for almost the entire signal loading at the input. As a rule of thumb a good input impedance for a guitar pedal is around 1MΩ, the 68K it is indeed low input impedance and the guitar signal might suffer tone sucking (loss of high frequencies).</p>
+<p><img alt="Vox V847 Input Impedance Graph" class="article-img" src="images/vox-v847-analysis/vox-v847-input-impedance.png"/></p>
+<p>In the graph above, the input impedance is measured in 69.7KΩ, acknowledging with the calculated value of 69.5KΩ.</p>
+<p>Increasing the 68K R1 input resistor, the input impedance is also increased but it also forms a voltage divider at the input, reducing the available voltage gain.</p>
+<h2><a id="link4" name="link4"></a><strong>4. Output Stage.</strong></h2>
+<p>The second stage is an emitter follower working as a low output impedance amplifier of approximately unity gain:</p>
+<p><img alt="Vox V847 Output Stage" class="article-img" src="images/vox-v847-analysis/vox-v847-output-stage.png"/></p>
+<p>This block will buffer the signal taken from the wiper of the VR1 potentiometer.</p>
+<ul>
+<li>The bias of the base is obtained from the collector of Q<sub>1</sub> through the resistor R<sub>5</sub>.</li>
+<li>Resistor R<sub>10</sub> is a DC return for the emitter follower. </li>
+<li>Resistor R<sub>9</sub> in the collector is included to suppress the tendency to oscillation.</li>
+</ul>
+<p>The output jack of the pedal is taken before the variable resistor VR1 and is not affected by the position of the slider. Therefore, the position of the potentiometer does not affect the output level.</p>
+
+<h3><a id="link41" name="link41"></a><strong>4.1 Vox V847 Output impedance.</strong></h3>
+<p>Once again the output impedance can be estimated using the hybrid-pi model, but in this case, the formula is complex and does not give any intuitive idea. Alternatively, the value can be calculated using PSpice accurate simulation, showing the results below:</p>
+<p><img alt="Vox V847 Output Impedance" class="article-img" src="images/vox-v847-analysis/vox-v847-output-impedance.png"/></p>
+<p>The position of the VR1 potentiometer effects the value of the output impedance, but the overall number is between 630 Ω and 8.6KΩ, which can be considered as good output impedance.</p>
+<h2><a id="link5" name="link5"></a><strong>5. How the Wah-Wah works.</strong></h2>
+<p>The core of the wah design remains in the cap C<sub>2</sub> which close the feedback loop between the output (Q<sub>2</sub> emitter) and the input stage of the circuit:</p>
+<p>The Input Stage amplifies the feedbacked signal coming from the Q2 emitter through C<sub>2</sub> and R<sub>2</sub>.  Because of this amplification of the signal applied across the C2 capacitor, the <em>apparent reactance</em> seen by the input signal looking into the capacitor is different from the real one.</p>
+<p>This apparent magnitude of the cap C2 reactance magnitude depends on the gain of the signal of the first stage. The gain of the first stage is determined by the position of the slider VR1:</p>
+<ul>
+<li>If the slider is set to <em>lower position</em>, Gain = min, Current flow through feedback cap C2 = min, Apparent reactance = max, Apparent capacitance = min.</li>
+<li>If the slider is set to <em>upper position</em>, Gain = max, Current flow through feedback cap C2 = max, Apparent reactance = min, Apparent capacitance = max. </li>
+</ul>
+<p>Connecting a complementary reactance (inductor L<sub>1</sub>) will produce a resonant circuit which is adjusted by tuning the apparent capacitance of C<sub>2</sub>.</p>
+<p><br/><strong>Note:</strong></p>
+<ul>
+<li>The impedance of an element can be expressed as Z = R + jX 
+<ul>
+<li>In ideal resistors Z = R (impedance = resistance [Ω])</li>
+<li>In ideal capacitor Z = jX (impedance = reactance [Ω])</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Capacitor Reactance: It is the opposition of the Capacitor to the change of voltage through it. The built-up electric field resists the change of voltage between the capacitor pins. (reactance)XC = -1/wC(capacitance) <br/></li>
+</ul>
+<ul>
+<li>Reactance is measured in Ohms, not Farads. The Farads is the measure of the capacitance, an inherited property of the capacitor element.</li>
+</ul>
+<h2><a id="link6" name="link6"></a><strong>6. Vox V847 Wah Modifications.</strong></h2>
+<p>There are some popular modifications that players do to their pedals, you will see how they work and how do they affect the guitar signal:</p>
+<h3><strong><a id="link61" name="link61"></a>6.1 Modifying the Wah-Wah Q factor.</strong></h3>
+<p>The Quality Factor is a parameter that characterizes a resonator's bandwidth relative to its center frequency, that is how narrow or spread is the selected frequency band. <br/>The 33K resistor R7 is introduced to adjust this value, allowing surrounding resonant frequencies to be amplified too. In other words, R7 sets the sharpness of the resonant peak.<br/><img alt="Vox V847 Quality Q Factor" class="article-img" src="images/vox-v847-analysis/vox-v847-q-factor.png"/><br/>In the graph above, the effect of the R7 is shown, increasing its value, the <em>Q factor</em> is reduced, and the filter bell is spread. This modification is also known as “Vocal Mod”,  some users replace the 33K for a bigger one like 39K, 68K or even 100K to have more vocal sounding.</p>
+<h3><strong><a id="link62" name="link62"></a>6.2. Modifying the Sweep Range.</strong></h3>
+<p>The C<sub>2</sub> capacitor primary determines the center frequency of the wah sweep. Changing its value moves the whole wah sweep range up or down. <br/>In the images below the shift of the sweep range can be appreciated, using 0.1uF, 0.01uF (default) and 0.001uF.</p>
+<p><img alt="vox-v847-0.001u-sweep" class="article-img" src="images/vox-v847-analysis/vox-v847-0.001u-sweep.png"/></p>
+<p><img alt="vox-v847-0.01u-sweep" class="article-img" src="images/vox-v847-analysis/vox-v847-0.01u-sweep.png"/></p>
+<p><img alt="vox-v847-0.1u-sweep" class="article-img" src="images/vox-v847-analysis/vox-v847-0.1u-sweep.png"/></p>
+<p>Bigger values move it down towards bass, smaller values move it up. Bass players like to increase the value (typically 0.068µF) for a better bass wah response.</p>
+<h3><strong><a id="link63" name="link63"></a>6.3 More Bass and Gain Modification.</strong></h3>
+<p>The emitter resistor R<sub>4</sub> controls the gain level of the effected signal. Reducing its value will result in a slight addition of gain and bass content. In the figure below, it is shown how smaller R<sub>4</sub> values modify the frequency response:<br/><img alt="vox-v847-more-bass-gain-mod" class="article-img" src="images/vox-v847-analysis/vox-v847-more-bass-gain-mod.png"/></p>
+<h3><a id="link64" name="link64"></a><strong>6.4 More Mid Content Modification.</strong></h3>
+<p>This mod subtle sets the midrange content. Increasing the value of the stock R<sub>2</sub> 1K5, the heel-down position will sound slightly more strong and emphasized. Typical values for this mod are 2K and 2K7.<img alt="vox-v847-more-mid-mod" class="article-img" src="images/vox-v847-analysis/vox-v847-more-mid-mod.png"/></p>
+<h3><strong><a id="link65" name="link65"></a>6.5 The V847 Wah-Wah Inductor.</strong></h3>
+<p>In most <em>classic</em> pedals, there is some component which is often impossible/difficult to find or expensive and it is the one which, of course, gives the best sound or the <em>legendary original tone</em>. In this case the Fasel inductor from the first series </p>
+<p><img alt="Wah Wah Inductors" class="article-img" src="images/vox-v847-analysis/wah-wah-inductors.png"/></p>
+<p>There are several options in the market: The Dunlop Yellow/Red Fasel, TDK, Sabbadius Soul Inductor, Coloursound Inductor, Wipple inductor, SOD inductors, miniature audio transformers and coils from industrial filters.</p>
+<p>Everything with a DC resistance between 10 to 100Ω (15Ω typ.), and inductance (if you can measure it) between 200mH to 1H (500mH typ.) can be used.</p>
+<h2><a id="link7" name="link7"></a><strong>7. Resources.</strong></h2>
+<p><a href="http://www.geofex.com/article_folders/wahpedl/wahped.htm" rel="noopener noreferrer" target="_blank">The Technology of Wah Pedals</a> by Geofex.<br/><a href="http://www.muzique.com/schem/wah-patent.pdf" rel="noopener noreferrer" target="_blank">Vox Wah Wah Patent (US3530224)</a></p>
+
+<p><strong>5.1 Datasheets.</strong></p>
+<p>V845 V846-HW V847 <a href="http://www.voxamps.de/uploads/media/V845_V846HW_V847_OM_EFGS3.pdf" rel="noopener noreferrer" target="_blank">Owner's Manual</a>.</p>
+
+<p>Thanks for reading, all feedback is appreciated    </p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p>
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054703/https://www.electrosmash.com/vox-v847-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Vox%20V847%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="tube-screamer-analysis.html">&larr; Tube Screamer Analysis</a>
+    <a class="prevnext" href="germanium-fuzz.html">You Can Build the Perfect Germanium Fuzz &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

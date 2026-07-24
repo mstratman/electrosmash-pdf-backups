@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1Wamp Electric Guitar Amplifier - Open Hardware &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Amps &rsaquo; 1Wamp Electric Guitar Amplifier - Open Hardware</span>
+  </div>
+</header>
+<main>
+  <h1>1Wamp Electric Guitar Amplifier - Open Hardware</h1>
+
+<p>1Wamp is a one Watt small guitar amplifier based on a JFET guitar pre-amp, the Big Muff Pi tone control, and the LM386 power amplifier. This portable amp is an open hardware project designed by ElectroSmash using only free / <a href="http://kicad-pcb.org/" rel="noopener noreferrer" target="_blank">open-source tools</a>.<br/></p>
+<div class="video-embed"><iframe allowfullscreen="allowfullscreen" loading="lazy" src="https://www.youtube.com/embed/cFPIS3gorQA"></iframe></div>
+<p>The preamp stage with two J201 transistors is designed to give a tube-like sound, the BMP tone stage is able to produce a big range of tones and the LM386 output stage can drive any kind of speaker, from headphones to a Marshall 2x12 cabinet.</p>
+<p><img alt="1Wamp functions" class="article-img" src="images/1wamp/1Wamp-functions-big.jpg"/><br/>This project is perfect as a room practice amplifier loaded with all the features of the big amps:</p>
+<ul>
+<li>Tone/Volume/Gain controls.</li>
+<li>Speaker/Cabinet output.</li>
+<li>Headphones output with integrated attenuator switch.</li>
+<li>Aux/mp3 input.</li>
+<li>Battery Clip.</li>
+<li>9V DC boss style power input jack.</li>
+</ul>
+<p><br/><strong>1Wamp Schematic</strong></p>
+<p>The circuit can be broken down into 5 simpler blocks: JFET Input Stage, Tone Control, JFET Booster, LM386 Power Amplifier and Power Supply:</p>
+<p><img alt="1wamp schematic parts blocks" class="article-img" src="images/1wamp/1wamp-schematic.png"/></p>
+<p>The functionality is simple: The input stage isolates the amp from the guitar, keeping the signal quality and avoiding tone sucking. Then the tone control shapes the frequency response adding more bass/treble to the mix. The JFET booster will recover the signal after the tone control and prepare it to the Power Amplifier stage that delivers up to 1W.<br/>The aux/mp3 input adds any line level input signal to the guitar sound, allowing to practice with metronome/mp3/youtube backing tracks.</p>
+<p><strong>What is a pre-amplifier?:  </strong> <br/>A pre-amplifier is the part that precedes power amplifier (JFET Input Stage, Tone Control, and JFET Booster). It prepares the signal for further amplification or in other words, the pre-amplifier is just a circuit that does some <em>preparing</em> for the signal, usually coloring and integrating small gain stages with good impedance matching, tone controls, and filter elements. This part does not generate any power to drive a speaker.<br/></p>
+<p><strong>What is a power amplifier?: </strong> <br/>The LM386 power amplifier block will amplify and deliver the voltage and more important the current to drive the load (headphones/speaker).<br/>The stage will define the wattage of the amp, and should just deliver power without adding any color to the signal.<br/></p>
+
+<p><img alt="1Wamp intro" class="article-img" src="images/1wamp/1Wamp-intro-big.jpg"/></p>
+
+<p><a href="https://shop.electrosmash.com/product-category/amplifiers/1wamp/" rel="noopener noreferrer" target="_blank"><strong>Order 1Wamp online.</strong></a></p>
+<p>There are 2 options in the <a href="https://shop.electrosmash.com/" rel="noopener noreferrer" target="_blank">online shop:</a></p>
+<ol>
+<li><a href="https://shop.electrosmash.com/product-category/amplifiers/1wamp/" rel="noopener noreferrer" target="_blank"><strong>Order the Full Kit:</strong> </a>This kit includes the PCB, Cover and all the components to build 1Wamp at home.</li>
+<li><a href="https://shop.electrosmash.com/product-category/amplifiers/1wamp/" rel="noopener noreferrer" target="_blank">Order only the PCB.</a> It uses easy-to-find standard components and you can build the kit yourself.</li>
+</ol>
+<p>If you have any question, contact us:</p>
+
+<ul>
+<li>There is a cool guide explaining  How to build 1Wamp in 5 Steps</li>
+</ul>
+<ul>
+<li>All the Kicad native files,  <a href="assets/1wamp/1Wamp-schematic.pdf" rel="noopener" target="_blank">Schematic</a> and <a href="assets/1wamp/1Wamp-bill-of-materials.pdf" rel="noopener" target="_blank">Bill of Materials</a> are free.<br/></li>
+</ul>
+<ul>
+<li>In 1Wamp Forum you can check how to fit the PCB in an enclosure, use the light-plates, etc...</li>
+</ul>
+<h2><strong>Power Supply Stage:</strong></h2>
+<p>The power stage provides 9 volts to all the circuit stages, giving also protection against reverse polarity connections and additionally it filters the power line to remove any noise.</p>
+<p><img alt="1wamp power supply circuit" class="article-img" src="images/1wamp/1wamp-power-supply.png"/></p>
+<ul>
+<li>The 2.1 jack connector CONN4 can take any boss type 9V adapter (negative polarity), it is a nice idea to use one because power amplifiers drain batteries pretty fast by definition. This connector will automatically disconnect the battery from the circuit when an external 9V wall adapter is plugged.</li>
+</ul>
+<p><img alt="boss power supply polarity" class="article-img" src="images/1wamp/boss-power-polarity.jpg"/></p>
+<ul>
+<li>The stereo guitar input jack is used as an on-off switch, connecting the battery (-) terminal to ground when the guitar jack is connected. When the mono input guitar jack is inserted, the points GND_B and GND_A are linked powering up the circuit.<br/></li>
+<li>Diode D<sub>1</sub> is a polarity protection diode, securing the amplifier against accidentally reversed power connections. In this case, the 1N5817 diode is used because it resists up to 20V in a reversed connection and it has a low V<sub>F</sub>=0.4V, so the final power supply will be 9 - 0.4= 8.6V giving more headroom for clean sounds. Any other general use diode like the 1N4148/1N4001 could be used as a substitute.</li>
+</ul>
+<ul>
+<li>The LED D<sub>2</sub> will light when the circuit is ON (9V Battery or adapter + guitar connected). A high-efficiency diode is used to minimize the current used in this task.</li>
+<li>C<sub>9</sub>, R<sub>15</sub>, C<sub>10</sub>, and C<sub>11</sub> are a low pass filter aimed to remove all the ripple and noise from the power line. The placement of the components in the circuit is critical: 
+<ul>
+<li>C<sub>9</sub> is close to the LM386 to decouple it.</li>
+<li>R<sub>15</sub> and C<sub>10</sub> C<sub>11</sub> form the most important part of the filter and it is located between the power-amp and the pre-amp. </li>
+<li>C<sub>11</sub> is located close to the input stage to decouple it.</li>
+</ul>
+</li>
+</ul>
+<p>The cut-frequency of the filter is defined by R<sub>15</sub> and C<sub>10</sub> and C<sub>11</sub> and can be calculated following the equation:</p>
+<div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{15}\cdot (C_{10}+C_{11})}=\frac{1}{2\pi \cdot 1K \cdot (220uF+100nF)}=0.7Hz\]</div><br/>
+<p>So, any humming noise over 0.7Hz will be removed by this filter.</p>
+<p><img alt="1wamp power supply filter" class="article-img" src="images/1wamp/1wamp-power-supply-filter.png"/>There is more info about this filter and how to remove hum from LM386 designs in the <a href="#layout">Layout Section</a>.</p>
+
+<h2><strong><a name="input"></a>JFET Input Stage </strong></h2>
+<p>The input stage is JFET pre-amplifier based on a Common Source Class-A amp with a high input impedance and medium output impedance. The JFET preamps became very popular in guitar circuits because they are simple, easy to build and able to deliver warmth tones.<br/><img alt="1wamp input stage circuit" class="article-img" src="images/1wamp/1wamp-input-stage.png"/></p>
+<p>There are several famous guitar pedals that use this circuit topology: </p>
+<p>- The <a href="http://www.till.com/articles/GuitarPreamp/" rel="noopener noreferrer" target="_blank">Tillman Amplifier</a>, it uses an R2=6.8K and R3=2.2K, famous for giving a tube-like sound with 6dB of gain and asymmetrical clipping.</p>
+<p>- The <a href="http://www.runoffgroove.com/fetzervalve.html" rel="noopener noreferrer" target="_blank">Fetzer Valve</a> is popular as a stand-alone booster and as a building block in larger circuits. It is based on a white paper by Dimitri Danyuk <a href="http://www.diystompboxes.com/smfforum/index.php?topic=93889.0" rel="noopener noreferrer" target="_blank">"Triode Emulator".</a> It proposes the use of a carefully chosen source resistor on the JFET amplifier to mimic a vacuum tube sound. It uses R2= 10K and R3=1K, giving a high gain of 14 dB. </p>
+<p>- Low gain JFET preamp: The Tillman and Fetzer valve introduce a big amount of gain and sometimes could make difficult to get clean tones. If you prefer natural clean sounds and light overdrive R2= 2.2K and R3=1K can also be used, giving soft tones and mellow saturation.</p>
+
+<p>The whole 1Wamp circuit includes 2 of this JFET booster stages, so you can also combine these topologies as you like; Low Gain + Low Gain, Fezter + Low Gain, Tillman + Fetzer, etc...</p>
+<ul>
+<li>D<sub>3</sub> and D<sub>4</sub> are 5.1V 1-Watt zener diodes. They are surge protection against static discharges, they clamp the input signal if the levels exceed ±5.1V. They are optional but JFETs have a sensitive gate and they can blow just with a spark at the jack in a dry day. The 1N4733A part is used here due to its easy availability but any 5.1V 1W zener like the BZX85 5.1V could substitute it.</li>
+<li>R<sub>1</sub> determines the input impedance and references the JFET gate to ground. The value of this component is not critic, anything from 100KΩ to 2MΩ will work, you can read more about this resistor in the <a href="#input_impedance">1Wamp Input Impedance section.</a></li>
+<li>R<sub>2</sub> is the source resistor, it defines the I<sub>D</sub> bias current through the JFET and R<sub>3</sub> is the drain load resistor. You can read how to calculate them in the next section. </li>
+</ul>
+
+<p><strong>How to Calculate R<sub>S</sub> and R<sub>D</sub> in a JFET Common Source Amplifier: </strong> <br/> </p>
+<p><strong>Intro - Background</strong></p>
+<p>The source resistor R<sub>S</sub> (R<sub>3</sub> or R<sub>7</sub> in 1Wamp) and the drain resistor R<sub>D</sub> (R<sub>2</sub> or R<sub>8</sub> in 1Wamp) define all the important parameters and sound of the pre-amp. There are plenty of ways to design and calculate the components for a JFET amp: graphical methods, mathematical, experimenting... sometimes misleading and confusing. Here we describe the simplest way (in my opinion) to design and calculate R<sub>G</sub>, R<sub>S</sub>, and R<sub>D</sub> for this particular amp called "Self Biased Common Source JFET Amplifier".</p>
+<ul>
+<li>R<sub>G</sub>: The Gate resistor, keeps the gate voltage at 0V, it also defines the input impedance and prevents signal loading.</li>
+<li>R<sub>S</sub>: The Source resistor, defines the bias point of the amplifier.</li>
+<li>R<sub>D</sub>: The Drain resistor, defines the gain of the amp.</li>
+</ul>
+<p>Fixed values: A JFET transistor has 2 important fixed parameters:</p>
+<ul>
+<li>I<sub>DSS</sub>: Saturation Drain Current. It is the maximum current that flows through a JFET, which is when the gate voltage V<sub>G</sub> is 0V.</li>
+<li>V<sub>P</sub> or V<sub>GS(off)</sub>: The pinch-off voltage, it is the voltage required to shut down a JFET.</li>
+</ul>
+<p>These parameters are indicated in the datasheet with big tolerances. In the J201, for example, V<sub>GS(off)</sub> goes from -0.3 to -1.5V and I<sub>DSS</sub> could be anything from 0.2 to 1mA. Note that these values change from one transistor to another:</p>
+<p><img alt="j201 idss vgsoff characteristics" class="article-img" id="j201 idss vgsoff characteristics" src="images/1wamp/j201-idss-vgsoff-characteristics.png"/></p>
+<p>There is a <a href="http://www.diystompboxes.com/smfforum/index.php?topic=29513.0" rel="noopener noreferrer" target="_blank">JFET tester designed by RunoffGroove</a> that can accurately measure the I<sub>DSS</sub> and V<sub>GS(off)</sub> in a JFET. From our experience, measuring one hundred reliable J201 JFETS we can average this values to:</p>
+<ul>
+<li>I<sub>DSS</sub>= 0.7 mA (average value).</li>
+<li>V<sub>GS(off)</sub>= -0.8 V (average value).</li>
+</ul>
+
+<p><strong>How to calculate R<sub>S</sub> and R<sub>D</sub> in 5 steps:</strong></p>
+<p>The <em>Midpoint Bias</em> method sets the transistor to the midpoint of its transfer curve, allowing maximum headroom (the drain current swings with a  maximum span between I<sub>DSS</sub> and 0 without clipping):</p>
+<ol>
+<li>Calculate I<sub>DSS</sub> and V<sub>GS(off) </sub>from the datasheet, taking average values or using a <a href="http://www.diystompboxes.com/smfforum/index.php?topic=29513.0" rel="noopener noreferrer" target="_blank">JFET matcher</a>.</li>
+<li>Calculate I<sub>D</sub>: as I<sub>D</sub> = I<sub>DSS</sub>/2 setting the midpoint bias.</li>
+<li>Calculate V<sub>GS</sub>: using the formula V<sub>GS</sub>= V<sub>GS(off)</sub>/3.4 <br/></li>
+</ol>
+
+<div id="spoiler1"><div>\[I_{D}=I_{DSS} \cdot (1-\frac{V_{GS}}{V_{P}})^{2}\]</div> <div>\[V_{GS}=V_{P}\cdot (1-\sqrt{\frac{I_{D}}{I_{DSS}}})\]</div> substituing: <div>\[I_{D}= \frac{I_{DSS}}{2}\]</div> <div>\[V_{GS}=V_{P}(1-\sqrt{\frac{\frac{I_{DSS}}{2}}{I_{DSS}}})\]</div> <div>\[V_{GS}=V_{P}\cdot 0.293 = V_{P}\cdot \frac{1}{3.4}\]</div></div>
+<p>note: sometimes this number is also approached to V<sub>GS</sub>= V<sub>GS(off)</sub>/4</p>
+<p>4. R<sub>S </sub>= V<sub>GS</sub>/I<sub>D</sub></p>
+
+<div id="spoiler2">
+<p>V<sub>GS</sub>= V<sub>G </sub>- V<sub>S</sub><br/>V<sub>GS</sub>= (I<sub>G</sub>*R<sub>G</sub>) - (I<sub>S</sub>*R<sub>S</sub>)</p>
+<p>With I<sub>G</sub>=0;</p>
+<p>V<sub>GS</sub>= (0*R<sub>G</sub>) - (I<sub>D</sub>*R<sub>S</sub>) = I<sub>S</sub>*R<sub>D</sub></p>
+</div>
+
+<p>5. R<sub>D </sub>= [V<sub>CC </sub>/ (2*I<sub>D</sub>)] - (R<sub>S</sub>/2)</p>
+
+<div id="spoiler3">
+<p>If we want VD to seat in the middle point of its maximum excursion we have to take V<sub>S</sub> into consideration.</p>
+<ul>
+<li>V<sub>Dmin</sub>= V<sub>S</sub> = R<sub>S</sub> * I<sub>D </sub></li>
+<li>V<sub>Dmax</sub>= V<sub>CC</sub></li>
+<li>V<sub>D|mid-point</sub>= (V<sub>Dmin</sub> + V<sub>Dmax</sub>) / 2</li>
+</ul>
+<div>\[V_{D|midpoint}=V_{CC} -( R_{D} \cdot I_{D})\]</div><br/><div>\[\frac{R_{S}\cdot I_{D}+ V_{CC}}{2}=V_{CC} -( R_{D} \cdot I_{D})\]</div><br/><div>\[R_{D}=\frac{V_{CC}}{2I_{D}}-\frac{R_{S}}{2}\]</div> <br/>
+<p> note: Sometimes in order to simplify maths, some designers take the midpoint bias point as V<sub>D</sub>=V<sub>CC</sub>/2. You can also use it, there is not a big difference in the end:</p>
+<div>\[V_{D}=V_{CC} -( R_{D} \cdot I_{D})\]</div><br/><div>\[V_{D}=\frac{V_{CC}}{2}\]</div><br/><div>\[\frac{V_{CC}}{2}=V_{CC} -( R_{D} \cdot I_{D})\]</div><br/><div>\[R_{D}=\frac{V_{CC}}{2\cdot ID}\]</div><br/>
+</div>
+
+<p>The gain of this mid-point biased JFET amp will be defined by the equation:</p>
+<div>\[A_{V}=-\frac{gm\cdot R_{D}}{1+gm\cdot R_{S}}\]</div><br/>
+<p>Where</p>
+<div>\[ gm = gm0 \cdot (1-\frac{V_{GS}}{V_{P}})\]</div><br/><div>\[ gm0= \frac{2I_{DSS}}{|V_{P}|}\]</div><br/><div>\[ gm = \frac{2I_{DSS}}{|V_{P}|} \cdot (1-\frac{V_{GS}}{V_{P}})\]</div><br/>
+<p>These 5 steps can be summarized in the following image:</p>
+<p><img alt="jfet amplifier calculation parameters" class="article-img" src="images/1wamp/jfet-amplifier-calculation.jpg"/></p>
+<p>In this ideal mid-point biasing, the gain of the amp is limited by the values of R<sub>D</sub> and R<sub>S</sub> which in turn are limited by the intrinsic characteristics of the JFET (I<sub>DSS</sub> and V<sub>GS(off)</sub>), to trim the gain the value of R<sub>D</sub> can be reduced/increased. The midpoint is often traded for higher gain; changing the value of R<sub>D</sub> will modify the gain, but the clipping will be more prone to happen.<br/></p>
+<p>To finish this notes about the JFET biasing, it should be said that there is some mysticism biasing the JFET, the values of R<sub>D</sub> and R<sub>S</sub> can be tuned by ear for the <em>best sound</em> or following complex mathematical analysis trying to replicate the tube sound.</p>
+<p>Some designers prefer not to follow the ideal mid-point biasing and make their designs with some variations, to see that we will study the Tillman, the Fetzer Valve and the Low Gain Fet:</p>
+<p><strong>J201 Tillman pre-amp:</strong></p>
+<ol><ol>
+<ul>
+<li>R<sub>G </sub>= 1MΩ</li>
+<li>R<sub>S </sub>= 2.2KΩ</li>
+<li>R<sub>D </sub>= 6.8KΩ</li>
+<li>Considering I<sub>DSS </sub>= 0.7mA and V<sub>GS(off) </sub>= V<sub>P </sub>= -0.8V and V<sub>CC</sub>=9V.</li>
+</ul>
+</ol></ol>
+<p>There is no simple formula to calculate I<sub>D </sub>and V<sub>GS. </sub>you will need to solve a system with 2 ecuations and 2 variables (I<sub>D</sub> and V<sub>GS</sub>):</p>
+<p>I<sub>D</sub>= I<sub>DSS</sub>(1-V<sub>GS</sub>/V<sub>GS(off)</sub>)^2</p>
+<p>V<sub>GS</sub>=-I<sub>D</sub>*R<sub>S</sub></p>
+<p>Resolving we get the values:</p>
+
+<div id="spoiler4">
+<p>First of all, we have a system with 2 equations and 2 variables:</p>
+<div>\[\\ I_{D}= I_{DSS}\cdot(1-\frac{V_{GS}}{V_{P}})^{2}\]</div> <div>\[\\ V_{GS}= - I_{D}\cdot R_{S}\]</div> Substituing<br/> <div>\[\\ I_{D}= I_{DSS}\cdot(1+\frac{ I_{D}\cdot R_{S}}{V_{P}})^{2}\]</div> <div>\[\\ \]</div> <div>\[\\ \frac{I_{D}}{I_{DSS}}=(1+\frac{ I_{D}\cdot R_{S}}{V_{P}})^{2}\]</div>
+<p>Developing the square binomy<br/></p>
+<div>\[\\ \frac{I_{D}}{I_{DSS}}=(1 + \frac{I_{D}^{2}\cdot R_{S}^{2}}{V_{P}^{2}}+\frac{2I_{D}\cdot R_{S}}{})\]</div>
+<p>Grouping<br/></p>
+<div>\[\\ I_{D}^{2}\cdot(\frac{R_{S}^{2}}{V_{P}^{2}})+I_{D}\cdot (\frac{2R_{S}}{V_{P}}-\frac{1}{I_{DSS}})+1=0)\]</div>
+<p>Now the real values can be substitued: I<sub>DSS </sub>= 0.7mA and V<sub>GS(off) </sub>= V<sub>P </sub>= -0.8V<br/></p>
+<div>\[\\ I_{D}^{2}\cdot(\frac{2.2^{2}}{0.8^{2}})+I_{D}\cdot (\frac{2\cdot 2.2}{-0.8}-\frac{1}{0.7})+1=0)\]</div> <div>\[\\ \]</div> <div>\[\\ I_{D}^{2}\cdot(7.5)-I_{D}\cdot (6.9)+1=0)\]</div>
+<p>Resolving thie quadratic equacion (you can use <a href="http://www.webgraphing.com/quadraticequation_quadraticformula.jsp" rel="noopener noreferrer" target="_blank">any online calculator</a>, or make the maths)</p>
+<p>We get 2 possible solutions, ID= 0.73mA or 0.18mA. ID&lt;IDSS so the first solution can be discarded.</p>
+<p>I<sub>D</sub>= 0.18mA</p>
+<p>V<sub>GS</sub>=-0.18*2.2=0.39V<br/></p>
+<p>V<sub>D</sub>= V<sub>CC</sub>-(I<sub>D</sub>*R<sub>D</sub>)=9-(0.18*6.8)</p>
+<p>A<sub>V</sub>= - ((gm*RD)/(1+gm*RS))</p>
+<p>with:</p>
+<div>\[ \\ gm=\frac{2I_{DSS}}{|V_{P}|}\cdot(1+\frac{I_{D}R_{S}}{V_{P}}) \]</div> <div>\[\\ \]</div> <div>\[ \\ gm=\frac{2\cdot0.7}{0.8}\cdot(1+\frac{0.18 \cdot 2.2}{-0.8}) \]</div> <div>\[\\ \]</div> <div>\[ \\ gm=0.8 \]</div>
+<p>A<sub>V</sub>= -((0.8*6.8)/(1+0.8*2.2)) = -5.3/2.7= 1.9 times or 5.8dB</p>
+</div>
+<ol><ol>
+<ul>
+<li>I<sub>D</sub>= 0.18mA</li>
+<li>V<sub>GS</sub>=-0.37V</li>
+<li>V<sub>D</sub>=7.8V</li>
+<li>A<sub>V</sub>=5.9dB</li>
+</ul>
+</ol></ol>
+<p>These results show that in the Tillman amp, the drain current I<sub>D</sub> is below I<sub>DSS</sub>/2 (0.3mA) and also V<sub>D</sub> is displaced (4.5V). These will make the amp to have a low amout of gain and the clipping will happen easier in the positive semicycle of the signal. The designer was not looking for a high-gain design and due to the popular acceptance of this circuit seems that it also sounds good.</p>
+
+<p><strong>J201 Fetzer Valve</strong></p>
+<ol><ol>
+<ul>
+<li>R<sub>G </sub>= 1MΩ</li>
+<li>R<sub>S </sub>= 1KΩ</li>
+<li>R<sub>D </sub>= 10KΩ</li>
+<li>Considering I<sub>DSS </sub>= 0.7mA, V<sub>GS(off) </sub>= V<sub>P </sub>= -0.8V and V<sub>CC</sub>=9V.</li>
+</ul>
+</ol></ol>
+<p>Summarizing the fetzer valve, Runoffgroove uses 2 equiations derived from Danyuk <em>Triode Emulator</em> paper to calculate R<sub>S</sub> and R<sub>D</sub>:</p>
+<p>Rs = 0.83 * |Vp| / Idss = 0.83 * 0.8 / 0.7 = 0.9KΩ approx. to 1KΩ<br/> </p>
+<p>Rd = 0.9 * (Vcc - 2*|Vp|) / Idss = 0.9 *(9 - 2*0.8) / 0.7 = 9.5KΩ approx to 10KΩ<br/> </p>
+<p>Using a similar approach that in the Tillman amp we can calculate the bias points:</p>
+<ol><ol>
+<ul>
+<li>I<sub>D</sub>= 0.27mA</li>
+<li>V<sub>GS</sub>=-0.27V</li>
+<li>V<sub>D</sub>=6.3V</li>
+<li>A<sub>V</sub>=14dB.</li>
+</ul>
+</ol></ol>
+<p>In the Fetzer amp, the value of I<sub>D</sub> is very close the IDss/2, allowing a nice big span of this current. The value of R<sub>D</sub> also makes V<sub>D</sub> close to its ideal value. In this point, the transistor has a big amount of gain and seems that replicates the behavior of a vacuum tube.</p>
+<p><strong>J201 Low Gain Fet:</strong></p>
+<ol><ol>
+<ul>
+<li>R<sub>G </sub>= 1MΩ</li>
+<li>R<sub>S </sub>= 1KΩ</li>
+<li>R<sub>D </sub>= 2.2KΩ</li>
+<li>Considering I<sub>DSS </sub>= 0.7mA and V<sub>GS(off) </sub>= V<sub>P </sub>= -0.8V</li>
+</ul>
+</ol></ol>
+<p>Following once again the maths of the Tillman amp ID and VGS can be calculated:</p>
+<ol><ol>
+<ul>
+<li>I<sub>D</sub>=0.27</li>
+<li>V<sub>GS</sub>=0.27</li>
+<li>V<sub>D</sub>=8.4V</li>
+<li>A<sub>V</sub>=1=0dB.</li>
+</ul>
+</ol></ol>
+<p>The current in the Low Gain JFET amp is designed to be ideal (I<sub>DSS</sub>/2), and the V<sub>D</sub> point is intentionally shifted from the midpoint biasing, it will make the signal to clip in the positive semi-cycle easily. The LM386 does not need a high-level input so placing this amp/buffer before it, improves the sound quality.<strong><a name="input_impedance"></a></strong></p>
+
+<p><strong><a id="input_impedance"></a>Amplifier Input Impedance:</strong><br/>These JFETs have the advantage over bipolar transistors of having an extremely high input impedance along with a low noise output making them ideal for use in amplifier circuits that have very small input signals. <br/>The JFET input impedance can be considered infinite and only the value of the gate resistor (R<sub>1</sub>) will define the total value of it<br/>Z<sub>IN</sub>= ∞ // R<sub>1</sub> = R<sub>1</sub> = 1MΩ</p>
+<p>The rule of thumb is to interface the guitar to an input impedance that is at least 1MΩ, it will keep the signal uncorrupted as foundations for the next stages avoiding tone sucking.</p>
+
+<p><br/><strong>Tone Control</strong></p>
+<p>The passive tone control is Big Muff Pi style, following a classic simple and effective design that generates a great variety of tones.</p>
+<p><img alt="1wamp tone control circuit" class="article-img" src="images/1wamp/1wamp-tone-control.png"/><br/>This topology is a combination of a high pass filter (C<sub>1</sub>R<sub>5</sub>) and a low pass filter (R<sub>4</sub>C<sub>2</sub>) that are mixed together by a linear potentiometer POT1. The cut-off frequencies of both filters are designed so that their interweaving effect introduces a middle-frequency scoop/notch at 800Hz (see the graph below) when the potentiometer is set to middle.</p>
+<ul>
+<li>High-Pass filter cut frequency <div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{5}\cdot (C_{1})}=\frac{1}{2\pi \cdot 22K \cdot 6.8nF}=1064Hz\]</div></li>
+<li>Low-Pass filter cut frequency <div>\[f_{c}=\frac{1}{2\pi R C}=\frac{1}{2\pi \cdot R_{4}\cdot (C_{2})}=\frac{1}{2\pi \cdot 47K \cdot 10nF}=338Hz\]</div></li>
+</ul>
+<p><strong>1Wamp Tone Control Frequency Response: </strong> <br/>Find below the frequency response, showing from blue to red all values of the tone potentiometer:</p>
+<p><img alt="1wamp tone control frequency response" class="article-img" src="images/1wamp/1wamp-tone-control-frequency-response.png"/><br/>The green response line has the tone pot set at mid point showing the 800Hz scoop. There is an overall 7dB loss and at the notch the loss is about -10dB in total at 800Hz. The blue and red colour curves have the tone at full bass/treble respectively.</p>
+<p>There are some tips using BMP based tone controls:</p>
+<ul>
+<li>To play clean sounds, the best is to use the pot more to the side of the treble, it will attenuate overloading bass signals and the resulting sound will be more sparkly and clean.</li>
+<li>To play rock/hard/metal any position is good, the distortion will be more metal-heavy on the bass side and more punk-fast on the treble.</li>
+</ul>
+
+<p><br/><strong>JFET Booster Stage.</strong><br/> </p>
+<p>This second JFET stage is identical to the first one, it is designed primarily to recover the volume loss of -7dB during the passive tone stack and to introduce more harmonic content to boost the tube sound.</p>
+<p><img alt="1wamp jfet booster circuit." class="article-img" src="images/1wamp/1wamp-jfet-booster.png"/></p>
+<p>R<sub>6</sub>, R<sub>7</sub>, and R<sub>8</sub> are the gate, source and drain resistors. Their functionality is exactly the same as the R<sub>1</sub>, R<sub>2</sub> and R<sub>3</sub> resistors in the Input Stage. If you want to learn more about these resistors and how to calculate them check the <a href="#input">Input Stage section.</a></p>
+
+<p><strong>LM386 Aux/mp3 input </strong><br/>This auxiliary input mixes the guitar signal with an additional line-level input from a laptop/mp3/music player just before the power amplifier. Doing this it is easy to practice with backing tracks, metronomes or drum bases.</p>
+<ul>
+<li><img alt="1wamp lm386 mp3 aux input" class="article-img" src="images/1wamp/1wamp-lm386-mp3-aux-input.png"/>R<sub>9</sub> and R<sub>10 </sub>resistors in series with the aux input prevent signal mixing problems while adjusting for differences in input strength between the line in and pre-amplified guitar signal. Any value between 10KΩ and 33KΩ will work without problems.</li>
+</ul>
+<ul>
+<li>C<sub>12</sub> is a 100nF capacitor, placed to reduce any hum or interference that the input mini jack can catch if nothing is connected to it. <br/></li>
+</ul>
+<p>An Aux/MP3 player is a low-impedance source. Placing a buffer in this input would be perfect (adding circuit complexity), but you may be able to work without them.<br/><br/> The LM386 has a 50K input impedance, so using summing resistor of any more than 50k is not ideal as the input voltage would be cut in half when using a 50k resistor (neglecting the booster stage impedance). <br/></p>
+<p>The volume of the aux input is adjusted from the external device, for circuit simplicity, there are not pot to reduce the input level. Note also that the mp3/aux input is directly fed into the LM386 and using high distortion levels the aux input might suffer some distortion. This is the little price to pay for having a simple and practical direct input.</p>
+<p><br/>Additionally, this input can also be used to connect a second guitar or a bass guitar with a jack to mini-jack adapter.<br/></p>
+<p><img alt="jack to minijack adapter" class="article-img" src="images/1wamp/jack-to-minijack-adapter.jpg"/></p>
+<h2><strong>LM386 Power Amplifier Stage.</strong></h2>
+<p>The main power amplifier stage is based on the LM386 audio integrated amplifier. It is a popular choice for low powered guitar amplifiers due to its low quiescent current and ability to run on 9V. It has been used in a lot of popular amps like the <a href="smokey-amp-analysis.html">Smokey Amp</a>, the <a href="little-gem-analysis.html">Little Gem</a>, the <a href="ruby-amp-analysis.html">Ruby Amp</a>, the Marshall MS-2 and the <a href="noisy-cricket-analysis.html">Noisy Cricket</a>.</p>
+<p><img alt="1wamp lm386 power amplifier circuit" class="article-img" src="images/1wamp/1wamp-lm386-power-amplifier.png"/></p>
+
+
+<ul>
+<li>C<sub>4</sub> is a 47nF input capacitor, it prevents any DC voltage being presented to the amplifier's input. It also affects the circuit's bass response, changing this value to a higher capacitance (100nF) will make it more bassy but also more muddy, values from 22 to 47nF sound great.</li>
+<li>The POT2 functionality is explained in the <a href="#volume_control"><em>Volume Potentiometer</em> section.</a></li>
+</ul>
+<ul>
+<li>R<sub>11</sub> resistor is placed for the mp3/aux input which is connected to the same point as the TP4 (Test Point 4). If the POT2 is maxed down, the input of the LM386 will be grounded and the aux/mp3 signal won't be amplified. Connecting this series resistor a minimum load is always guaranteed for the auxiliary input.</li>
+</ul>
+<ul>
+<li>The POT3 and R<sub>16</sub> functionality are described in the <a href="#gain_control"><em>Gain Potentiometer</em> section.</a></li>
+</ul>
+<ul>
+<li>The C<sub>5</sub> capacitor from pin 7 to ground avoids the power supply noise to be amplified and reach the output. In this way, the high-gain input stage of the chip is isolated from the supply noise hum, transients, etc.</li>
+</ul>
+<ul>
+<li>R<sub>12</sub> and C<sub>6</sub> form the Zobel Network, its function is to make the power stage more stable removing oscillation, the values used, 10Ω and 47nF are standard because this network is aimed to compensate the load (speaker or headphones), not the amplifier, and the load is normally generic in audio amplifiers. The resistor is chosen to equal the nominal resistance (32Ω, 8Ω, 4Ω, etc.)
+<ul>
+<li>The capacitor is calculated using C= Le/R2, where Le= inductance of speaker's coil. </li>
+<li>The physical location of this components is critical, they should be placed as close as possible to the chip, in some occasions Zobels mounted careless around the PCB cause oscillation. With the LM386, the best values are a 10 and a 47nF, they give the smoother distortion, raising the values of the R or the C will make the distortion more crispy and rough.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>R<sub>13</sub> will reduce the volume for the headphones, any value between 300Ω and 1KΩ will work, the higher the value the lower the volume at the headphones. This output attenuator formed by the SW1, C<sub>7</sub>, C<sub>8</sub>, and R<sub>13</sub> is detailed in the <a href="#attenuator"><em>LM386 Output Attenuator</em> section.</a></li>
+</ul>
+
+<h3><a name="volume_control"></a><strong>Volume Potentiometer.</strong></h3>
+<p>The POT2 Volume potentiometer limits the amount of signal into the LM386. As the Volume is increased, you will start getting nice breakup. <br/></p>
+
+<h3><strong><a name="gain_control"></a>Gain Potentiometer.</strong><br/></h3>
+<p><strong>Why POT3 and R16 are mounted in parallel? </strong> <br/>The range of values of PCB mounted potentiometers on the market is limited, finding 1KΩ pots with the correct footprint and shaft length could be difficult. Placing 50K potentiometer (easy to find) and 1KΩ simple resistor in parallel will create a 1KΩ potentiometer:</p>
+<ul>
+<li>With the POT3 at max (50K): 50KΩ//1KΩ= (50Kx1K)(50K+1K)= 0.98KΩ = 1KΩ approx</li>
+<li>With the POT3 at min (0K): 50KΩ//1KΩ= ( 0Kx1K)( 0K+1K)= 0</li>
+</ul>
+<p>The resulting potentiometer will be logarithmic instead of linear, but with a high gain amp like this, it is not bad to have a more sensitive pot in the first half of the potentiometer. However, if you are able to find a 1K potentiometer you can place it instead of the parallel combination.</p>
+
+<p><strong>LM386 Voltage Gain Calculation </strong> </p>
+<p>The potentiometer (1K as explained above) placed between pins 1 and 8 to adjust the gain from 41 (28dB) to 200 (46db) following the general LM386 voltage gain formula taken from the datasheet:</p>
+<p><img alt="" class="article-img" src="images/1wamp/gif.latex"/></p>
+<p><img alt="" class="article-img" src="images/1wamp/gif.latex"/></p>
+<p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15KΩ and Z<sub>1-8</sub> is 1.35KΩ.</p>
+<p>If you want to read more about how to calculate the voltage gain, you can read the <a href="ruby-amp-analysis.html#link13">Voltage Gain Calculation in the Ruby Amp</a>.</p>
+
+<h3><a name="attenuator"></a><strong>LM386 Output Attenuator.</strong><br/></h3>
+<p>The output power of the LM386 is too high for a pair of headphones. An average pair of headphones only need 1mW (into 32Ω) for a reasonable good volume. Depending on the LM386 model, it is able to deliver up to 1000mW (1W), so in order to reduce this output power below the threshold of pain, a series resistor is placed. This auxiliary load will take part of the power giving to the headphones the right amount of it.<br/></p>
+<p>Frequency response of the output attenuator:</p>
+<p><img alt="LM386 output attenuator signals" class="article-img" src="images/1wamp/1wamp-attenuator-signals.png"/></p>
+<p>Placing an output attenuator will modify the frequency response, reducing the amount of bass into the headphones.</p>
+<ul>
+<li>Without attenuator (purple plot above): There is a low pass filter formed by C<sub>7</sub> (220uF) and the speaker load (let's consider it as 8Ω driver), the cut-frequency is 90Hz (calculated as fc=1/(2πRC)), harmonics below 90HZ will be attenuated. Guitar signals do not have much content at that frequencies and also rolling off the bass helps small speakers from farting out. In fact, if you have a small speaker and it farts you should reduce this cap to something like 47-100uF (rolling the bass around 400Hz).</li>
+<li>With attenuator (blue and red plots above): The extra resistor in series and the load (32Ω headphones ) will roll off the bass below the audible frequencies. For this series resistor, any value between 300Ω and 1KΩ will reduce the volume to an acceptable level to most headphones. Some people use just a 10Ω resistor but from my experience, the volume is still too high. </li>
+</ul>
+<p><br/><strong><a name="clipping"></a>LM386 Clipping - Overdrive - Distortion: </strong> <br/>Two types of clipping/distortion and a combination of them can be archived with an LM386 power amplifier:</p>
+<ul>
+<li>Clipping at the output of the LM386 by reaching the limits of the output voltage swing: In this circuit, the LM386 has always minimum gain of 41 (32dB), the output will clip if the signal reaches 8Vpeak-to-peak using a 9V power supply.</li>
+</ul>
+<p>The maximum input voltage that will make the output clip is 8Vpp/41=195mVpp, any voltage over this level will clip the output creating distortion tones. The Volume potentiometer (POT3) is placed to attenuate the incoming signal below this 195mVpp (clean tones) or over it (crunch-distortion).</p>
+<ul>
+<li>Clipping at the input of the LM386 by the overload of the IC input limits: The LM386 has an input voltage limits of ±0.4V (listed in the datasheet). If the input signal goes even higher over ±0.4V the input stages of the LM386 will saturate creating even more distorted sounds.</li>
+</ul>
+
+<h2><a name="layout"></a><strong>1Wamp Layout.</strong></h2>
+<p>The design and layout of the power supply in audio circuits with a pre-amp and power-amplifier stages is critical. If the power from the battery/adapter jack is given to the circuit following a wrong path, the noise of the power-amp could be added to the pre-amp stage, resulting in a positive feedback and creating noise or oscillation commonly called <em>motor-boating</em>. To avoid this, the power should be connected following this block diagram:</p>
+<p><img alt="audio amplifier power supply architecture" class="article-img" src="images/1wamp/power-supply-architecture.png"/></p>
+<p>Rules to minimize noise in audio circuits:</p>
+<ul>
+<li>Place a CRC network (low-pass filter) between the power-amp and the pre-amp. This is something that <a href="https://www.google.co.uk/search?q=marshall+jtm45+schematic&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0CAcQ_AUoAWoVChMI48L0_pb3xgIVx9UUCh1iqAXN&amp;biw=1525&amp;bih=734&amp;dpr=0.9" rel="noopener noreferrer" target="_blank">has been there for decades</a>, if you check any old Marshall/Fender valve amplifier schematic you will spot a CRC between the power valves and the pre-amplifier (usually a 10K resistor and a cap of tens to hundreds of farads)</li>
+<li>Place filter capacitors close to the part to be decoupled.</li>
+<li>Keep power and GND traces away from noise sources or critical components.</li>
+<li>Route the power and GND traces as thick as possible.</li>
+</ul>
+<p><strong>Star grounding:</strong> Ground is the common reference potential, commonly determined to be zero volts. This ground is the shared return path from the power supply to all the stages of the circuit.</p>
+<ul>
+<li>Connecting the blocks of the circuit to ground in series will work, but a small voltage drop will be created in the ground signal due to the high currents and the (small) resistance of the ground track. The input stage is very sensitive to common noise introduced through the ground line, this noise could be added to the input signal and in the worst case create oscillation/positive feedback.</li>
+<li>Connecting the blocks of the circuit in parallel finishing in a single point (star) the ground variances and interferences between parts is minimized.</li>
+</ul>
+<p><img alt="1wamp star ground " class="article-img" src="images/1wamp/1wamp-star-ground-render.png"/></p>
+<p>In the above image the center of the star ground is indicated, from this all the green ground tracks for the different subsystems (input jack, led, input stage, tone control, booster, power amp, output jack). These tracks flow in parallel and with similar lengths minimizing common noise.</p>
+
+<h2><a name="bias"></a><strong>1Wamp Bias Points and Signals:</strong><br/></h2>
+<p>The most important DC bias points of the 1Wamp are shown. It can be useful for troubleshooting:<br/></p>
+<p><img alt="1wamp bias points" class="article-img" src="images/1wamp/1wamp-schematic-bias-points.jpg"/></p>
+<p>note: Your values should be all shifted a bit up or down, depending on your power supply levels. For this graph, Vcc is ideal and equal to 9V.</p>
+<p>- To get this voltage values, the POT1 (Tone) is in mid position, POT2 (Vol) is at maximum value and POT3 (Gain) is at the minimum value.<br/>- V<sub>D1</sub> voltage is slightly lower than the calculated in the Tillman pre-amp section (7.8 VS 7.4). This is due to the loading of the tone control.<br/><br/></p>
+<h2><strong>1Wamp Signals:</strong></h2>
+<p>Using an oscilloscope the most important points of the amplifier are measured: input signal (TP1), after the first JFET stage (TP2), after the tone control (TP3), after the second JFET stage - input of LM386 (TP4) and output signal.</p>
+<p>These waveforms were taken using different JFET topologies: with 2 Tillman JFETS, with 2 Fetzer Valves, and with 2 Low Gain JFETs:</p>
+<p><img alt="1wamp signals tillman" class="article-img" src="images/1wamp/1wamp-signals-tillman.png"/></p>
+<ul>
+<li>The signals above shows the amplification and waveforms at all the test points (TP) of the circuit using a Tillman topology in both transistor amplifiers. 
+<ul>
+<li>The input stage has a gain of 4dB approx, slightly reduced from the calculated in the Input Stage section due to the loading of the Tone Stage and the real parameters of the JFET. </li>
+<li>The Tone Control reduces the amplitude of the signal -10dB at 1KHz as expected and the last amplifier stage gives again 4dB of Gain. </li>
+<li>The last two graphs show the output of the amplifier when the gain is set to its minimum and maximum value. This output signal goes from clean to clipping giving a nice range of action and sounds.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="1wamp signals fetzer valve" class="article-img" src="images/1wamp/1wamp-signals-fetzer-valve.png"/></p>
+<ul>
+<li>The images above show the signal of the circuit using the Fetzer Valve topology in both transistor amplifiers. In general, this circuits gives more gain than the Tillman, resulting in a higher and more clipped output signal. 
+<ul>
+<li>The input stage has a gain of 11dB approx, slightly reduced from the calculated in the Input Stage section due to the loading of the Tone Stage and the real parameters of the JFET. </li>
+<li>The Tone Control reduces the amplitude of the signal -10dB at 1KHz as expected and the last amplifier stage gives again 11dB of Gain. </li>
+<li>The last two graphs show the output of the amplifier when the gain is set to its minimum and maximum value. This output signal goes from clipped to supper-clipped being perfect for overdriven tones and hard rock sounds.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="1wamp signals jfet low gain" class="article-img" src="images/1wamp/1wamp-signals-jfet-low-gain.png"/></p>
+<ul>
+<li>The images above show the signal of the circuit using the JFET Low Gain topology in both transistor amplifiers. In general, these circuits give less gain than the Tillman, resulting in a range of clean and light asymmetric overdriven tones. 
+<ul>
+<li>The input stage has a gain of 0dB, the Tone Control reduces the amplitude of the signal -10dB at 1KHz as expected and the last amplifier stage gives again 0dB of Gain. </li>
+</ul>
+</li>
+</ul>
+<p>It might seem that the guitar signal at the input of the LM386 is too low (63mVpp) but it's not a problem, the LM386 does not require high-level waveforms at its input, in fact, signals over 195mVpp will be clipped as seen in the Clipping Section.</p>
+<p>The last two graphs show the output of the amplifier when the gain is set to its minimum and maximum value. The output signal goes from clean to light asymmetric overdrive.</p>
+
+<p>note:</p>
+<p>- For all the images, the input signal is a 1KHz sinusoid with 200V<sub>PP</sub>, comparable with an average guitar signal.<br/>- The POT1 (Tone) is set to mid, the POT2 (VOL) gain to max and the POT3 (Gain) varies from min to max in the last 2 images. <br/></p>
+
+<h2><a name="bom"></a><strong>1WAmp Bill of Materials / Part List:</strong></h2>
+<p>The components for the 1Wamp are easy-to-find through-hole parts with the minimum number of references. There is plenty of alternatives and replacement parts although the J201 JFET is a bit tricky.<br/></p>
+<p>Find below the complete bill of materials, with <a href="http://eu.mouser.com/" rel="noopener noreferrer" target="_blank">mouser</a>/<a href="http://www.farnell.com/" rel="noopener noreferrer" target="_blank">farnell</a> references and alternatives:</p>
+<div class="table-scroll"><table border="0" cellspacing="0" frame="VOID" rules="NONE"><colgroup><col width="145"/><col width="37"/><col width="100"/><col width="481"/><col width="156"/><col width="146"/></colgroup>
+<tbody>
+<tr>
+<td height="24" width="145"><strong></strong></td>
+<td width="37"><strong></strong></td>
+<td width="100"><strong></strong></td>
+<td width="481"><strong>1Wamp Bill of Materials</strong></td>
+<td width="156"><strong></strong></td>
+<td width="146"><strong></strong></td>
+</tr>
+<tr>
+<td height="20"><strong>Reference</strong></td>
+<td><strong>Qty</strong></td>
+<td><strong>Value</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Mouser</strong></td>
+<td><strong>Farnell</strong></td>
+</tr>
+<tr>
+<td height="20"><strong>Capacitors</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">C1</td>
+<td>1</td>
+<td>6.8n</td>
+<td>CAP, FILM, PET, 6.8NF, 100V, RAD</td>
+<td>R82EC1680Z350J</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">C2</td>
+<td>1</td>
+<td>10n</td>
+<td>CAP, FILM, PET, 0.01UF, 100V, RAD</td>
+<td>R82EC2100DQ50J</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">C3,C4,C6</td>
+<td>3</td>
+<td>47n</td>
+<td>CAP, FILM, PET, 0.047UF, 100V, RAD</td>
+<td>R82EC2470DQ60J</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">C5,C11,C12</td>
+<td>3</td>
+<td>100n</td>
+<td>CAP, FILM, PET, 0.1UF, 100V, RAD </td>
+<td>R82EC3100DQ70J</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">C7,C8,C9,C10</td>
+<td>4</td>
+<td>220uF</td>
+<td>Aluminum Electrolytic Capacitor 16V</td>
+<td>REA221M1CBK-0811P</td>
+<td></td>
+</tr>
+<tr>
+<td height="20"><strong>Resistors</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">R12</td>
+<td>1</td>
+<td>10R</td>
+<td>TH Metal Film, 10R, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 10R</td>
+</tr>
+<tr>
+<td height="20">R13,R15,R16</td>
+<td>3</td>
+<td>1K</td>
+<td>TH Metal Film, 1K, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 1K</td>
+</tr>
+<tr>
+<td height="20">R3,R8</td>
+<td>2</td>
+<td>2K2</td>
+<td>TH Metal Film, 2.2K, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 2K2</td>
+</tr>
+<tr>
+<td height="20">R2,R7,R11</td>
+<td>3</td>
+<td>6K8</td>
+<td>TH Metal Film, 6.8K, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 6K8</td>
+</tr>
+<tr>
+<td height="20">R5,R9,R10,R14</td>
+<td>4</td>
+<td>22K</td>
+<td>TH Metal Film, 22K, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 22K</td>
+</tr>
+<tr>
+<td height="20">R4</td>
+<td>1</td>
+<td>47K</td>
+<td>TH Metal Film, 47k, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 47K</td>
+</tr>
+<tr>
+<td height="20">R1,R6</td>
+<td>2</td>
+<td>1M</td>
+<td>TH Metal Film, 1M, 1/4W, ±1%</td>
+<td></td>
+<td>MF25 1M</td>
+</tr>
+<tr>
+<td height="20">Pot1,Pot2,Pot3</td>
+<td>3</td>
+<td>50K</td>
+<td>Potentiometers 9MM 50K V/ADJ </td>
+<td></td>
+<td>RK09D113000D</td>
+</tr>
+<tr>
+<td height="20"><strong>Connectors</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">CON1, CON3</td>
+<td>2</td>
+<td>6.35 jack</td>
+<td>Neutrix 1/4 ST Chrome Conn PCB <br/></td>
+<td>NMJ6HCD2</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">CON2</td>
+<td>1</td>
+<td>3.5 jack</td>
+<td>Jack 3.5 mm st - CLIFF 4 POLE, PCB<br/></td>
+<td></td>
+<td>FC68125</td>
+</tr>
+<tr>
+<td height="20">CONN4</td>
+<td>1</td>
+<td>2.1 jack</td>
+<td>DC Power Conn 2.0mm PCB Jack</td>
+<td>KLDX-0202-AP-LT</td>
+<td>MJ-179PH </td>
+</tr>
+<tr>
+<td height="20"><strong>Others</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">D1</td>
+<td>1</td>
+<td>1N5817</td>
+<td>Schottky Diodes Vr/20V Io/1A</td>
+<td>1N5817</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">D2</td>
+<td>1</td>
+<td>LED</td>
+<td>Standard LED - TH 3MM LED WHITE </td>
+<td>VLHW4100</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">D3,D4</td>
+<td>2</td>
+<td>1N4733A</td>
+<td>Zene Diode 5.1V 1W ZENER </td>
+<td>1N4733A</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">8pin dip socket</td>
+<td>1</td>
+<td>8Pin socket</td>
+<td>IC Sockets 8P DUAL </td>
+<td>4808-3000-CP</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">Q1,Q2</td>
+<td>2</td>
+<td>J201</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">Plastic Knobs</td>
+<td>3</td>
+<td>6.35mm knob</td>
+<td>Knob 6.35 mm shaft size.</td>
+<td>450-2023-GRX</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">SW1</td>
+<td>1</td>
+<td>toggle switch</td>
+<td>Toggle 3-Pin SPDT ON-ON</td>
+<td>612-100-A1111 </td>
+<td></td>
+</tr>
+<tr>
+<td height="20">9V Battery Conn.</td>
+<td>1</td>
+<td>Battery Clip</td>
+<td>9V Battery Contacts 26AWG </td>
+<td>121-0526/I-GR</td>
+<td></td>
+</tr>
+<tr>
+<td height="20">U1</td>
+<td>1</td>
+<td>LM386</td>
+<td>Audio Amplifier</td>
+<td>LM386N-4/NOPB</td>
+<td></td>
+</tr>
+<tr>
+<td height="20"><strong>Mechanical</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">PCB</td>
+<td>1</td>
+<td>1Wamp PCB</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">Plexiglas Cover</td>
+<td>2</td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">Nylon Spacer</td>
+<td>4</td>
+<td>m3x16</td>
+<td>Spacers M3 x 16mm nylon</td>
+<td>R30-1611600</td>
+<td></td>
+</tr>
+<tr>
+<td height="21">M3x12 screws</td>
+<td>8</td>
+<td>-</td>
+<td></td>
+<td></td>
+<td>M310-PRSTMCZ100</td>
+</tr>
+<tr>
+<td height="20">Batt. optional clips</td>
+<td>2</td>
+<td>-</td>
+<td>4.8X0.5MM </td>
+<td></td>
+<td>TAB38250568</td>
+</tr>
+<tr>
+<td height="20"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20"><strong>* Additional Comp.</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td height="20">R2, R7</td>
+<td>2</td>
+<td>10K</td>
+<td>TH Metal Film 10K, 250 mW, ± 1%</td>
+<td></td>
+<td>MF25 10K</td>
+</tr>
+<tr>
+<td height="20">R3, R8</td>
+<td>2</td>
+<td>1K</td>
+<td>TH Metal Film, 1K 250 mW, ± 1%</td>
+<td></td>
+<td>MF25 1K</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>*Additional components:</strong> The additional 2x10K and 2x1K will allow you to configure the JFET Stages as you like so you can choose between the J201 Tillman pre-amp (default),  the J201 Fetzer Valve or the J201 Low Gain Fet. The difference between them is the amount of gain that they introduce (5.9dB, 14dB, and 0dB respectively). You can find more info in the JFET Input Stage section.</p>
+
+<p><strong>Capacitors: Electrolitics, Film, Ceramics ...?</strong></p>
+<p>For big values (&gt;1uF) use aluminum electrolytic, for medium size (1nF - 1uF) use Film and for small values (&lt;1nF) use ceramics. If you are not sure about using ceramics or film somewhere go for film; film capacitors are generally preferred over ceramics in audio path applications. There is a great article about capacitors for audio by BeavisAudio.</p>
+<h2><a name="references"></a><strong>References:</strong></h2>
+<p><a href="http://www.runoffgroove.com/fetzervalve.html" rel="noopener noreferrer" target="_blank">Fetzer Valve Amplifier</a> by RunoffGroove.<br/><a href="http://www.till.com/articles/GuitarPreamp/" rel="noopener noreferrer" target="_blank">Tillman Amplifier</a> by Donald Tillman.<br/><a href="http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Guitar Amplifiers</a>, the Holy Scripture.<br/><a href="http://www.kennethkuhn.com/students/ee351/jfet_basics.pdf" rel="noopener noreferrer" target="_blank">JFET Basics</a> by Kenneth A. Kuhn<br/><a href="http://www.electronics-tutorials.ws/amplifier/amp_3.html" rel="noopener noreferrer" target="_blank">Common Source JFET Amplifier</a> by Electronic Tutorials.<br/><a href="http://www.rason.org/Projects/jfetamp/jfetamp.htm" rel="noopener noreferrer" target="_blank">JFET Preamplifier Circuits</a> by Mike Martell.<br/><a href="smokey-amp-analysis.html">Smokey Amplifier</a> by ElectroSmash.<br/><a href="ruby-amp-analysis.html">Ruby Amplifier</a> by ElectroSmash.<br/><br/></p>
+<p><strong>Spice model for the J201 JFET Transistor:</strong></p>
+<p>* J201 with VGSoff=-0.8V and IDSS=0.6mA<br/>.MODEL J201 NJF (VTO=-0.8 BETA=0.9375M LAMBDA=2M IS=114.5F RD=1 RS=1<br/>+ CGD=4.667P CGS=2.992P M=.2271 PB=.5 FC=.5 VTOTC=-2.5M BETATCE=-.5<br/>+ KF=604.2E-18)</p>
+<p>If you want a JFET with a certain value of VGSoff and IDSS, just change the model so:</p>
+<p>VTO = VGSoff<br/>BETA = IDSS / (VGSoff^2)</p>
+<p>All credits <a href="http://www.diystompboxes.com/smfforum/index.php?topic=71466.0" rel="noopener noreferrer" target="_blank">to stm in diystompboxes.com</a></p>
+
+<p><strong>Spice model for the 2N5457 JFET Transistor:</strong></p>
+<p>* 2N5457 with VGSoff=-1.6V and IDSS=3.3mA<br/>.MODEL 2N5457 NJF (VTO=-1.6 BETA=1.29M LAMBDA=2M RD=1 RS=1 CGD=6E-12<br/>+ CGS=2.25E-12 KF=6.5E-17 AF=0.5)</p>
+
+<p><strong>Spice model for the MPF102 JFET Transistor:</strong></p>
+<p>* MPF102 with VGSoff=-2.5V and IDSS=6mA<br/>.MODEL MPF102 NJF (VTO=-2.5 BETA=0.96M LAMBDA=5M RD=1 RS=1 CGD=1.54248P<br/>+ CGS=2.567P PB=1.49 KF=7.90591F AF=499.953M)</p>
+
+<p>Thanks for reading, all feedback is appreciated  </p>
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p>
+
+ 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054721/https://www.electrosmash.com/1wamp" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%201Wamp%20Electroc%20Guitar%20Amplifier.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="pt2399-analysis.html">&larr; PT2399 Analysis</a>
+    <a class="prevnext" href="little-gem-analysis.html">Little Gem Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boss CE-2 Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Boss CE-2 Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Boss CE-2 Analysis</h1>
+
+<p>The Chorus Ensemble CE-2 is a chorus pedal by Roland/Boss released in 1979. It adds a dreamy modulated sound that creates a dramatic ambient guitar tone. </p>
+<p>After the great success of the bulky Chorus Ensemble CE-1 issued in 1976, which was based on the Roland Jazz Chorus JC-120 Amplifier integrated chorus effect, Boss decided to revise and release a similar sounding effect but in a compact size modifying the circuitry. The CE-2 builds on the legacy of the CE-1 with reduced features: mono output instead of stereo, no vibrato mode, no integrated power supply, no level and no intensity controls.</p>
+<p><img alt="boss-ce-2-pedal" class="article-img" longdesc="Boss CE-2 Pedal" src="images/boss-ce-2-analysis/boss-ce-2-pedal.png"/></p>
+<p>The CE-1 was designed more to be a multi-instrument effect, with a 50K low input impedance suitable for keyboards. The CE-2 has higher input impedance and boosted mid frequencies, both arrangements very suitable for electric guitars.<br/>Roland stopped marketing the CE-2 in 1982, however still produced until 1990. There are basically 3 versions of the pedal:</p>
+<ul>
+<li>Made in Japan - black label (1979-1984)</li>
+<li>Made in Japan - green label (1984-1988) </li>
+<li>Made in Taiwan - green label (1988-1991)</li>
+</ul>
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. The Chorus Effect.</a><br/>     <a href="#link11">1.1 Chorus Effect Architecture.</a><br/><a href="#link2">2. Roland/Boss CE-2 Circuit.</a><br/>     <a href="#link21">2.1 Boss CE-2 Layout.</a><br/>     <a href="#link22">2.2 Roland/Boss CE-2 Components Part List.</a><br/><a href="#link3">3. JFET Bypass Switch.</a><br/><a href="#link4">4. Power Supply.</a><br/>     <a href="#link41">4.1 Boss ACA vs. PSA Power Supply Adapters.</a><br/><a href="#link5">5. Input Buffer.</a><br/>    <a href="#link51"> 5.1 Boss CE-2 Input Impedance.</a><br/><a href="#link6">6. Pre-De Emphasis Filters.</a><br/>     <a href="#link61">6.1 Shelving Filters with Operational Amplifiers.</a><br/>          <a href="#link611">6.1.1 Inverting OpAmp shelving Filters.</a><br/>          <a href="#link612">6.1.2 Non-Inverting OpAmp shelving Filters.</a><br/>     <a href="#link62">6.2 Pre-Emphasis Filter.</a><br/>     <a href="#link63">6.3 De-Emphasis Filter.</a><br/><a href="#link7">7. Anti-Aliasing &amp; Reconstruction Filters.</a><br/>     <a href="#link71">7.1 The Sallen-Key Filter Topology:</a><br/>     <a href="#link72">7.2 Anti-Aliasing Filter.</a><br/>     <a href="#link73">7.3 Reconstruction Filter.</a><br/><a href="#link8">8. Bucket Brigade Device Stage.</a><br/>     <a href="#link81">8.1 Low-Frequency Oscillator.</a><br/><a href="#link9">9. Resources.</a><br/>     <a href="#link91">9.1 Datasheets.</a></p>
+
+
+<p><strong><a id="link1" name="link1"></a>1. The Chorus Effect</strong></p>
+<p>The <em>Chorus</em> or <em>Celeste</em> effect was integrated into Hammond organs since the 1940s. Some early stand-alone stompboxes like Vibra-Chorus and Uni-Vibe by Shin-Ei were released in 1960s, creating some degree of phase shifting or chorus modulation.</p>
+<p>As a matter of fact, the Roland/Boss CE-1 Chorus Ensemble taken from the JC-120 amp circuit is renowned as the <em>Mother of Chorus</em>, being the standard for the modern chorus sound. The CE-2 follows the same tonal response.</p>
+<h2><a id="link11" name="link11"></a><strong>1.1 Chorus Effect Architecture.</strong></h2>
+<p>The chorus is a delay based effect: the resulting sound is a mix of the original input signal and the incoming audio run through a BBD delay time device:<br/><img alt="Boss CE-2 Architecture" class="article-img" longdesc="Boss CE-2 Architecture" src="images/boss-ce-2-analysis/boss-ce-2-architecture.PNG"/></p>
+<p>Before and after the BBD delay action, there are some stages needed to avoid signal degradation: Pre/De-Emphasis and Anti-Aliasing/Reconstruction filters.</p>
+<p>The amount of delay to be applied is modulated by an LFO (Low-Frequency Oscillator). The usual delay times are around 5 to 50ms and LFO oscillating frequencies are up to 20Hz.</p>
+<p>The most used LFO waveforms are sine and triangle:</p>
+<ul>
+<li>The sine waveform produces a very smooth sound as the pitch is constantly changing.</li>
+<li>The triangle LFO only produces two pitches and the change between the pitches is sudden. CE-2 uses triangle LFO waveforms.<img alt="chorus-oscillation" class="article-img" longdesc="chorus-oscillation" src="images/boss-ce-2-analysis/chorus-oscillation.png"/></li>
+</ul>
+<p>The common controls in chorus pedals are:</p>
+<ul>
+<li><strong>Modulation Rate/Speed/Period: </strong>Adjusts the LFO frequency in the hertz region (range of the natural human vibrato).</li>
+<li><strong>Delay:</strong> Adjusts the amount of delay to be applied to the modulated signal.</li>
+<li><strong>Depth/Modulation Range:</strong> Adjusts the amount of modulation to be applied to the delay time.</li>
+<li><strong>Mix</strong>: Adjusts the blend between the original dry and modulated wet signals.</li>
+<li><strong>Stereo Option</strong>: Some designs include stereo output that creates richer chorus and a wider stereo image. There are several possibilities:
+<ul>
+<li>Some pedals (Boss CE-1) have two outputs: A dry output with no effect, and the wet output where the signal is modulated. Hearing both signals together the chorus effect is created.</li>
+<li>Some pedals (Boss CE-3) have two outputs: on one side it adds the wet effected signal to the dry signal, and on the other side it subtracts the effected signal from the dry signal. </li>
+<li>Another approach is to generate a double wet output signal, using two independent delays which share the same LFO (Low-Frequency Oscillator) but modulated 180 degrees out of phase. </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Vibrato Option:</strong> In this mode, only the dry signal is eliminated, keeping only at the output the wet modulated signal.</li>
+</ul>
+<h2><a id="link2" name="link2"></a><strong>2. Roland/Boss CE-2 Circuit.</strong></h2>
+<p>The CE-2 schematic can be broken down into some simpler blocks: JFET Bypass Switch, Power Supply, Input Buffer, Pre-De Emphasis Filters, Anti-Aliasing &amp; Reconstruction Filters and Bucket Brigade Device Stage. </p>
+<p><img alt="Boss CE-2 Schematic Blocks" class="article-img" longdesc="Boss CE-2 Schematic Blocks" src="images/boss-ce-2-analysis/boss-ce-2-schematic-parts.png"/>Note: The components are labeled following the original Roland/Boss PCB numeration.</p>
+<p>The circuit is designed around the MN3007 1024 stage BBD (IC3) and the MN3101 clock driver (IC4). The input and output circuits use the dual op-amp uPC4558C IC, while the LFO is implemented with the help of a TL022LP op-amp. Some additional active filtering is applied using Sallen-Key transistor stages. <br/>The effect response is commanded using two controls:</p>
+<ul>
+<li>The Rate knob adjusts the frequency of the LFO generator, adjusting the vibrato pitch.</li>
+<li>The Depth potentiometer sets the amplitude of the LFO triangular signal, which is related to the amount of modulation.</li>
+</ul>
+<h3><a id="link21" name="link21"></a><strong>2.1 Boss CE-2 Layout.</strong></h3>
+<p>The printed circuit board is designed to tightly fit into the standard boss enclosure:</p>
+<p><img alt="Boss CE-2 Layout" class="article-img" longdesc="Boss CE-2 Layout" src="images/boss-ce-2-analysis/boss-ce2-layout.png"/></p>
+<p>It is a single layer PCB with insertion components. The top of the board contains all the pads to attach the cables to be connected to the jack connectors, potentiometers, and the footswitch.</p>
+<h3><a id="link22" name="link22"></a><strong>2.2 Roland/Boss CE-2 Components Part List / Bill of Materials:</strong></h3>
+<p>In the first row the quantity of items are shown, the values of the capacitors are in micro farads.<br/></p>
+<p>2    C1,C28:    0.047<br/>1    C2:    0.47/50V<br/>2    C3,C15:    0.0068<br/>2    C4,C16:    100pF<br/>3    C5,C10,C14:    0.033<br/>2    C6,C11:    0.0033<br/>2    C7,C12:    0.0082<br/>2    C8,C13:    470pF<br/>2    C9,C17:    1/50V<br/>1    C18:    47/6.3V<br/>1    C19:    0.1<br/>1    C21:    0.01uF<br/>1    C22:    47pF<br/>1    C23:    0.01<br/>4    C24,C25,C26,C27:    470p<br/>1    C29:    100/16V<br/>1    C30:    220/10V<br/>5    D1,D3,D4,D5,D8:    1S1588<br/>1    D2:    IS1588<br/>1    D6:    RD5.1EB<br/>1    D7:    RD11EB<br/>1    Foot Switch   <br/>2    IC1:    4558<br/>2    IC2:    TL022<br/>1    IC3:    MN3007<br/>1    IC4:    MN3101<br/>2    JACK OUT, JACK IN <br/>1    POWER CONN<br/>3    Q1,Q2,Q3:    BC239BP/ZTX<br/>5    Q4,Q5,Q6,Q7,Q8:    2SC945<br/>1    Q9:    2SK30A<br/>2    R1,R42:    1K<br/>1    R2:    470K<br/>14   VR3,R3,R5,R7,R9,R10,R11,R12,R16,R17,R18,R19,R23,R31: 10K<br/>6    R4,R6,R21,R22,R24,R30:    47K<br/>6    VR1 RATE,VR2 DEPTH,R8,R26,R45,R46:    100K<br/>5    R13,R27,R28,R36,R37:    4K7<br/>5    R14,R43,R44,R47,R48:    56K<br/>1    R15:    330K<br/>5    R20,R32,R41,R49,R50:    1M<br/>1    R25:    470<br/>2    R29,R39:    33K<br/>1    R35:    220K<br/>1    R38:    150K<br/>1    R40:    2K7<br/>1    R51:    3K9<br/>1    R52:    33<br/>1    R53:    100<br/>1    SLP-135B    LED</p>
+
+<h3><a id="link23" name="link23"></a><strong>2.3 Boss CE-2 True Bypass Alternative:</strong></h3>
+<p>In the original CE-2 pedal when the effect deactivated, the input signal will always pass through the Input Buffer and the Pre/De-Emphasis filters, despite symmetric, they might add some coloring to the guitar tone.<img alt="Boss CE-2 True Bypass Schematic" class="article-img" longdesc="Boss CE-2 True Bypass Schematic" src="images/boss-ce-2-analysis/boss-ce-2-schematic-true-bypass.png"/></p>
+<p>Considering the fact that the input impedance of the CE-2 is low, around 407KΩ, it might result in the loading of the guitar pickups. As a rule of thumb, the input impedance should be at least 1 MΩ.</p>
+<p>For these reasons new CE-2 clones and old modded units, often include true bypass (<em>Triple Pole Double Throw</em> 3PDT switch) gives the cleanest possible path for the bypassed signal. It also carries other benefits like the number of components used in the pedal and using a light indicator and a power-on LED at the same time. </p>
+<h2><a id="link3" name="link3"></a><strong>3. JFET Bypass Switch.</strong></h2>
+<p>The JFET Bypass is made of one switch Q<sub>9</sub> and a toggle block formed by Q<sub>6</sub> and Q<sub>7</sub> to manage the switch. This configuration can activate/deactivate the effect using a simple push button. <br/><img alt="Boss CE-2 JFET Switch" class="article-img" longdesc="Boss CE-2 JFET Switch" src="images/boss-ce-2-analysis/boss-ce-2-jfet-switching.png"/><br/>The JFET Bypass Switch enables two possible toggle configurations: </p>
+<ul>
+<li>It can turn the effect on, activating the Q<sub>9</sub> BJT and allowing the wet signal to be taken into consideration by the output stage summing amplifier.</li>
+<li>It can turn the effect off, deactivating the Q<sub>9</sub> BJT and isolating the wet signal from the summing amplifier.</li>
+</ul>
+<p>The Boss/Roland pedals have similar switching setup to the Ibanez/Maxon. For a detailed information check the<a href="tube-screamer-analysis.html#switch"> Tube Screamer Switching Circuit.</a></p>
+<h2><a id="link4" name="link4"></a><strong>4. Power Supply.</strong></h2>
+<p>The Power Supply Stage provides the electrical power and bias voltage to all the circuitry, the whole power consumption is low and estimated around 9mA:</p>
+<p><img alt="Boss CE-2 Power Supply" class="article-img" longdesc="Boss CE-2 Power Supply" src="images/boss-ce-2-analysis/boss-ce-2-power-supply.png"/><br/>- The diode D<sub>7</sub> protects the pedal against adapter reverse polarity connections.</p>
+<p>- The resistor voltage divider composed by R<sub>27</sub>, R<sub>28</sub>, and VR<sub>3</sub>), generates 4.5V to be used as a bias voltage in some stages. The resistors junction (+4.5V) is decoupled to ground with a large value electrolytic capacitor C<sub>18</sub> 47uF. The VR<sub>3</sub> potentiometer is able to finely trim the 4.5 voltage: sometimes due to the loading of all stages, the 4.5 voltage might suffer some offset, the BBDs are sensitive to the bias, adjusting VR3 will bring maximum clean headroom.</p>
+<p>- The circuit formed by C<sub>29</sub>, R<sub>52</sub> and C<sub>30</sub> is a Pi CRC second order low pass filter, with an attenuation roll-off of –40 dB/decade over the cut-off frequency (22Hz). The 9V regulated line will bring the supply for the Bucket Brigade Stage, rejecting high-frequency harmonics which are especially harmful in BBDs signal processing due to the clocking noise of the MN3101 clock driver.</p>
+<p><img alt="boss-ce-2-power-supply-crc-filter" class="article-img" longdesc="boss-ce-2-power-supply-crc-filter" src="images/boss-ce-2-analysis/boss-ce-2-power-supply-crc-filter.png"/></p>
+<ul>
+<li>The stereo in jack is used as an on-off switch, switching the battery (-) terminal to ground when the guitar jack is connected.</li>
+</ul>
+<h3><a id="link41" name="link41"></a><strong>4.1 Boss ACA vs. PSA Power Supply Adapters.</strong></h3>
+<p>The early Boss products like CE-2 with reduced power consumption used the ACA adapters which provide unregulated 12VDC (unregulated means that the output voltage drops when current consumption exceeds the maximum capacity, which is 250mA). This pedal was originally designed for an external 12V ACA supply adapter. <br/>The series resistor R53 and diode D5 between the minus input on the power jack and ground are used to reduce the internal voltage supply. </p>
+<p>V = 12V -V<sub>F</sub> = 12V - 1.2V = 10.8V.</p>
+<p>With new products with higher power consumption, the PSA adapter was introduced which provides regulated 9VDC (regulated means that provide a constant voltage at any current under the max. capacity 200mA). This kind of adapter is the most common and used in all pedals nowadays.<br/><img alt="Boss PSA Adapter" class="article-img" src="images/boss-ce-2-analysis/boss-psa-adapter.jpg"/></p>
+<p>In order to make the old ACA pedals compatible, the resistor and diode can be removed and replaced with jumpers.</p>
+<p>The Daisy chain Trick: Powering the old CE-2 pedals designed for ACA 12VDC input with either a newer 9V ACA or PSA adapter will not work properly. The voltage drop over the resistor and diode will under-power the pedal making the power-on LED glow faintly. One easy solution is to use a daisy chain cable together with another standard pedal. The link between the two pedals will short the resistor-diode circuit and the pedal will receive full power.</p>
+<h2><strong><a id="link5" name="link5"></a>5. Input Buffer.</strong></h2>
+<p>The task of the Input Stage Buffer is to create a high input impedance so as to preserve signal integrity and avoid high-frequency signal loss. It is implemented with a plain Emitter Follower with unity voltage gain (G<sub>V</sub>=1):<br/><img alt="boss ce 2 input buffer" class="article-img" longdesc="boss ce 2 input buffer" src="images/boss-ce-2-analysis/boss-ce-2-input-buffer.png"/></p>
+<p>The 2SC732TM-GR NPN transistor is a cheap high gain (ß=200~400), low noise suitable for audio applications. </p>
+<p>The capacitor C<sub>1</sub> forms a high-pass filter filtering the low frequency humming in conjunction with the input resistors R<sub>1</sub>, R<sub>2</sub> and the transistor stage input impedance. It also separates the guitar from any pedal DC potential, protecting the pickups in case of circuit failure.</p>
+
+<h3><a id="link51" name="link51"></a><strong>5.1 Boss CE-2 Input Impedance.</strong></h3>
+<p>In order to calculate numerically the input impedance of the emitter follower, the hybrid-pi model can be used for analyzing the small signal behavior.</p>
+<p>The analysis of this parameter is similar to the Tube Screamer input stage, if you want to follow all the mathematics check the <a href="tube-screamer-analysis.html#impedance">Tube Screamer Input Impedance Calculation</a>, otherwise just stick to the general formula:</p>
+<p><div>\[\\Z_{in}=R_{1}+R_{2}//[r_{\pi}+(\beta+1) \cdot R_{3}]\]</div></p>
+<p><div>\[\\Z_{in}=1K+470K//[r_{\pi}+(300+1) \cdot 10K]\]</div></p>
+<p><div>\[\\Z_{in}=407K\]</div></p>
+<p>Therefore, the CE-2 input resistance is 407K, almost the value of the biasing resistor R<sub>2</sub> (470K) which accounts for almost the entire signal loading at the input. </p>
+<p><br/><a id="link6" name="link6"></a><strong>6. Pre-Emphasis &amp; De-Emphasis Filters.</strong></p>
+<p>The assumption of using these filters is that applying treble emphasis (pre-emphasis) and a corresponding identical treble reduction (de-emphasis) to the dry signal, the output signal will end up with the same original tonal balance. But applying the same filtering to the delay signal, the output signal will reduce any hiss acquired via the delay path.</p>
+<p>For this purpose, two 1st order Shelving Filters are used in the input and output stages, each of these filters will create a zero and a pole, with a rising/falling slope of 6dB/octave or 20dB/decade.</p>
+<h3><strong><a id="link61" name="link61"></a>6.1 Shelving Filters with Operational Amplifiers.</strong></h3>
+<p>The Shelving architecture is simple first-order filter function characterized by a frequency response with two different gains: Gain<sub>LOW</sub> and Gain<sub>HIGH</sub> between frequencies much higher and much lower than the corner frequencies.</p>
+<p>This filters can be implemented over operational amplifiers, using inverting or non-inverting topologies. Boss CE-2 uses the op-amp <strong>inverting</strong> architecture.</p>
+<p><strong>Note:</strong> In order to achieve clock noise attenuation properly, inverting shelving filters (pre &amp; post) are mandatory. Blending non-inverting &amp; inverting will give mismatched gain &amp; frequencies. The nature of <strong>non-inverting</strong> topology provides no attenuation and minimum gain=1. Only <strong>inverting</strong> topology offers both gain &amp; attenuation, and both low &amp; high inverting shelving filters share exactly same resistors &amp; capacitors in reverse order, yielding matched frequencies and desired opposite gains, and this is why they are used in the Boss CE-2.</p>
+<h4><a id="link611" name="link611"></a><strong>6.1.1 Inverting OpAmp Shelving Filters.</strong></h4>
+
+<p><img alt="opamp-inverting-shelving-filters" class="article-img" longdesc="opamp-inverting-shelving-filters" src="images/boss-ce-2-analysis/opamp-inverting-shelving-filters.png"/></p>
+<div class="table-scroll"><table border="0">
+<tbody>
+<tr>
+<td>
+<p> Low-Pass Filter Formulas:</p>
+<p><div>\[ \\G_{LOW} = -\frac{R_{2}}{R_{3}}\]</div></p>
+<p><div>\[ \\G_{HIGH} = -\frac{R_{1}//R_{2}}{R_{3}}\]</div></p>
+<p><div>\[ \\fc_{HIGH}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot R_{1}}\]</div></p>
+<p><div>\[ \\fc_{LOW}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot (R_{1}+R_{2})}\]</div></p>
+<p><div>\[\\ \frac{G_{LOW}}{G_{HIGH}} = \frac{f_{HIGH}}{f_{LOW}}\]</div></p>
+</td>
+<td>..........</td>
+<td>
+<p>High-Pass Filter Formulas:</p>
+<p><div>\[\\G_{LOW} = -\frac{R_{3}}{R_{2}}\]</div></p>
+<p><div>\[\\G_{HIGH} = -\frac{R_{3}}{R_{1}//R_{2}}\]</div></p>
+<p><div>\[\\fc_{HIGH}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot R_{1}}\]</div></p>
+<p><div>\[\\fc_{LOW}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot (R_{1}+R_{2})}\]</div></p>
+<p><div>\[\\ \frac{G_{LOW}}{G_{HIGH}} = \frac{f_{LOW}}{f_{HIGH}}\]</div></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<h4><br/><a id="link612" name="link612"></a><strong>6.1.2 Non- Inverting OpAmp shelving Filters:</strong></h4>
+<p><img alt="opamp-non-inverting-shelving-filters" class="article-img" longdesc="opamp-non-inverting-shelving-filters" src="images/boss-ce-2-analysis/opamp-non-inverting-shelving-filters.png"/></p>
+<div class="table-scroll"><table border="0">
+<tbody>
+<tr>
+<td>
+<p> Low-Pass Filter Formulas:</p>
+<p><div>\[\\G_{LOW} = 1 + \frac{R_{2}}{R_{1}}\]</div></p>
+<p><div>\[\\G_{HIGH} = 1 \]</div></p>
+<p><div>\[\\fc_{LOW}=\frac{1}{2 \cdot \pi \cdot C_{1} \cdot R_{2}}\]</div></p>
+<p><div>\[\\fc_{HIGH}=\frac{1}{2 \cdot \pi \cdot C_{1} \cdot R_{1}//R_{2}}\]</div></p>
+<p><div>\[\\G_{LOW} = \frac{f_{HIGH}}{f_{LOW}}\]</div></p>
+</td>
+<td>..........</td>
+<td>
+<p>High-Pass Filter Formulas:</p>
+<p><div>\[\\G_{LOW} = 1 \]</div></p>
+<p><div>\[\\G_{HIGH} = 1 + \frac{R_{2}}{R_{1}}\]</div></p>
+<p><div>\[\\fc_{LOW}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot (R_{1} + R_{2})}\]</div></p>
+<p><div>\[\\fc_{HIGH}=\frac{1}{2\cdot \pi \cdot C_{1} \cdot R_{1}}\]</div></p>
+<p><div>\[\\G_{HIGH} = \frac{f_{HIGH}}{f_{LOW}}\]</div></p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>If R<sub>1</sub> were much smaller than R<sub>2</sub>, there would be a 20dB/decade roll-off between the two gains. If R<sub>2</sub> is not so much less, then the slope never quite makes it to 20dB/decade before it flattens out to the high frequency gain.</p>
+<p><strong>Note:</strong> The ratio f<sub>HIGH</sub>/f<sub>LOW</sub> is equal to the ratio of Gain<sub>HIGH</sub>/Gain<sub>LOW</sub>. It is fixed, so if you want a lot of cut or boost in the shelf, then the frequencies where the shelf starts and ends will be further apart and vice versa.</p>
+<h3><strong><a id="link62" name="link62"></a>6.2 Boss CE-2 Pre-Emphasis Filter.</strong></h3>
+<p>The active Pre-emphasis Filter formed by the 4558 dual op-amp is designed to increase the magnitude of the high frequencies with respect to the mid-low frequencies, in order to enhance the overall S/N ratio by minimizing the adverse effects of attenuation and distortion created for the BBD stage:<img alt="boss ce-2 pre-emphasis filter" class="article-img" longdesc="boss ce-2 pre-emphasis filter" src="images/boss-ce-2-analysis/boss-ce-2-pre-emphasis-filter.png"/></p>
+<p>For the lows, the caps C<sub>3</sub> and C<sub>4</sub> are considered open circuits, leaving 47K at the input and 47K feedback and therefore resulting in a gain of 1. For high frequencies, there is a parallel path using 6n8 cap and 10K resistor, providing a gain of 5.7 above 2.4 KHz.</p>
+<p><div>\[\\G_{LOW} = -\frac{R_{6}}{R_{4}}= -\frac{47K}{47K} = -1 \:\: (0dB)\]</div></p>
+<p><div>\[\\G_{HIGH} = -\frac{R_{6}}{R_{4}//R_{5}}= -\frac{47K}{47K//10K} = -5.7 \:\: (15dB)\]</div></p>
+<p><div>\[\\fc_{LOW}=\frac{1}{2\cdot \pi \cdot (R_{5}+R_{4}) \cdot C_{3}}=\frac{1}{2\cdot \pi \cdot (10K+47K) \cdot 0.0068uF}=410\: Hz. \]</div></p>
+<p><div>\[\\fc_{HIGH}=\frac{1}{2\cdot \pi \cdot R_{5} \cdot C_{3}}=\frac{1}{2\cdot \pi \cdot 10K \cdot 0.0068uF}=2.341\: KHz. \]</div></p>
+
+<ul>
+<li>The small 100pF C<sub>4</sub> capacitor across the feedback loop works as a low pass filter, mellowing out the high end of the signal and limiting the bandwidth which is a classic arrange in stompboxes input stages that also maintain HF stability.</li>
+</ul>
+
+<p><strong>Pre-Emphasis Filter Frequency Response</strong><br/>As mention above, this circuit emphasizes the frequencies over 410 Hz. At 2.3KHz the gain keeps still at 15dB.</p>
+<p><img alt="boss ce-2 pre-emphasis frequency response" class="article-img" longdesc="boss ce-2 pre-emphasis frequency response" src="images/boss-ce-2-analysis/boss-ce-2-pre-emphasis.png"/></p>
+<h3><strong><a id="link63" name="link63"></a>6.3 De-Emphasis Filter.</strong></h3>
+<p>The De-Emphasis Filter is the complement of the Pre-Emphasis Filter. It is also implemented over the 4558 dual op-amps and designed to attenuate the magnitude of the high frequencies with respect to the mid-low frequencies. This filter takes the unnatural sounding pre-emphasized audio and turns it back into its original response. </p>
+<p>The op-amp is configured in the classic <em><a href="http://en.wikipedia.org/wiki/Operational_amplifier_applications#Summing_amplifier" rel="noopener noreferrer" target="_blank">summing amplifier</a></em> topology, the equal size of the weighting resistors R<sub>21</sub>=R<sub>22</sub>=R<sub>24</sub>=47K indicates that the mix ratio between the dry and the wet signal is 50%.<img alt="boss ce-2 de-emphasis filter" class="article-img" longdesc="boss ce-2 de-emphasis filter" src="images/boss-ce-2-analysis/boss-ce-2-de-emphasis-filter.png"/><br/>To implement this filter, the same 6n8/10k previously used in the input stage is used in the feedback loop providing complementary treble cut over 2.34 KHz</p>
+<p><div>\[\\G_{LOW} = -\frac{R_{24}}{R_{21}}= -\frac{47K}{47K} = -1 \:\: (0dB)\]</div></p>
+<p><div>\[\\G_{HIGH} = -\frac{R_{24}//R_{23}}{R_{21}}= -\frac{47K//10K}{47K} = -0.17 \:\: (-15dB)\]</div></p>
+<p><div>\[\\fc_{HIGH}=\frac{1}{2\cdot \pi \cdot R_{23} \cdot C_{15}}=\frac{1}{2\cdot \pi \cdot 10K \cdot 0.0068uF}=2.341\: KHz. \]</div></p>
+<p><div>\[\\fc_{LOW}=\frac{1}{2\cdot \pi \cdot (R_{23}+R_{24}) \cdot C_{15}}=\frac{1}{2\cdot \pi \cdot (10K+47K) \cdot 0.0068uF}=410\: Hz.\]</div></p>
+
+<ul>
+<li>The small 100p C<sub>16</sub> capacitor across the feedback loop works as a low pass filter, mellowing out the high end of the signal and limiting the bandwidth which is a classic arrange in stompboxes input stages that also maintain HF stability.</li>
+</ul>
+
+<p><strong>De-Emphasis Filter Frequency Response</strong><br/>As mention above, this circuit attenuates the frequencies over 410 Hz. At 2.3KHz the gain keep still at -15dB. <br/><img alt="boss ce-2 de-emphasis frequency response" class="article-img" longdesc="boss ce-2 de-emphasis frequency response" src="images/boss-ce-2-analysis/boss-ce-2-de-emphasis.png"/></p>
+
+<h2><a id="link7" name="link7"></a><strong>7. Boss CE-2 Anti-Aliasing Filter &amp; Reconstruction Filters.</strong></h2>
+<p>Anti-alias filters are used to band-limit the input signal and remove the harmonic content at that is introduced by the BBD sampling process. </p>
+<p>In the reverse process, anti-imaging (or reconstruction) filters are used at the output of a sampled system to eliminate spectral images of the desired signal. These are generated at integer multiples of the sample rate. The ideal filter specification is the same as that for the anti-aliasing filter.</p>
+<p>For both Anti-Aliasing and Reconstruction filters, the Low pass Sallen-Key topology is used; creating a frequency response that removes very severely the high frequencies.</p>
+<h3><a id="link71" name="link71"></a><strong>7.1 The Sallen-Key Filter Topology.</strong></h3>
+<p>The Sallen-Key is a simple filter architecture used to build second order active filters. It has a high input impedance and low output impedance, including a buffer amplifier implemented in this case over a BJT emitter/source follower.<img alt="sallen-key-low-pass-topologies" class="article-img" longdesc="sallen-key-low-pass-topologies" src="images/boss-ce-2-analysis/sallen-key-low-pass-topologies.png"/></p>
+<p>A common configuration for BBD based designs is to use a 3rd order Sallen-Key, implemented using a passive 1st order RC filter + a 2nd order standard Sallen-Key.</p>
+<p>The 3rd order Sallen-Key Function:</p>
+<p><div>\[\\H(s)=\frac{b_{0}}{a_{3}s^{3}+a_{3}s^{2}+a_{1}s+a_{0}}\]</div></p>
+<p><div>\[\\a_{0}=b_{0}=R^{3}\cdot C_{1}\cdot C_{2}\cdot C_{3}\]</div></p>
+<p><div>\[\\a_{1}=\frac{1}{R^{2}\cdot C_{1}\cdot C_{2}}+\frac{1}{R^{2}\cdot C_{2}\cdot C_{3}}\]</div></p>
+<p><div>\[\\a_{2}=\frac{1}{R\cdot C_{1}}+\frac{2}{R\cdot C_{2}}\]</div></p>
+<p><div>\[\\a_{3}=1\]</div></p>
+
+<p>The equivalent block diagram:</p>
+<p><div>\[\\V_{in}(s)\rightarrow \frac{2 \pi f_{c1}}{s+2 \pi f_{c1}}\rightarrow \frac{(2 \pi f_{c2})^{2}}{s^{2}+2 \xi (2 \pi f_{c2})s+(2 \pi f_{c2})^{2}}\rightarrow V_{out}(s)\]</div></p>
+
+<p>So, you can make all the numbers or use the simple <em><a href="http://sim.okawa-denshi.jp/en/Sallenkey3Lowkeisan.htm" rel="noopener noreferrer" target="_blank">3rd Order Sallen-Key Low Pass Filter Design Tool</a></em> by Okawa Electric Design and get the cut-off frequencies.</p>
+<h3><a id="link72" name="link72"></a><strong>7.2 Boss CE-2 Anti-Aliasing Filter.</strong></h3>
+<p>The Anti-Aliasing Filter is an active low pass filter used before the signal sampler (BBD) in order to restrict the bandwidth of the signal to approximately satisfy the Nyquist-Shannon Sampling Theorem. In this way, the input signal is bandlimited to prevent aliasing.<img alt="Boss CE-2 Anti-Aliasing Filter" class="article-img" longdesc="Boss CE-2 Anti-Aliasing Filter" src="images/boss-ce-2-analysis/boss-ce-2-anti-aliasing-filter.png"/></p>
+<p>Just before the anti-aliasing low pass filter, there is another passive high pass filter formed by R8 and C5, generating a cut-off frequency of 48Hz that will bandlimit and cut the humming of the incoming signal. The cut-off frequency can be calculated as:</p>
+<p><div>\[\\ f_{c}=\frac{1}{2\cdot \pi \cdot R_{8}\cdot C_{5}}=\frac{1}{2\cdot \pi \cdot 100K \cdot 0.033uF}= 48.2\, Hz\]</div></p>
+
+<p><strong>Frequency Response of Anti-Aliasing Filter:</strong></p>
+<p><img alt="Boss CE-2 Anti-Aliasing Filter Frequency Response" class="article-img" longdesc="Boss CE-2 Anti-Aliasing Filter Frequency Response" src="images/boss-ce-2-analysis/boss-ce-2-anti-aliasing.png"/><br/>The frequency response is a band-pass filter, letting the harmonics between 48 Hz and 6.6 KHz. The low pass cut-off frequencies can be calculated as mention before, the poles are at fc<sub>1</sub> = 6,6 KHz  and fc<sub>2</sub> = 6,9 KHz</p>
+
+<p><strong><a id="llink73" name="link73"></a>7.3 Boss CE-2 Reconstruction Filter.</strong></p>
+<p>The Reconstruction Filter also called <em>Anti-Imaging Filter</em> is again a low pass filter used to construct a smooth analog signal from a sampled output. The output signal must be bandlimited, to remove the clock noise and prevent aliasing (meaning Fourier coefficients being reconstructed as low-frequency waves, not as higher frequency aliases).<img alt="Boss CE-2 Reconstruction Filter" class="article-img" longdesc="Boss CE-2 Reconstruction Filter" src="images/boss-ce-2-analysis/boss-ce-2-reconstruction-filter.png"/></p>
+<p>Just before the anti-aliasing low pass filter, there is another passive high pass filter formed by R<sub>15</sub> and C<sub>10</sub>, generating a cut-off frequency of 48Hz that will bandlimit and cut the humming of the incoming signal. The cut-off frequency can be calculated as:</p>
+<p><div>\[\\f_{c}=\frac{1}{2\cdot \pi \cdot R_{15}\cdot C_{10}}=\frac{1}{2\cdot \pi \cdot 330K \cdot 0.033uF}= 14.6\, Hz\]</div> <br/></p>
+<p>This 14.6 Hz cut-off frequency seems to be the only difference between the filtering after and before the BBD, which is indeed mirrored. After the delay stage, slightly more bass pass through the circuit.</p>
+<p><strong>Frequency Response of Reconstruction Filter:</strong></p>
+<p><img alt="Boss CE-2 Reconstruction Filter Frequency Response" class="article-img" longdesc="Boss CE-2 Reconstruction Filter Frequency Response" src="images/boss-ce-2-analysis/boss-ce-2-reconstruction.png"/><br/>The frequency response is a band-pass filter, letting the harmonics between 14.6Hz and 6.6 KHz. The low pass cut-off frequencies are the same as in the Anti-aliasing filter because the circuit is exactly the same (fc<sub>1</sub> = 6,6 KHz and fc<sub>2</sub> = 6,9 KHz).</p>
+<h2><strong><a id="link8" name="link8"></a>8. The Bucket Brigade Device Stage.</strong></h2>
+<p>The BBD is the core of the circuit: the MN3007 which is well known for its fine audio response is used together with a clock signal generator MN3101. At the same time, a Low-Frequency Oscillator (LFO) is needed to drive the MN3101 in order to generate the variable delay time which is the gist of the chorus effect.</p>
+<ul>
+<li><strong>MN3007:</strong> is a 1024 stages BBD by Matsushita/Panasonic which provides a signal delay from 5.12 to 51.2ms. To create the chorus effect a delay from 5 to 40ms is needed, so this part is perfect for the task. It also has good S/N=80dB, low THD of 0.5% typ (V<sub>IN</sub>=0.78Vrms). The supply voltage range is from -10 to -15V.</li>
+</ul>
+<ul>
+<li><strong>MN3101:</strong> Is a clock generator driver by Matsushita/Panasonic, in a small footprint package designed to match the MN3007 providing:
+<ul>
+<li>A two-phase clock, the frequency value is selected by the LFO.</li>
+<li>Stable V<sub>GG</sub> bias supply to the MN3007. This DC bias value (V<sub>GG</sub> = 4/15 x V<sub>CC</sub>) improves the BBD transfer efficiency.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Boss CE-2 LFO + BBD" class="article-img" longdesc="Boss CE-2 LFO + BBD" src="images/boss-ce-2-analysis/boss-ce-2-bbd.png"/></p>
+
+<p>In summary, the cap C<sub>22</sub> 47pF is charging-discharging at a fast rate (set by the Q<sub>5</sub> astable), but the starting voltage level of C<sub>22</sub> is commanded by the LFO signal, sent through the Q<sub>4</sub> buffer:</p>
+<ul>
+<li>The <strong>Q<sub>5</sub></strong> transistor forms an RC astable oscillator with the MN3101. It is used to discharge the C<sub>22</sub> 47pF timing capacitor, which is charged through the R<sub>38</sub> 150K resistor. Indeed, Q<sub>5</sub> together with the MN3101 will oscillate by itself at a constant frequency without Q<sub>4</sub> and its associated components.</li>
+</ul>
+<p>When the output of the double series inverters (pin 5) in the MN3101 goes high (in response to the cap charging to the CMOS threshold voltage as monitored by MN3101 pin 7) Q<sub>5</sub> turns on and discharges the cap, and the MN3101 output goes low again, turning the transistor off and allowing the cap to re-charge. The cycle repeats at an ultrasonic rate.</p>
+
+<ul>
+<li>The <strong>Q4</strong> transistor is an emitter follower that provides buffering to the triangle waveform from the LFO.<br/>Immediately after C<sub>22</sub> discharge, the diode D1 is needed to isolate the output of Q4 transistor. This diode serves to charge it up again to an "offset" voltage corresponding to the present voltage at the LFO output. </li>
+</ul>
+<p>Actually the capacitor offset charging voltage = (Vout<sub>LFO</sub> - V<sub>be</sub>)/2 - VF<sub>diode</sub><br/></p>
+
+<h3><a id="link81" name="link81"></a><strong>8.1 Boss Ce-2 LFO</strong> <strong>Low-Frequency Oscillator.</strong></h3>
+<p>The chorus effect is created by the slow modulation of the delay time using a Low-Frequency Oscillator (LFO). As the LFO cycles, the delay time goes up and down and therefore the delayed audio pitch slightly shifts up and down.</p>
+<p> The LFO is implemented using a dual op-amp TL022 in cascade; this op-amp has a low current consumption, which is good to prevent ticking in the power supply. Some ticking can be mixed with the audio when the LFO produces the rising or falling edge of a square wave and there is a very sudden surge in the current.</p>
+<p><img alt="boss-ce-2-lfo-circuit" class="article-img" longdesc="boss-ce-2-lfo-circuit" src="images/boss-ce-2-analysis/boss-ce-2-lfo-circuit.png"/></p>
+<p>The first operational amplifier in the chain generates the square wave, while the second operational amplifier generates the triangle signal. <br/>This simple circuit provides a variable frequency triangular waveform whose amplitude is also variable.</p>
+<p>After the second op-amp, there is a low pass RC filter (R<sub>35</sub> C<sub>21</sub>) with a cut-off frequency of 72Hz (1/2πRC) which filters the LFO signal, removing all possible high-freq ticking noise.</p>
+<p><img alt="boss-ce-2-lfo-signals" class="article-img" longdesc="boss-ce-2-lfo-signals" src="images/boss-ce-2-analysis/boss-ce-2-lfo.png"/></p>
+<ul>
+<li>The first op-amp is in a threshold detector in positive feedback Trigger-Schmitt configuration.<br/>The oscillation frequency can be calculated following the formula of <a href="http://www.ti.com/lit/an/slod006b/slod006b.pdf" rel="noopener noreferrer" target="_blank">the Triangle Oscillator by Ron Mancini</a>:</li>
+</ul>
+<p><br/><div>\[ f_{OSC}= \frac{R_{30}}{4 \cdot C_{19}R_{29}R_{32}}=\frac{47K}{4 \cdot 0.1uF \cdot 33K \cdot 1M} = 3.5Hz \]</div></p>
+<p><br/>With Rate control at maximum position, the oscillation frequency is 3.5Hz, this value will decrease as the VR1 pot is trimmed.</p>
+<p><img alt="boss-ce-2-lfo-square-signal" class="article-img" longdesc="boss-ce-2-lfo-square-signal" src="images/boss-ce-2-analysis/boss-ce-2-lfo-square-signal.png"/></p>
+<ul>
+<li>The second op-amp is an Integrator which generates the ramp. The action of VR2 will modify the steepness of the ramp and therefore the amplitude or depth at a fixed frequency.</li>
+</ul>
+<p> <img alt="boss-ce-2-lfo-triangular" class="article-img" longdesc="boss-ce-2-lfo-triangular" src="images/boss-ce-2-analysis/boss-ce-2-lfo-triangular.png"/></p>
+<h2><a id="link9" name="link9"></a><strong>9. Resources.</strong></h2>
+<p>All CE-2 treads in <a href="http://www.diystompboxes.com/" rel="noopener noreferrer" target="_blank">DIYStompBoxes</a> and <a href="http://hammer.ampage.org/" rel="noopener noreferrer" target="_blank">Mark Hammer</a> explanations.<br/><a href="http://www.bossarea.com/loadpage.asp?file=boxes/ce-2.xml" rel="noopener noreferrer" target="_blank">Boss CE-2 Information</a> by BossArea <br/><a href="http://testtone.com/fundamentals/what-chorus-effect" rel="noopener noreferrer" target="_blank">Chorus Effect Explanation</a> by TestTone <br/><a href="http://audacity.sourceforge.net/manual-1.2/effects_chorus.html" rel="noopener noreferrer" target="_blank">http://audacity.sourceforge.net/manual-1.2/effects_chorus.html</a><br/><a href="https://web.archive.org/web/20220504054727/http:/www.hobby-hour.com/guitar/chorus_effects.php">Chorus guitar effects</a> by Hobby Hour<br/>Tonepad <a href="http://www.tonepad.com/project.asp?id=53" rel="noopener noreferrer" target="_blank">CE-2 Cloning Project</a> <br/>Triangular Wave Generators by FreeCircuits <br/><a href="http://www.edn.com/design/analog/4363970/Design-second-and-third-order-Sallen-Key-filters-with-one-op-amp" rel="noopener noreferrer" target="_blank">3rd Order Sallen-Key Filter with one OpAmp</a> by EDN.<br/><a href="http://www.linkwitzlab.com/filters.htm#5" rel="noopener noreferrer" target="_blank">Shelving Filters </a>by Linkwitzlab.<br/>Boss ACA and PSA adaptors by <a href="http://stinkfoot.se/archives/726" rel="noopener noreferrer" target="_blank">StinkFoot.</a> <br/><a href="http://www.diystompboxes.com/smfforum/index.php?topic=64805.0;wap2" rel="noopener noreferrer" target="_blank">Pre-Emphasis and De-Emphasis filters</a> in DIYStompBoxes.</p>
+<h3><a id="link91" name="link91"></a><strong>9.1 Datasheets.</strong></h3>
+<p>BOSS CE-2 Instructions pdf. <br/>BOSS CE-2 Service Notes pdf.<br/>2SC732TM Transistor pdf.</p>
+<p>Our sincere appreciation to G. Franc,  B. Maynard and Dror Sharon for your support.</p>
+<p>Thanks for reading, all feedback is appreciated  </p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054727/https://www.electrosmash.com/boss-ce-2-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Boss%20CE-2%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="big-muff-pi-analysis.html">&larr; Big Muff Pi Analysis</a>
+    <a class="prevnext" href="boss-ds1-analysis.html">Boss DS-1 Distortion Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis -->
+<html lang="en-gb" dir="ltr" class="com_content view-article itemid-518 j39 mm-hover  no-touch" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./ElectroSmash - Big Muff Pi Analysis_files/analytics.js"></script><script src="./ElectroSmash - Big Muff Pi Analysis_files/analytics(1).js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app220.us.archive.org';v.server_ms=796;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./ElectroSmash - Big Muff Pi Analysis_files/bundle-playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="./ElectroSmash - Big Muff Pi Analysis_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://www.electrosmash.com/big-muff-pi-analysis","20220414222251","https://web.archive.org/","web","/_static/",
+	      "1649974971");
+</script>
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Big Muff Pi Analysis_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./ElectroSmash - Big Muff Pi Analysis_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+	<!--<base href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/">--><base href=".">
+	
+	<meta name="keywords" content="big, muff, pi, circuit, fuzz schematic, electro, harmonix, ehx,input, signal, clipping, stage, voltage, gain, response, frequency, tone, impedance, calculation, bom, part, list, amplifier, sustain, distortion, transistor">
+	<meta name="rights" content="Creative Commons: Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) ">
+	<meta name="author" content="JR">
+	<meta name="description" content="Circuit, List of Materials / Parts List, Input Booster Stage, Shunt Feedback Common Emitter Stage, Input Booster Voltage Gain Calculation, Input Impedance Calculation, Input Booster Frequency Response, Clipping Stage, Sustain Circuit, Clipping Amplifier V">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>ElectroSmash - Big Muff Pi Analysis</title>
+	<link href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis" rel="canonical">
+	<link href="https://web.archive.org/web/20220414222251im_/https://www.electrosmash.com/templates/purity_iii/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="./ElectroSmash - Big Muff Pi Analysis_files/css-0ef93-36470.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Big Muff Pi Analysis_files/css-3adb1-08286.css" rel="stylesheet" type="text/css" media="all">
+	<link href="./ElectroSmash - Big Muff Pi Analysis_files/css-9b7d3-58108.css" rel="stylesheet" type="text/css" media="all">
+	<style type="text/css">
+
+	</style>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"c235438fc5664f82ce7b1d1476449c4c","system.paths":{"root":"","base":""}}</script>
+	<script src="./ElectroSmash - Big Muff Pi Analysis_files/MathJax.js" id=""></script>
+	<script src="./ElectroSmash - Big Muff Pi Analysis_files/js-44af3-08326.js" type="text/javascript"></script>
+	<script src="./ElectroSmash - Big Muff Pi Analysis_files/acymailing_module.js" type="text/javascript" async="async"></script>
+	<script src="./ElectroSmash - Big Muff Pi Analysis_files/js-a8ba7-58108.js" type="text/javascript"></script><style type="text/css">.instashow-gallery-media-counter em,.instashow-gallery-media-info-counter em{font-style:normal}@font-face{font-family:Iconsfont;src:url(data:application/vnd.ms-fontobject;base64,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);src:url(data:application/vnd.ms-fontobject;base64,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) format('embedded-opentype'),url(data:application/x-font-ttf;base64,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) format('truetype'),url(data:application/font-woff;base64,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) format('woff'),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiID4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWV0YWRhdGE+R2VuZXJhdGVkIGJ5IEljb01vb248L21ldGFkYXRhPgo8ZGVmcz4KPGZvbnQgaWQ9Imljb21vb24iIGhvcml6LWFkdi14PSIxMDI0Ij4KPGZvbnQtZmFjZSB1bml0cy1wZXItZW09IjEwMjQiIGFzY2VudD0iOTYwIiBkZXNjZW50PSItNjQiIC8+CjxtaXNzaW5nLWdseXBoIGhvcml6LWFkdi14PSIxMDI0IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4MjA7IiBob3Jpei1hZHYteD0iNTEyIiBkPSIiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlNjAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1jb21tZW50IiBkPSJNNTEyIDQyLjY2N2MzMi43NjggMCA2NC42NCAyLjk0NCA5NS42OCA4LjA2NGwyMjQuMzItMTM2LjA2NHYyMjYuNjI0YzExNi45MjggODIuMTEyIDE5MiAyMDggMTkyIDM0OS4zNzYgMCAyNDcuNDI0LTIyOS4yNDggNDQ4LTUxMiA0NDhzLTUxMi0yMDAuNTc2LTUxMi00NDhjMC0yNDcuNDI0IDIyOS4yNDgtNDQ4IDUxMi00NDh6TTUxMiA4NzQuNjY3YzI0Ny40MjQgMCA0NDgtMTcxLjkwNCA0NDgtMzg0IDAtMTMwLjExMi03NS43MTItMjQ0LjkyOC0xOTEuMjMyLTMxNC4zNjhsMi4wNDgtMTQ4LjQxNi0xNTAuNjU2IDkwLjU2Yy0zNC42ODgtNy40MjQtNzAuNzg0LTExLjc3Ni0xMDguMTYtMTEuNzc2LTI0Ny40MjQgMC00NDggMTcxLjkwNC00NDggMzg0czIwMC41NzYgMzg0IDQ0OCAzODR6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMTsiIGdseXBoLW5hbWU9Imljb24tbGlrZSIgZD0iTTk1OS4xNjggNDI1LjQ1MWwtMzk4LjcyLTQ3NS4wMDhjLTQ0LjY3Mi00Ny4wNDAtNTMuMDU2LTQ3LjA0MC05Ny43MjggMGwtMzk3Ljg4OCA0NzUuMDA4Yy0zMy45MiA1MC45NDQtNjQuODMyIDEwNS4wODgtNjQuODMyIDE4MC4zNTIgMCAxNDAuMjI0IDEwNS43OTIgMjY4Ljg2NCAyNTYgMjY4Ljg2NCAxMDYuNjI0IDAgMTkwLjU5Mi01OC4zMDQgMjU2LTEyNy40ODggNjguNjA4IDY1LjE1MiAxNDkuMzc2IDEyNy40ODggMjU2IDEyNy40ODggMTUwLjIwOCAwIDI1Ni0xMjguNjQgMjU2LTI2OC44NjQgMC03NS4yNjQtMjQuOTYtMTI5LjQ3Mi02NC44MzItMTgwLjM1MnpNODk2IDQzOC42OTljNDkuNjY0IDYyLjI3MiA2NCAxMDguMzUyIDY0IDE2Ny4xMDQgMCAxMDkuNTY4LTgxLjUzNiAyMDkuMDg4LTE5MiAyMDkuMDg4LTkzLjMxMiAwLTIwMC41NzYtOTYuNjQtMjU2LTE2NS42OTYtNTYuODk2IDcxLjYxNi0xNjIuNjg4IDE2Ni41MjgtMjU2IDE2NS43Ni0xMTMuNDcyLTAuOTYtMTkyLTk5LjU4NC0xOTItMjA5LjE1MiAwLTU4Ljc1MiAxOC4wNDgtMTAxLjY5NiA2NC0xNjUuMjQ4bDM4NC00NTguMTc2IDM4NCA0NTYuMzJ6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4ZTYwMjsiIGdseXBoLW5hbWU9Imljb24tcGxhY2VtYXJrIiBob3Jpei1hZHYteD0iNzY4IiBkPSJNMzg0LTg1LjMzM2MtNjMuODcyLTAuMzItMzg0IDQ3OS40MjQtMzg0IDY0MCAwIDIxMi4wOTYgMTcxLjkwNCAzODQgMzg0IDM4NHMzODQtMTcxLjkwNCAzODQtMzg0YzAtMTU4LjQtMzIxLjE1Mi02NDAuMzItMzg0LTY0MHpNMzg0IDg3NC42NjdjLTE3Ni43MDQgMC0zMjAtMTQzLjI5Ni0zMjAtMzIwIDAtMTMzLjgyNCAyNjYuODE2LTU0NC4yNTYgMzIwLTU0NCA1Mi4zNTItMC4yNTYgMzIwIDQxMS45NjggMzIwIDU0NCAwIDE3Ni43MDQtMTQzLjI5NiAzMjAtMzIwIDMyMHpNMzg0IDM5NC42NjdjLTg4LjM4NCAwLTE2MCA3MS42MTYtMTYwIDE2MHM3MS42MTYgMTYwIDE2MCAxNjAgMTYwLTcxLjYxNiAxNjAtMTYwLTcxLjYxNi0xNjAtMTYwLTE2MHpNMzg0IDY1MC42NjdjLTUyLjk5MiAwLTk2LTQzLjAwOC05Ni05NiAwLTUzLjA1NiA0My4wMDgtOTYgOTYtOTZzOTYgNDMuMDA4IDk2IDk2LTQzLjAwOCA5Ni05NiA5NnoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3hlODAwOyIgZ2x5cGgtbmFtZT0iaWNvbi1wbGF5IiBkPSJNNjQgNDIuNjY3YzAtMzUuMDA4IDI5LjUwNC02NCA2NC02NCAyMS41MDQgMCA0My4wMDggMTQuNTI4IDY0IDI0bDcyMC41MTIgMzYwYzE3LjQ3MiA4LjUxMiA0Ny40ODggMjUuOTg0IDQ3LjQ4OCA2NHMtMzAuMDE2IDU1LjQ4OC00Ny40ODggNjRsLTcyMC41MTIgMzYwYy0yMC45OTIgOS40NzItNDIuNDk2IDI0LTY0IDI0LTM0LjQ5NiAwLTY0LTI4Ljk5Mi02NC02NHYtNzY4eiIgLz4KPC9mb250PjwvZGVmcz48L3N2Zz4=) format('svg');font-weight:400;font-style:normal}.instashow-icon{font-family:Iconsfont;font-size:160%}.instashow-iconspan{padding:2px}.instashow-icon,.instashow-icon+*{display:inline-block;vertical-align:middle}.instashow-icon+*{margin-left:.4em}.instashow-icon-comment::before{content:'\e600'}.instashow-icon-like::before{content:'\e601'}.instashow-icon-placemark::before{content:'\e602'}.instashow-spinner{display:block;position:relative}.instashow-spinner::before{display:none;position:absolute;box-sizing:border-box;top:0;right:0;bottom:0;left:0;border:12px solid #ddd;border-radius:50%;box-shadow:0 0 30px rgba(255,255,255,.3);-webkit-animation-timing-function:cubic-bezier(.22,.61,.36,1);animation-timing-function:cubic-bezier(.22,.61,.36,1);content:''}.instashow-show .instashow-spinner::before{display:block;-webkit-animation:instashow-spinner 1.5s infinite;animation:instashow-spinner 1.5s infinite}@-webkit-keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}@keyframes instashow-spinner{0%{border-width:initital;opacity:1;-webkit-transform:scale(0);transform:scale(0)}100%{border-width:1px;opacity:0;-webkit-transform:scale(1);transform:scale(1)}}.instashow{font-family:Roboto,Arial,sans-serif;font-size:12px;line-height:1.4;color:#444;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}.instashow,.instashow *{direction:ltr!important}.instashow a{color:#2196f3;-webkit-transition:all .3s ease;transition:all .3s ease;text-decoration:none}.instashow a:hover{color:#444}.instashow,.instashow a,.instashow div,.instashow figure,.instashow img,.instashow li,.instashow p,.instashow span,.instashow ul{border-top:none;border-right:none;border-bottom:none;border-left:none;margin:0;padding:0}.instashow,.instashow div,.instashow figure,.instashow img,.instashow p,.instashow ul{display:block}.instashow img{max-width:none;max-height:none}.instashow-gallery-media{display:none;box-sizing:border-box;float:left;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-perspective:900px;perspective:900px}.instashow-gallery-view-active .instashow-gallery-media,.instashow-gallery-view-active-next .instashow-gallery-media,.instashow-gallery-view-active-prev .instashow-gallery-media{display:block}.instashow-gallery-media-link{display:block;position:relative;overflow:hidden;width:100%;height:100%}.instashow-gallery-media-marker{display:none;position:absolute;z-index:2;top:.6em;right:.6em;width:1.8em;height:1.8em;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-marker svg{display:block;width:100%;height:100%;fill:rgba(255,255,255,.8)}.instashow-gallery-media:hover .instashow-gallery-media-marker{opacity:.3}.instashow-gallery-media-carousel .instashow-gallery-media-marker-carousel,.instashow-gallery-media-video .instashow-gallery-media-marker-video{display:block}.instashow-gallery-media-cover{display:block;position:absolute;visibility:hidden;z-index:2;top:0;right:0;bottom:0;left:0;opacity:0;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-link:hover .instashow-gallery-media-cover{visibility:visible;opacity:0.8}.instashow-gallery-media-link:hover .instashow-gallery-media-cover~.instashow-gallery-media-image{-webkit-transform:scaleX(1.1) scaleY(1.1) translateZ(0);transform:scaleX(1.1) scaleY(1.1) translateZ(0)}.instashow-gallery-media-counter{display:block;position:absolute;visibility:hidden;z-index:3;box-sizing:border-box;top:50%;right:0;left:0;opacity:0;-webkit-transform:translateY(0) scale(.8);transform:translateY(0) scale(.8);font-size:200%;text-align:center;line-height:1;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}span.instashow-gallery-media-counter{padding:3px}.instashow-gallery-media-link:hover .instashow-gallery-media-counter{visibility:visible;opacity:1;-webkit-transform:translateY(-50%) scale(1);transform:translateY(-50%) scale(1)}.instashow-gallery-media-counter .instashow-icon{font-size:160%}.instashow-gallery-media-image{display:block;position:relative;visibility:hidden;width:100%;height:100%;opacity:0;-webkit-transform:scaleX(1) scaleY(1) translateZ(0);transform:scaleX(1) scaleY(1) translateZ(0);-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-media-loaded .instashow-gallery-media-image{visibility:visible;opacity:1}.instashow-gallery-media-image img{display:block;position:relative;min-width:auto!important;min-height:auto!important;max-width:none!important;max-height:none!important}.instashow-gallery-media-square .instashow-gallery-media-image img{width:100%!important;height:100%!important}.instashow-gallery-media-portrait .instashow-gallery-media-image img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-gallery-media-album .instashow-gallery-media-image img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-gallery-media-info{display:block;position:absolute;visibility:hidden;z-index:3;width:80%;max-height:80%;opacity:0;-webkit-transform:translateX(-50%) translateY(-40%);transform:translateX(-50%) translateY(-40%);text-align:center;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-media-info-no-description{-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0);font-size:120%}.instashow-gallery-media-link:hover .instashow-gallery-media-info{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) translateY(-47%);transform:translateX(-50%) translateY(-47%)}.instashow-gallery-media-info-counter{line-height:1}.instashow-gallery-media-info-counter+.instashow-gallery-media-info-counter{margin-left:16%}.instashow-gallery-media-info-counter~.instashow-gallery-media-info-description{margin-top:12%}.instashow-gallery-media-info-description{display:block;overflow:hidden;font-size:14px}.instashow-gallery-media-info-cropped::after{display:block;line-height:1;letter-spacing:2px;content:'...'}.instashow-gallery-loader{position:absolute;z-index:12;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(255,255,255,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-gallery-loader.instashow-show{visibility:visible;opacity:1}.instashow-gallery-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-gallery-control-arrow{position:absolute;z-index:10;width:74px;height:74px;top:50%;border-radius:50%;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-control-arrow-disabled{visibility:hidden;opacity:0}.instashow-gallery-control-arrow::after,.instashow-gallery-control-arrow::before{display:block;position:absolute;height:2px;width:12px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-gallery-control-arrow-previous{left:0;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}.instashow-gallery-control-arrow-previous::after,.instashow-gallery-control-arrow-previous::before{top:37px;right:16px;border-radius:0 10px 10px 0}.instashow-gallery-control-arrow-previous::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-previous::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-previous:active{-webkit-transform:translate3d(-50%,-50%,0) scale(.9);transform:translate3d(-50%,-50%,0) scale(.9)}.instashow-gallery-control-arrow-next{right:0;-webkit-transform:translate3d(50%,-50%,0);transform:translate3d(50%,-50%,0)}.instashow-gallery-control-arrow-next::after,.instashow-gallery-control-arrow-next::before{top:37px;left:16px;border-radius:10px 0 0 10px}.instashow-gallery-control-arrow-next::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-gallery-control-arrow-next::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-gallery-control-arrow-next:active{-webkit-transform:translate3d(50%,-50%,0) scale(.9);transform:translate3d(50%,-50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow{right:auto;left:50%}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous{top:0;-webkit-transform:rotate(90deg) translate3d(-50%,50%,0);transform:rotate(90deg) translate3d(-50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-previous:active{-webkit-transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(-50%,50%,0) scale(.9)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next{top:auto;bottom:0;-webkit-transform:rotate(90deg) translate3d(50%,50%,0);transform:rotate(90deg) translate3d(50%,50%,0)}.instashow-gallery-vertical .instashow-gallery-control-arrow-next:active{-webkit-transform:rotate(90deg) translate3d(50%,50%,0) scale(.9);transform:rotate(90deg) translate3d(50%,50%,0) scale(.9)}.instashow-gallery-control-scroll{position:absolute;visibility:hidden;z-index:10;opacity:0;background:rgba(0,0,0,.35);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll{width:3px;top:6px;right:6px;bottom:6px}.instashow-gallery-horizontal .instashow-gallery-control-scroll{height:3px;right:6px;bottom:6px;left:6px}.instashow-gallery:hover .instashow-gallery-control-scroll{visibility:visible;opacity:1}.instashow-gallery-control-scroll-slider{position:absolute;background:#000;-webkit-transition:all .4s ease;transition:all .4s ease}.instashow-gallery-vertical .instashow-gallery-control-scroll-slider{width:100%}.instashow-gallery-horizontal .instashow-gallery-control-scroll-slider{height:100%}.instashow-gallery{position:relative;overflow:hidden;float:none;clear:both}.instashow-gallery-wrapper{overflow:hidden}.instashow-gallery-container{-webkit-transition:all 0s linear;transition:all 0s linear}.instashow-gallery-container::after,.instashow-gallery-container::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-view{position:relative;box-sizing:border-box;z-index:1}.instashow-gallery-view::after,.instashow-gallery-view::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-gallery-fade .instashow-gallery-view{position:absolute;visibility:hidden;opacity:0;top:0;left:0;pointer-events:none}.instashow-gallery-fade .instashow-gallery-view-active{visibility:visible;pointer-events:all}.instashow-gallery-slide .instashow-gallery-view{float:left;pointer-events:none}.instashow-gallery-slide .instashow-gallery-view-active,.instashow-gallery-slide .instashow-gallery-view-active-next,.instashow-gallery-slide .instashow-gallery-view-active-prev{pointer-events:all}.instashow-gallery-empty{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-gallery-empty-text{position:absolute;left:50%;top:50%;padding:26px 26px 23px;border-radius:4px;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);background:#fff;white-space:nowrap;font-size:14px;line-height:1.2}.instashow-popup-twilight{position:absolute;visibility:hidden;top:0;right:0;bottom:0;left:0;opacity:0;background:rgba(0,0,0,.5);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-show .instashow-popup-twilight{visibility:visible;opacity:1}.instashow-popup-media{position:relative;overflow:hidden;width:640px;border-radius:4px;background:#fff}.instashow-popup-media::after,.instashow-popup-media::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-has-comments{width:1040px;height:640px}.instashow-popup-media-picture{position:relative;overflow:hidden;width:640px;min-height:200px;background:#2d2d2d}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:640px;float:left}.instashow-popup-media-picture-loader{position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(45,45,45,.5);z-index:1}.instashow-popup-media-picture-loaded .instashow-popup-media-picture-loader{display:none}.instashow-popup-media-picture-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-picture img{display:block}.instashow-popup-media-album .instashow-popup-media-picture img,.instashow-popup-media-square .instashow-popup-media-picture img{width:100%}.instashow-popup-media-portrait .instashow-popup-media-picture img{margin:0 auto}.instashow-popup-media-has-comments .instashow-popup-media-picture img{position:absolute}.instashow-popup-media-has-comments.instashow-popup-media-square .instashow-popup-media-picture img{width:100%;height:100%}.instashow-popup-media-has-comments.instashow-popup-media-portrait .instashow-popup-media-picture img{height:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.instashow-popup-media-has-comments.instashow-popup-media-album .instashow-popup-media-picture img{width:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.instashow-popup-media-video{position:relative;cursor:pointer}.instashow-popup-media-video video{width:100%;height:100%}.instashow-popup-media-video::before{display:block;position:absolute;visibility:visible;top:50%;left:50%;opacity:.8;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);font:400 64px/1 Iconsfont;-webkit-transition:all .3s ease;transition:all .3s ease;content:'\e800'}.instashow-playing .instashow-popup-media-video::before{visibility:visible;opacity:0;-webkit-transform:translateX(-50%) translateY(-50%) scale(2);transform:translateX(-50%) translateY(-50%) scale(2)}div.instashow-popup-media-info{box-sizing:border-box;padding:16px}.instashow-popup-media-info-container{position:relative;min-height:200px}.instashow-popup-media-has-comments .instashow-popup-media-info-container{float:left;width:399px;min-height:640px}.instashow-popup-media-info-loader{position:absolute;top:0;right:0;bottom:0;left:0}.instashow-popup-media-info-loaded .instashow-popup-media-info-loader{display:none}.instashow-popup-media-info-loader .instashow-spinner{position:absolute;width:100px;height:100px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.instashow-popup-media-info-origin::after,.instashow-popup-media-info-origin::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-author{display:block;float:left;line-height:1;font-weight:700;font-size:14px}span.instashow-popup-media-info-author-picture{display:inline-block;overflow:hidden;box-sizing:border-box;vertical-align:middle;width:40px;height:40px;border-radius:50%;background:-webkit-radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),-webkit-radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),-webkit-linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);background:radial-gradient(circle farthest-corner at 35% 90%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(circle farthest-corner at 0 140%,#fec564,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,rgba(0,0,0,0) 50%),radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,rgba(0,0,0,0)),linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);padding:2px}span.instashow-popup-media-info-author-picture img{display:block;width:100%;height:100%;background:#fff;border:2px solid #fff;border-radius:50%;box-sizing:border-box}span.instashow-popup-media-info-author-name{display:inline-block;vertical-align:middle;margin-left:5px}a.instashow-popup-media-info-original{display:block;float:right;margin-top:8px;padding:5px 16px 6px;color:#fff;background:#3897f0;border-radius:4px;line-height:1;font-size:12px;font-weight:700}a.instashow-popup-media-info-original:hover{color:#fff;background:#268dea}.instashow-popup-media-info-meta{line-height:1}.instashow-popup-media-info-meta::after,.instashow-popup-media-info-meta::before{display:table;width:100%;height:0;clear:both;float:none;content:''}.instashow-popup-media-info-origin+div.instashow-popup-media-info-meta{margin-top:16px}.instashow-popup-media-info-properties{float:left;width:80%;white-space:nowrap}.instashow-popup-media-info-properties-item{display:inline-block;font-size:12px}.instashow-popup-media-info-properties-item+.instashow-popup-media-info-properties-item{margin-left:20px}.instashow-popup-media-info-properties-item em{font-style:normal}.instashow-popup-media-info-properties-item-location{width:60%}.instashow-popup-media-info-properties-item-location em{overflow:hidden;max-width:90%;text-overflow:ellipsis}.instashow-popup-media-info-passed-time{float:right;width:20%;text-align:right;line-height:1.68;font-size:12px}div+div.instashow-popup-media-info-content{margin:12px -16px -16px;padding:16px;border-top:1px solid rgba(0,0,0,.08)}.instashow-popup-media-has-comments .instashow-popup-media-info-content{overflow:auto;height:503px}.instashow-popup-media-info-description,p.instashow-popup-media-info-comments-item{line-height:1.45;font-size:13px}div.instashow-popup-media-info-comments-item{margin:12px 0;font-size:13px}.instashow-popup-media-info-comments-item-author,.instashow-popup-media-info-description-author{font-weight:700}.instashow-popup-media-appearing{position:absolute;top:36px;left:100px}.instashow-popup-media-next,.instashow-popup-media-previous{opacity:0;z-index:1}@media only screen and (min-width:1840px){.instashow-popup-media-hr{width:840px;height:840px}.instashow-popup-media-hr.instashow-popup-media-has-comments{width:1240px}.instashow-popup-media-hr .instashow-popup-media-picture{width:840px;height:840px}}@media only screen and (max-width:1280px){.instashow-popup-media{width:430px}.instashow-popup-media-has-comments{width:740px;height:430px}.instashow-popup-media-picture{width:430px}.instashow-popup-media-picture img{width:100%}.instashow-popup-media-has-comments .instashow-popup-media-picture img{width:auto}.instashow-popup-media-has-comments .instashow-popup-media-picture{height:430px}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:310px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item+.instashow-popup-media-info-container-properties-item{margin-left:12px}.instashow-popup-media-has-comments .instashow-popup-media-info-container-properties-item-location{width:40%}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:320px}}@media only screen and (max-width:1024px){.instashow-popup-media{width:auto}.instashow-popup-media-has-comments{width:auto;height:auto}.instashow-popup-media-picture{width:100%;height:auto!important;border-right:none!important}.instashow-popup-media-picture img{width:100%!important;height:auto!important;position:static!important;top:auto!important;-webkit-transform:none!important;transform:none!important}.instashow-popup-media-has-comments div.instashow-popup-media-info-container{width:100%}.instashow-popup-media-info-container-properties-item-location{width:60%!important}.instashow-popup-media-has-comments .instashow-popup-media-info-content{height:auto}.instashow-popup-media-appearing{position:absolute;top:36px;right:100px;left:100px}}@media only screen and (max-width:780px){.instashow-popup-media-appearing{position:absolute;top:0;left:0;right:0}}@media only screen and (max-width:480px){span.instashow-popup-media-info-properties-item-location{display:block;margin-top:16px;margin-left:0!important;width:auto!important}}.instashow-popup-media .instashow-popup-media-carousel-nav{position:absolute;right:0;bottom:0;left:0;text-align:center;padding:12px 0}.instashow-popup-media .instashow-popup-media-carousel-nav-item{display:inline-block;width:20px;height:20px;padding:5px;box-sizing:border-box;cursor:pointer}.instashow-popup-media .instashow-popup-media-carousel-nav-item::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-media .instashow-popup-media-carousel-nav-item-active::before,.instashow-popup-media .instashow-popup-media-carousel-nav-item:hover::before{background:#fff}.instashow-popup-control-close{position:absolute;z-index:12;width:32px;height:36px;top:0;right:68px;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-close::after,.instashow-popup-control-close::before{display:block;position:absolute;width:18px;height:3px;top:7px;left:10px;border-radius:10px;background:#fff;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-close::before{-webkit-transform-origin:0 50%;transform-origin:0 50%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-close::after{-webkit-transform-origin:100% 50%;transform-origin:100% 50%;-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}.instashow-popup-control-close:active{-webkit-transform:scale(.8);transform:scale(.8)}@media only screen and (max-width:1024px){.instashow-popup-control-close{right:auto;width:35px;height:35px;top:48px;left:115px;border-radius:50%}.instashow-popup-control-close::after,.instashow-popup-control-close::before{top:11px;left:12px;width:16px;height:2px}.instashow-popup-control-close::after{-webkit-transform:translateX(-5px) rotate(-45deg);transform:translateX(-5px) rotate(-45deg)}}@media only screen and (max-width:780px){.instashow-popup-control-close{top:15px;left:15px}}.instashow-popup-control-arrow{position:absolute;z-index:10;top:20px;bottom:20px;width:100px;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .2s ease;transition:all .2s ease}.instashow-popup-control-arrow.instashow-disabled{visibility:hidden;opacity:0;-webkit-transform:scale(.85);transform:scale(.85)}.instashow-popup-control-arrow span{display:block;position:absolute;width:20px;height:40px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:all .3s ease;transition:all .3s ease}.instashow-popup-control-arrow span::after,.instashow-popup-control-arrow span::before{display:block;position:absolute;width:28px;height:3px;top:20px;-webkit-transition:all .3s ease;transition:all .3s ease;content:''}.instashow-popup-control-arrow-previous{left:0}.instashow-popup-control-arrow-previous span{left:24px}.instashow-popup-control-arrow-previous span::after,.instashow-popup-control-arrow-previous span::before{border-radius:0 10px 10px 0}.instashow-popup-control-arrow-previous span::before{-webkit-transform-origin:0 110%;transform-origin:0 110%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow-previous span::after{-webkit-transform-origin:0 -10%;transform-origin:0 -10%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next{right:0}.instashow-popup-control-arrow-next span{right:24px}.instashow-popup-control-arrow-next span::after,.instashow-popup-control-arrow-next span::before{right:0;border-radius:10px 0 0 10px}.instashow-popup-control-arrow-next span::before{-webkit-transform-origin:100% 110%;transform-origin:100% 110%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.instashow-popup-control-arrow-next span::after{-webkit-transform-origin:100% -10%;transform-origin:100% -10%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.instashow-popup-control-arrow:hover span{-webkit-transform:translateY(-50%) scaleY(.85);transform:translateY(-50%) scaleY(.85)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-previous span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(-30%);transform:translateY(-50%) scaleY(.8) translateX(-30%)}.instashow-popup-control-arrow:active.instashow-popup-control-arrow-next span{-webkit-transform:translateY(-50%) scaleY(.8) translateX(30%);transform:translateY(-50%) scaleY(.8) translateX(30%)}@media only screen and (max-width:780px){.instashow-popup-control-arrow{display:none!important}}.instashow-popup{position:fixed;visibility:hidden;z-index:9999;top:0;right:0;bottom:0;left:0;text-align:left}.instashow-popup.instashow-show{visibility:visible}.instashow-popup-wrapper{position:absolute;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;max-height:100%;top:0;right:0;bottom:0;left:0}div.instashow-popup-container{display:inline-block;position:relative;visibility:hidden;box-sizing:border-box;left:50%;padding:36px 100px;opacity:0;-webkit-transform:translateX(-50%) scale(.9);transform:translateX(-50%) scale(.9);-webkit-transition:all .25s ease;transition:all .25s ease}.instashow-show div.instashow-popup-container{visibility:visible;opacity:1;-webkit-transform:translateX(-50%) scale(1);transform:translateX(-50%) scale(1);-webkit-transition:all .35s ease;transition:all .35s ease}@media only screen and (max-width:780px){div.instashow-popup-container{padding:0}}.instashow-gallery .instashow-error{position:absolute;z-index:20;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4)}div.instashow-error-panel{padding:26px 27px 27px 92px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAAGW4ZPmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ0OEZFOTU2NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ0OEZFOTU3NjA1QzExRTU5QzgxRjY4QzgzQTJFQjQzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NDQ4RkU5NTQ2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDQ4RkU5NTU2MDVDMTFFNTlDODFGNjhDODNBMkVCNDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5wtTv1AAAGNElEQVR42mK8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) 20px 20px no-repeat #fff;line-height:1.4;font-size:13px}.instashow-gallery div.instashow-error-panel{position:absolute;max-width:600px;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border-radius:4px}.instashow-error-title{font-weight:700}div.instashow-error-caption{margin-top:3px}</style>
+	<script type="text/javascript">
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	if(typeof acymailingModule == 'undefined'){
+				var acymailingModule = [];
+			}
+			
+			acymailingModule['emailRegex'] = /^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*\@([a-z0-9-]+\.)+[a-z0-9]{2,10}$/i;
+
+			acymailingModule['NAMECAPTION'] = 'Name';
+			acymailingModule['NAME_MISSING'] = 'Please enter your name';
+			acymailingModule['EMAILCAPTION'] = 'example@email.com';
+			acymailingModule['VALID_EMAIL'] = 'Please enter a valid e-mail address';
+			acymailingModule['ACCEPT_TERMS'] = 'Please check the Terms and Conditions';
+			acymailingModule['CAPTCHA_MISSING'] = 'The captcha is invalid, please try again';
+			acymailingModule['NO_LIST_SELECTED'] = 'Please select the lists you want to subscribe to';
+		
+acymailingModule['excludeValuesformAcymailing88911'] = [];
+acymailingModule['excludeValuesformAcymailing88911']['name'] = 'Name';
+acymailingModule['excludeValuesformAcymailing88911']['email'] = 'example@email.com';
+
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+
+window.addEvent('domready', function() {
+            document.getElements('.latex').each(function(item, index) {
+                item.setStyle('display', '');
+            });
+        });
+	</script>
+
+	
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+		//]]>
+	</script>
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/templates/purity_iii/css/ie8.css" type="text/css" />
+<![endif]-->
+	<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style></style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 1px;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(675,27,25,2,"web","https://www.electrosmash.com/big-muff-pi-analysis","20220414222251",1996,"/_static/",["/_static/css/banner-styles.css?v=fantwOh2","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div class="t3-wrapper corporate"> <!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+	
+<!-- MAIN NAVIGATION -->
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
+
+	<!-- OFF-CANVAS -->
+		<!-- //OFF-CANVAS -->
+
+	<div class="container">
+
+		<!-- NAVBAR HEADER -->
+		<div class="navbar-header">
+
+			<!-- LOGO -->
+			<div class="logo logo-image">
+				<div class="logo-image">
+					<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/" title="ElectroSmash">
+													<img class="logo-img" src="./ElectroSmash - Big Muff Pi Analysis_files/logo-electrosmash.png" alt="ElectroSmash">
+						
+												
+						<span>ElectroSmash</span>
+					</a>
+				</div>
+			</div>
+			<!-- //LOGO -->
+
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".t3-navbar-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+			
+	    
+		</div>
+		<!-- //NAVBAR HEADER -->
+
+		<!-- NAVBAR MAIN -->
+				<nav class="t3-navbar-collapse navbar-collapse collapse"><ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Chips<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/jrc4558-analysis">JRC4558  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mn3007-bucket-brigade-devices">MN3007 BBDs </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/lm386-analysis">LM386 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pt2399-analysis">PT2399 </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Amps<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/little-gem-analysis">Little Gem Amp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/marshall-mg10">Marshall MG10 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/noisy-cricket-analysis">Noisy Cricket  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/ruby-amp-analysis">Ruby Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/smokey-amp-analysis">Smokey Amp  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/http://www.electrosmash.com/schematics#amps">Amps Schematics.</a>
+
+</li></ul></li>
+<li itemprop="name" class="active dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Pedals<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/back-talk-analysis">Back Talk Reverse Delay </a>
+
+</li><li itemprop="name" class="current active">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis">Big Muff Pi  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/boss-ce-2-analysis">Boss CE-2 Chorus </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/boss-ds1-analysis">Boss DS-1 Distortion </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/dallas-rangemaster">Dallas Rangemaster </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/crybaby-gcb-95">Dunlop CryBaby GCB-95  </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/fuzz-face">Fuzz Face </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/tube-screamer-analysis">Ibanez Tube Screamer </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/klon-centaur-analysis">Klon Centaur </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-microamp">MXR MicroAmp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/marshall-guvnor-analysis">Marshall Guvnor </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-distortion-plus-analysis">MXR Distortion + </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-dyna-comp-analysis">MXR Dyna Comp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-phase90">MXR Phase 90 </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/proco-rat">ProCo Rat </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/sitar-swami-analysis">Sitar Swami </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/vox-v847-analysis">Vox V847 Wah Wah </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/emg81">EMG81 Pickup </a>
+
+</li></ul></li>
+<li itemprop="name" class="dropdown">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-toggle="dropdown" data-target="#">Projects<em class="caret"></em></a>
+
+
+<ul class="level1 dropdown-menu"><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield-uno">pedalSHIELD UNO </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield">pedalSHIELD DUE </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield-mega">pedalSHIELD MEGA </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedal-pi">Pedal-Pi </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/1wamp">1Wamp </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/germanium-fuzz">Germanium Fuzz </a>
+
+</li><li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/time-manipulator">Time Manipulator </a>
+
+</li></ul></li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/forum-electrosmash?lang=en">Forum </a>
+
+</li>
+<li itemprop="name">
+<a itemprop="url" href="https://web.archive.org/web/20220414222251/https://shop.electrosmash.com/">Shop</a>
+
+</li>
+</ul></nav>
+		
+		<nav class="t3-navbar navbar-collapse collapse">
+			<div class="t3-megamenu" data-responsive="true">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" data-id="435" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/" data-target="#">Home </a>
+
+</li>
+<li itemprop="name" class="dropdown mega" data-id="510" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Chips<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="492" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/jrc4558-analysis" data-target="#">JRC4558  </a>
+
+</li>
+<li itemprop="name" data-id="519" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mn3007-bucket-brigade-devices" data-target="#">MN3007 BBDs </a>
+
+</li>
+<li itemprop="name" data-id="468" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/lm386-analysis" data-target="#">LM386 </a>
+
+</li>
+<li itemprop="name" data-id="1643" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pt2399-analysis" data-target="#">PT2399 </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="444" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Amps<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="993" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="489" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/little-gem-analysis" data-target="#">Little Gem Amp </a>
+
+</li>
+<li itemprop="name" data-id="526" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/marshall-mg10" data-target="#">Marshall MG10 </a>
+
+</li>
+<li itemprop="name" data-id="491" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/noisy-cricket-analysis" data-target="#">Noisy Cricket  </a>
+
+</li>
+<li itemprop="name" data-id="490" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/ruby-amp-analysis" data-target="#">Ruby Amp  </a>
+
+</li>
+<li itemprop="name" data-id="488" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/smokey-amp-analysis" data-target="#">Smokey Amp  </a>
+
+</li>
+<li itemprop="name" data-id="746" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/http://www.electrosmash.com/schematics#amps" data-target="#">Amps Schematics.</a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="active dropdown mega" data-id="511" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Pedals<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu" style="width: 600px" data-width="600"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="515" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/back-talk-analysis" data-target="#">Back Talk Reverse Delay </a>
+
+</li>
+<li itemprop="name" class="current active" data-id="518" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis" data-target="#">Big Muff Pi  </a>
+
+</li>
+<li itemprop="name" data-id="524" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/boss-ce-2-analysis" data-target="#">Boss CE-2 Chorus </a>
+
+</li>
+<li itemprop="name" data-id="1088" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/boss-ds1-analysis" data-target="#">Boss DS-1 Distortion </a>
+
+</li>
+<li itemprop="name" data-id="1713" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/dallas-rangemaster" data-target="#">Dallas Rangemaster </a>
+
+</li>
+<li itemprop="name" data-id="905" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/crybaby-gcb-95" data-target="#">Dunlop CryBaby GCB-95  </a>
+
+</li>
+<li itemprop="name" data-id="842" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/fuzz-face" data-target="#">Fuzz Face </a>
+
+</li>
+<li itemprop="name" data-id="1664" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="512" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/tube-screamer-analysis" data-target="#">Ibanez Tube Screamer </a>
+
+</li>
+<li itemprop="name" data-id="1433" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/klon-centaur-analysis" data-target="#">Klon Centaur </a>
+
+</li>
+</ul>
+</div></div>
+<div class="col-xs-6 mega-col-nav" data-width="6"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="548" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-microamp" data-target="#">MXR MicroAmp </a>
+
+</li>
+<li itemprop="name" data-id="1667" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/marshall-guvnor-analysis" data-target="#">Marshall Guvnor </a>
+
+</li>
+<li itemprop="name" data-id="1632" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-distortion-plus-analysis" data-target="#">MXR Distortion + </a>
+
+</li>
+<li itemprop="name" data-id="1244" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-dyna-comp-analysis" data-target="#">MXR Dyna Comp </a>
+
+</li>
+<li itemprop="name" data-id="573" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-phase90" data-target="#">MXR Phase 90 </a>
+
+</li>
+<li itemprop="name" data-id="553" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/proco-rat" data-target="#">ProCo Rat </a>
+
+</li>
+<li itemprop="name" data-id="520" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/sitar-swami-analysis" data-target="#">Sitar Swami </a>
+
+</li>
+<li itemprop="name" data-id="525" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/vox-v847-analysis" data-target="#">Vox V847 Wah Wah </a>
+
+</li>
+<li itemprop="name" data-id="547" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/emg81" data-target="#">EMG81 Pickup </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" class="dropdown mega" data-id="796" data-level="1">
+<a itemprop="url" class=" dropdown-toggle" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/#" data-target="#" data-toggle="dropdown">Projects<em class="caret"></em></a>
+
+<div class="nav-child dropdown-menu mega-dropdown-menu"><div class="mega-dropdown-inner">
+<div class="row">
+<div class="col-xs-12 mega-col-nav" data-width="12"><div class="mega-inner">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="mega-nav level1">
+<li itemprop="name" data-id="1108" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield-uno" data-target="#">pedalSHIELD UNO </a>
+
+</li>
+<li itemprop="name" data-id="797" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield" data-target="#">pedalSHIELD DUE </a>
+
+</li>
+<li itemprop="name" data-id="1437" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedalshield-mega" data-target="#">pedalSHIELD MEGA </a>
+
+</li>
+<li itemprop="name" data-id="1312" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/pedal-pi" data-target="#">Pedal-Pi </a>
+
+</li>
+<li itemprop="name" data-id="1662" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/1wamp" data-target="#">1Wamp </a>
+
+</li>
+<li itemprop="name" data-id="1663" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/germanium-fuzz" data-target="#">Germanium Fuzz </a>
+
+</li>
+<li itemprop="name" data-id="1668" data-level="2">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/time-manipulator" data-target="#">Time Manipulator </a>
+
+</li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</li>
+<li itemprop="name" data-id="745" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/forum-electrosmash?lang=en" data-target="#">Forum </a>
+
+</li>
+<li itemprop="name" data-id="816" data-level="1">
+<a itemprop="url" class="" href="https://web.archive.org/web/20220414222251/https://shop.electrosmash.com/" data-target="#">Shop</a>
+
+</li>
+</ul>
+</div>
+
+		</nav>
+    <!-- //NAVBAR MAIN -->
+
+	</div>
+</header>
+<!-- //MAIN NAVIGATION -->
+
+
+
+
+
+
+  
+
+
+  
+
+
+	
+<div id="t3-mainbody" class="container t3-mainbody">
+	<div class="row">
+
+		<!-- MAIN CONTENT -->
+		<div id="t3-content" class="t3-content col-xs-12 col-sm-8  col-md-9">
+						<div class="item-page clearfix">
+
+
+<!-- Article -->
+<article>
+	<meta itemprop="inLanguage" content="en-GB">
+	<meta itemprop="url" content="/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis">
+
+      
+<header class="article-header clearfix">
+	<h1 class="article-title" itemprop="headline">
+					<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis" itemprop="url" title="Big Muff Pi Analysis">
+				Big Muff Pi Analysis</a>
+			</h1>
+
+			</header>
+    
+    
+  <!-- Aside -->
+    <!-- //Aside -->
+
+  
+  
+  
+	
+  
+	
+	<section class="article-content clearfix">
+		<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Big Muff Pi is a distortion/sustain guitar pedal designed by Bob Myer and Mike Matthews in 1969 and mass produced in 1970. This effect was the first overwhelming success of Electro-Harmonix due to&nbsp;the distinctive sound, price, and reliability. Several versions and reeditions were released over the years.</span></p>
+<p><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-all-pedals.png"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-all-pedals.png" alt="Big Muff Pi All Pedals" width="695" height="139" style="display: block; margin-left: auto; margin-right: auto;"></span></a></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Many inspiring guitarists use this stompbox, giving to the Big Muff Pi a leading role in the hard-driving music signature:</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Tony Peluso of The Carpenters, Carlos Santana, David Gilmour of Pink Floyd, Ronnie Montrose,&nbsp;Mike Mills and Pete Buck of R.E.M., Robin Finck of Nine Inch Nails, Brian Molko of Placebo, Cliff Burton of Metallica, Kurt Kobain of Nirvana, Thom Yorke of Radiohead, Pete Townshend of The Who, Thurston and Lee Renaldo Moore of Sonic Youth, Billy Corgan of Smashing Pumkins, J. Mascis of Dinosaur Jr., Dan Auerbach of Black Keys, Ace Frehley of Kiss, The Edge of U2, Jamie Cook of the Arctic Monkeys, Jack White of White Stripes, John Frusciante of The Red Hot Chili Peppers, Chris Wolstenholme of Muse are some of the B.M.P well known users.</span></p>
+ 
+<h1><span style="font-family: verdana, geneva;"><strong><span style="font-size: 14pt; color: #000000;"></span><span style="font-size: 14pt;">Table of Contents:</span></strong></span></h1>
+<p style="padding-left: 30px;"><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#circuit1">1. The Big Muff Pi Circuit.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#bom11">1.1 List of Materials / Parts List.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#input2">2. Input Booster Stage.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link21">2.1 Shunt Feedback Common Emitter Stage.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link22">2.2 Input Booster Voltage Gain Calculation.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link23">2.3 Input Impedance Calculation.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link24">2.4 Input Booster Frequency Response.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link3">3. Big Muff Pi Clipping Stage.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link31">3.1 Sustain Circuit.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link32">3.2 Clipping Amplifier Voltage Gain Calculation</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link33">3.3 Clipping Method.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link34">3.4 Clipping Stage Frequency Response.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link4">4. Passive Tone Control Stage.</a><br>&nbsp;&nbsp; &nbsp;<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link41">4.1 Tone Control Frequency Response.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link5">5. Output Stage.</a><br>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link51">&nbsp;5.1 Big Muff Pi Output Impedance.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link6">6. Big Muff Pi Bias and Tone Response.</a><br><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link7">7. Resources.</a><br>&nbsp;&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis#link71">7.1 Datasheets.</a></span></p>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="circuit1" name="circuit1"></a><strong><span style="color: #000000;">1. The Big Muff Pi Circuit.</span></strong></span></h1>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The Big Muff Pi circuit consists of 4 cascaded common emitter amplifier stages</span>&nbsp;<span style="font-size: 10pt; color: #333333;">with a passive tone control. The schematic can be broken down into 4 simpler blocks: Input Booster, Clipping Stage, Passive Tone Control&nbsp;</span><span style="font-size: 10pt; color: #333333;">and Output Booster.</span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-circuit-stages.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-circuit-stages-small.png" alt="Big Muff Pi v3 Circuit Stages" width="800" height="234" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="color: #333333;">The circuit design was inspired by previous Fuzz pedals like the Dallas Arbiter Fuzz-Face, Maestro Fuzz-Tone or Electro-Harmonix Axis Fuzz. In addition, the BMP introduced a double clipping stage, a new tone control and it is able to produce a characteristic sustained distortion sound never heard before.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">There are also several enhancements on the design in order to make the circuit stable and reliable: All components are based in silicon, all transistor stages include an emitter resistance, which makes the gain independent from temperature or transistor intrinsic characteristics. Three out of four stages include feedback resistors and Miller capacitors, which stabilize the behavior and frequency response. It is a big advantage versus the contemporary dodgy pedals based on germanium.</span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The components selected for the design are very generic and easy to find: just high gain NPN transistors, simple silicon diodes and standard resistors, caps and three 100K linear pots. Avoiding exotic parts and making the circuit ready for mass production and a shortage of suppliers.</span></p>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">This study is focused on the American&nbsp;<em>Version 3</em>, associated with the iconic bold red and black design and released in</span>&nbsp;<span style="font-size: 10pt;">1976-1977, the analysis can be easily extrapolated to any other version.</span></span></p>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;"></span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 12pt; color: #333333;"><a id="bom11" name="bom11"></a></span><strong><span style="font-size: 12pt; color: #000000;">1.1 Big Muff Pi List of Materials / Parts List.</span></strong></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The components are labeled following the original Electro-Harmonix printed circuit board:</span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">4 NPN Transistors: BC239 or equivalents 2N5088, 2N5089, BC549C, SE4010, 2N5210, 2N5113: Q<sub>1</sub>, Q<sub>2</sub>, Q<sub>3</sub>, Q<sub>4</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">4 Silicon Diodes: 1N914 or equivalent 1N4148: D<sub>1</sub>, D<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub>.</span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">3 Potentiometers 100K Lin: Sustain, Tone, Volume.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">5 Resistances 10K: R<sub>13</sub>, R<sub>19</sub>, R<sub>18</sub>, <span style="font-size: 10pt; color: #333333;">R<sub>11</sub></span> R<sub>12</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">3 Resistances 100K: R<sub>20</sub>, R<sub>16</sub>, R<sub>3</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">3 Resistances 470K: R<sub>9</sub>, R<sub>17</sub>, R<sub>15</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">2 Resistances 39K: R<sub>2</sub>, R<sub>8</sub>.&nbsp;</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">2 Resistances 150: R<sub>21</sub>, R<sub>10</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">2 Resistances 15K: R<sub>6</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Resistance 47K: R<sub>14</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Resistance 100: R<sub>22</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Resistance 3.3K: R<sub>4</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Resistance 1K: R<sub>23</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Resistance 22K: R<sub>5</sub>.</span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">4 Capacitors 1uF: C<sub>1</sub>, C<sub>4</sub>, C<sub>6</sub>, C<sub>7</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">4 Capacitors 100nF: C<sub>5</sub>, C<sub>13</sub>, C<sub>3</sub>, C<sub>2</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">3 Capacitors 470pF: C<sub>10</sub>, C<sub>11</sub>, C<sub>12</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Capacitor 4nF: C<sub>9</sub>.</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">1 Capacitor 10nF: C<sub>8</sub>.</span></p>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="input2" name="input2"></a><strong><span style="color: #000000;">2. Big Muff Pi Input Booster Stage.</span></strong></span></h1>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">This clean boost stage is based on a Common Emitter amplifier with Shunt Feedback and&nbsp;</span><span style="color: #333333; font-size: 10pt;">some arrangements to enhance the performance.&nbsp;</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-input-buffer.png"><span style="color: #333333; font-size: 10pt;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-input-buffer.png" alt="Big Muff Pi V3 Input Booster" width="385" height="332" style="display: block; margin-left: auto; margin-right: auto;"></span></a></span><br><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">The Input Booster sets the pedal input impedance, shapes the frequency response and adds some gain.</span></p>
+<p><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-family: verdana, geneva;"><strong><span style="font-size: 12pt;"><a id="link21" name="link21"></a><span style="color: #000000;">2.1 Big Muff Pi Shunt Feedback Common Emitter Stage</span></span><span style="font-size: 12pt; color: #000000;">.</span></strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">In common emitter amps, the approximate voltage gain is collector resistance divided by the emitter resistance (R<sub>C</sub>/R<sub>E</sub>), but the&nbsp;</span><span style="font-size: 10pt; color: #333333;">effect of the feedback resistor has to be taken into consideration:</span></span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The resistor R<sub>9</sub>&nbsp;from collector to base also called&nbsp;<em>Shunt Feedback&nbsp;resistor</em>&nbsp;or R<sub>F</sub> is a method to apply negative feedback to the amplifier.&nbsp;</span><span style="font-size: 10pt; color: #333333;">While it results in a reduced overall voltage gain and input impedance, a number of improvements are obtained:</span></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Better stabilized voltage gain.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">Improved frequency response.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">Reduced Noise.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">More Linear operation.</span></li>
+<li><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">More immune against variations in temperature and transistors Beta.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><span style="color: #000000;">How it works?:</span>&nbsp;If the emitter current were to increase, the voltage drop across Rc increases, decreasing Vc</span><span style="font-size: 10pt; color: #333333;">, reducing Ib feedback to the base. This, in turn, decreases the emitter current, correcting the original increase.</span>&nbsp;<span style="font-size: 10pt; color: #333333;">The value of R<sub>9&nbsp;</sub></span><span style="font-size: 10pt; color: #333333;"><span style="font-size: small;">should be selected so that the collector voltage is half of the supply voltage.&nbsp;</span></span></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<h2><span style="font-family: verdana, geneva;"><strong><span style="font-size: 12pt;"><a id="link22" name="link22"></a><span style="color: #000000;">2.2 Input Booster Voltage Gain Calculation.</span></span></strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">A <a href="https://web.archive.org/web/20220414222251/http://www.uotechnology.edu.iq/dep-eee/lectures/2nd/Electronics%201/Part%2004.pdf">simplified analysis method</a> must be used to calculate the voltage gain of the amplifier, otherwise, it turns into an&nbsp;</span><span style="font-size: 10pt; color: #333333;">arithmetic nightmare. It consists of 3 steps:</span></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><strong><span style="color: #333333; font-size: 10pt;">a) Identify the Amplifier Topology:</span></strong></span></li>
+</ul>
+<p style="padding-left: 60px;"><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The topology is known as <em>Voltage-Shunt Feedback</em>: voltage refers to connecting the output voltage as the input to the feedback network and</span>&nbsp;<span style="font-size: 10pt; color: #333333;">Shunt refers to connecting the feedback signal in parallel/shunt with the input current source.</span></span><br><br></p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;"><strong>b) Draw the equivalent circuit without the feedback network:</strong>&nbsp;<span style="color: #333333; font-size: 13px; line-height: 18px;">The idea is to draw an equivalent amplifier without feedback but taking the loading of it into consideration. In the image below, the resistor values are substituted by generic labels, in order to make the formulas more intuitive:</span></span><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-small-signal1.png"><span style="color: #333333; font-size: 10pt;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-small-signal1.png" alt="Big Muff Pi V3 Small Signal" width="748" height="206" style="color: #333333; font-size: 13px; line-height: 18px; display: block; margin-left: auto; margin-right: auto;"></span></a></span></li>
+</ul>
+<p style="padding-left: 30px;"><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The equivalent circuit uses Norton's current source since the feedback signal is current. In the image below, the feedback resistor is grounded</span>&nbsp;<span style="font-size: 10pt; color: #333333;">in the input and output sections and the resistors grouped:</span><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-small-signal2.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-small-signal2.png" alt="Big Muff Pi Small Signal " width="532" height="294" style="display: block; margin-left: auto; margin-right: auto;"></a><span style="font-size: 10pt; color: #333333;"> </span></span></p>
+<p style="padding-left: 90px;"><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Where:</span></span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="color: #333333; font-size: small; font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif.latex" alt="" title="R_{B}=R_{S}//R_{A}//R_{F} = 39K//47K//470K = 20.4K"></span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="color: #333333; font-size: small; font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(1).latex" alt="" title="R_{L}=R_{sustain}//R_{C}//R_{F} = 101K//10K//470K = 9K"></span></p>
+<p style="margin-left: 30px;"><span style="color: #333333; font-size: small; font-family: verdana, geneva;"></span></p>
+<p>&nbsp;</p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><strong><span style="font-size: 10pt; color: #333333;">c) T</span></strong><span style="color: #333333; font-size: 10pt;"><strong>he voltage gain</strong> can be calculated following the simplified analysis of these equations:</span></span></li>
+</ul>
+<p style="padding-left: 60px;"><span style="font-family: verdana, geneva;"><span style="color: #000000;"><span style="font-size: small;">A</span><sub style="color: #333333;">Z</sub></span><span style="color: #333333; font-size: small;">: Voltage-Shunt Gain without feedback formula:</span></span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(2).latex" alt="" title="A_{z}=\frac{V_{out}}{I_{s}}=\frac{\beta \cdot i_{b} \cdot R_{L}}{i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}}) + (\frac{R_{E}(\beta +1)i_{b}}{R_{B}})}"></span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><br><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(3).latex" alt="" title="with\: \: \: \: (\frac{R_{E}(\beta +1)i_{b}}{R_{B}}) &gt; &gt; i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}})"></span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><br><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(4).latex" alt="" title="A_{z}=\frac{V_{out}}{I_{s}}=\frac{R_{B} \cdot R_{L}}{R_{E}}"></span></p>
+<p style="padding-left: 60px;"><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"><span style="color: #000000;">B<sub>G</sub></span>: Feedback Voltage-Shunt formula:</span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(5).latex" alt="" title="B_{G}=\frac{I_{F}}{V_{out}}=- \frac{1}{R_{F}}"></span></p>
+<p style="padding-left: 60px;"><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"><span style="color: #000000;">A<sub>ZF</sub></span>: Voltage-Shunt Gain with Feedback&nbsp;</span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(6).latex" alt="" title="A_{ZF}=\frac{A_{Z}}{1+A_{Z}B_{G}}=\frac{\frac{R_{B} \cdot R_{L}}{R_{E}}}{1+\frac{R_{B} \cdot R_{L}}{R_{E}}\cdot\frac{1}{R_{F}}}"></span></p>
+<p style="padding-left: 60px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="color: #000000;">GV</span>: Voltage Gain:</span></p>
+<p style="margin-left: 30px; padding-left: 60px;"><span style="font-family: verdana, geneva;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/gif(7).latex" alt="" title="G_{V}=\frac{V_{out}}{V_{S}}=\frac{V_{out}}{I_{S}\cdot R_{S}}=\frac{A_{ZF}}{R_{S}}"></span></p>
+<p style="padding-left: 60px;"><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">Replacing the&nbsp;Input Booster circuit values&nbsp;R<sub>B</sub>=20.4K, R<sub>L</sub>=9K, R<sub>E</sub>&nbsp;=100, R<sub>S</sub>=39K and R<sub>F</sub>&nbsp;=470K the results obtained are B<sub>G</sub>=1/470K, A<sub>ZF</sub>=374.2 and the voltage value is G<sub>V</sub>=9.6 (19.6dB) although doing the simulation the G<sub>V</sub>&nbsp;never reaches this value (it is 16.7 dB).</span></p>
+<p><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link23" name="link23"></a><strong><span style="color: #000000;">2.3 Big Muff Pi Input Impedance Calculation.</span></strong></span></h2>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Big Muff Pi input impedance is R<sub>2</sub> aka <em>R<sub>S</sub> series resistance</em> plus the input impedance of the Input Booster stage:</span></p>
+<p style="margin-left: 30px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">&nbsp;<span style="color: #333333; font-size: 13px; line-height: 18px;">Z<sub>in</sub> = R<sub>S</sub> + (R<sub>in input Booster</sub>)&nbsp;</span></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The input resistance of the Input Booster due to the emitter resistance and the feedback network effect is much smaller than R<sub>2</sub>. So, the value of the input resistor R<sub>2</sub>=39K accounts&nbsp;</span><span style="font-size: 10pt; color: #333333;">for almost all of the signal loading at the input. The 39K it is indeed a low input impedance, and the&nbsp;</span><span style="font-size: 10pt; color: #333333;">guitar signal might suffer tone sucking (loss of high frequencies), although tone and volume loss&nbsp;</span><span style="font-size: 10pt; color: #333333;">is compensated by the rest of the circuit design.</span></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Increasing the 39k R<sub>2</sub>&nbsp;input resistor, the input impedance is increased but it also forms a voltage divider at the input,&nbsp;</span><span style="font-size: 10pt; color: #333333;">reducing the available voltage gain.</span></span></p>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt;">The Emitter Resistance:&nbsp;</span><span style="font-size: 10pt; color: #333333;">Adding an emitter resistance R<sub>22</sub>&nbsp;to a common emitter amp, also known as&nbsp;<em>Emitter Degeneration</em>, makes the voltage gain less</span>&nbsp;<span style="font-size: 10pt; color: #333333;">dependant from BJT parameters, and therefore less vulnerable to temperature and bias current changes.</span>&nbsp;<span style="font-size: 10pt; color: #333333;">The stability characteristics of the circuit are&nbsp;</span><span style="font-size: 10pt; color: #333333;">thus improved at the expense of a reduction in gain.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-family: verdana, geneva;"><a id="link24" name="link24"></a><strong><span style="font-size: 12pt; color: #000000;">2.4 Input Booster Frequency Response.</span></strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The frequency response is tailored by two capacitors: the input decoupling cap C<sub>1</sub>&nbsp;which sets the low-frequency response (roll-off the bass) and the Miller Capacitor</span>&nbsp;<span style="font-size: 10pt; color: #333333;">C<sub>10</sub>&nbsp;which shapes the high-frequency response (roll-off the highs):</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-input-booster-frequency-response.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-input-booster-frequency-response.png" alt="Big Muff Pi Input Booster Frequency Response" width="800" height="252" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">Input Capacitor C<sub>1</sub>: creates a high-pass filter, increasing its value will result in a more bassy response&nbsp;</span><span style="color: #333333; font-size: 10pt;">and increasing the signal into the pedal. The cut-off frequency is around 3.8Hz, not disturbing guitar harmonics.</span></span></li>
+<li><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">Collector to Base feedback Capacitor:&nbsp;</span><span style="color: #333333; font-size: 10pt;">C<sub>10</sub>&nbsp;is a&nbsp;<em>Lag Capacitor</em>&nbsp;or&nbsp;<em>Miller Capacitor</em>&nbsp;compensation to avoid oscillation&nbsp;</span><span style="color: #333333; font-size: 10pt;">which sets the amplifier bandwidth and the dominant pole frequency.&nbsp;</span><span style="color: #333333; font-size: 10pt;">The effective value of the C<sub>10</sub>&nbsp;capacitor is increased by the internal collector-base capacitance (base to collector depletion capacitance)&nbsp;</span><span style="color: #333333; font-size: 10pt;">of the BJT.&nbsp;</span></span></li>
+</ul>
+<p style="margin-left: 30px;"><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">With a C<sub>10</sub>&nbsp;of 470pF and depending on the internal BJT capacitance, low pass filter cut-off frequency is around 1.2KHz. This operation&nbsp;</span><span style="color: #333333; font-size: 10pt;">occurs just before the distortion stage; clipping a low-passed signal usually sounds better, smoother and less harsh.</span></span></p>
+<p style="margin-left: 30px;"><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">The usual values for this cap are decs to some hundreds of pF, l</span><span style="color: #333333; font-size: 10pt;">owering the C<sub>10</sub>&nbsp;value will result in a more treble response, rolling-off fewer highs.</span></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link3" name="link3"></a><strong><span style="color: #000000;">3. Big Muff Pi Clipping Stage.</span></strong></span></h1>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The clipping Stage is made of a passive voltage divider (sustain potentiometer) and&nbsp;</span><span style="font-size: 10pt; color: #333333;">two consecutive common emitter stages.&nbsp;</span><span style="font-size: 10pt; color: #333333;">Each of the two consecutive Q<sub>2</sub>/Q<sub>3</sub> clipping stages keeps&nbsp;the same topology as the Input Booster. In addition, the clipping amplifiers&nbsp;</span><span style="font-size: 10pt; color: #333333;">include a back to back diodes to create the symmetric clipping.</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-clipping-stage.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-clipping-stage.png" alt="Big Muff Pi Clipping Stage" width="576" height="331" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The design idea for the double distortion is that the first transistor <em>softly</em> clips the waveform in the feedback loop:&nbsp;</span><span style="font-size: 10pt; color: #333333;">creating the distortion and filtering the signal. After the first clipping transistor, the second one repeats the operation again and refines&nbsp;</span><span style="font-size: 10pt; color: #333333;">the distorted signal creating the <em>hard</em> clip.</span></span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-clipped-signals.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-clipped-signals.png" alt="Big Muff Pi Clipped Signal" width="704" height="227" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<h2><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link31" name="link31"></a><strong><span style="color: #000000; background-color: #ffffff;">3.1 Big Muff Pi Sustain Circuit.</span></strong></span></h2>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">The 100K sustain potentiometer controls the level of the signal going into the clipping blocks. If the level is high, the signal will be more clipped and the distortion&nbsp;</span><span style="color: #333333; font-size: 10pt;">effect will hold even if the guitar input signal is not strong.&nbsp;</span><span style="color: #333333; font-size: 10pt;">The resistor R<sub>23</sub> prevents the signal from coming from the Input Booster from being cut-off</span>&nbsp;<span style="color: #333333; font-size: 10pt;">when the sustain pot is at the lowest setting.</span></span></p>
+<h2><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link32" name="link32"></a><strong><span style="color: #000000;">3.2 Clipping Amplifier Voltage Gain Calculation.</span></strong></span></h2>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The voltage gain can be calculated applying the&nbsp;simplified analysis method as in the Input Booster:</span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">First Clipping Stage, using the formulas of the Input Booster:&nbsp;<span style="line-height: 18px;"> <br></span></span></span></li>
+</ul>
+<p style="margin-left: 60px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>B </sub>= R<sub>S</sub>//R<sub>A</sub>//R<sub>F </sub>= 10K//100K//470K = 8.9K </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>L </sub>= R<sub>F</sub>//R<sub>C </sub>= 470K//10K = 9.8K </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>E</sub> = 150 </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>S </sub>= 10K</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>F</sub> = 470K </span><br><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The results obtained ar</span><span style="font-size: 10pt;">e: </span></span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">B<sub>G </sub>= 1/470K </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">A<sub>ZF </sub>= 260</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Voltage Gain is G<sub>V </sub>= A<sub>ZF</sub>/RS = 260/10 = 26 (28dB). In the real circuit is around 23 dB.</span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">Second Clipping Stage, using the formulas of the Input Booster:&nbsp;<span style="line-height: 18px;"></span></span></span></li>
+</ul>
+<p style="margin-left: 60px;"><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>B </sub>= R<sub>S</sub>//R<sub>A</sub>//R<sub>F </sub>= 10K//100K//470K = 8.9K&nbsp;</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>L </sub>= R<sub>F</sub>//R<sub>C </sub>= 470K//15K = 14.5K</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>E</sub> = 150&nbsp;</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>S</sub> = 10K </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">R<sub>F</sub> = 470K </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The results obtained are:</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">B<sub>G </sub>= 1/470K</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">A<sub>ZF </sub>= 304 </span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Voltage Gain is G<sub>V </sub>= A<sub>ZF</sub>/R<sub>S </sub>= 304/10 = 30 (29dB).&nbsp;<span style="font-size: 13px; line-height: 18px;">In the real circuit is around 25 dB.</span></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;"><strong><span style="color: #000000;">Note:</span></strong> In the calculation, the diodes feedback network is not taken into consideration because it contains&nbsp;</span><span style="color: #333333; font-size: 10pt;">big capacitors C<sub>6</sub>&nbsp;and C<sub>7</sub>&nbsp;which disconnect the path for DC conditions.</span>&nbsp;</span></p>
+<p><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">The Gain of the second clipping stage is slightly higher (1 or 2 dBs) than the first one. <span style="font-size: 10pt; color: #333333;">However, the voltage gain of this stage will not reach such values as 28 or 29dBs. As it will be seen in the next point, the gain is limited by the clipping diodes action. The output signal of the amplifiers will never exceed <span class="st">±0.6V&nbsp;</span>and all the extra gain will modify the slew rate and the shape of the clipped signal.</span>&nbsp;</span></p>
+<p><br><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link33" name="link33"></a><strong><span style="color: #000000;">3.3 Big Muff Pi Clipping Method.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333;"><span style="font-size: 10pt;">The diodes D<sub>1</sub>-D<sub>2</sub> and D<sub>3</sub>-D<sub>4</sub> in the collector-base feedback loop of the transistors, clip the signal when&nbsp;</span><span style="font-size: 10pt;">the voltage difference between the <em>input</em> (transistor base) and the <em>output</em> (transistor collector)</span>&nbsp;<span style="font-size: 10pt;">is higher than the V<sub>F</sub> of the diode, which is around 0.6V.&nbsp;</span></span><span style="font-size: 10pt; color: #333333;">So they will limit the signal peaks and the output signal&nbsp;</span><span style="color: #333333; font-size: 13px; line-height: 18px;">will never exceed&nbsp;</span><span class="st" style="color: #333333; font-size: 13px; line-height: 18px;">± 0.6V.</span></span></p>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The big 1uF series capacitors C<sub>6</sub> and C<sub>7</sub> located next to the feedback diodes, allow the AC signal to pass through it</span>&nbsp;<span style="font-size: 10pt;">and be clipped and block the DC bias voltage. Keeping the transistor operating point undisturbed.</span>&nbsp;<span style="font-size: 10pt;">These caps determine the frequency band the unit clips. Enlarging this cap will make it clip more bass harmonics,&nbsp;</span><span style="font-size: 10pt;">make it smaller for more high-end clipping and archiving more saturated tone, more sustain, and compression</span></span></p>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<p><br><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link34" name="link34"></a><strong><span style="color: #000000;">3.4 Clipping Stage Frequency Response.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">In each of the clipping amplifiers, the frequency response is similar to the Input Booster, tailored by two capacitors:&nbsp;</span><span style="font-size: 10pt; color: #333333;">The input series decoupling caps C<sub>12</sub>-C<sub>19</sub> acting as a high pass filter and rolling-off the bass below some decs of Hz&nbsp;</span><span style="font-size: 10pt; color: #333333;">and the C<sub>6</sub>-C<sub>7</sub> Miller Capacitors acting as a low pass filter shaping the high frequency response and rolling-off around 1KHz:</span></span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-clipping-stage-frequency-response.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-clipping-stage-frequency-response.png" alt="Big Muff Pi Clipping Stage Frequency Response" width="693" height="289" style="display: block; margin-left: auto; margin-right: auto;"></a></span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">In the image above, the Clipping Stage frequency response is shown. The red curve illustrates the output after</span>&nbsp;<span style="font-size: 10pt; color: #333333;">the first clipping, with a maximum gain of 23.4 dB and band limited with two poles at 55Hz and 1.78</span><span style="font-size: 10pt; color: #333333;">KHz. The blue curve shows</span><span style="font-size: 10pt; color: #333333;">&nbsp;the output after the second clipping, with a maximum gain of 25.2 dB (48.6 - 23.4 = 25.2) and band limited with two poles&nbsp;</span><span style="font-size: 10pt; color: #333333;">at 94Hz and 1.17KHz.</span></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;">The BMP distortion is very narrow bandwidth limited,&nbsp;</span><span style="font-size: 10pt; color: #333333;">attenuating harmonics at 40dB/dec outside the pass-band, and taking into consideration the Input Booster similar response which adds another two poles, all frequencies below 90Hz, and over 1.2KHz are attenuated 60dB/dec.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="line-height: 18px; font-size: 10pt; color: #333333;">The basic idea inside the Big Muff Pi is to remove the high harmonics using Miller Capacitors three times: in Q<sub>4</sub>, Q<sub>3</sub>&nbsp;and Q<sub>2</sub>&nbsp;around 1.2 KHz</span><span style="line-height: 18px;"></span><span style="line-height: 18px; font-size: 10pt; color: #333333;">and resulting in a narrow frequency limited response that accentuates the lows and low mids, making it perfect for bass-less bands.&nbsp;<span style="color: #333333; font-size: 13px; line-height: 18px;">It seems that getting rid of its overdriven high end is the trick to increase the <em>sustain</em> of the guitar.</span></span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt; font-family: verdana, geneva;"></span></p>
+<p><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link4" name="link4"></a><strong><span style="color: #000000;">4. Big Muff Pi Passive Tone Control Stage.</span></strong></span></p>
+<p><span style="font-family: verdana, geneva;"><span style="color: #333333;"><span style="font-size: 10pt;">The Passive Tone Control has a simple and effective design: essentially it is just a</span>&nbsp;<span style="font-size: 10pt;">combination of high-low pass filters that are mixed together by a single linear 100K&nbsp;<em>Tone</em> potentiometer.&nbsp;</span><span style="font-size: 10pt;">The cut-off points are designed so that their interweaving effect introduces a middle-frequency scoop/notch</span><span style="font-size: 10pt;">&nbsp;at 1KHz&nbsp;</span><span style="font-size: 10pt;">when the potentiometer is set to the middle position. </span></span><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-tone-control.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-tone-control.png" alt="Big Muff Pi Tone Control" width="246" height="308" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"></span></h2>
+<h2><span style="font-family: verdana, geneva;"><strong><span style="font-size: 12pt; color: #000000;"><a id="link41" name="link41"></a>4.1 Big Muff Pi Tone Control Frequency Response.</span></strong></span></h2>
+<p><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">Find below the BMP frequency response, showing from blue to red all values of the tone potentiometer:</span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-tone-control.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-tone-control.png" alt="Big Muff Pi Tone Control Frequency Response" width="800" height="265" style="display: block; margin-left: auto; margin-right: auto;"></a></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The green response line has the tone pot set at the midpoint, evidencing the 1KHz&nbsp;<span style="line-height: 18px;">scoop. It also shows that the tone control is not able to archive a flat response.&nbsp;<span style="line-height: 18px;">There is an overall 7dB loss and&nbsp;</span><span style="line-height: 18px;">at the notch, the loss is about 6.5db (-13.5db total) at 1KHz.</span></span></span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The blue and red color curves have the tone at full treble/bass respectively.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link5" name="link5"></a><span style="color: #333333;"><strong><span style="color: #000000;">5. Output Stage.</span></strong></span></span></h1>
+<p><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The Output Stage is once again a common emitter amplifier amp which recovers the volume loss during the passive&nbsp;</span><span style="font-size: 10pt;">tone stack.</span></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-output-buffer.png"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-output-buffer.png" alt="bBig Muff Pi Output Booster" width="375" height="301" style="display: block; margin-left: auto; margin-right: auto;"></a></span><br><span style="color: #333333; font-family: verdana, geneva;"><span style="font-size: 10pt;">The design of this last stage is simpler than the previous ones, not including resistor Shunt Feedback or&nbsp;</span><span style="font-size: 10pt;">Miller compensation. The frequency response is then flat across the audio band and the gain is about 13dB, compensating</span>&nbsp;<span style="font-size: 10pt;">the loss in the passive tone filter.</span></span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Voltage Gain in this basic common emitter topology is</span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">G<sub>V&nbsp;</sub>= R<sub>C</sub>/R<sub>E&nbsp;</sub>=&nbsp;<span style="color: #333333; font-size: 13px; line-height: 18px;">R<sub>6</sub></span><span style="color: #333333; font-size: 13px; line-height: 18px;">/R<sub>4</sub></span>&nbsp;= 15K/3.3K = 4.5 = 13dB</span></p>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The Output impedance of the common emitter transistor stage is equal to R<sub>C</sub> = R<sub>6</sub> = 10K.</span></p>
+<p><span style="color: #333333; font-size: 10pt; font-family: verdana, geneva;">The last part of the circuit is a simple 100k volume potentiometer that regulates the output level.&nbsp;</span></p>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"></span></p>
+<h2><span style="font-size: 12pt; font-family: verdana, geneva;"><a id="link51" name="link51"></a><strong><span style="color: #000000;">5.1 Big Muff Pi Output Impedance.</span></strong></span></h2>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">The pedal output impedance also depends on the volume potentiometer position, being always less than 10K:</span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Volume Potentiometer at maximum volume: Z<sub>out</sub> = Z<sub>out|Output Stage</sub> // 100K = 9K approx.</span></li>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Volume Potentiometer at minimum volume: Z<sub>out</sub> = Z<sub>out|Output Stage</sub> + 99K // 1K = 1K approx.</span></li>
+</ul>
+<h1><span style="font-size: 14pt; font-family: verdana, geneva;"><a id="link6" name="link6"></a><strong><span style="color: #000000;">6. Big Muff Pi Bias and Tone Response.</span></strong></span></h1>
+<p><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><span style="font-size: 13px; line-height: 18px;">In the image below, the most important DC bias points are shown. It can be useful to trace circuit failures:</span></span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/big-muff-pi-v3-bias.png"><span style="font-size: 10pt; color: #333333;"><span style="font-size: 13px; line-height: 18px;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/big-muff-pi-v3-bias.png" alt="Big Muff Pi Bias" width="800" height="234" style="display: block; margin-left: auto; margin-right: auto;"></span></span></a></span></p>
+<p><span style="line-height: 18px; color: #333333; font-size: 10pt; font-family: verdana, geneva;">In the graph below the most important signals at the output of each stage are shown:</span></p>
+<p><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/images/tech/bmp/bmp-waveforms.png"><span style="font-size: 10pt; color: #333333;"><span style="font-size: 13px; line-height: 18px;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/bmp-waveforms.png" alt="Big Muff Pi Waveforms" width="800" height="323" style="display: block; margin-left: auto; margin-right: auto;"></span></span></a></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;">Orange Signal:</span></strong> It is the input signal, for this test a 1KHz, 200mVpp guitar alike signal is used.</span></li>
+</ul>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;">Black Signal:</span></strong> It is the output of the Input Booster, just the input signal inverted and amplified&nbsp;<span style="line-height: 18px;">9.6 times (19.6dB). At this point is important to mention that due to the low-level value of R<sub>14</sub>=47K, the V<sub>C&nbsp;</sub>of the transistor is not at V</span><span style="line-height: 18px;">cc/2=4.5V but at 7V. It might cause asymmetric clipping if the input signal is bigger than 0.2Vpp.&nbsp;</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;">Red Signal:</span></strong> It is the output of the first Clipping Stage, the previous signal is amplified 23 dBs and the amplitude is clipped to&nbsp;<span style="line-height: 18px;">±0.6V. The Sustain potentiometer is set at maximum value.</span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;">Blue Signal:</span></strong>&nbsp;<span style="line-height: 18px;">&nbsp;<span style="line-height: 18px;">It is the output of the first Clipping Stage, the previous signal is amplified 25 dBs and the amplitude is clipped to&nbsp;</span><span style="line-height: 18px;">±0.6V. After two consecutive clipping stages, the shape is more square or hard.</span></span></span></li>
+</ul>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><strong><span style="color: #000000;">Green Signal:</span></strong> It is the output after the Tone Control, set&nbsp;at mid position. The signal is attenuated around 13dBs because at 1KHz the mid scoop is there and the shape is slightly changed.</span></li>
+</ul>
+<ul>
+<li><span style="font-family: verdana, geneva;"><span style="font-size: 10pt; color: #333333;"><strong><span style="color: #000000;">Pink Signal:</span></strong> It is the output signal of the Big Muff Pi. The previous signal is amplified 13dBs without changes in frequency. The Volume potentiometer is set&nbsp;at maximum value</span>.</span></li>
+</ul>
+<p><span style="font-family: verdana, geneva;"></span></p>
+<h1><span style="font-size: 14pt; color: #000000; font-family: verdana, geneva;"><a id="link7" name="link7"></a><strong>7.&nbsp;Resources.</strong></span></h1>
+<p><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.bigmuffpage.com/">The Big Muff Page</a>, <span style="color: #333333;">the most comprehensive site about BMP by Kitrae. </span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http:/www.uotechnology.edu.iq/dep-eee/lectures/2nd/Electronics%201/Part%2004.pdf">Feedback BJT Amplifier Analysis </a><span style="color: #333333;">by Dr. Ahmed Saadoon.</span></span><br><span style="font-family: verdana, geneva;"><span style="font-size: 10pt;"><a href="https://web.archive.org/web/20220414222251/http://webs.uvigo.es/ario/docencia/ean/FEEDBACK1.pdf">Feedback BTJ Amplifier Analysis</a> <span style="color: #333333;">by the University of Vigo</span></span><span style="color: #333333;">.</span></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.coda-effects.com/2015/11/big-muff-mods-and-tweaks.html">BMP Mods and Tweaks.</a></span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.diyaudio.com/forums/solid-state/144603-what-capacitor-base-collector.html">BMP Questions in DIYaudio</a>.</span><br><span style="font-size: 10pt; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.muzique.com/lab/tone3.htm">BMP tone Control</a> <span style="color: #333333;">by AMZ.</span></span><br><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.thatraymond.com/downloads/solidstate_guitar_amplifiers_teemu_kyttala_v1.0.pdf">Teemuk&nbsp;Kyttala&nbsp;Solid State Guitar Amplifiers</a>,&nbsp;the Holy Scripture.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #333333; font-size: 13.3333px;">Our sincere appreciation to B. Toskin for helping us with the article.</span></p>
+<h2><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><a id="link71" name="link71"></a><strong>7.1 Datasheets.</strong></span></h2>
+<ul>
+<li><span style="font-family: verdana, geneva;">&nbsp;<span style="font-size: 10pt; color: #333333;">NPN Transistors:</span></span></li>
+</ul>
+<p style="margin-left: 60px;"><span style="font-size: 10pt; color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.datasheetcatalog.org/datasheet/motorola/BC239.pdf"><span style="color: #3366ff;">BC239 Datasheet. </span></a></span><br><span style="font-size: 10pt; color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://w5jgv.com/tree_amplifier/2N5088-89.pdf"><span style="color: #3366ff;">2N5088/2N5089 Datasheet. </span></a></span><br><span style="font-size: 10pt; color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.datasheetcatalog.org/datasheet/motorola/BC549C.pdf"><span style="color: #3366ff;">BC549C Datasheet. </span></a></span><br><span style="color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://datasheet.seekic.com/PdfFile/SE4/SE4010.pdf"><span style="font-size: 10pt; color: #3366ff;">SE4010 Datasheet.</span></a></span><br><span style="font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://72.52.208.92/~gbpprorg/mil/cavity/2N5210.pdf"><span style="font-size: 10pt; color: #3366ff;"><span style="color: #3366ff;">2N5210 Datasheet. </span></span></a></span></p>
+<ul>
+<li><span style="font-size: 10pt; color: #333333; font-family: verdana, geneva;">Silicon Diodes:</span></li>
+</ul>
+<p style="margin-left: 60px;"><span style="font-size: 10pt; color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.oup.com/us/pdf/microcircuits/students/diode/1N914B_philip.pdf"><span style="color: #3366ff;">1N914 Datasheet. </span></a></span><br><span style="font-size: 10pt; color: #3366ff; font-family: verdana, geneva;"><a href="https://web.archive.org/web/20220414222251/http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf"><span style="color: #3366ff;">1N4148 Datasheet.</span></a>&nbsp;</span></p>
+<p style="text-align: right;"><span style="font-size: 12pt; color: #000000; font-family: verdana, geneva;"><span style="color: #333333; font-size: 10pt;">Thanks for reading, all feedback is appreciated &nbsp; &nbsp;&nbsp;<img src="./ElectroSmash - Big Muff Pi Analysis_files/mail.jpg" alt="jr(at)ElectroSmash.com " style="float: right;"></span></span></p>	</section>
+  
+  <!-- footer -->
+    <!-- //footer -->
+
+			<hr class="divider-vertical"><ul class="pager pagenav">
+	<li class="previous">
+		<a class="hasTooltip" title="" aria-label="Previous article: Pro Co Rat Analysis" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/proco-rat" rel="prev" data-original-title="Pro Co Rat Analysis">
+			<span class="icon-chevron-left" aria-hidden="true"></span> <span aria-hidden="true">Prev</span>		</a>
+	</li>
+	<li class="next">
+		<a class="hasTooltip" title="" aria-label="Next article: Tube Screamer Analysis" href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/tube-screamer-analysis" rel="next" data-original-title="Tube Screamer Analysis">
+			<span aria-hidden="true">Next</span> <span class="icon-chevron-right" aria-hidden="true"></span>		</a>
+	</li>
+</ul>
+	
+	
+	</article>
+<!-- //Article -->
+
+
+</div><div><a href="https://web.archive.org/web/20220414222251/http://www.artio.net/" style="font-size: 8px; visibility: visible; display: inline;" title="Web development, Joomla, CMS, CRM, Online shop software, databases">Joomla SEF URLs by Artio</a></div>
+		</div>
+		<!-- //MAIN CONTENT -->
+
+		<!-- SIDEBAR RIGHT -->
+		<div class="t3-sidebar t3-sidebar-right col-xs-12 col-sm-4  col-md-3 ">
+			<div class="t3-module module " id="Mod192"><div class="module-inner"><h3 class="module-title "><span>Instagram photos</span></h3><div class="module-ct">  
+
+<div id="jux_social_instagram_feed" class="jux_social_instagram_feed_192">
+    <style type="text/css">
+    #instaShowGallery_1 {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-counter,
+    #instaShowGallery_1 .instashow-gallery-media-info-counter {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-info-description {
+        color: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-media-cover {
+         background: #000000;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-scroll-slider {
+        background: rgb(68, 68, 68);
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover {
+        background: #ffffff;
+    }
+
+    #instaShowGallery_1 .instashow-gallery-control-arrow::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow::after {
+        background: #008eff;
+    }
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::before,
+    #instaShowGallery_1 .instashow-gallery-control-arrow:hover::after {
+        background: #25b5ff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-twilight {
+  opacity: 0.9;      background: #2b2b2b;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author {
+        color: #000000;
+    }
+    #instaShowPopup_1 .instashow-popup-media-info-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-description-author:hover,
+    #instaShowPopup_1 .instashow-popup-media-info-content .instashow-popup-media-info-comments-item-author:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 a.instashow-popup-media-info-original {
+        background: #3897f0;
+    }
+    #instaShowPopup_1 a.instashow-popup-media-info-original:hover {
+        background: rgb(38, 141, 234);
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-properties {
+        color: #6d6d6d;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-passed-time {
+        color: #989898;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content {
+        color: #343434;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a {
+        color: #113c6e;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-info-content a:hover {
+        color: #3897f0;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+    #instaShowPopup_1 .instashow-popup-control-close::before,
+    #instaShowPopup_1 .instashow-popup-control-close::after {
+        background: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+    #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+    #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+        background: #ffffff;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video::before {
+        color: #676767;
+    }
+
+    #instaShowPopup_1 .instashow-popup-media-video:hover::before {
+        color: #ffffff;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        #instaShowPopup_1 .instashow-popup-control-close {
+            background: #ffffff;
+        }
+        #instaShowPopup_1 .instashow-popup-control-arrow span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow span::after,
+        #instaShowPopup_1 .instashow-popup-control-close::before,
+        #instaShowPopup_1 .instashow-popup-control-close::after,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::before,
+        #instaShowPopup_1 .instashow-popup-control-arrow:hover span::after,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::before,
+        #instaShowPopup_1 .instashow-popup-control-close:hover::after {
+            background: #676767;
+        }
+
+        #instaShowPopup_1 .instashow-popup-media-video::before {
+            color: #676767;
+        }
+    }
+</style><div data-is="" data-is-api="https://www.electrosmash.com/modules/mod_jux_social_instagram_feed/juxinstagram/api/index.php" data-is-source="@electro.smash" data-is-filter-only="" data-is-filter-except="" data-is-limit="0" data-is-cache-media-time="0" data-is-responsive="{ &quot;768&quot;: { &quot;columns&quot;: 2, &quot;rows&quot;: 2, &quot;gutter&quot;:10} , &quot;480&quot;:{ &quot;columns&quot;: 1, &quot;rows&quot;: 1, &quot;gutter&quot;: 10}}" data-is-width="auto" data-is-height="auto" data-is-columns="1" data-is-rows="5" data-is-gutter="10" data-is-arrows-control="false" data-is-scroll-control="false" data-is-drag-control="false" data-is-free-mode="false" data-is-loop="false" data-is-scrollbar="false" data-is-direction="horizontal" data-is-auto="0" data-is-auto-hover-pause="true" data-is-effect="slide" data-is-speed="600" data-is-easing="ease" data-is-popup-deep-linking="false" data-is-popup-speed="400" data-is-popup-easing="ease" data-is-lang="en" data-is-mode="popup" data-is-info="likesCounter, commentsCounter, description" data-is-popup-info="username, instagramLink, likesCounter, commentsCounter, location, passedTime, description, comments" data-is-color-gallery-bg="#ffffff" data-is-color-gallery-counters="#ffffff" data-is-color-gallery-description="#ffffff" data-is-color-gallery-overlay="#000000" data-is-color-gallery-arrows="#008eff" data-is-color-gallery-arrows-bg="#ffffff" data-is-color-gallery-arrows-hover="#25b5ff" data-is-color-gallery-arrows-bg-hover="#ffffff" data-is-color-gallery-scrollbar="#ffffff" data-is-color-popup-overlay="#2b2b2b" data-is-color-popup-bg="#ffffff" data-is-color-popup-username="#000000" data-is-color-popup-username-hover="#3897f0" data-is-color-popup-instagram-link="#3897f0" data-is-color-popup-instagram-link-hove="#268dea" data-is-color-popup-counters="#6d6d6d" data-is-color-popup-passed-time="#989898" data-is-color-popup-anchor="#113c6e" data-is-color-popup-anchor-hover="#3897f0" data-is-color-popup-text="#343434" data-is-color-popup-controls="#676767" data-is-color-popup-controls-hover="#ffffff" data-is-color-popup-mobile-controls="#676767" data-is-color-popup-mobile-controls-bg="#ffffff" data-is-debug="true" id="instaShowGallery_1" class="instashow instashow-gallery instashow-gallery-horizontal instashow-gallery-slide" style="width: auto; height: 1275px;"><div class="instashow-gallery-loader instashow-show"><div class="instashow-spinner"></div></div> 
+
+    <div class="instashow-gallery-wrapper" style="width: 263px; height: 1275px;"><div class="instashow-gallery-container" style="width: 0px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+</div>
+
+<script type="text/javascript">
+    var jux_style_hover = "1";
+    // console.log(jux_style_hover);
+</script></div></div></div><div class="t3-module module " id="Mod28"><div class="module-inner"><h3 class="module-title "><span>New Updates</span></h3><div class="module-ct"><ul class="latestnews mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/arduino-audio-meter" itemprop="url">
+			<span itemprop="name">
+				Arduino Audio Meter			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/dallas-rangemaster" itemprop="url">
+			<span itemprop="name">
+				Dallas Rangemaster Treble Booster Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/time-manipulator" itemprop="url">
+			<span itemprop="name">
+				Time Manipulator - Arduino Delay/Echo/Reverb			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/marshall-guvnor-analysis" itemprop="url">
+			<span itemprop="name">
+				Marshall The Guvnor Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/germanium-fuzz" itemprop="url">
+			<span itemprop="name">
+				You Can Build the Perfect Germanium Fuzz			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/mxr-distortion-plus-analysis" itemprop="url">
+			<span itemprop="name">
+				MXR Distortion + Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod29"><div class="module-inner"><h3 class="module-title "><span>Most Visited</span></h3><div class="module-ct"><ul class="mostread mod-list">
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/tube-screamer-analysis" itemprop="url">
+			<span itemprop="name">
+				Tube Screamer Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/fuzz-face" itemprop="url">
+			<span itemprop="name">
+				Fuzz Face Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/proco-rat" itemprop="url">
+			<span itemprop="name">
+				Pro Co Rat Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/boss-ds1-analysis" itemprop="url">
+			<span itemprop="name">
+				Boss DS-1 Distortion Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/klon-centaur-analysis" itemprop="url">
+			<span itemprop="name">
+				Klon Centaur Analysis			</span>
+		</a>
+	</li>
+	<li itemscope="" itemtype="https://schema.org/Article">
+		<a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/crybaby-gcb-95" itemprop="url">
+			<span itemprop="name">
+				Dunlop CryBaby GCB-95 Cicuit Analysis			</span>
+		</a>
+	</li>
+</ul>
+</div></div></div><div class="t3-module module " id="Mod184"><div class="module-inner"><h3 class="module-title "><span>Follow us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><span style="font-size: 10pt; color: #333333;">You can also follow us on:</span></p>
+<p><a href="https://web.archive.org/web/20220414222251/https://www.facebook.com/ElectroSmash"><img src="./ElectroSmash - Big Muff Pi Analysis_files/facebook.png" alt="facebook"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://plus.google.com/+Electrosmash/about"><img src="./ElectroSmash - Big Muff Pi Analysis_files/google.png" alt="google"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://www.instagram.com/electro.smash/"><img src="./ElectroSmash - Big Muff Pi Analysis_files/instagram.png" alt="instagram"></a></p>
+<p><a href="https://web.archive.org/web/20220414222251/https://www.pinterest.com/electrosmash/"><img src="./ElectroSmash - Big Muff Pi Analysis_files/pinterest.png" alt="pinterest"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://www.youtube.com/user/ElectroSmashTV"><img src="./ElectroSmash - Big Muff Pi Analysis_files/youtube.png" alt="youtube"></a>&nbsp;&nbsp; <a href="https://web.archive.org/web/20220414222251/https://twitter.com/electro_smash"><img src="./ElectroSmash - Big Muff Pi Analysis_files/twitter.png" alt="twitter"></a></p></div>
+</div></div></div>
+		</div>
+		<!-- //SIDEBAR RIGHT -->
+
+	</div>
+</div> 
+
+
+
+  
+
+
+  
+
+
+	
+<!-- BACK TOP TOP BUTTON -->
+<div id="back-to-top" data-spy="affix" data-offset-top="300" class="back-to-top hidden-xs hidden-sm affix-top">
+  <button class="btn btn-primary" title="Back to Top"><i class="fa fa-caret-up"></i></button>
+</div>
+<script type="text/javascript">
+(function($) {
+	// Back to top
+	$('#back-to-top').on('click', function(){
+		$("html, body").animate({scrollTop: 0}, 500);
+		return false;
+	});
+    $(window).load(function(){
+        // hide button to top if the document height not greater than window height*2;using window load for more accurate calculate.    
+        if ((parseInt($(window).height())*2)>(parseInt($(document).height()))) {
+            $('#back-to-top').hide();
+        } 
+    });
+})(jQuery);
+</script>
+<!-- BACK TO TOP BUTTON -->
+
+<!-- FOOTER -->
+<footer id="t3-footer" class="wrap t3-footer">
+
+			<!-- FOOTER SPOTLIGHT -->
+		<div class="container hidden-xs">
+				<!-- SPOTLIGHT -->
+	<div class="t3-spotlight t3-footer-sl  row">
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod185"><div class="module-inner"><h3 class="module-title "><span>About us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220414222251/https://shop.electrosmash.com/about-us/">&nbsp;&nbsp;<img src="./ElectroSmash - Big Muff Pi Analysis_files/smash-electro.jpg" alt="smash electro"></a></p>
+<p><a href="https://web.archive.org/web/20220414222251/https://shop.electrosmash.com/about-us/"><span style="font-size: 10pt; color: #333333;">Smashing audio electronics since MMXIII</span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod183"><div class="module-inner"><h3 class="module-title "><span>Email Newsletter</span></h3><div class="module-ct"><div class="acymailing_module" id="acymailing_module_formAcymailing88911">
+	<div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing88911">
+		<form id="formAcymailing88911" action="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/big-muff-pi-analysis" onsubmit="return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing88911&#39;)" method="post" name="formAcymailing88911">
+		<div class="acymailing_module_form">
+						<table class="acymailing_form">
+				<tbody><tr>
+												<td class="acyfield_email acy_requiredField">
+								<input id="user_email_formAcymailing88911" onfocus="if(this.value == &#39;example@email.com&#39;) this.value = &#39;&#39;;" onblur="if(this.value==&#39;&#39;) this.value=&#39;example@email.com&#39;;" class="inputbox" type="text" name="user[email]" style="width:90%" value="example@email.com" title="example@email.com">
+							</td> </tr><tr>
+					
+					<td class="acysubbuttons">
+												<input class="button subbutton btn btn-primary" type="submit" value="Subscribe" name="Submit" onclick="try{ return submitacymailingform(&#39;optin&#39;,&#39;formAcymailing88911&#39;); }catch(err){alert(&#39;The form could not be submitted &#39;+err);return false;}">
+											</td>
+				</tr>
+			</tbody></table>
+						<input type="hidden" name="ajax" value="0">
+			<input type="hidden" name="acy_source" value="module_183">
+			<input type="hidden" name="ctrl" value="sub">
+			<input type="hidden" name="task" value="notask">
+			<input type="hidden" name="redirect" value="https%3A%2F%2Fwww.electrosmash.com%2Fbig-muff-pi-analysis">
+			<input type="hidden" name="redirectunsub" value="https%3A%2F%2Fwww.electrosmash.com%2Fbig-muff-pi-analysis">
+			<input type="hidden" name="option" value="com_acymailing">
+						<input type="hidden" name="hiddenlists" value="1">
+			<input type="hidden" name="acyformname" value="formAcymailing88911">
+									</div>
+		</form>
+	</div>
+	</div>
+
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod186"><div class="module-inner"><h3 class="module-title "><span>Contact us</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p><a href="https://web.archive.org/web/20220414222251/https://www.electrosmash.com/contact-us"><span style="font-size: 10pt; color: #333333;">e-mail us at <span id="cloakf128793dd4b8347cab5d0cfed9158d3e"><a href="mailto:info@electrosmash.com">info@electrosmash.com</a></span><script type="text/javascript">
+				document.getElementById('cloakf128793dd4b8347cab5d0cfed9158d3e').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addyf128793dd4b8347cab5d0cfed9158d3e = '&#105;nf&#111;' + '&#64;';
+				addyf128793dd4b8347cab5d0cfed9158d3e = addyf128793dd4b8347cab5d0cfed9158d3e + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_textf128793dd4b8347cab5d0cfed9158d3e = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloakf128793dd4b8347cab5d0cfed9158d3e').innerHTML += '<a ' + path + '\'' + prefix + ':' + addyf128793dd4b8347cab5d0cfed9158d3e + '\'>'+addy_textf128793dd4b8347cab5d0cfed9158d3e+'<\/a>';
+		</script></span></a></p>
+<p>&nbsp;</p></div>
+</div></div></div>
+							</div>
+					<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<div class="t3-module module " id="Mod188"><div class="module-inner"><h3 class="module-title "><span>Rights</span></h3><div class="module-ct">
+
+<div class="custom">
+	<p style="text-align: left;">&nbsp;&nbsp;<a href="https://web.archive.org/web/20220414222251/https://creativecommons.org/licenses/by-nc/3.0/"><img src="./ElectroSmash - Big Muff Pi Analysis_files/88x31.png" alt="88x31"></a></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/open_source_logo.png" alt="open source logo" width="180" height="38"></p>
+<p style="text-align: left;"><img src="./ElectroSmash - Big Muff Pi Analysis_files/open_hardware_logo.png" alt="open hardware logo" width="180" height="38"></p>
+<p style="text-align: left;">&nbsp;</p></div>
+</div></div></div>
+							</div>
+			</div>
+<!-- SPOTLIGHT -->
+		</div>
+		<!-- //FOOTER SPOTLIGHT -->
+	
+	<section class="t3-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 copyright ">
+					
+          <small>
+            <a href="https://web.archive.org/web/20220414222251/http://twitter.github.io/bootstrap/" title="Bootstrap by Twitter" target="_blank">Bootstrap</a> is a front-end framework of Twitter, Inc. Code licensed under <a href="https://web.archive.org/web/20220414222251/https://github.com/twbs/bootstrap/blob/master/LICENSE" title="MIT License" target="_blank">MIT License.</a>
+          </small>
+          <small>
+            <a href="https://web.archive.org/web/20220414222251/http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> font licensed under <a href="https://web.archive.org/web/20220414222251/http://scripts.sil.org/OFL">SIL OFL 1.1</a>.
+          </small>
+				</div>
+							</div>
+		</div>
+	</section>
+
+</footer>
+<!-- //FOOTER -->
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://web.archive.org/web/20220414222251/https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29544239-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!--
+playback timings (ms):
+  captures_list: 184.412
+  exclusion.robots: 0.32
+  exclusion.robots.policy: 0.308
+  RedisCDXSource: 2.328
+  esindex: 0.017
+  LoadShardBlock: 149.221 (3)
+  PetaboxLoader3.datanode: 132.751 (4)
+  CDXLines.iter: 25.398 (3)
+  PetaboxLoader3.resolve: 571.676 (2)
+  load_resource: 593.55
+--><div class="instashow instashow-popup" id="instaShowPopup_1"><div class="instashow-popup-twilight"></div><div class="instashow-popup-wrapper"><div class="instashow-popup-container"><div class="instashow-popup-control-close"></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-previous"><span></span></div><div class="instashow-popup-control-arrow instashow-popup-control-arrow-next"><span></span></div></div></div></div></body></html>

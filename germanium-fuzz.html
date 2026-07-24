@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Can Build the Perfect Germanium Fuzz &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; You Can Build the Perfect Germanium Fuzz</span>
+  </div>
+</header>
+<main>
+  <h1>You Can Build the Perfect Germanium Fuzz</h1>
+
+<p>The 1966 Dallas Arbitrer Fuzz Face has become the holy grail of Fuzz tones. It enjoys the most enduring reputation probably due to Jimi Hendrix use and abuse of this pedal. But not all the Fuzz Faces sound the same, in the old days, players sorted through dozens of pedals at a time to find the best sounding fuzz of the store. Why is that? </p>
+<div class="video-embed"><iframe allowfullscreen="allowfullscreen" loading="lazy" src="https://www.youtube.com/embed/GCDDw27iwqc"></iframe></div>
+<p>In this project, we are going to build the perfect Fuzz with all the knowledge and experience that we have nowadays while keeping the tweaks and old character that make this vintage pedal to sound warm, round, and harmonically pleasant.</p>
+<p>The FF circuit is rather simple: 4 resistors, 3 caps, and 2 transistors. Seems like pretty simple stuff, and in principle it is, but there is plenty of black magic and mystery associated with a good sounding Fuzz circuit, and it takes a lot of effort to get the things sounding just right.</p>
+<p>The gain (Hfe) and leakage current inconsistency of the germanium transistors (the sound signature of this pedal) and the lack of ability/will to use the right components could make a huge impact on the tonal heart. The circuit layout in a pedal with a huge gain like this is critical and the component selection will leave its footprint on the sound.</p>
+
+
+<p><strong>The ElectroSmash Germanium Fuzz Pedal:</strong></p>
+<p>Compiling all the knowledge and experience that we have nowadays about the Fuzz Face, we have designed this project that tries to bring the good old classic fuzz tone using modern and controlled technologies:</p>
+<p><img alt="germanium fuzz by electrosmash" class="article-img" src="images/germanium-fuzz/germanium-fuzz-by-electrosmash-small.jpg"/></p>
+<p><strong>Specifications:</strong></p>
+<ul>
+<li>NOS Factory sealed Russian Germanium Transistors from the USSR era: with reasonable high-gain (Hfe&gt;60) and super-low leakage current.</li>
+<li><a href="https://en.wikipedia.org/wiki/Turret_board" rel="noopener noreferrer" target="_blank">Turret Board</a> construction on the signal path: timeless vintage construction method; reliable and serviceable.   </li>
+<li>True Bypass: The effect pedal gets completely disconnected from the signal chain once is deactivated.</li>
+<li>2 multi-turn Burns trimmer resistors to set the collector voltages on the input and output transistors: Allowing to set the perfect bias for the circuit.</li>
+<li>1/2W Carbon composite resistors: Same as the ones used in the original 1966 model.</li>
+<li>Alpha potentiometers: Using reverse audio for the Fuzz control that gives extra control to the user. </li>
+<li>Big power supply capacitor (470uF) with low ESR: removes all possible noise from the power supply.</li>
+<li>Red high-brightness/low current LED that makes the total current consumption of the pedal 2.5mA.</li>
+<li>Reverse polarity diode:  prevents battery reverse polarity damage.</li>
+<li>Top quality audio-grade components (2.2uF film input capacitor, Neutrik jacks, Bourn trimmers, Alpha pots, Wurth caps,  axial components, etc)</li>
+<li>Input jack used as a switch to power the pedal on.</li>
+<li>Quality PCB:  1.6mm FR4 printed circuit board with plated pads for easy soldering.</li>
+</ul>
+<p>The circuit schematic and Bill of Materials are available and open to modifications.</p>
+
+<p><strong>The Circuit:</strong></p>
+<p>The circuit follows the original Fuzz Face (<em>positive ground</em>) signal path design:</p>
+<p><img alt="Germanium Fuzz Face Schematic" class="article-img" src="images/germanium-fuzz/Germanium-Fuzz-Face-Schematic.png"/></p>
+<p>The pedal uses a double PNP transistor stage and a feedback network. The only two differences with the original circuit are:</p>
+<ul>
+<li>Two multi-turn resistor trimmers (Trimmer1 and Trimmer2) replace fixed resistors so the bias could be adjusted to the perfect level.</li>
+<li>Two optional Miller caps (Cx) are included to reduce any possible HF noise.</li>
+</ul>
+<p>We ensure that the signal path is the same as in the 1966 FF vintage pedal. All the other features (true bypass, LED, quality components, polarity protection, turrets, power supply capacitor, etc) will not change the sound of it and enhance the quality and performance of the pedal.</p>
+<p>If you want to know all the details about the circuit, have a look at the <a href="fuzz-face.html">Fuzz Face Analysis</a>.</p>
+<p><img alt="germanium fuzz face" class="article-img" src="images/germanium-fuzz/germanium-fuzz-main.jpg"/></p>
+<p><strong>Measurements:</strong></p>
+<p>The Germanium Fuzz total voltage gain is around 48dB matching <a href="images/germanium-fuzz/fuzz.png" rel="noopener" target="_blank">the simulation</a>. The pedal response has a low-frequency roll-off around 50Hz due to the two high-pass filters created by C1 and the Input Impedance and the combination of C3&amp;RV2. There isn't any low pass filter in the circuit: in the treble side of the frequency response, the line extends flat to the limits of the measuring system. Not attenuating the high-freqs makes this pedal so rich harmonically, in the left image you can see all this harmonics when the pedal clips.   </p>
+<p><img alt="germanium fuzz clipping" class="article-img" src="images/germanium-fuzz/germanium-fuzz-clipping.jpg"/></p>
+<p><strong>Time Response:</strong></p>
+<p>In the image below you can check how the Germanium Fuzz reacts to a sinusoidal input signal. It's interesting to see how the asymmetrical happens hapens first to the positive semicycle of the signal and how extremely distorted can get the fuzz output signal.  </p>
+<p><img alt="germanium fuzz time response" class="article-img" src="images/germanium-fuzz/germanium-fuzz-time-response.gif"/></p>
+
+<p>note: In the beginning is difficult to apreciate the change in the input signal because the level is so low that the oscilloscope cannot capture the amplitude change.</p>
+
+<p><strong>The Documentation:</strong></p>
+<p>We have created simple manuals to build this project:</p>
+<ul>
+<li><strong><a href="assets/germanium-fuzz/Germanium-Fuzz-Schematic-ElectroSmash.pdf" rel="noopener" target="_blank">Full Schematic PDF</a></strong> (including footswitch, jacks, etc)</li>
+<li><strong><a href="assets/germanium-fuzz/Germanium-Fuzz-Assembly-Guide-ElectroSmash.pdf" rel="noopener" target="_blank">How to Build a Germanium Fuzz PDF</a></strong> document, explaining all the details and tricks of this pedal.</li>
+<li><strong><a href="assets/germanium-fuzz/Germanium-Fuzz-1590B-drilling-stencil-ElectroSmash.pdf" rel="noopener" target="_blank">Germanium Fuzz 1590B Drilling Stencil.</a></strong></li>
+<li><a href="assets/germanium-fuzz/Germanium-Fuzz-BOM-ElectroSmash.pdf" rel="noopener" target="_blank"><strong>Germanium Fuzz Face Bill of Materials</strong></a>. With all the Mouser references.</li>
+<li><strong><a href="assets/germanium-fuzz/Germanium-Fuzz-PCB-Plan-ElectroSmash.pdf" rel="noopener" target="_blank">Germanium Fuzz PCB Plan.</a></strong></li>
+</ul>
+
+<p>We also have a YouTube video that guides you during the whole building process:</p>
+<div class="video-embed"><iframe allowfullscreen="allowfullscreen" loading="lazy" src="https://www.youtube.com/embed/_KB7HrqF0oQ"></iframe></div>
+
+<p><strong>Buying the Germanium Fuzz Pedal online:</strong></p>
+<p>You can use <a href="https://shop.electrosmash.com/" rel="noopener noreferrer" target="_blank">our online shop</a> to get:</p>
+<ul>
+<li><strong><a href="https://shop.electrosmash.com/product-category/amplifiers/germanium-fuzz/" rel="noopener noreferrer" target="_blank">The PCB:</a></strong> As the BOM and all the documents are available you can get the parts and DIY (you can also order NOS USSR Germanium Transistors).</li>
+<li><strong><a href="https://shop.electrosmash.com/product-category/amplifiers/germanium-fuzz/" rel="noopener noreferrer" target="_blank">The Full Kit:</a></strong> The complete BOM and the drilled enclosure is included, you only need soldering iron and basic tools.</li>
+</ul>
+
+<p><strong>The Design Details:</strong></p>
+<ul>
+<li><strong>Only using a 9V battery, no external power supply:</strong> The original Fuzz Face using PNP transistors uses "positive ground" that means that the input and output jack are referenced to 9V (instead of ground). You can plug it to your pedalboard or amp without any problems BUT if you use a daisy chain or non-isolated power supply to power it, they will create a short. The best way to avoid conflicts is just to use a 9V battery, the low power consumption of this effect (2.5mA) will make your battery last for very long.<img alt="fuzz face power supply" class="article-img" src="images/germanium-fuzz/fuzz-face-power-supply.jpg"/></li>
+</ul>
+<p>Note: The original fuzz uses carbon-zinc battery (not modern alkaline) and it is <a href="http://www.dingotone.com/wordpress/wp-content/uploads/2012/06/Discussion-about-fuzzface-batteries-V1.pdf" rel="noopener noreferrer" target="_blank">claimed to give a better sound performance</a>.</p>
+<ul>
+<li><strong>Tips How to Play a Fuzz Face: </strong>The logical thinking is that maxing the guitar volume knob and the pedal Fuzz and Vol controls will give the maximum distortion, BUT the Fuzz pedal is quite unique and the volume knob of the guitar plays a very important role in this effects. Controlling the volume from the guitar can make the final tone from subtle crunch (10% guitar vol knob) to overload fuzz (90% guitar vol knob). </li>
+</ul>
+<ul>
+<li><strong>Hiss/Noise: </strong>When the Fuzz Face is maxed (Vol and Fuzz controls to 100%) some noise is unavoidable for germanium Fuzz Faces. The circuit itself has a tremendous amount of gain and the vintage parts used have some "character" or inherent noise. Usually, the noisiest pedals are the ones that sound best.</li>
+</ul>
+<p>However, in order to reduce any excess of unwanted noise, two optional 100pF Miller capacitors (Cx) from base-to-collector on both transistors could be placed. This caps will limit the high-frequency response of the pedal and keep under control the hissing noise.</p>
+<p> <img alt="jimi hendrix fuzz face" class="article-img" src="images/germanium-fuzz/jimi-hendrix-fuzz-face.jpg"/></p>
+
+<p><strong>Germanium Transistor Selection - Biasing the Fuzz Face:</strong> </p>
+<p>It is crucial to select the right transistors in order to archive the best sounding box. Germanium transistors tend to have high leakage current and an inconsistent gain value (Hfe). After years of experimentation and listening, it is agreed that the best match uses a low gain in the first stage (Hfe=80 approx.) and a high gain in the second stage (Hfe=120 approx.). Why is this? well if you use this values, the circuit bias points will look like this:</p>
+<p><img alt="fuzz face bias" class="article-img" src="images/germanium-fuzz/fuzz-face-bias.jpg"/></p>
+
+<ul>
+<li><strong>Problem: The Original Situation:</strong></li>
+</ul>
+<p>On the left image, the most important bias points are VC1=-0.5 to -0.7v and VC2=-4.5V, these values <a href="http://www.physics.mcgill.ca/~grant/Stuff/fuzzface.txt" rel="noopener noreferrer" target="_blank">make the effect to sound fantastic</a>. Using a Q1 and Q2 with the gains specified on the left image, the circuit will be biased to that points.</p>
+<p>As we mentioned before, theses perfect AC128 120/80 Hfe transistors were long time discontinued. There is no source for them anymore and the only solution for builders is to pay astronomical prices for NOS, to buy big batches of similar transistors and try to find if it any left that meets the requirements, and try to avoid the re-labeled, fakes in that journey.</p>
+
+<ul>
+<li><strong>The Solution:</strong></li>
+</ul>
+<p>Instead of using the perfect and difficult-to-find transistors to get the circuit biased right, we can use almost any high-gain germanium PNP transistor (Hfe&gt;50) and with the help of 2 trimmer resistors get the circuit perfect biased (right image). By doing this, we will create the same conditions for the transistors as if they were the <em>perfect ones</em>. Dunlop discovers this fact later on and <a href="http://www.tdpri.com/threads/fuzz-face-mini-trim-pot.548029/" rel="noopener noreferrer" target="_blank">includes a trimmer on VC2</a> in order to adjust it to -4.5V.</p>
+
+<p><strong>The Fuzz Face Transistors:</strong></p>
+<p>The first FF's manufactured in the UK used the AC128, a 45-165 Hfe European germanium PNP transistor, cheap/common at that time (later on replaced by the Newmarket NKT275). After this early <em>germanium years</em>, the production switched to the modern, temperature independent, and more stable silicon transistors like the BC108C, BC109C, and BC209C.<br/></p>
+<p><img alt="russian germanium transistors" class="article-img" src="images/germanium-fuzz/russian_germanium_transistors.jpg"/></p>
+<p>The classic 60's/70's <em>soft</em> distortion Fuzz Face pedals (the ones used by Jimi Hendrix) used germanium transistors, but all the parts mentioned above (AC128, NKT275, SFT363E) were a long time ago discontinued. There is no <em>official</em> source of transistors for this pedal anymore, the only way to obtain this parts is using specific online suppliers (<a href="http://www.smallbear-electronics.mybigcommerce.com/germanium-transistors/" rel="noopener noreferrer" target="_blank">Smallbear</a>, etc), eBay, Amazon, repair shops, and surplus outlets.</p>
+<p><strong>Russian Germanium Transistors</strong>: For this project, we are going to use Germanium PNP transistors. They were manufactured back in the old USSR Soviet days, they are under military specifications that make them good, with a consistent gain and not leaky in current.</p>
+
+<p><strong>Other 1966 Original Electronic Components Peculiarities: </strong></p>
+<p>The parts used back in the 60s keep part of the character of the pedal, these are the most important facts: </p>
+<p><img alt="original fuzz face pcb" class="article-img" src="images/germanium-fuzz/original-fuzz-face-pcb.jpg"/></p>
+<ul>
+<li><strong>The Fuzz Face Caps: </strong>The original FF uses standard aluminum electrolytic capacitors for the 2.2uF and 20uF values and a film for the 10nF cap. They are common technologies still easy to find nowadays. <br/></li>
+</ul>
+<ul>
+<li><strong>The Fuzz Face Resistors: </strong>The original models use 1/2W carbon film resistors. This kind of resistors was extensively used on vintage audio equipment. They are not used anymore because they are considered noisy compared to the modern metal-film resistors. Many people think that original carbon resistors carry part of the organic fuzz distortion sound. </li>
+</ul>
+<ul>
+<li><strong>The Potentiometers: </strong>The 1K linear "Fuzz" pot that was standard issue for the original Fuzz Face. This potentiometer put almost all the <em>action</em> into the last 25% of the rotation. Using a reverse audio pot (instead of linear) will spread out the change in clipping level over much more of the rotation. You get a lot more subtlety of control.</li>
+</ul>
+<ul>
+<li><strong>The PCB: </strong>The original PCB from the 60s uses a single layer printed circuit board, will all the components placed on one side while the tracks run over the bottom. All the pots and jack are soldered to one of the sides of the board. It was the simpler and cheaper way to produce a PCB at that time.  </li>
+</ul>
+
+
+<p> Thanks for reading, all feedback is appreciated <strong>This email address is being protected from spambots. You need JavaScript enabled to view it.<script type="text/javascript">
+				document.getElementById('cloak4398e536f4e6d020d49461e5b6bd5958').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy4398e536f4e6d020d49461e5b6bd5958 = '&#105;nf&#111;' + '&#64;';
+				addy4398e536f4e6d020d49461e5b6bd5958 = addy4398e536f4e6d020d49461e5b6bd5958 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_text4398e536f4e6d020d49461e5b6bd5958 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloak4398e536f4e6d020d49461e5b6bd5958').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy4398e536f4e6d020d49461e5b6bd5958 + '\'>'+addy_text4398e536f4e6d020d49461e5b6bd5958+'<\/a>';
+		</script>   </strong></p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054552/https://www.electrosmash.com/germanium-fuzz" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20You%20can%20Build%20the%20Perfect%20Germanium%20Fuzz%20Face.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="vox-v847-analysis.html">&larr; Vox V847 Wah-Wah Analysis</a>
+    <a class="prevnext" href="mn3007-bucket-brigade-devices.html">Bucket Brigade Devices: MN3007 &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

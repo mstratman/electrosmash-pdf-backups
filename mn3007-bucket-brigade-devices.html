@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bucket Brigade Devices: MN3007 &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Chips &rsaquo; Bucket Brigade Devices: MN3007</span>
+  </div>
+</header>
+<main>
+  <h1>Bucket Brigade Devices: MN3007</h1>
+
+<p>The Bucket Brigade Device <em>BBD</em> chip was invented by F. Sangster and K. Teer at the Philips Research Labs between 1968-1969. This affordable solid state device provides signal delay and soon found many applications in a wide range of products, especially guitar effects being a midpoint between the bulky old <em>pure analog</em> delay circuits based on magnetic tape and the modern<em> digital</em> systems based in Analog to Digital converters and signal processors.<img alt="MN3007" class="article-img" src="images/mn3007-bucket-brigade-devices/MN3007.jpg"/></p>
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. BBD Functionality.</a><br/><a href="#link2">2. BBD Internal Circuit Topologies.</a><br/>     <a href="#link21">2.1 Basic Topology.</a><br/>     <a href="#link22">2.2 Tetrode Isolation Topology.</a><br/>     <a href="#link23">2.3 Complementary Output Topology.</a><br/>     <a href="#link24">2.4 Dual Topology.</a><br/>     <a href="#link25">2.5 Tapped Output Topology.</a><br/><a href="#link3">3. BBD Chips Comparison. </a><br/><a href="#link4">4. Bucket Brigade Device Clock Drivers.</a><br/>     <a href="#link41">4.1 BBD Clock Limitations.</a><br/><a href="#link5">5. BBD Circuits Architecture.</a><br/>    <a href="#link51"> 5.1 Filter Implementation.</a><br/><a href="#link6">6. The MN3007.</a><br/>     <a href="#link61">6.1 MN3007 VS MN3207.</a><br/><a href="#link7">7. Resources.</a><br/>     <a href="#link71">7.1 BBDs Datasheets.</a></p>
+
+<h2><a id="link1" name="link1"></a><strong>1. BBD Functionality.</strong></h2>
+<p>BBDs are given their name because of the similarity in their functionality to a line of people passing buckets of water to fight a fire. The chip was licensed to Matsushita from mid-70s, Roland/Boss was the first customer and they used it in the Roland JC120 Amplifier, the Chorus CE-1 pedal and later on the<a href="boss-ce-2-analysis.html"> Chorus CE-2</a>.</p>
+<p><img alt="Fire Bucket Brigade" class="article-img" src="images/mn3007-bucket-brigade-devices/fire-bucket-brigade.jpg"/></p>
+
+<p><img alt="Bucket Brigade Device Silicon" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-topology-basic.png"/></p>
+<p>They consist of a series of capacitors sections which carry the analog signal. The charge in each cap stage is passed into the subsequent stage using transistors as switches at a rate determined by an external clock. <br/>In this way, the output delayed signal is discrete in time due to the external clock sampling and analog in amplitude because of the capacitor storage element.</p>
+
+<p><img alt="Bucket Brigade Device Explanation" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-basic.png"/></p>
+
+<p>With the high level of CLK2, the input signal is gated through Q<sub>0</sub> to the capacitor C<sub>0</sub>. At the next clock transition, C<sub>0</sub> is isolated and the last voltage applied to C<sub>0</sub> is held. As CLK2 goes down, CLK1 rises allowing the charge on C<sub>0</sub> to be gated to the storage capacitor C<sub>1</sub>. On the next clock transition, gating transistor Q<sub>1</sub> is disabled and Q<sub>2</sub> is enabled to allow the charge in C<sub>1</sub> to pass the next stage C<sub>2</sub>. The process is repeated through the circuit until the same voltage appears at the output.</p>
+
+<h2><a id="link2" name="link2"></a><strong>2. BBD Internal Circuit Topologies.</strong></h2>
+<p>The basic BBD internal schematic is made of a series of typically thousands of capacitors and MOS transistor switches. The design suffered some modifications to enhance its performance:</p>
+<h3><a id="link21" name="link21"></a><strong>2.1 The Basic Topology.</strong></h3>
+<p>The basic model invented by Sangster at Philips in 1968. It was the first attempt to make a practical implementation of an analog delay structure. This initial design had a poor transfer efficiency being limited to few stages and low-frequency applications.<br/><img alt="Bucket Brigade Basic Topology." class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-topology-basic.png"/></p>
+<p><a id="link22" name="link22"></a><strong>2.2 The Tetrode Isolation Topology.</strong></p>
+<p>The first major advance also by Sangster at Reticon Corporation, introduces an isolation of tetrode structure with a DC biased gate NMOS transistor separating each clock element. </p>
+<p>Two out of phase clk lines are required: one to govern the even-numbered caps and the other to drive the odd-numbered ones. The performance was enhanced being able to use it in audio applications.<img alt="Bucket Brigade Devices Tetrode Isolation Topology" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-topology-tetrode-isolation.png"/>Between each of this switch transistors, there is a capacitor (charge-holding element) which is separated by a DC-biased gate transistor, which greatly improves transfer efficiency. Only half of the caps carry information, the other half remain charged</p>
+
+<h3><a id="link23" name="link23"></a><strong>2.3 The Complementary Output Topology.</strong></h3>
+<p>The output architecture was enhanced using two source follower transistors connected to the last two consecutive capacitors, resulting in a full wave output. Mixing these two outputs a more continuous output waveform is generated, providing a means of improved suppression of clocking glitches.<br/><img alt="Bucket Brigade Devices Complementary Outputs Topology" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-topology-complementary-outputs.png"/>Some designs use a trim-pot to vary the load termination between the two output followers to minimize clock frequency component due to V<sub>GS</sub> between them. This could be useful if running very low clock frequencies, and tight filter skirts to passband. </p>
+
+<h3><a id="link24" name="link24"></a><strong>2.4 Dual Topology.</strong></h3>
+<p>Another well-known topology is the <em>Dual Delay Line</em> which is made of two delay sections running in parallel:<br/><img alt="Bucket Brigade Devices Dual Topology" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-topology-dual.png"/></p>
+<p>This approach offers flexible performance: </p>
+<ul>
+<li>Each section can be used independently, only sharing the power supply.</li>
+<li>Each section can be connected in series to get double delay time for a given sample rate.</li>
+<li>Each section can be multiplexed to double the sample rate.</li>
+<li>Each section can be operated in differential mode in order to reduce even harmonic distortion.</li>
+<li>Several devices can be connected in series.</li>
+</ul>
+<p>For more details about these configurations check the <a href="#link71">Reticon SAD1024 datasheet.</a></p>
+
+<h3><a id="link25" name="link25"></a><strong>2.5 The Tapped Output Topology.</strong></h3>
+<p>A buffer amplifier (NMOS source follower) can be used for non-destructive sampling of the capacitors. These measure points or <em>taps</em> permit to have multiple outputs with a different delay, which is very interesting in order to model reverb effects, mixing the different delayed output signals properly.<img alt="Bucket Brigade Devices Tapper Output Topology" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-output-tapper-topology.png"/><br/><strong> <a id="link3" name="link3"></a>3. BBD Chips Comparison.</strong></p>
+<p>The most common BBD chips come from Panasonic/Matsushita MN3xxx series, with variants for high/low supply voltage and the number of stages. </p>
+<p><img alt="BBDs Panasonic Matsushita Table" class="article-img" src="images/mn3007-bucket-brigade-devices/bbds-matsushita.png"/></p>
+<p>Besides Panasonic/Matsushita, other companies were licensed to make BBD clones like Behringer which bankroll Coolaudio and started producing MN3207/3208/3205 clones for their own production needs. Visual Sound recommissioned production of MN3102/MN3207 in 2009. Shangai Beilling Co LTD manufactures pin compatible parts with Panasonic/Matsushita chips, labeled with BL instead of MN.<br/><img alt="Bucket Brigade Devices Comparison Table" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-comparison.png"/>Reticon manufactured the popular BBD chips SAD512, SAD1024 and SAD4096, whose suffix represents the number of BBD stages. <br/>Less common chips include the Reticon R51xx and RD51xx series and the Philips TDA1022.</p>
+<h2><strong><a id="link4" name="link4"></a>4. Bucket Brigade Devices Clock Drivers.</strong></h2>
+<p>In order to make a BBD system fully working, a complementary clock signal generator driver is needed. Matsushita/Panasonic MN31xx series have a convenient small footprint package designed to match with their respective BBD and providing:</p>
+<ul>
+<li>A two-phase clock with low impedance and the proper capacitance. The frequency value is selected by a simple RC network.</li>
+<li>Stable V<sub>GG</sub> power supply used to DC bias the base of the charge-holding elements, which greatly improves transfer efficiency, V<sub>GG</sub> = 4/15 * V<sub>CC.</sub></li>
+</ul>
+<p><img alt="BBD Clock BD3101" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd%20clock.gif"/></p>
+<p>The usage of these devices is not mandatory, some designers in order to reduce costs, have more flexibility or achieve higher clock rates use simple voltage dividers to get V<sub>GG</sub> and oscillator parts like CD4046 (used in Zombie Chorus), CD4047 (used in Small Clone, Carbon Copy, and A/DA Flanger) or 4013 (used in Electric Mistress) to generate the double clock signal.</p>
+<h3><strong><a id="link41" name="link41"></a>4.1 BBD Clock Limitations.</strong></h3>
+<p>Following the datasheet recommendations, BBDs guaranteed a correct behavior under a certain clock frequency (100~200KHz). It is because the input capacitance of the clock pins causes progressive degradation of clock pulses above the frequency limit: The clock pulses change from square to a trapezoidal/sawtooth waveform. When that happens the switching action is not perfectly synchronized resulting in a signal degradation.<br/><br/>The clock frequency limitation is the reason why the Reticon SAD1024 chip was a largely preferred choice for flangers effects which involve short delay and fast clock: the input capacitance on the clock pins was much lower (110pF) than on the MN3007 (700pF), allowing it to be clocked at much higher frequencies.<br/>When suitably buffered, though, there are reports of it clocking MN3xxx chips up well past 1MHz, which takes the device close the zero-delay zone, being convenient for fine flanger effects.</p>
+<p>BBD Sampling Time Limitations: For any BBD, the total delay time can be calculated as:</p>
+<p><img alt="" class="article-img" src="images/mn3007-bucket-brigade-devices/gif.latex"/><br/>where:</p>
+<p>N: is the number of stages.<br/>f<sub>clock</sub>: is the circuit clock frequency.</p>
+<p>The clock signals applied to the BBD will determine the signal sampling time, this sampling time should respect the Nyquist-Shannon Theorem:</p>
+<p><img alt="" class="article-img" src="images/mn3007-bucket-brigade-devices/gif.latex"/></p>
+<ul>
+<li>For short delay effects like flanging, the input signal can be oversampled, there is no penalty in terms of signal degradation. If the clock signal goes beyond the BBD clock boundary, the clk signal can be degraded as explained above and the audio waveform corrupted. </li>
+<li>For long delay effects like delay, the input signal is can be undersampled, the resulting processed signal will be degraded but the total delay time is extended.</li>
+</ul>
+
+<h2><a id="link5" name="link5"></a><strong>5. Typical Circuit with BBD Architecture.</strong></h2>
+<p>The BBDs are found in delay based effects such as echo, chorus, reverb, vibrato, flanging or delay all of them share the same general circuit architecture:<br/><img alt="Bucket Bridage Devices Architecture" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-architecture.png"/></p>
+<p>Part of the input signal is processed through the BBD chain. Depending on the clock circuit the specific effect is created: the Low-Frequency Oscillator <em>LFO</em> is used for flanger/chorus/vibrato effects to automatically modify the delay time. For other effects like a simple delay, it is not needed.</p>
+<p><br/>The output of the delay line or part of it can be feedbacked into the input with variable gain, generating trailing echoes.<br/>Before and after the BBD action, there are some stages needed to avoid signal degradation: Dynamic Range compression/expansion, Anti-Aliasing Filter and Reconstruction Filter:</p>
+<ul>
+<li><strong>Dynamic Range <em>Companding</em> (compression + expansion):</strong> These circuits allow wider dynamic range signals to be processed at the cost of altering the signal dynamics. In order to obtain low THD and good Signal to Noise ratio, the input signal has to be close to the maximum input level of the BBD.</li>
+</ul>
+<p>In some cases, the compression and expansion take place outside of the anti-aliasing and reconstruction filters, while in others, the compander is implemented directly at the input and output of the BBD. Some BBD systems that require companding utilize the 570/571 series chips. This integrated circuit consists<br/>of a pair of variable gain amplifiers and signal level averagers.</p>
+<ul>
+<li><strong>Anti-Aliasing Filter:</strong> It is low pass filter used before a signal sampler, to restrict the bandwidth of a signal to approximately satisfy the Nyquist-Shannon sampling theorem. The sampled input signal must be bandlimited to prevent aliasing (meaning waves of higher frequency being recorded as a lower frequency).</li>
+</ul>
+<ul>
+<li><strong>Reconstruction Filter:</strong> Also called <em>Anti-Imaging Filter</em> is again a low pass filter used to construct a smooth analog signal from a sampled input. The output signal must be bandlimited, to prevent aliasing (meaning Fourier coefficients being reconstructed as low-frequency waves, not as higher frequency aliases).</li>
+</ul>
+<ul>
+<li><strong>Feedback path</strong>: The feedback path also varies from system to system; different circuits place it inside or outside of the compression and expansion circuitry.</li>
+</ul>
+<p>Finally, the<em> wet</em> or processed signal is mixed with the <em>dry</em> original one, depending on this mix ratio the effect over the original signal will be more or less dramatic.</p>
+
+
+<p><strong>Drawbacks of Bucket Brigade Devices:</strong><br/>First of all, there is degradation of the capacitors charge as it passes through the bucket brigade, these losses deteriorate the quality of the delayed signal by introducing noise and distortion. The signal is slightly modified, but this is not a drawback necessarily, some players consider that this feature is unique in BBDs and contribute to create a warm or organic tone.<br/>   <br/>The process of passing the charge from bucket to bucket creates clocking noise in the signal. The output signal, therefore, looks like the audio signal, but there are “spikes” in the wave that corresponds to the clock frequency. The solution to this problem is to remove the spikes with a low pass filter, typically 30 or 36 dB per octave with a –3 dB point of around 3 kHz.</p>
+<h3><a id="link51" name="link51"></a><strong>5.1 Filter Implementation.</strong></h3>
+<p>The low pass filters used for Anti-Aliasing and Reconstruction must be strict to avoid signal distortion and keep the clock signal out of the audio path. Common configurations implement high order (2nd, 3rd, 4th) active filters using op-amps or transistors in Sallen-key configuration because of their simplicity. </p>
+<p>In this, so called, <em>standard strategy </em>the cut-off frequency of the filters before and after the BBD is fixed according to the effect delay time:<br/><img alt="Bucket Brigade Devices Sallen-Key Low Pass Filters" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-low-pass-filters.png"/>Another less common technique use switched capacitor filters, controlling the cut-off frequency by the signal clock frequency and therefore limiting the pass-band only to the necessary for a given clock frequency and improving the signal fidelity for shorter delay times.</p>
+<h2><a id="link6" name="link6"></a><strong>6. The MN3007.</strong></h2>
+<p>The MN3007 core is based on the Bucket Brigade Delay circuit with an isolated triode and a differential output. It was included in popular designs like the DM-1 and<a href="boss-ce-2-analysis.html"> CE-2 by Boss</a>, Small Clone and Memory Man by Electro-Harmonix, AD-999 by Maxon or Analog Delay by MXR:<br/><img alt="MN3007 Internal Circuit" class="article-img" src="images/mn3007-bucket-brigade-devices/mn3007-internal-circuit.png"/>It consists of a 1024 PMOS silicon stage that provides a signal delay from 5.12 to 51.2ms. The S/N is 80dB typ, THD of 0.5% typ (V<sub>IN</sub>=0.78Vrms), supporting a clock frequency range from 10 to 100KHz. The supply voltage range is from -10 to -15V.</p>
+
+<p><a id="link61" name="link61"></a><strong>6.1 MN3007 vs MN3207.</strong></p>
+<p>There is some controversy among the MN3007 and MN3207 BBDs: some designers prefer to use the MN3007 because it has more headroom (higher levels/dynamic range without signal clipping) and therefore less distortion.</p>
+<div class="table-scroll"><table border="0">
+<tbody>
+<tr>
+<td></td>
+<td>MN3007</td>
+<td>MN3207</td>
+</tr>
+<tr>
+<td>Technology</td>
+<td>PMos</td>
+<td>NMos</td>
+</tr>
+<tr>
+<td>S/N Ratio</td>
+<td> 80dB</td>
+<td>73dB </td>
+</tr>
+<tr>
+<td>THD  </td>
+<td>      0.5% (V<sub>in</sub>=0.78V<sub>rms</sub>)  <br/></td>
+<td>      0.4% (V<sub>in</sub>=0.25V<sub>rms</sub>)</td>
+</tr>
+<tr>
+<td>Max. Freq.</td>
+<td> 100KHz</td>
+<td>200KHz </td>
+</tr>
+<tr>
+<td>Delay Time </td>
+<td>5.12 ~ 51.2ms </td>
+<td>2.56 ~ 51.2ms </td>
+</tr>
+<tr>
+<td>Power Supply</td>
+<td> -10 to -15V</td>
+<td>+5 to +10V </td>
+</tr>
+</tbody>
+</table></div>
+
+<p>MN3207 is based in NMOS technology while MN3007 is PMOS (that is why it needs negative supply). Both are 1024-stage BBDs sharing the same internal circuit. </p>
+<ul>
+<li>S/N ratio is slightly better in MN3007 (80 vs 73dB).</li>
+<li>THD levels are similar 0.4-0.5% under different input V<sub>rms</sub> (0.25V vs 0.78V), MN3007 accept input signals 3 times wider, having, in fact, better dynamic range and less noise.</li>
+<li>Maximum Clock frequency is better in MN3207 200 vs 100KHz, allowing shorter delays 2.56 vs 5.12ms.</li>
+<li>Regarding the power supply, the 3007 is made for high voltage (10 to 15V) and in a usual 9V pedals supply is below the ideal voltage and then ends up not with the performance which it was designed to work. The 3207 operates from 4 to 10V, being suitable for 9V powered effects and within the optimal supply range and also the 9V can be easily regulated to 5V giving a reliable standard behavior under all conditions.</li>
+</ul>
+<p>Summarizing, using MN3007 will provide light advantages in terms of THD, and more dynamic headroom. In a guitar pedal, the chip will work at 9V, below the optimum supply range. So far seems that the performance in this conditions is good and preferred over the MN3207.<br/><br/>However, in BBD circuit design there are many other other factors that can improve the performance more than the chip itself:</p>
+<ul>
+<li>The use of compander circuitry to keep a ceiling on input signal levels.</li>
+<li>The bias voltage fine adjustment.</li>
+<li>The filtering applied, and the support circuitry (quality of clock pulse, mixing of complementary outputs, etc.)</li>
+</ul>
+<h2><a id="link7" name="link7"></a><strong>7. Resources:</strong></h2>
+<p><a href="http://www.sdiy.org/BBDHell/" rel="noopener noreferrer" target="_blank">Official Panasonic Bucket Brigade Devices Databook</a> by Harry Bissell. <br/><a href="http://dafx10.iem.at/papers/RaffelSmith_DAFx10_P42.pdf" rel="noopener noreferrer" target="_blank">Practical Modeling of Bucket Brigade Device Circuits</a> by Raffael &amp; Smith. <br/><a href="http://ww1.microchip.com/downloads/en/AppNotes/00699b.pdf" rel="noopener noreferrer" target="_blank">Anti-Aliasing Filters Application Note</a>  by Microchip. <br/><a href="http://hammer.ampage.org/files/PAiA_Phlanger.PDF" rel="noopener noreferrer" target="_blank">PAiA Phlanger</a> in Hammer AmpPage. <br/><a href="https://web.archive.org/web/20220504054625/http:/www.uk-electronic.de/PDF/mn3004.pdf">Bucket Brigade Delay Line Application Note</a><br/>Bucket-brigade electronics - new possibilities for delay, time-axis conversion, and scanning by F. L. J. Sangster and K. Teer. (IEEE Journal vol. 4, no. 3, pp. 131–136, 1969.)<br/><a href="http://www.imagesensors.org/Past%20Workshops/Marvin%20White%20Collection/1977%20Short%20Course/1977%203%20Weckler.pdf" rel="noopener noreferrer" target="_blank">Bucket Brigade Devices Circa 1977.</a> - <a href="http://www.imagesensors.org/Past%20Workshops/Marvin%20White%20Collection/1977%20Short%20Course/1977%203%20Weckler.pdf" rel="noopener noreferrer" target="_blank">Bucket Brigade Devices Circa 1976.</a><br/><a href="http://www.generalguitargadgets.com/effects-projects/modulationecho/pt-80-delay/" rel="noopener noreferrer" target="_blank">The PT-80 Digital Delay</a> by General Guitar Gadgets.<br/><a href="http://www.circularscience.com/" rel="noopener noreferrer" target="_blank">www.CircularScience.com </a>by John Roberts.<br/><br/></p>
+<h3><a id="link71" name="link71"></a><strong>7.1 Datasheets:</strong></h3>
+<p><a href="http://www.experimentalistsanonymous.com/diy/Datasheets/" rel="noopener noreferrer" target="_blank">All MN3XXX, SAD512-1024-4096 and TDA1022 Datasheets</a> by ExperimentalistAnonymous. <br/><a href="http://hammer.ampage.org/files/BBDementia.zip" rel="noopener noreferrer" target="_blank">All MN3XXX, SAD512-1024-4096 and TDA1022 Datasheets</a> by Mark Hammer. </p>
+
+<p>Thanks for reading, all feedback is appreciated  </p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054625/https://www.electrosmash.com/mn3007-bucket-brigade-devices" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Bucket%20Brigade%20Devices_%20MN3007.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="germanium-fuzz.html">&larr; You Can Build the Perfect Germanium Fuzz</a>
+    <a class="prevnext" href="jrc4558-analysis.html">JRC4558 Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

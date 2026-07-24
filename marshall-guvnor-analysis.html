@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marshall The Guvnor Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; Marshall The Guvnor Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>Marshall The Guvnor Analysis</h1>
+
+<p>The Guv'nor was the first guitar pedal designed by Marshall, released in 1988 and in production during 4 years. This overdrive/distortion <em>Made in England</em> effect replicates the classic tube Marshall Amp sound into compact and solid state box featuring a sustainable gain with a touch of compression. There are later Guv'nor MK2 models in a different enclosure, but most people prefer the sound of the original discontinued model. </p>
+<p><img alt="Marshall guvnor guitar pedal" class="article-img" src="images/marshall-guvnor-analysis/Marshall-guvnor-guitar-pedal.jpg"/></p>
+<p>In this article, we are going to study the original design and see what are the bits that make this effect so desired.</p>
+
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. Marshall Guv'nor Schematic.</a></p>
+<p>     <a href="#link11">1.1 The Power Supply Stage.</a><br/>     <a href="#link12">1.2 The Input Stage.</a><br/>     <a href="#link13">1.3 Clipping Stage.</a><br/>     <a href="#link14">1.4 Tone Control Stage.</a><br/>     <a href="#link15">1.5 Output Stage:</a></p>
+<p><a href="#link2">2. Resources.</a></p>
+<h2><strong><a id="link1"></a>1. Marshall Guv'nor Schematic.</strong></h2>
+<p>The Guvnor circuit can be divided into 5 blocks: Input Stage, Clipping Stage, Tone Control, Output Stage and Power Supply:</p>
+<p><img alt="marshall guvnor schematic parts" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-schematic-parts.png"/></p>
+<p>The Guv'nor schematic is simple but perfectly tuned: One dual op-amp boosts the signal using the Gain knob. In the clipping stage, 2 diodes to ground will hard-clip the guitar signal. This boosted and clipped waveform passes through the tone stack (with independent bass-mid-treble potentiometers) and finally, the output stage will adjust the volume level. The original circuit has a stereo 1/4" effects loop just before the pedal's output, allowing the Guvnor to include any pedal in its own loop (you would need a custom 1/4" <em>Y-cable</em> with tip-send and ring-return).</p>
+
+
+<p><strong>Marshall The Guv'nor + Circuit Layout</strong></p>
+<p>The original circuit is made using two double-sided PCBs: one contains the potentiometers and core circuit and the second one accommodates the audio/power jacks. The connection between elements is made by hand-soldered wiring. Although the enclosure and the feel of the pedal are sturdy, some parts of the pedal are famous for their fragility: the jacks (a good substitute is the Fender #0059922000 jack) and the footswitch (standard 2P2T) have a limited lifespan. Because of this factor (and discontinuity), this effect is a good candidate for DIYers. <br/></p>
+<p><img alt="marshall guvnor pcb layout" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-pcb-layout.jpg"/></p>
+<p>The first models were made in England, later boxes look the same but were made in Korea and at the end of its production life, the pedal was made in Taiwan. The serial number plate on the battery cover should say where each box was built.</p>
+<p><img alt="Marshall Guvnor sticker made in UK Korea" class="article-img" src="images/marshall-guvnor-analysis/Marshall-Guvnor-sticker-made-in-UKKorea.jpg"/></p>
+<h3><strong><a id="link11"></a>1.1 Marshall Guv'nor Power Supply Stage.</strong><br/></h3>
+<p>The Power Supply Stage will generate bias voltage (+4.5V) and energy (+9V) for the circuit:</p>
+<p><img alt="marshall guvnor power supply circuit" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-power-supply-circuit.png"/></p>
+<p> The Guvnor uses a rather minimalistic power supply: </p>
+<ul>
+<li>Two <strong>47K resistors (R13 and R14)</strong> will generate the +4.5V bias voltage for the op-amps (aka virtual ground). <br/></li>
+<li>One electrolytic <strong>capacitor C14 (10uF)</strong> decouples the resistors junction (+4.5V), reducing any noise from the supply line.</li>
+</ul>
+<p>Other pedals include some extra parts, like a cap to also decouple the +9V line, a diode for reverse polarity protection, etc . Marshall took the simple and effective path here.</p>
+<h3><strong><a id="link12"></a>1.2 Marshall Guv'nor Input Stage.</strong></h3>
+<p>The first block is a TL072 op-amp in a <a href="https://en.wikipedia.org/wiki/Operational_amplifier_applications#Non-inverting_amplifier" rel="noopener noreferrer" target="_blank">non-inverting topology</a> which gain is adjusted by the 100K VR1 Gain potentiometer. This stage provides voltage gain, high input impedance, and signal filtering:</p>
+<p><img alt="marshall guvnor input stage circuit" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-input-stage-circuit.png"/></p>
+
+<ul>
+<li>The <strong>2.2M</strong><strong>Ω R1</strong> resistor from the input to ground is an anti-pop resistor, it will avoid abrupt pop sounds when the effect is engaged.</li>
+<li>The <strong>9.6nF C1</strong> input cap blocks DC and provides simple high pass filtering. C1 and R2 create a 1st order high-pass filter:</li>
+</ul>
+<p>fc=1/(2xπxR2xC1) = (1/2x3.14x1MΩx9.6nF) = 16Hz</p>
+<p>With an fc=16Hz it will block DC and any low-frequency parasitic oscillation.<br/></p>
+<ul>
+<li>The (pin 3 +) input of the op-amp is biased to +4.5V using the <strong>R</strong><strong>2</strong><strong> resistor</strong> (1MΩ), keeping the virtual ground at +4.5V and being able to amplify bipolar guitar input signals.</li>
+</ul>
+
+
+<p><strong>Marshall Guv'nor Input Impedance Calculation.</strong></p>
+<p>The input impedance is defined by the formula:</p>
+<p>Zin = R1 //  R2 // Zin<sub>TL072 Op-Amp</sub> </p>
+<p>Zin = 2.2M // 1M // 10<sup>12</sup> = 690KΩ</p>
+<p>690K is a good input impedance, not loading the guitar pickups and preventing tone sucking (attenuation of high harmonics). As a rule of thumb, the input impedance of a pedal should be 1MΩ minimum, but 0.69MΩ is still pretty good. </p>
+<p>note: The 10<sup>12</sup>Ω input resistance value of the op-amp is taken from the <a href="http://www.ti.com/lit/ds/symlink/tl072.pdf" rel="noopener noreferrer" target="_blank">TL072 datasheet</a>.<sup>  </sup></p>
+<p>note: the "//" symbol means <a href="https://en.wikipedia.org/wiki/Resistor#Series_and_parallel_resistors" rel="noopener noreferrer" target="_blank">"resistors in parallel".</a></p>
+
+
+<p><strong><a id="voltagegain"></a>Input Stage Voltage Gain.</strong></p>
+<p>In a non-inverting op-amp like the one used in the Input Stage, the voltage gain is calculated as follows:</p>
+
+<p>Gv =  1 + (VR1 / R3)</p>
+<p>Gv<sub>(min)</sub> =  1 + (0Ω/ 2.2KΩ) = 1 (0dB)</p>
+<p>Gv<sub>(max)</sub> =  1 + (100KΩ / 2.2KΩ) =  46.45 (33.3 dB)</p>
+
+<p>This 33.3 dB of gain is a reasonably-high gain that will be increased over the next Clipping Stage.</p>
+
+
+<p><strong>Input Stage Frequency Response.</strong></p>
+<p>The frequency response is tailored by 3 capacitors (C1, C2, and C3) which create 3 filters:</p>
+<ul>
+<li>Two high-pass filters
+<ul>
+<li><strong>Created by</strong> <strong>C1 and R2</strong>, fc=1/2πRC=16Hz. This input cap will just remove and DC content from the guitar signal, it has no effect at all on the audio signal. </li>
+<li><strong>Created by C3 and R3</strong>, fc=1/2πRC=723Hz. This capacitor and the series resistors R3  and RV from the (-) input to ground act as a high-pass filter. Many other guitar pedals have a cap at the same point: like the <a href="mxr-distortion-plus-analysis.html#link12">MXR Distortion + (C3)</a>, the <a href="tube-screamer-analysis.html">Tube Screamer (C3)</a>, the <a href="proco-rat.html">Pro-Co Rat (C5, C6)</a>, the <a href="boss-ds1-analysis.html">Boss DS-1 (C8)</a> and the <a href="mxr-microamp.html#link2">MicroAmp (C3)</a>. The intention is to attenuate low frequencies that can overload the op-amp, causing instability or hum.  </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>One low-pass filter
+<ul>
+<li><strong>Created by C2 and VR1</strong>, fc=1/2πRC=13.2KHz. This 120pF cap will remove the harsh harmonics from the hard-clip, resulting in a smoother distortion. As VR1 is a variable potentiometer, the frequency response will also vary with it: With maximum gain (VR1=100KΩ) the bass will start to roll-off at 13.2KHz, and as the gain is reduced, the fc will go up in frequency. This is why if you look at the hump, the shape is more pronounced as the gain is higher (top part of the graph below).</li>
+</ul>
+</li>
+</ul>
+
+<p><img alt="marshall guvnor input stage frequency response" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-input-stage.png"/></p>
+<p>In the image above, the output signal voltage level is shown sweeping the Gain potentiometer. The gain goes from 0 to 33dB as calculated before. The humpy shape of it is pretty common in overdrive/distortion pedals, reducing the harsh high-frequency harmonics (filter at 13.2KHz) and also making sure that the bass content does not saturate the tone (two filters at 723Hz and 16Hz) </p>
+<h3><strong><a id="link13"></a>1.3 Marshall Guvnor Clipping Stage.</strong></h3>
+<p>This block uses an op-amp (in inverting topology) to increase the voltage gain even more after the Input Stage. Two back to back diodes (D1 and D2) connected to ground are used clip the guitar signal. This type diode clipping (also used in the <a href="boss-ds1-analysis.html">Boss DS1</a>. the <a href="proco-rat.html">RAT</a>, the <a href="mxr-distortion-plus-analysis.html">Distortion+</a>, and the <a href="klon-centaur-analysis.html">Kon Centaur</a>) adds a <em>hard-clip</em> sound, making the audio signal to clip with a hard knee which generates a strong distortion. </p>
+<p><img alt="marshall guvnor clipping stage" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-clipping-stage.png"/></p>
+<ul>
+<li><strong>The C4 cap</strong> is just a bypass cap to eliminate any DC from the previous stage. It does not affect the audio band.</li>
+<li><strong>The 2PDT footswitc</strong>h action connects the D3 LED to the ground when the pedal is engaged. When the pedal is OFF, the input of the op-amp is grounding to prevent the circuit to go into oscillation. </li>
+<li><strong>The C5 capacitor</strong> in terms of audio signal, this cap is redundant because the DC is blocked with C4. But when the pedal is off, the DPDT footswitch will connect the pin 6 (biased at 4.5V) to ground, so this C5 cap prevents the DC short between +4.5V and 0V. Marshall uses a big value (100nF) so the audio signal will not be affected by it.</li>
+<li><strong>The R6 resistor</strong> limits the amount of current into the back-to-back diodes, 1KΩ is a standard value, other pedals like the<a href="proco-rat.html">Pro-Co Rat uses 1KΩ</a>, the <a href="boss-ds1-analysis.html">Boss DS-1 uses 2.2K</a><a href="boss-ds1-analysis.html">Ω</a>, and the <a href="images/marshall-guvnor-analysis/Klon-Centaur-Schematic-Parts.png" rel="noopener" target="_blank">Klon Centaur 1KΩ</a>.</li>
+</ul>
+
+<p><strong>Clipping Stage Voltage Gain: </strong></p>
+<p>The R4 resistor together with R5 will define the voltage gain of this op-amp, using the formula:</p>
+<p>Gv= - R5/R4 = - 680KΩ/10KΩ = -68 (36dB)</p>
+<p>In the graph below the Clipping Stage Frequency Response is shown (with different lines showing the Gain potentiometer action): The total gain is around 70dBs (33.3dB from the Input Stage + 36 from the Clipping Stage). 70dB is an enormous amount of gain, especially if we compare it with similar overdrive pedals like the <a href="boss-ds1-analysis.html#transistor-booster">Boss DS-1 (35dB)</a>, the <a href="klon-centaur-analysis.html">Klon Centaur </a>(<a href="klon-centaur-analysis.html">40dB</a>),  or <a href="tube-screamer-analysis.html#clip-stage">Tube Screamer (41dB)</a> or the <a href="mxr-distortion-plus-analysis.html#link12">Distortion + (46dB)</a>. </p>
+<p>We have this super-high 70dB gain because the next Tone Control stage will attenuate the signal around 10 to 20dB, some extra gain will balance the signal loss.</p>
+
+<p><img alt="marshall guvnor clipping stage frequency response" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-clipping-stage-frequency-response.png"/></p>
+
+
+<p><strong>The Marshall Guv'nor clipping diodes: Red LEDs.</strong></p>
+<p>Marshall uses red LED diodes in the Guvnor effect. They are the most important factor in the overdrive/distortion tone. Marshall is known for the intensive use of LEDs as clipping diodes in many of its designs: The Marshall Drivemaster and all the solid state Marshall amps (MG10, MG15, MG30, MG50DFX, MG100DFX) <a href="marshall-mg10.html#link4">use 1 green and 1 red diode in the clipping stage</a>. Seems like LEDs have something that match with the Marshall tone and they are an important part of the sound signature.  </p>
+<p><img alt="marshall guvnor diodes red led" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-diodes-red-led.jpg"/></p>
+<p>These red diodes have a big forward voltage (Vf=1.8 to 2V) and a <em>hard-saturation</em> behavior compared to germanium diodes Vf=0.3 (with a softer-knee, <a href="mxr-distortion-plus-analysis.html#link13">used in the MXR Distortion +</a>) or silicon diodes Vf=0.7V (similar hard-knee, <a href="boss-ds1-analysis.html#op-amp">used in the Boss DS-1</a>). This high LED Vf will add extra head-room and volume to the distorted output signal.</p>
+<p> <img alt="marshall guvnor clipping" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-clipping.png"/></p>
+<p>In the image above, the junction between the 2 diodes (D1&amp;D2) and the 1KΩ R6 is measured. As the Gain potentiometer increases the voltage gain of the op-amps the signal starts to clip and form the "hard-knee" shape. The clipping point is around 1.8 to 2V.</p>
+<h2><a id="link14"></a><strong>1.4 Marshall Guv'nor Tone Control Stage.</strong></h2>
+<p>Unlike many other distortion/overdrive pedals, the Guvnor includes an independent control for bass, mid and treble:</p>
+<p><img alt="marshall guvnor tonestack" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-tonestack.png"/></p>
+
+<p>The circuit is a variation of the classic FMV tonestack. FMV is an abbreviation for the tone control topology used in most of Fender, Marshall and Vox amps (and many others). All these companies have a countless number of variations and the one used on the Marshall Guvnor is one of them.</p>
+
+<p><strong>Tone control Frequency Response:</strong></p>
+<p>The Guv'nor tone control is highly interactive, this is usually not a good thing (adjusting one of the controls will affect the other two) but seems that in the end, the Guv'nor players got used to it and its ability to create many different voicings. This is an interesting feature of the pedal, you can adjust the tone to suit pretty much any amplifier.</p>
+<p>Find below 4 graphs showing:</p>
+<ol>
+<li>All the pots moving from 0 to 10 at the same time.</li>
+<li>Mid and Treble at 50% and doing a<strong> Bass</strong> swipe.</li>
+<li>Bass and Treble at 50% and doing a <strong>Mid</strong> swipe.</li>
+<li>Bass and Mid at 50% and doing a <strong>Treble</strong> swipe.</li>
+</ol>
+<p>We are not commenting on the graphs because they are self-explanatory. You can create many tone variations but almost all of them contain a typical Marshall subtle mid-frequency scoop (between 1KHz to 3KHz).</p>
+
+<p><img alt="marshall guvnor freq response all" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-freq-response-all.png"/></p>
+
+<p><img alt="marshall guvnor freq response bass" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-freq-response-bass.png"/></p>
+<p><img alt="marshall guvnor freq response mid" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-freq-response-mid.png"/> </p>
+<p><img alt="marshall guvnor freq response treble" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-freq-response-treble.png"/></p>
+
+
+<p><strong><a id="link15"></a>1.5 Marshall Guv'nor Output Stage.</strong></p>
+<p>The output stage is a passive volume control. It also contains one last low pass filter (R11&amp;C13) and the effects LOOP arrangement.</p>
+<p><img alt="marshall guvnor output stage" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-output-stage.png"/></p>
+
+<ul>
+<li><strong>The 100K VR5 potentiometer</strong> bleeds part of the signal to ground in order to adjust the pedal volume.</li>
+<li><strong>R11 and C13</strong> create a low pass filter with fc = 15.3KHz (fc=1/(2xπxR11xC13)). This is an unusual filter (also used in the Marshall Drive Master) because the 22K series resistor with the output will increase the output impedance, something not ideal.</li>
+</ul>
+
+
+<p><strong>How the Loop jack works:</strong></p>
+<ul>
+<li>When the effect is OFF, the input jack is directly connected to the output jack, the R1 2.2MΩ will stay connected which is not ideal but nothing to worry about. </li>
+<li>When the effect is engaged (ON) - but nothing connected to the loop jack. The output of the pedal (R11-C13 joint) will go to the output jack.</li>
+<li>When the effect is engaged (ON) - and some pedals connected to the loop jack. The output of the pedal (R11-C13 joint) will go to the tip of the loop jack, then the signal will pass through the external pedal chain, return to the ring of the loop jack and finally to the output jack.
+<ul>
+<li>To do this a custom made Y cable, so you can introduce the extra pedals between the Tip and the Ring.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="marshall guvnor loop cable" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-loop-cable.jpg"/></p>
+
+
+<p><strong>Output Stage Frequency Response:</strong></p>
+<p><img alt="marshall guvnor vol control" class="article-img" src="images/marshall-guvnor-analysis/marshall-guvnor-vol-control.png"/></p>
+<p>In the graph above, the freq response of the volume control is shown. You can see how it rolls off after 15.3KHz (just at the very end of it) due to the R11&amp;C13 low pass filter. This very last filter will attenuate the harsh high-frequency harmonics created by the clipping at the end of the audio band.</p>
+
+
+<p><strong>Marshall Guvnor Output Impedance.</strong></p>
+<p>As a rule of thumb, it is good for a guitar pedal to have a low output impedance, it avoids tone-sucking and interaction between pedals in the chain. Values around tens of KΩ are the usual. It is calculated as:</p>
+<p>Zout = R11 + VR5  </p>
+<p>Zout = 22K +  0 (considering the ideal situation of Level set to max)</p>
+<p>Zout = 22K </p>
+
+
+<p><strong><a id="link2"></a>2. Resources</strong></p>
+<ul>
+<li><a href="http://www.pedalsandeffects.com/blog/2015/11/12/vintage-pedal-of-the-week-marshall" rel="noopener noreferrer" target="_blank">Marshall The Guvnor by Pedals and Effects. </a></li>
+<li><a href="https://reverb.com/news/inside-marshalls-the-guvnor-with-analog-mike" rel="noopener noreferrer" target="_blank">Inside Marshall's The Guv'nor with Analog Mike by Reverb.com</a><a href="https://reverb.com/news/inside-marshalls-the-guvnor-with-analog-mike" rel="noopener noreferrer" target="_blank"></a></li>
+<li><a href="http://www.8dayzaweek.com/MarshallGuvnor1985MK1.html" rel="noopener noreferrer" target="_blank">Marshall Guv'nor MK 1 by 8dayzaweek.</a></li>
+<li><a href="https://www.ssguitar.com/index.php?topic=711.0" rel="noopener noreferrer" target="_blank">Teemuk Kyttala Solid State Amplifiers pdf</a></li>
+</ul>
+
+<p>My sincere appreciation to Pan and Aaron B. for your help with this analysis.</p>
+<p>Thanks for reading, all feedback is appreciated: This email address is being protected from spambots. You need JavaScript enabled to view it.<script type="text/javascript">
+				document.getElementById('cloakd2e66b0028a5d5adf2ef31d0511d51a9').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addyd2e66b0028a5d5adf2ef31d0511d51a9 = '&#105;nf&#111;' + '&#64;';
+				addyd2e66b0028a5d5adf2ef31d0511d51a9 = addyd2e66b0028a5d5adf2ef31d0511d51a9 + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';
+				var addy_textd2e66b0028a5d5adf2ef31d0511d51a9 = '&#105;nf&#111;' + '&#64;' + '&#101;l&#101;ctr&#111;sm&#97;sh' + '&#46;' + 'c&#111;m';document.getElementById('cloakd2e66b0028a5d5adf2ef31d0511d51a9').innerHTML += '<a ' + path + '\'' + prefix + ':' + addyd2e66b0028a5d5adf2ef31d0511d51a9 + '\'>'+addy_textd2e66b0028a5d5adf2ef31d0511d51a9+'<\/a>';
+		</script></p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054719/https://www.electrosmash.com/marshall-guvnor-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20Marshall%20The%20Guvnor%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="klon-centaur-analysis.html">&larr; Klon Centaur Analysis</a>
+    <a class="prevnext" href="mxr-distortion-plus-analysis.html">MXR Distortion + Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>

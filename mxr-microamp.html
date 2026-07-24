@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MXR MicroAmp Analysis &middot; ElectroSmash Archive</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">ElectroSmash Archive</a>
+    <span class="crumb">Pedals &rsaquo; MXR MicroAmp Analysis</span>
+  </div>
+</header>
+<main>
+  <h1>MXR MicroAmp Analysis</h1>
+
+<p>The M-133 MicroAmp is a clean boost/volume pedal, part of the first <em>Reference Series</em> by MXR released between 1973 and 1984. The original stompbox did not have power-on LED or A/C connector. Jim Dunlop bought the MXR licensing rights and currently manufactures reissues of the classic MXR effect. </p>
+<p><img alt="MXR MicroAmp Pedal" class="article-img" src="images/mxr-microamp/mxr-microamp-intro.jpg"/></p>
+<p>The MXR Micro Amp is designed to be a transparent clean volume booster; it does not color or modify the guitar tone. The circuit is, in fact, an <em>un-distorted</em> redesign of the previous M-104 MXR Distortion+ pedal. </p>
+<p>The main application of this pedal is to do louder solos. It can also supply a permanent boost in a long effects chain or cables where the signal drop is a problem. Placing it before the amp the signal boost will drive the preamp harder and into more saturation.  </p>
+<h2><strong>Table of Contents.</strong></h2>
+<p><a href="#link1">1. MXR MicroAmp Schematic.</a><br/>     <a href="#link11">1.1 Power Supply Stage.</a><br/>     <a href="#link12">1.2 Op-Amp Amplifier Stage.</a><br/><a href="#link2">2. MXR MicroAmp Frequency Response.</a><br/><a href="#link3">3. Resources.</a></p>
+<h2><strong><a id="link1"></a>1. MXR MicroAmp Schematic.</strong></h2>
+<p>The MXR Micro Amp circuit can be divided into two blocks: Power Supply Stage and the Op-Amp Amplifier.</p>
+<p><img alt="MXR MicroAmp Schematic" class="article-img" src="images/mxr-microamp/mxr-microamp-schematic.png"/></p>
+<p>This simple and reliable design that uses only 1 op-amp and 1 potentiometer will boost the guitar signal up to 26dB, giving a clean flat frequency response.</p>
+
+<p><strong>MXR - MicroAmp Circuit Layout</strong></p>
+<p>The circuit is built in a double layer PCB with the potentiometer, led,  jacks and footswitch mounted directly on the PCB, this is useful in order to simplify wire connections and save money during mass production. There are several PCB releases in green and red color with minor component modifications due to manufacturing component resourcing and Dunlop hand over.</p>
+<p><img alt="mxr micoramp pcb by mike bland" class="article-img" src="images/mxr-microamp/mxr-micoramp-pcb-by-mike-bland.jpg"/></p>
+<p><strong>MXR MicroAmp Bill of Materials / Parts List:</strong></p>
+<p>C<sub>1</sub>    0.1u<br/>C<sub>2</sub>    47p<br/>C<sub>3</sub>    4.7u<br/>C<sub>4</sub>    1u<br/>C<sub>5</sub>    15u<br/>D<sub>1</sub>    1N4001<br/>R<sub>1</sub>    22M<br/>R<sub>2</sub>    10M<br/>R<sub>3</sub>    1K<br/>R<sub>4</sub>    56K<br/>R<sub>5</sub>    500K pot (Reverse Log)<br/>R<sub>6</sub>    2.7K<br/>R<sub>7</sub>, R<sub>8</sub>    100K<br/>R<sub>9</sub>    470<br/>R<sub>10</sub>  10K<br/>U<sub>1</sub>   TL061<br/>Jack IN / Jack OU</p>
+<h3><strong><a id="link11"></a>1.1 Power Supply Stage.</strong><br/></h3>
+<p>The Power Supply Stage provides energy and bias voltage for the circuit:<img alt="MXR MicroAmp Power Supply" class="article-img" src="images/mxr-microamp/mxr-microamp-power-supply.png"/></p>
+<ul>
+<li>The 9V supply will feed the op-amp, with a simple 100K resistor divider (R<sub>7</sub>, R<sub>8</sub>) 4.5 Volts are generated to be used as a bias voltage (also known as a virtual ground).</li>
+<li>The resistors junction (+4.5V) is decoupled to ground with an electrolytic capacitor C<sub>4</sub> (1uF) which removes all ripple from the supply voltage.</li>
+<li>The diode D<sub>1</sub> protects the pedal against reverse polarity connections.</li>
+<li>The stereo in jack is used as an on-off switch, connecting the battery (-) terminal to ground when the guitar jack is plugged.</li>
+</ul>
+<h3><strong><a id="link12"></a>1.2 Op-Amp Amplifier Stage.</strong></h3>
+<p>The signal booster is a non-inverting op-amp stage which provides high input impedance, voltage gain, and signal filtering:<img alt="MXR MicroAmp OpAmp Stage" class="article-img" src="images/mxr-microamp/mxr-microamp-opamp-stage.png"/></p>
+<p>The op-amp is configured in a <em>classic</em> <a href="https://en.wikipedia.org/wiki/Operational_amplifier_applications#Non-inverting_amplifier" rel="noopener noreferrer" target="_blank">non-inverting topology</a>, the resistors R4,  R5, and R6 set the voltage gain as it will be seen in the <a href="#voltagegain">Voltage Gain Section</a>. Several capacitors C<sub>1</sub>, C<sub>2</sub>, C<sub>3</sub>, and C<sub>5</sub> will filter the guitar signal, always keeping a flat response as it is explained in the <a href="#link2">Frequency Response Section</a>. </p>
+<ul>
+<li>The 22MΩ input resistor R<sub>1</sub> next to the input jack to ground is a pull-down resistor which avoids popping sounds when the pedal is switched on. The input pull-down resistor becomes the maximum input impedance of the pedal.</li>
+<li>The (+) input is biased to 4.5V through the R<sub>2</sub> resistor (10MΩ), keeping the virtual ground at 4.5V and being able to amplify bipolar guitar input signals.</li>
+<li>The 500K potentiometer R5 is Reverse Log. You can still use a Linear potentiometer but the action of it will not be evenly spread across the whole pot range. As you can see in the table below, everything occurs between 0 and 50K (and thats why a Reverse Log pot is needed):</li>
+</ul>
+<p> <strong>R5(kΩ)   GAIN</strong><br/>0            21.7<br/>50          2.06<br/>100        1.54<br/>150        1.36<br/>200        1.27<br/>250        1.22<br/>300        1.18<br/>350        1.15<br/>400        1.13<br/>450        1.12<br/>500        1.11</p>
+
+<p><strong>MXR MicroAmp Input Impedance.</strong></p>
+<p>The input impedance is defined by the formula:</p>
+<p><div>\[ Z_{in}= (R_{1}//R_{2})//(R_{3}+Z_{in\: opamp}) \]</div></p>
+<p><div>\[ Z_{in}= (22M//10M)//(1K+10^{6}M)=6.8M \]</div></p>
+<p>6.8MΩ is a good input impedance, not loading the guitar pickups and preventing tone sucking. As a rule of thumb the input impedance of a pedal should be 1MΩ minimum.</p>
+
+
+<p><strong>MXR MicroAmp Output Impedance.</strong></p>
+<p>The output resistor network composed by R<sub>9</sub> and R<sub>10</sub> will limit the output current; even if the output jack is connected to ground the op-amp will see a load of at least 470Ω, limiting the output current and protecting the operational amplifier. The TL061op-amp has an internal output resistance of around 100Ω.<br/></p>
+<p>The output impedance is defined by the formula:</p>
+<p><div>\[ Z_{out}= R_{10}//(R_{9}+Z_{out\: opamp}) \]</div></p>
+<p><div>\[ Z_{out}= 10K//(470+100)=539 \]</div></p>
+<p>539Ω is good output impedance, keeping signal fidelity. It is a good practice to keep output resistance of a pedal below 10KΩ.</p>
+
+
+<p><strong><a id="voltagegain"></a>MXR MicroAmp Voltage Gain.</strong></p>
+<p>The voltage gain is defined by the non-inverting operational amplifier and the output voltage divider formed by R<sub>9</sub> and R<sub>10</sub>:</p>
+<p><div>\[ G_{v}= (1 + (\frac{R_{4}}{R_{5}+R_{6}}))\cdot (\frac{R_{10}}{R_{9}+R_{10}}) \]</div></p>
+<p><div>\[ G_{v\, min}|_{R_{5}=500K}= 1\:(0dB) \]</div></p>
+<p><div>\[ G_{v\, max}|_{R_{5}=0}= 20.6\:(26.2 dB) \]</div></p>
+
+<ul>
+<li><strong>For Single coil</strong> pickups with an output level of 100mV<sub>pp</sub> (approx.), the maximum gain will boost the signal to 2.06V.</li>
+</ul>
+<ul>
+<li><strong>For Humbuckers</strong> with an output level around 500mV - 1V<sub>pp</sub>, the maximum gain will make the signal 10 to 20V!. In this case, the signal will clip due to the op-amp power supply limits (9V).</li>
+</ul>
+<p><img alt="mxr-microamp-voltage-gain" class="article-img" src="images/mxr-microamp/mxr-microamp-voltage-gain.png"/></p>
+<p>In the image above, the output signal voltage level is shown sweeping the volume potentiometer. The gain goes from 0 to 26dB as calculated before.</p>
+<h2><a id="link2"></a><strong>2. MXR MicroAmp Frequency Response.</strong></h2>
+<p>The tone response in a boost/volume pedal aims to be transparent, not modifying the contents of treble or bass. However,  some signal filtering is always needed to keep the low-frequency hum and the high harsh harmonics out of the audio response.</p>
+<p>To do so, 4 capacitors are used to place 4 poles and tailor the tone response:</p>
+<ul>
+<li><strong>C1:</strong> Together with R<sub>3</sub> and the input resistance of the op-amp forms a high-pass filter. This input cap will just remove and DC content from the guitar signal, it has no effect at all on the audio signal.The cut-off frequency can be calculated as:</li>
+</ul>
+<p><div>\[ f_{c1}=\frac{1}{2\pi C_{1}(R_{2}//(R_{3}+Z_{in\,opamp}))} \]</div></p>
+<p><div>\[ f_{c1}=\frac{1}{2\pi 0.1uF(10M//(1K+10^{6}M))}= 0.15Hz \]</div></p>
+
+<ul>
+<li><strong>C2:</strong> The small 47pF C<sub>2</sub> capacitor across the feedback loop works as a low-pass filter, avoiding instability and softening the corners of the harsh harmonics, mellowing the response.</li>
+</ul>
+<p><div>\[f_{c2}=\frac{1}{2\pi C_{2}R_{4}}\]</div></p>
+<p><div>\[f_{c2}=\frac{1}{2\pi\cdot 47pF\cdot 56K}= 60.4\: KHz\]</div></p>
+
+<ul>
+<li><strong>C3:</strong> This capacitor and the series resistors R<sub>5</sub> and R<sub>6</sub> from the (-) input to ground act as high-pass filter. Many other guitar pedals like the <a href="tube-screamer-analysis.html">Tube Screamer (C3)</a>, the <a href="proco-rat.html">Pro-Co Rat (C5, C6)</a>, the <a href="boss-ds1-analysis.html">Boss DS-1 (C8)</a>, etc have a cap at the same pont. The intention is to attenuate low frequencies that can overload the op-amp, causing instability or hum. The cut frequency can be calculated as:</li>
+</ul>
+<p><div>\[ f_{c3}=\frac{1}{2\pi C_{3}(R_{5}+R_{6})} \]</div></p>
+<p><div>\[ f_{c3\: max}=\frac{1}{2\pi\cdot 4.7uF\cdot (2.7K)}=12.5\: Hz \]</div></p>
+<p><div>\[ f_{c3\: max}=\frac{1}{2\pi\cdot 4.7uF\cdot (2.7K+500K)}= 0.06\: Hz \]</div></p>
+
+<ul>
+<li><strong>C5:</strong> The output capacitor C<sub>5</sub> acts like a high pass filter together with R<sub>9</sub> and R<sub>10</sub>. Being R<sub>10</sub>&gt;&gt;R<sub>9 </sub>the cut-off frequency is:</li>
+</ul>
+<p><div>\[ f_{c2}=\frac{1}{2\pi C_{5}R_{10}} \]</div></p>
+<p><div>\[ f_{c2}=\frac{1}{2\pi\cdot 15uF\cdot 10K}= 1.06\: Hz \]</div></p>
+
+<p><img alt="MXR MicroAmp Frequency Response" class="article-img" src="images/mxr-microamp/mxr-microamp-all-signals.png"/></p>
+<p>In the above graph, the gain potentiometer is set in the mid position (250KΩ). It is clear that Micro-Amp is essentially a flat booster.</p>
+<ul>
+<li>The <strong>black signal</strong> is the guitar input signal.</li>
+<li>The <strong>red signal</strong> is the signal after the first high pass filter C<sub>1</sub> R<sub>3</sub> with f<sub>c</sub>=0.15Hz. The guitar DC and hum is removed here. It can be seen how the red line is rolling-off in the bass frequencies below 3Hz.</li>
+<li>The <strong>yellow signal</strong> is the signal after the op-amp stage, filtered with the high-pass ( formed by C<sub>3</sub> ) and the low-pass (created by C<sub>2</sub>). </li>
+<li>The<strong> blue signal</strong> is the output signal at the jack, the gain is slightly lower due to the R<sub>9</sub> R<sub>10</sub> voltage divider. Additionally, the high pass filter C<sub>5</sub> with f<sub>c</sub>=1.06Hz removes useless bass harmonics. This resulting output signal is completely flat in the audio spectrum but removing the excess of bass and treble frequencies. </li>
+</ul>
+
+
+<p><strong>MXR MicroAmp Op-amp: The TL061</strong></p>
+<p>The TL061 op-amp used in MicroAmp is very close to TL051, TL071, and TL081. TL081 is the base model, TL071s is less noisy, TL061s have low current draw and TL051s have a slightly better datasheet. If the battery life is not a restriction, the best bet is the TL071. The TL061 was chosen to have the best battery life and because the noise level in this application may not be critical.</p>
+<h2><strong><a id="link3"></a>3. Resources.</strong></h2>
+<p><a href="http://mike-bland.com/2013/01/04/mxr-micro-amp-true-bypass.html" rel="noopener noreferrer" target="_blank">MXR Micro Amp True Bypass Modification</a> by Mike Bland. <br/><a href="http://www.diystompboxes.com/smfforum/index.php?topic=95120.0" rel="noopener noreferrer" target="_blank">MXR MicroAmp clone Thread</a> in DIYstompboxes. <a href="http://www.generalguitargadgets.com/projects/15-boostersrouters/70-mxr-microamp-project" rel="noopener noreferrer" target="_blank"><br/></a></p>
+
+<p>My sincere appreciation to S. Hale and M. Barnes for your help with this analysis.</p>
+<p>Thanks for reading, all feedback is appreciated </p>
+
+<p>Some Rights Reserved, you are free to copy, share, remix and use all material.<br/>Trademarks, brand names and logos are the property of their respective owners.</p> 
+  <p class="source-note">
+    Rescued from <a href="https://web.archive.org/web/20220504054713/https://www.electrosmash.com/mxr-microamp" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
+    of the original electrosmash.com article, which is no longer online. Some links to pages outside this
+    archive have been removed. The original PDF export of this article is in the
+    <a href="pdf/ElectroSmash%20-%20MXR%20MicroAmp%20Analysis.pdf">pdf backups folder</a>.
+  </p>
+  <nav class="prevnext-nav">
+    <a class="prevnext" href="mxr-dyna-comp-analysis.html">&larr; MXR Dyna Comp Analysis</a>
+    <a class="prevnext" href="mxr-phase90.html">MXR Phase 90 Analysis &rarr;</a>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    This is an unofficial, non-commercial backup of ElectroSmash.com articles, preserved via the
+    <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive Wayback Machine</a>
+    after the original site became unreachable. All content and images belong to their original authors/owners.
+  </div>
+</footer>
+</body>
+</html>
