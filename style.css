@@ -184,21 +184,26 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 }
 .prevnext { color: var(--fg-muted); max-width: 45%; }
 
+/* Per-article provenance note. Lives inside .site-footer, so it needs no rule of
+   its own for colour, size or separation — just spacing from the notice below it. */
 .source-note {
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-  color: var(--fg-muted);
-  font-size: 0.85rem;
+  margin: 0 0 0.9rem;
+  color: inherit;
 }
 
+/* Shaded full-width band, mirroring .site-header, so the site-wide notice reads
+   as chrome rather than as the tail end of the article. */
 .site-footer {
   border-top: 1px solid var(--border);
+  background: var(--bg-alt);
   color: var(--fg-muted);
-  font-size: 0.85rem;
-  padding: 1.5rem 1.25rem 3rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  padding: 1.75rem 1.25rem 2.25rem;
 }
 .site-footer .inner { max-width: var(--max-width); margin: 0 auto; }
+.site-footer a { color: var(--fg-muted); text-decoration: underline; }
+.site-footer a:hover { color: var(--accent-2); }
 
 @media (prefers-color-scheme: light) {
   :root {
