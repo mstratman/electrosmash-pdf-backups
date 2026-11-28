@@ -198,7 +198,7 @@
 <h3><a id="output-stage" name="output-stage"></a><strong>1.6 Output Buffer.</strong></h3>
 <p>The task of the Output  Buffer is to create a unitary gain and a low output impedance to keep the signal integrity in the guitar-pedals-amp chain. Like the Input Stage, it is implemented with a plain Emitter Follower with a 10K emitter resistor R<sub>13</sub>, biased from the 4.5V bias source with R<sub>12</sub> 510K.<img alt="Tube Screamer Output Buffer" class="article-img" src="images/tube-screamer-analysis/tube-screamer-output-buffer.png"/></p>
 <p>From the emitter of Q<sub>3</sub> there is a low-value 100Ω resistor R<sub>B</sub> in series with a 10uF signal coupling capacitor C<sub>9</sub>, and at last a shunt 10K R<sub>C</sub> resistor to ground.</p>
-<p><img alt="Tube Screamer Oscilloscope Output Signal" class="article-img" src="images/tube-screamer-analysis/g-potentiometer.png"/></p>
+<p><img alt="Tube Screamer Oscilloscope Output Signal" class="article-img" src="images/tube-screamer-analysis/ts-output-signal.png"/></p>
 <p>The oscilloscope image above shows the output signal of the Tube Screamer (green).</p>
 <p>In order to calculate the output impedance of the Tube Screamer the hybrid-pi model is used for analyzing the small signal behavior:<img alt="Tube Screamer Output Buffer Small Signal" class="article-img" src="images/tube-screamer-analysis/tube-screamer-output-buffer-small-signal.png"/></p>
 <p>\[Z_{out}=R_C//\left[R_B+\left(R_{13}//\frac{r_{\pi}+R_{12}}{\beta+1}\right)\right]\]</p>
