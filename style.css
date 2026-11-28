@@ -227,3 +227,11 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .mod-notes li:target { background: rgba(127, 127, 127, 0.18); }
 sup.fn { font-size: 0.75em; line-height: 0; }
 sup.fn a { text-decoration: none; }
+/* A marker right after a (block, centred) image would otherwise sit alone at the
+   left edge of the next line; centre it and tuck it up under the image instead. */
+img.article-img + sup.fn {
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+  margin: -1.4rem 0 1rem;
+}
