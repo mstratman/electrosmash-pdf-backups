@@ -177,11 +177,11 @@
 <p>First of all, we have a system with 2 equations and 2 variables:</p>
 <div>\[\\ I_{D}= I_{DSS}\cdot(1-\frac{V_{GS}}{V_{P}})^{2}\]</div> <div>\[\\ V_{GS}= - I_{D}\cdot R_{S}\]</div> Substituing<br/> <div>\[\\ I_{D}= I_{DSS}\cdot(1+\frac{ I_{D}\cdot R_{S}}{V_{P}})^{2}\]</div> <div>\[\\ \]</div> <div>\[\\ \frac{I_{D}}{I_{DSS}}=(1+\frac{ I_{D}\cdot R_{S}}{V_{P}})^{2}\]</div>
 <p>Developing the square binomy<br/></p>
-<div>\[\\ \frac{I_{D}}{I_{DSS}}=(1 + \frac{I_{D}^{2}\cdot R_{S}^{2}}{V_{P}^{2}}+\frac{2I_{D}\cdot R_{S}}{V_{P}})\tag*{$^{1}$}\]</div>
+<div>\[\\ \frac{I_{D}}{I_{DSS}}=(1 + \frac{I_{D}^{2}\cdot R_{S}^{2}}{V_{P}^{2}}+\frac{2I_{D}\cdot R_{S}}{V_{P}})\tag*{$^{[1]}$}\]</div>
 <p>Grouping<br/></p>
-<div>\[\\ I_{D}^{2}\cdot(\frac{R_{S}^{2}}{V_{P}^{2}})+I_{D}\cdot (\frac{2R_{S}}{V_{P}}-\frac{1}{I_{DSS}})+1=0\tag*{$^{2}$}\]</div>
+<div>\[\\ I_{D}^{2}\cdot(\frac{R_{S}^{2}}{V_{P}^{2}})+I_{D}\cdot (\frac{2R_{S}}{V_{P}}-\frac{1}{I_{DSS}})+1=0\tag*{$^{[2]}$}\]</div>
 <p>Now the real values can be substitued: I<sub>DSS </sub>= 0.7mA and V<sub>GS(off) </sub>= V<sub>P </sub>= -0.8V<br/></p>
-<div>\[\\ I_{D}^{2}\cdot(\frac{2.2^{2}}{0.8^{2}})+I_{D}\cdot (\frac{2\cdot 2.2}{-0.8}-\frac{1}{0.7})+1=0\tag*{$^{2}$}\]</div> <div>\[\\ \]</div> <div>\[\\ I_{D}^{2}\cdot(7.5)-I_{D}\cdot (6.9)+1=0\tag*{$^{2}$}\]</div>
+<div>\[\\ I_{D}^{2}\cdot(\frac{2.2^{2}}{0.8^{2}})+I_{D}\cdot (\frac{2\cdot 2.2}{-0.8}-\frac{1}{0.7})+1=0\tag*{$^{[2]}$}\]</div> <div>\[\\ \]</div> <div>\[\\ I_{D}^{2}\cdot(7.5)-I_{D}\cdot (6.9)+1=0\tag*{$^{[2]}$}\]</div>
 <p>Resolving thie quadratic equacion (you can use <a href="http://www.webgraphing.com/quadraticequation_quadraticformula.jsp" rel="noopener noreferrer" target="_blank">any online calculator</a>, or make the maths)</p>
 <p>We get 2 possible solutions, ID= 0.73mA or 0.18mA. ID&lt;IDSS so the first solution can be discarded.</p>
 <p>I<sub>D</sub>= 0.18mA</p>
@@ -321,8 +321,8 @@
 
 <p><strong>LM386 Voltage Gain Calculation </strong> </p>
 <p>The potentiometer (1K as explained above) placed between pins 1 and 8 to adjust the gain from 41 (28dB) to 200 (46db) following the general LM386 voltage gain formula taken from the datasheet:</p>
-<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\tag*{$^{3}$}\]</p>
-<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K)}= 41 \: (32dB)\tag*{$^{2,3}$}\]</p>
+<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\tag*{$^{[3]}$}\]</p>
+<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K)}= 41 \: (32dB)\tag*{$^{[2,3]}$}\]</p>
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15KΩ and Z<sub>1-8</sub> is 1.35KΩ.</p>
 <p>If you want to read more about how to calculate the voltage gain, you can read the <a href="ruby-amp-analysis.html#link13">Voltage Gain Calculation in the Ruby Amp</a>.</p>
 
