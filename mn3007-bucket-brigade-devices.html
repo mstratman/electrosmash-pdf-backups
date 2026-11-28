@@ -73,10 +73,10 @@
 <h3><strong><a id="link41" name="link41"></a>4.1 BBD Clock Limitations.</strong></h3>
 <p>Following the datasheet recommendations, BBDs guaranteed a correct behavior under a certain clock frequency (100~200KHz). It is because the input capacitance of the clock pins causes progressive degradation of clock pulses above the frequency limit: The clock pulses change from square to a trapezoidal/sawtooth waveform. When that happens the switching action is not perfectly synchronized resulting in a signal degradation.<br/><br/>The clock frequency limitation is the reason why the Reticon SAD1024 chip was a largely preferred choice for flangers effects which involve short delay and fast clock: the input capacitance on the clock pins was much lower (110pF) than on the MN3007 (700pF), allowing it to be clocked at much higher frequencies.<br/>When suitably buffered, though, there are reports of it clocking MN3xxx chips up well past 1MHz, which takes the device close the zero-delay zone, being convenient for fine flanger effects.</p>
 <p>BBD Sampling Time Limitations: For any BBD, the total delay time can be calculated as:</p>
-<p>\[time_{delay}=\frac{N}{2\cdot f_{clock}}\tag*{{}^{2}}\]<br/>where:</p>
+<p>\[time_{delay}=\frac{N}{2\cdot f_{clock}}\tag*{$^{2}$}\]<br/>where:</p>
 <p>N: is the number of stages.<br/>f<sub>clock</sub>: is the circuit clock frequency.</p>
 <p>The clock signals applied to the BBD will determine the signal sampling time, this sampling time should respect the Nyquist-Shannon Theorem:</p>
-<p>\[f_{sampling}&lt; 2 \cdot f_{signal}\tag*{{}^{2}}\]</p>
+<p>\[f_{sampling}&lt; 2 \cdot f_{signal}\tag*{$^{2}$}\]</p>
 <ul>
 <li>For short delay effects like flanging, the input signal can be oversampled, there is no penalty in terms of signal degradation. If the clock signal goes beyond the BBD clock boundary, the clk signal can be degraded as explained above and the audio waveform corrupted. </li>
 <li>For long delay effects like delay, the input signal is can be undersampled, the resulting processed signal will be degraded but the total delay time is extended.</li>

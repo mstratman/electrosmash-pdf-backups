@@ -37,7 +37,7 @@
 <p><img alt="Jfet N Channel Graph" class="article-img" src="images/jrc4558-analysis/jrc4558-color-schematic-small.png"/></p>
 <p>The Zener diode D<sub>2</sub>, when reverse biased has a constant voltage drop (Vz). As long as the Zener current (Iz) is between certain levels (Iz<sub>min</sub> and Iz<sub>max</sub>) called holding current, the voltage across the Zener diode (V<sub>Z</sub>) will be constantly working in the Voltage Regulation Area:<img alt="Diode Zener Graph" class="article-img" src="images/jrc4558-analysis/diode-zener-graph.png"/></p>
 <p>The Zener diode stabilized voltage V<sub>Z</sub> drives an emitter follower Q<sub>14</sub> loaded by a constant emitter resistor R<sub>9</sub> sensing the load current. As a result, the output current I<sub>9</sub> is almost constant even if the load resistance and/or voltage changes. The circuit operates as a constant current source:</p>
-<p>\[I_{9}=\frac{V_{z}-V_{be}}{R_{9}}\tag*{{}^{2}}\]</p>
+<p>\[I_{9}=\frac{V_{z}-V_{be}}{R_{9}}\tag*{$^{2}$}\]</p>
 <p>The external current mirror load of this current source is connected to the collector so that almost the same current flows through it and the emitter resistor.</p>
 <ul>
 <li> Q<sub>13</sub> and Q<sub>7</sub> are configured as a classic current mirror, meaning that the current through Q<sub>13</sub> (I<sub>13</sub>) will be mirrored in Q<sub>7</sub>, making I<sub>13</sub> = I<sub>7</sub></li>
