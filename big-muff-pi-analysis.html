@@ -62,23 +62,23 @@
 </ul>
 <p>The equivalent circuit uses Norton's current source since the feedback signal is current. In the image below, the feedback resistor is grounded in the input and output sections and the resistors grouped:<img alt="Big Muff Pi Small Signal " class="article-img" src="images/big-muff-pi-analysis/bmp-small-signal2.png"/> </p>
 <p>Where:</p>
-<p>\[R_{B}=R_{S}//R_{A}//R_{F} = 39K//47K//470K = 20.4K\]</p>
-<p>\[R_{L}=R_{sustain}//R_{C}//R_{F} = 101K//10K//470K = 9K\]</p>
+<p>\[R_{B}=R_{S}//R_{A}//R_{F} = 39K//47K//470K = 20.4K\tag*{{}^{1}}\]</p>
+<p>\[R_{L}=R_{sustain}//R_{C}//R_{F} = 101K//10K//470K = 9K\tag*{{}^{1}}\]</p>
 
 
 <ul>
 <li><strong>c) T</strong><strong>he voltage gain</strong> can be calculated following the simplified analysis of these equations:</li>
 </ul>
 <p>A<sub>Z</sub>: Voltage-Shunt Gain without feedback formula:</p>
-<p>\[A_{z}=\frac{V_{out}}{I_{s}}=\frac{\beta \cdot i_{b} \cdot R_{L}}{i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}}) + (\frac{R_{E}(\beta +1)i_{b}}{R_{B}})}\]</p>
-<p><br/>\[with\: \: \: \: (\frac{R_{E}(\beta +1)i_{b}}{R_{B}}) \gg i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}})\]</p>
-<p><br/>\[A_{z}=\frac{V_{out}}{I_{s}}=\frac{R_{B} \cdot R_{L}}{R_{E}}\]</p>
+<p>\[A_{z}=\frac{V_{out}}{I_{s}}=\frac{\beta \cdot i_{b} \cdot R_{L}}{i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}}) + (\frac{R_{E}(\beta +1)i_{b}}{R_{B}})}\tag*{{}^{1}}\]</p>
+<p><br/>\[with\: \: \: \: (\frac{R_{E}(\beta +1)i_{b}}{R_{B}}) \gg i_{b} + (\frac{r\pi \cdot i_{b}}{R_{B}})\tag*{{}^{1}}\]</p>
+<p><br/>\[A_{z}=\frac{V_{out}}{I_{s}}=\frac{R_{B} \cdot R_{L}}{R_{E}}\tag*{{}^{1}}\]</p>
 <p>B<sub>G</sub>: Feedback Voltage-Shunt formula:</p>
-<p>\[B_{G}=\frac{I_{F}}{V_{out}}=- \frac{1}{R_{F}}\]</p>
+<p>\[B_{G}=\frac{I_{F}}{V_{out}}=- \frac{1}{R_{F}}\tag*{{}^{1}}\]</p>
 <p>A<sub>ZF</sub>: Voltage-Shunt Gain with Feedback </p>
-<p>\[A_{ZF}=\frac{A_{Z}}{1+A_{Z}B_{G}}=\frac{\frac{R_{B} \cdot R_{L}}{R_{E}}}{1+\frac{R_{B} \cdot R_{L}}{R_{E}}\cdot\frac{1}{R_{F}}}\]</p>
+<p>\[A_{ZF}=\frac{A_{Z}}{1+A_{Z}B_{G}}=\frac{\frac{R_{B} \cdot R_{L}}{R_{E}}}{1+\frac{R_{B} \cdot R_{L}}{R_{E}}\cdot\frac{1}{R_{F}}}\tag*{{}^{1}}\]</p>
 <p>GV: Voltage Gain:</p>
-<p>\[G_{V}=\frac{V_{out}}{V_{S}}=\frac{V_{out}}{I_{S}\cdot R_{S}}=\frac{A_{ZF}}{R_{S}}\]</p>
+<p>\[G_{V}=\frac{V_{out}}{V_{S}}=\frac{V_{out}}{I_{S}\cdot R_{S}}=\frac{A_{ZF}}{R_{S}}\tag*{{}^{1}}\]</p>
 <p>Replacing the Input Booster circuit values R<sub>B</sub>=20.4K, R<sub>L</sub>=9K, R<sub>E</sub> =100, R<sub>S</sub>=39K and R<sub>F</sub> =470K the results obtained are B<sub>G</sub>=1/470K, A<sub>ZF</sub>=374.2 and the voltage value is G<sub>V</sub>=9.6 (19.6dB) although doing the simulation the G<sub>V</sub> never reaches this value (it is 16.7 dB).</p>
 
 <h3><a id="link23" name="link23"></a><strong>2.3 Big Muff Pi Input Impedance Calculation.</strong></h3>
@@ -200,9 +200,14 @@
     <p class="source-note">
       Rescued from <a href="https://web.archive.org/web/20220504054728/https://www.electrosmash.com/big-muff-pi-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
       of the original article. Some links to pages outside this archive have been removed.
-      This archived copy differs slightly from the original: equations that were broken in the capture were restored from the original PDF export.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Big%20Muff%20Pi%20Analysis.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.

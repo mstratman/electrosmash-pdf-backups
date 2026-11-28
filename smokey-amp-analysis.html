@@ -28,7 +28,7 @@
 
 <p><strong>Gain Calculation:</strong></p>
 <p>Using the general equation of LM386 amplifier, the voltage gain can be calculated as:</p>
-<p>\[{G}_{v}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200\: \: (46dB)\] </p>
+<p>\[{G}_{v}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200\: \: (46dB)\tag*{{}^{1}}\] </p>
 <p>Where Z1-5 and Z1-8 are the impedances between the respective pins. Note that Z1-5 internal resistance is 15K and Z1-8 is 1.35K.</p>
 <p>So, the gain is set to the maximum, 200 (46dB). With such a high gain, the circuit could be sensitive to component placement and may tend to oscillate. There are several techniques to improve stability and avoid oscillation: power supply decoupling caps, Zobel output network, etc. Zinky skips all of them in order to keep the design simple.</p>
 <p>Pins 1 and 8 are connected together directly instead of using a cap, as the datasheet suggests. With this arrangement, the circuit will archive higher gain, but the DC operating point of the internal transistors will be affected ( which must have some effect over the tone). However, Zinky again drops this suggestion using a straightforward connection between pins and saving another component to be placed.<br/><br/>The 47uF C1 capacitor from pin 7 to ground in LM386, is used to keep the power supply noise from reaching the output. The high-gain input stage of the IC will be isolated from the power supply noise.</p>
@@ -57,9 +57,14 @@
     <p class="source-note">
       Rescued from <a href="https://web.archive.org/web/20220504054653/https://www.electrosmash.com/smokey-amp-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
       of the original article. Some links to pages outside this archive have been removed.
-      This archived copy differs slightly from the original: equations that were broken in the capture were restored from the original PDF export.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Smokey%20Amp%20Analysis.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.

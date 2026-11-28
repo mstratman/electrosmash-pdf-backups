@@ -58,7 +58,7 @@
 </ul>
 <h4><a id="input212" name="input212"></a><strong>2.1.2 Input Buffer Stage.</strong></h4>
 <p>The Input Buffer grants high input impedance, frequency filtering and voltage gain, keeping signal integrity and preparing it to be digitalized.<br/><img alt="Back Talk Reverse Delay Input Buffer" class="article-img" src="images/back-talk-analysis/back-talk-input-buffer.png"/><br/>Not considering for the moment the caps C<sub>3</sub> and C<sub>4</sub>, the non-inverting amplifier gain can be calculated as:</p>
-<p>\[G_{v}=\frac{1+R_{6}}{R_{7}}=\frac{1+47K}{18K}=2.6\]</p>
+<p>\[G_{v}=\frac{1+R_{6}}{R_{7}}=\frac{1+47K}{18K}=2.6\tag*{{}^{1}}\]</p>
 <p>The capacitors C<sub>3</sub> and C<sub>4</sub> create a pass-band filter (low pass + high pass) where:</p>
 <ul>
 <li>Low pass = R<sub>6</sub>C<sub>3</sub> network with f<sub>c</sub>=1/(2πR<sub>6</sub>C<sub>3</sub>) </li>
@@ -140,9 +140,14 @@
     <p class="source-note">
       Rescued from <a href="https://web.archive.org/web/20220504054741/https://www.electrosmash.com/back-talk-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
       of the original article. Some links to pages outside this archive have been removed.
-      This archived copy differs slightly from the original: equations that were broken in the capture were restored from the original PDF export.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Back%20Talk%20Analysis.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.

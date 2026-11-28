@@ -44,8 +44,8 @@
 <h3><strong><a id="gain" name="gain"></a>1.2 Noisy Cricket Gain Circuit</strong></h3>
 <p>The 1K logarithmic potentiometer (VR2) is placed between pins 1 and 8 to adjust the voltage gain from 41 (28dB) to 200 (46db), similar to the Ruby Amp. The Gain is calculated following the general LM386 formula: </p>
 
-<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K)}= 41 \: (28dB)\]</p>
-<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\]</p>
+<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K)}= 41 \: (28dB)\tag*{{}^{1,2}}\]</p>
+<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\tag*{{}^{1}}\]</p>
 
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
 <h3><a id="tone" name="tone"></a><strong>1.3 Noisy Cricket Tone/Volume Circuit.</strong></h3>
@@ -90,9 +90,15 @@
     <p class="source-note">
       Rescued from <a href="https://web.archive.org/web/20220504054756/https://www.electrosmash.com/noisy-cricket-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
       of the original article. Some links to pages outside this archive have been removed.
-      This archived copy differs slightly from the original: equations that were broken in the capture were restored from the original PDF export, and typos in the original equations were corrected.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Noisy%20Cricket%20Analysis.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    <li id="mod-2">Unbalanced closing parenthesis in the original equation removed.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.

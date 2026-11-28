@@ -95,7 +95,7 @@
 <p>In order to calculate numerically the input impedance of the emitter follower, the <a href="https://en.wikipedia.org/wiki/Hybrid-pi_model" rel="noopener noreferrer" target="_blank">hybrid-pi model</a> is used for analyzing the small signal behavior:<img alt="Tube Screamer Input Buffer Small Signal" class="article-img" src="images/tube-screamer-analysis/tube-screamer-input-buffer-small-signal.png"/></p>
 <p>\[Z_{in}=R_{1}+R_{2}//[r_{\pi}+ (\beta+1)\cdot R_{3}]\]
 \[Z_{in}=1K+510K//[r_{\pi}+(350+1)\cdot10K]\]
-\[Z_{in}=446K\]</p>
+\[Z_{in}=446K\tag*{{}^{1}}\]</p>
 <p>So, the Tube Screamer input impedance is 446K, almost the value of the 510K biasing resistor R<sub>2</sub> which accounts for almost all of the signal loading at the input. Apparently, this is a high enough impedance to avoid loading guitar pickups too much. Although the best practice is to interface the guitar to an input impedance that is at least 1 MΩ.</p>
 
 <p><strong>Impedance Matching/Binding.</strong></p>
@@ -106,9 +106,9 @@
 <p>The voltage gain of an emitter follower is calculated again using the hybrid-pi model:</p>
 <p>\[V_{out}=i_b(\beta+1)\cdot R_{3}\]
 \[V_{in}=i_b(\beta+1)\cdot R_{3}+i_b\cdot r_{\pi}\]
-\[G_v=\frac{V_{out}}{V_{in}}=\frac{i_b(\beta+1)\cdot R_{3}}{i_b(\beta+1)\cdot R_{3}+i_b\cdot r_{\pi}}\]</p>
-<p>With: \(i_b(\beta+1)\cdot R_{3}\gg i_b\cdot r_{\pi}\)</p>
-<p>\[G_v=\frac{V_{out}}{V_{in}}\approx1\]</p>
+\[G_v=\frac{V_{out}}{V_{in}}=\frac{i_b(\beta+1)\cdot R_{3}}{i_b(\beta+1)\cdot R_{3}+i_b\cdot r_{\pi}}\tag*{{}^{1}}\]</p>
+<p>With: \(i_b(\beta+1)\cdot R_{3}\gg i_b\cdot r_{\pi}\)<sup class="fn"><a href="#mod-1">1</a></sup></p>
+<p>\[G_v=\frac{V_{out}}{V_{in}}\approx1\tag*{{}^{1}}\]</p>
 <p>There is no need for a gain amplification at this stage. It is more important to keep the signal uncorrupted as a foundation for the next stages.</p>
 
 <h3><strong><a id="clip-stage" name="clip-stage"></a>1.4. Clipping Amplifier Stage</strong></h3>
@@ -117,7 +117,7 @@
 
 <h4><strong><a id="non-inverting" name="non-inverting"></a>1.4.1 Non-Inverting Opamp.</strong></h4>
 <p>The gain of a non-inverting opamp stage is defined by the formula:</p>
-<p><img alt="Op Amp Non Inverting Amplifier" class="article-img" src="images/tube-screamer-analysis/op-amp_non-inverting-amp.png"/>\[G_v=1+\frac{Z_2}{Z_1}\]</p>
+<p><img alt="Op Amp Non Inverting Amplifier" class="article-img" src="images/tube-screamer-analysis/op-amp_non-inverting-amp.png"/>\[G_v=1+\frac{Z_2}{Z_1}\tag*{{}^{1}}\]</p>
 <p> Where:</p>
 <ul>
 <li>Z<strong><sub>2</sub></strong>: is the equivalent impedance between the output pin 1 of the opamp and the (-) input. So, it is the parallel combination of the clipping diodes, a 51pF capacitor and the series combination of a 51K resistor and the 500K <em>Distortion</em> control.</li>
@@ -125,11 +125,11 @@
 <li>For this calculations, we are not considering yet the diodes D<sub>1</sub> and D<sub>2</sub>, and the capacitors C<sub>3</sub> and C<sub>4.</sub><br/></li>
 </ul>
 
-<p>\[G_v=1+\frac{R_6+R_{DISTORTION}}{R_4}=1+\frac{51K+R_{DISTORTION}}{4.7K}\]</p>
+<p>\[G_v=1+\frac{R_6+R_{DISTORTION}}{R_4}=1+\frac{51K+R_{DISTORTION}}{4.7K}\tag*{{}^{1}}\]</p>
 
 <p>The gain of the whole stage can be varied changing the <em>overdrive</em> control setting from 500K to 0Ω:</p>
-<p>\[G_{v\,max}=1+\frac{51K+500K}{4.7K}=118\quad(41\,\mathrm{dB})\]</p>
-<p>\[G_{v\,min}=1+\frac{51K}{4.7K}=12\quad(21\,\mathrm{dB})\]</p>
+<p>\[G_{v\,max}=1+\frac{51K+500K}{4.7K}=118\quad(41\,\mathrm{dB})\tag*{{}^{1}}\]</p>
+<p>\[G_{v\,min}=1+\frac{51K}{4.7K}=12\quad(21\,\mathrm{dB})\tag*{{}^{1}}\]</p>
 <p>However, the voltage gain of this stage will not reach such values as 118 (41dB). As will be seen in the next point, the gain will be limited by the clipping diodes action. The top gain will be around 12 and the additional the range from 12 to 118 will modify the slew rate or shape of the clipped signal.</p>
 
 <h4><strong><a id="diodes" name="diodes"></a>1.4.2 Clipping Diodes.</strong></h4>
@@ -138,11 +138,11 @@
 <p><img alt="Tube Screamer Diodes" class="article-img" src="images/tube-screamer-analysis/tube-screamer-diodes.png"/></p>
 <p>The oscilloscope image shown above depicts the difference between the pedal input signal (pink) and the output of the clipping stage (blue), removing any of the diodes D<sub>1</sub> or D<sub>2</sub> will result in an asymmetric clipping. For this test, capacitors C<sub>3</sub> and C<sub>4</sub> are not considered. </p>
 <p>As a rule of thumb, the nominal output amplitude of most pickups is between 60 to 200 mV (single coils) and 200 to 600 mV (humbuckers and <em>hot</em> pickups), with <em>hot</em> pickups the picking transient can be as high as 2V<sub>peak</sub>. The Tube Screamer with the gain set to minimum (12) the clipping amplifier is able to give a range of clean/unclipped sounds while Vin&lt; 90mV<sub>peak</sub> approx:</p>
-<p>If \(V_{out}-V_{in}&lt;V_F\), then the signal will be unclipped:</p>
+<p>If \(V_{out}-V_{in}&lt;V_F\)<sup class="fn"><a href="#mod-1">1</a></sup>, then the signal will be unclipped:</p>
 <p>\[V_F>V_{out}-V_{in}\]
 \[V_F>(G\cdot V_{in})-V_{in}\]
 \[V_F>V_{in}(G-1)\]
-\[V_{in}<\frac{V_F}{G-1}<\frac{1V}{12-1}<90\,\mathrm{mV}_{peak}\]</p>
+\[V_{in}<\frac{V_F}{G-1}<\frac{1V}{12-1}<90\,\mathrm{mV}_{peak}\tag*{{}^{1}}\]</p>
 <p>Where:</p>
 <ul>
 <li>V<sub>F </sub>= Forward voltage of the MA150 diode, which is 1V.</li>
@@ -151,22 +151,22 @@
 
 <h4><a id="clip-high-pass" name="clip-high-pass"></a><strong>1.4.3 High Pass Filter in the Feedback Loop.</strong></h4>
 <p>The series resistor R<sub>4</sub> and capacitor C<sub>3</sub> from the (-) input to ground act as an active high pass filter, attenuating frequencies below the <em>f<sub>c</sub></em> cut-off frequency:</p>
-<p>\[f_c=\frac{1}{2\pi RC}=\frac{1}{2\pi\cdot4.7K\cdot0.047\,\mu F}=720\,\mathrm{Hz}\]</p>
+<p>\[f_c=\frac{1}{2\pi RC}=\frac{1}{2\pi\cdot4.7K\cdot0.047\,\mu F}=720\,\mathrm{Hz}\tag*{{}^{1}}\]</p>
 <p>Harmonics above 720Hz get the full gain of the distortion stage, and everything below it gets progressively less gain and distortion. Bass notes are clipped least, so the distortion is frequency selective.<img alt="Tube Screamer Oscilloscope Clipped Signal" class="article-img" src="images/tube-screamer-analysis/ts-oscillocope-clipped-signal.png"/></p>
 <p>The oscilloscope image above shows the output signal of the clipping stage (pink). The soft clipped signal is <em>curved</em> asymmetrically due to the phase shift introduced by the high pass filter.  </p>
 <h4><br/><strong><a id="clip-low-pass" name="clip-low-pass"></a>1.4.4  Low Pass Filter in the Feedback Loop.</strong></h4>
 <p>The small 51pF C<sub>4</sub> capacitor across the diodes works as a low pass filter, softening the <em>corners</em> of the clipped waveform and mellowing out the high end of the distortion. </p>
 <p>The cut-off frequency of the filter is defined by the formula:</p>
-<p>\[f_c=\frac{1}{2\pi(R_6+R_{DISTORTION})C_4}=\frac{1}{2\pi(51K+R_{DISTORTION})\cdot51\,\mathrm{pF}}\]</p>
+<p>\[f_c=\frac{1}{2\pi(R_6+R_{DISTORTION})C_4}=\frac{1}{2\pi(51K+R_{DISTORTION})\cdot51\,\mathrm{pF}}\tag*{{}^{1}}\]</p>
 <p>The R<sub>DISTORTION</sub> potentiometer will shift the f<sub>c</sub> frequency, making the action of the 51pF is most noticeable when the distortion control is maxed out, bringing the cut-off frequency to the audible frequencies and then softening the distortion.</p>
 <ul>
 <li>fc<sub>MAX</sub> when R<sub>DISTORTION</sub> is min = 0:</li>
 </ul>
-<p>\[f_{c\,max}=\frac{1}{2\pi\cdot51K\cdot51\,\mathrm{pF}}=61.2\,\mathrm{kHz}\]</p>
+<p>\[f_{c\,max}=\frac{1}{2\pi\cdot51K\cdot51\,\mathrm{pF}}=61.2\,\mathrm{kHz}\tag*{{}^{1}}\]</p>
 <ul>
 <li>fc<sub>MIN</sub> when R<sub>DISTORTION</sub> is max = 500K:</li>
 </ul>
-<p>\[f_{c\,min}=\frac{1}{2\pi\cdot551K\cdot51\,\mathrm{pF}}=5.6\,\mathrm{kHz}\]</p>
+<p>\[f_{c\,min}=\frac{1}{2\pi\cdot551K\cdot51\,\mathrm{pF}}=5.6\,\mathrm{kHz}\tag*{{}^{1}}\]</p>
 <p> <img alt="Tube Screamer 51pF Capacitor Graph" class="article-img" src="images/tube-screamer-analysis/tube-screamer-51pf-capacitor-effect.png"/>The images shown above depict the effect of the 51 cap on the clipped signal: The lower graph (with C<sub>4</sub> cap) evidences the attenuation in the high frequencies and how is it more remarkable when the gain is higher (R<sub>DISTORTION</sub>=500K).</p>
 <h3><a id="tone-stage" name="tone-stage"></a><strong>1.5 Tone/Volume Control.</strong></h3>
 <p>This stage is formed by a passive <em>main</em> low pass filter, an active tone circuit, and a passive volume circuit in order to provide tone adjustment and volume control to the pedal:</p>
@@ -175,7 +175,7 @@
 
 <h4><strong><a id="low-pass" name="low-pass"></a>1.5.1 Main Low Pass Filter.</strong></h4>
 <p>The C<sub>5</sub> cap 0.22uF and the 1K resistor R<sub>7</sub> act like a first order RC low pass filter that cut out the harsh high-frequency harmonics. That seems to be one of the underlying principles of the Tube Screamer pedal:</p>
-<p>\[f_c=\frac{1}{2\pi RC}=\frac{1}{2\pi\cdot1K\cdot0.22\,\mu F}=723.4\,\mathrm{Hz}\]</p>
+<p>\[f_c=\frac{1}{2\pi RC}=\frac{1}{2\pi\cdot1K\cdot0.22\,\mu F}=723.4\,\mathrm{Hz}\tag*{{}^{1}}\]</p>
 <p>The cut-off frequency of the passive low pass filter is 723.4 Hz. All frequencies over it will be attenuated -20dB/dec or -6dB/8ve.</p>
 
 <h4><a id="tone" name="tone"></a><strong>1.5.2 Active Tone Circuit.</strong></h4>
@@ -198,14 +198,14 @@
 <h3><a id="output-stage" name="output-stage"></a><strong>1.6 Output Buffer.</strong></h3>
 <p>The task of the Output  Buffer is to create a unitary gain and a low output impedance to keep the signal integrity in the guitar-pedals-amp chain. Like the Input Stage, it is implemented with a plain Emitter Follower with a 10K emitter resistor R<sub>13</sub>, biased from the 4.5V bias source with R<sub>12</sub> 510K.<img alt="Tube Screamer Output Buffer" class="article-img" src="images/tube-screamer-analysis/tube-screamer-output-buffer.png"/></p>
 <p>From the emitter of Q<sub>3</sub> there is a low-value 100Ω resistor R<sub>B</sub> in series with a 10uF signal coupling capacitor C<sub>9</sub>, and at last a shunt 10K R<sub>C</sub> resistor to ground.</p>
-<p><img alt="Tube Screamer Oscilloscope Output Signal" class="article-img" src="images/tube-screamer-analysis/ts-output-signal.png"/></p>
+<p><img alt="Tube Screamer Oscilloscope Output Signal" class="article-img" src="images/tube-screamer-analysis/ts-output-signal.png"/><sup class="fn"><a href="#mod-2">2</a></sup></p>
 <p>The oscilloscope image above shows the output signal of the Tube Screamer (green).</p>
 <p>In order to calculate the output impedance of the Tube Screamer the hybrid-pi model is used for analyzing the small signal behavior:<img alt="Tube Screamer Output Buffer Small Signal" class="article-img" src="images/tube-screamer-analysis/tube-screamer-output-buffer-small-signal.png"/></p>
-<p>\[Z_{out}=R_C//\left[R_B+\left(R_{13}//\frac{r_{\pi}+R_{12}}{\beta+1}\right)\right]\]</p>
-<p>Where \(r_{\pi}\ll R_{12}\)</p>
+<p>\[Z_{out}=R_C//\left[R_B+\left(R_{13}//\frac{r_{\pi}+R_{12}}{\beta+1}\right)\right]\tag*{{}^{1}}\]</p>
+<p>Where \(r_{\pi}\ll R_{12}\)<sup class="fn"><a href="#mod-1">1</a></sup></p>
 <p>\[Z_{out}=R_C//\left[R_B+\left(R_{13}//\frac{R_{12}}{\beta+1}\right)\right]\]
 \[Z_{out}=10K//\left[100+\left(10K//\frac{510K}{350+1}\right)\right]\]
-\[Z_{out}=1.2K\]</p>
+\[Z_{out}=1.2K\tag*{{}^{1}}\]</p>
 <p>Therefore the output impedance is 1K2, a low value needed to keep the guitar signal uncorrupted.</p>
 <p>The series low value 100Ω resistor R<sub>B</sub> at the emitter slightly limits the amount of drive available to drive an amplifier. R<sub>B</sub> in concert with the series C<sub>9</sub> 10uF capacitor forms a voltage divider with the output R<sub>c</sub> shunt resistor. This drops the available signal only a trivial amount, an inaudible amplitude difference.</p>
 
@@ -255,9 +255,15 @@
     <p class="source-note">
       Rescued from <a href="https://web.archive.org/web/20220504054737/https://www.electrosmash.com/tube-screamer-analysis" target="_blank" rel="noopener noreferrer">a 2022 Wayback Machine capture</a>
       of the original article. Some links to pages outside this archive have been removed.
-      This archived copy differs slightly from the original: equations that were broken in the capture were restored from the original PDF export, and a missing or duplicated image was replaced with the original.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Tube%20Screamer%20Circuit%20Analysis.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    <li id="mod-2">In the capture this image was a duplicate of the G-taper potentiometer image above; replaced with the original oscilloscope output-signal image from an archived copy of the original article.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.
