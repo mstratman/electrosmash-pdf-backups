@@ -6,6 +6,8 @@
 <title>Back Talk Reverse Delay Analysis &middot; ElectroSmash Archive</title>
 <link rel="canonical" href="https://electrosmash.mas-effects.com/back-talk-analysis.html">
 <link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -56,7 +58,7 @@
 </ul>
 <h4><a id="input212" name="input212"></a><strong>2.1.2 Input Buffer Stage.</strong></h4>
 <p>The Input Buffer grants high input impedance, frequency filtering and voltage gain, keeping signal integrity and preparing it to be digitalized.<br/><img alt="Back Talk Reverse Delay Input Buffer" class="article-img" src="images/back-talk-analysis/back-talk-input-buffer.png"/><br/>Not considering for the moment the caps C<sub>3</sub> and C<sub>4</sub>, the non-inverting amplifier gain can be calculated as:</p>
-<p><img alt="" class="article-img" src="images/back-talk-analysis/gif.latex"/></p>
+<p>\[G_{v}=\frac{1+R_{6}}{R_{7}}=\frac{1+47K}{18K}=2.6\]</p>
 <p>The capacitors C<sub>3</sub> and C<sub>4</sub> create a pass-band filter (low pass + high pass) where:</p>
 <ul>
 <li>Low pass = R<sub>6</sub>C<sub>3</sub> network with f<sub>c</sub>=1/(2πR<sub>6</sub>C<sub>3</sub>) </li>

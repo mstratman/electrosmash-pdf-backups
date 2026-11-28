@@ -6,6 +6,8 @@
 <title>Ruby Amp Analysis &middot; ElectroSmash Archive</title>
 <link rel="canonical" href="https://electrosmash.mas-effects.com/ruby-amp-analysis.html">
 <link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -40,8 +42,8 @@
 <p>The R<sub>3</sub> Volume potentiometer limits the amount of signal into the 386. As the Volume is increased, you will start getting nice breakup. Remember that the input voltage bounds for LM386 are ±0.4V, over/under these levels, the signal will be clipped.</p>
 <h3><a id="link13" name="link13"></a><strong>1.3 Gain Circuit</strong></h3>
 <p>The 1K logarithmic potentiometer (R<sub>4</sub>) is placed between pins 1 and 8 in order to adjust the gain from 41 (28dB) to 200 (46db). Following the general LM386 voltage gain formula (from the datasheet):</p>
-<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
-<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\]</p>
+<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K))}= 41 \: (32dB)\]</p>
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
 <h3><a id="link14" name="link14"></a><strong>1.4. Stabilization Techniques</strong></h3>
 <p>Following the LM386 application notes, some measures should be taken to increase the stability and prevent signal degradation:</p>
@@ -59,13 +61,13 @@
 <ul>
 <li>The first high-pass filter cut-off frequency is around 360Hz and it is formed by C<sub>1</sub> and R<sub>3</sub> (note that the volume resistor wiper is loaded by the LM386 input resistance, which is 50K). The cut-off frequency is variable or "volume dependent" following the equation below. However, this unwished variation is very small and only present at low volume levels, this tiny tone change is barely noticeable:<br/></li>
 </ul>
-<p> <img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
-<p> <img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p> \[f_{c \: min}=\frac{1}{2\pi\cdot C1 \cdot R }=\frac{1}{2\pi\cdot 47uF \cdot 10K}=338Hz\]</p>
+<p> \[f_{c \: max}=\frac{1}{2\pi\cdot C1 \cdot R }=\frac{1}{2\pi\cdot 47uF \cdot (10K||50K)}=408Hz\]</p>
 
 <ul>
 <li>The second high-pass filter formed by C<sub>5</sub> and the speaker load (8Ω) is a classic bass cut filter, that will start rolling off bass under 90Hz to keep the small speaker from farting out and also removing any DC component from the output signal. For more detailed info check the <a href="smokey-amp-analysis.html#freq">"Smokey Amp Frequency Response"</a>.</li>
 </ul>
-<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>\[f_{c \: max}=\frac{1}{2\pi\cdot C \cdot R }=\frac{1}{2\pi\cdot 220uF \cdot 8 }=90Hz\]</p>
 
 
 <p>So taking both filters into consideration, the graph gain vs frequency looks like this:</p>
@@ -94,7 +96,7 @@
 <li>Remove the Gain pot and place 2K2 R<sub>4</sub> fixed resistor between pins 1 and 8.<br/></li>
 </ul>
 <p>In the Ruby Bassman, the Gain is level fixed to 30, remember that the Original Ruby Gain is variable from 41 to 200, so the signal, in this case, will be less distorted.</p>
-<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>\[G_{v}=2 \cdot \frac{Z_{1-5}}{150+Z_{1-8}}=2 \cdot \frac{15K}{150+(1.35||2K2))}=30.4\: (29dB)\]</p>
 <p>Where Z<sub>1-5</sub> and Z1-8 are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
 <h4><a id="link411" name="link411"></a><strong>4.1.1 Ruby Bassman Frequency Response</strong></h4>
 <p><img alt="Ruby Bassman Frequency Response" class="article-img" src="images/ruby-amp-analysis/ruby-bassman-freq.gif"/></p>
@@ -109,7 +111,7 @@
 <li>Tied together pins 1 &amp; 8 for a gain of 200.</li>
 </ul>
 <p>The voltage gain is fixed in 200:</p>
-<p><img alt="" class="article-img" src="images/ruby-amp-analysis/gif.latex"/></p>
+<p>\[G_{v}=2 \cdot \frac{Z_{1-5}}{150+Z_{1-8}}=2 \cdot \frac{15K}{150+0}=200\: (46dB)\]</p>
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.<br/></p>
 <h4><a id="link421" name="link421"></a><strong>4.2.1 Ruby Hiwat Frequency Response.</strong></h4>
 <p><img alt="Ruby Hiwatt Frequency Response" class="article-img" src="images/ruby-amp-analysis/ruby-hiwatt-freq.gif"/></p>
