@@ -216,3 +216,14 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     --accent-2: #0064c8;
   }
 }
+
+/* Numbered notes marking changes made to an article in this archive. Lives inside
+   .site-footer, so it inherits colour and size; just needs spacing and list layout. */
+.mod-notes { margin: 0 0 0.9rem; }
+.mod-notes p { margin: 0 0 0.3rem; }
+.mod-notes ol { margin: 0; padding-left: 2rem; list-style: none; counter-reset: modnote; }
+.mod-notes li { margin: 0.15rem 0; counter-increment: modnote; position: relative; }
+.mod-notes li::before { content: "[" counter(modnote) "]"; position: absolute; left: -2rem; }
+.mod-notes li:target { background: rgba(127, 127, 127, 0.18); }
+sup.fn { font-size: 0.75em; line-height: 0; }
+sup.fn a { text-decoration: none; }

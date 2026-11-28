@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://electrosmash.mas-effects.com/mn3007-bucket-brigade-devices.html">
 <link rel="stylesheet" href="style.css">
 <script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<script src="assets/mathjax/tex-svg.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -27,7 +27,7 @@
 <p>BBDs are given their name because of the similarity in their functionality to a line of people passing buckets of water to fight a fire. The chip was licensed to Matsushita from mid-70s, Roland/Boss was the first customer and they used it in the Roland JC120 Amplifier, the Chorus CE-1 pedal and later on the<a href="boss-ce-2-analysis.html"> Chorus CE-2</a>.</p>
 <p><img alt="Fire Bucket Brigade" class="article-img" src="images/mn3007-bucket-brigade-devices/fire-bucket-brigade.jpg"/></p>
 
-<p><img alt="Bucket Brigade Device Silicon" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-silicon.png"/></p>
+<p><img alt="Bucket Brigade Device Silicon" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-silicon.png"/><sup class="fn"><a href="#mod-1">[1]</a></sup></p>
 <p>They consist of a series of capacitors sections which carry the analog signal. The charge in each cap stage is passed into the subsequent stage using transistors as switches at a rate determined by an external clock. <br/>In this way, the output delayed signal is discrete in time due to the external clock sampling and analog in amplitude because of the capacitor storage element.</p>
 
 <p><img alt="Bucket Brigade Device Explanation" class="article-img" src="images/mn3007-bucket-brigade-devices/bbd-basic.png"/></p>
@@ -73,10 +73,10 @@
 <h3><strong><a id="link41" name="link41"></a>4.1 BBD Clock Limitations.</strong></h3>
 <p>Following the datasheet recommendations, BBDs guaranteed a correct behavior under a certain clock frequency (100~200KHz). It is because the input capacitance of the clock pins causes progressive degradation of clock pulses above the frequency limit: The clock pulses change from square to a trapezoidal/sawtooth waveform. When that happens the switching action is not perfectly synchronized resulting in a signal degradation.<br/><br/>The clock frequency limitation is the reason why the Reticon SAD1024 chip was a largely preferred choice for flangers effects which involve short delay and fast clock: the input capacitance on the clock pins was much lower (110pF) than on the MN3007 (700pF), allowing it to be clocked at much higher frequencies.<br/>When suitably buffered, though, there are reports of it clocking MN3xxx chips up well past 1MHz, which takes the device close the zero-delay zone, being convenient for fine flanger effects.</p>
 <p>BBD Sampling Time Limitations: For any BBD, the total delay time can be calculated as:</p>
-<p>\[time_{delay}=\frac{N}{2\cdot f_{clock}}\]<br/>where:</p>
+<p>\[time_{delay}=\frac{N}{2\cdot f_{clock}}\tag*{$^{[2]}$}\]<br/>where:</p>
 <p>N: is the number of stages.<br/>f<sub>clock</sub>: is the circuit clock frequency.</p>
 <p>The clock signals applied to the BBD will determine the signal sampling time, this sampling time should respect the Nyquist-Shannon Theorem:</p>
-<p>\[f_{sampling}&lt; 2 \cdot f_{signal}\]</p>
+<p>\[f_{sampling}&lt; 2 \cdot f_{signal}\tag*{$^{[2]}$}\]</p>
 <ul>
 <li>For short delay effects like flanging, the input signal can be oversampled, there is no penalty in terms of signal degradation. If the clock signal goes beyond the BBD clock boundary, the clk signal can be degraded as explained above and the audio waveform corrupted. </li>
 <li>For long delay effects like delay, the input signal is can be undersampled, the resulting processed signal will be degraded but the total delay time is extended.</li>
@@ -182,6 +182,13 @@
       of the original article. Some links to pages outside this archive have been removed.
       The original PDF export is in the <a href="pdf/ElectroSmash%20-%20Bucket%20Brigade%20Devices_%20MN3007.pdf">pdf backups folder</a>.
     </p>
+    <div class="mod-notes">
+    <p>Changes made in this archived copy:</p>
+    <ol>
+    <li id="mod-1">In the capture this image was a duplicate of the basic-topology diagram shown later; replaced with the original silicon BBD image from the PDF export.</li>
+    <li id="mod-2">Equation image missing from the Wayback Machine capture; restored as typeset text from the LaTeX preserved in the original PDF export.</li>
+    </ol>
+    </div>
     An unofficial, non-commercial backup of ElectroSmash.com, preserved by
     <a href="https://mas-effects.com/" target="_blank">MAS Effects</a>
     from the <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a>.
