@@ -6,6 +6,8 @@
 <title>Little Gem Analysis &middot; ElectroSmash Archive</title>
 <link rel="canonical" href="https://electrosmash.mas-effects.com/little-gem-analysis.html">
 <link rel="stylesheet" href="style.css">
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -25,8 +27,8 @@
 <p>This guitar mini amplifier takes the basic <a href="smokey-amp-analysis.html">Smokey Amp circuit</a> and adds several improvements like power supply decoupling caps, a Zobel Network and Gain / Master Volume controls.<a href="images/little-gem-analysis/little-gem.gif" rel="noopener" target="_blank"></a></p>
 <h3><strong><a id="link11" name="link11"></a>1.1 Gain &amp; Volume Controls.</strong></h3>
 <p><strong>Gain:</strong> To make the LM386 a more versatile amplifier, a 5K logarithmic R<sub>1</sub> potentiometer is placed between pins 1 and 8 to adjust the gain from 26 (28dB) to 200 (46db) following the general LM386 voltage gain formula:</p>
-<p> <img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
-<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<p> \[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||5K))}= 26 \: (28dB)\]</p>
+<p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\]</p>
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
 
 <p><strong>Volume:</strong> The volume control is just a voltage divider with an R3 rheostat in the last stage of the circuit.</p>
@@ -54,11 +56,11 @@
 <ul>
 <li><strong>fcmin:</strong> with the volume pot wiper in the <em>min</em> position (set in top-down position), producing minimum output volume, the load is connected to ground. find below the frequency response in red color.</li>
 </ul>
-<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<p>\[f_{c \: min}=\frac{1}{2\pi\cdot C \cdot R }=\frac{1}{2\pi\cdot 220uF \cdot 25}=29Hz\]</p>
 <ul>
 <li><strong>fcmax</strong>: with the volume pot wiper in the <em>max</em> position (set in top-up position), generating maximum output volume,  the load is in parallel with the volume resistor, find below the frequency response in blue color.</li>
 </ul>
-<p><img alt="" class="article-img" src="images/little-gem-analysis/gif.latex"/></p>
+<p>\[f_{c \: max}=\frac{1}{2\pi\cdot C \cdot R }=\frac{1}{2\pi\cdot 220uF \cdot (25||8)}=119Hz\]</p>
 
 <p>The cut-off frequency at minimum volume is 29 Hz, this value can be too low because the 50-60Hz harmonics from the power network may create a hum. However at this volume level, it does not matter, it is too weak to be noticed.</p>
 <h2><a id="link3" name="link3"></a><strong>3. Little Gem Mods.</strong></h2>
