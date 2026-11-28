@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://electrosmash.mas-effects.com/lm386-analysis.html">
 <link rel="stylesheet" href="style.css">
 <script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<script src="assets/mathjax/tex-svg.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -170,7 +170,7 @@
 <p>For a 6 dB effective bass boost, the datasheet suggests R=10K and C=33nF between pins 1 and 5 with pin 8 open, another common set of values used are  R=2K2 and R=4.7nF. Actually, this modification did not provide an active boost, just a roll-off at frequencies below the selected frequency, that is it a low pass filter.</p>
 <p>This mod can successfully compensate a poor speaker bass response and filter the hissing noise, but in the other hand, if the circuit has a gain pot between pins 1 and 8 as Little Gem, Ruby Amp and Noisy Cricket do, the cut frequency will be modified with the gain value. Unfortunately, the bass boost will be gain dependent.</p>
 <p>The effect of the bass boost RC network can be analyzed with the voltage gain equation above by inserting R + 1/jωC impedances in parallel to the internal Z<sub>1-5</sub> feedback resistor.</p>
-<p>    \[{G}_{v}=2\cdot\frac{{Z}_{1-5}|| R + \frac{1}{j2\pi fC}}{150 + {Z}_{1-8}}\]
+<p>    \[{G}_{v}=2\cdot\frac{{Z}_{1-5}|| (R + \frac{1}{j2\pi fC})}{150 + {Z}_{1-8}}\]
 \[{G}_{v}=\frac{2}{150 + {Z}_{1-8}}\cdot\frac{{Z}_{1-5}\cdot (R + \frac{1}{j2\pi fC})}{{Z}_{1-5} + R + \frac{1}{j2\pi fC}}\]
 \[{G}_{v}=\frac{2 {Z}_{1-5}R}{150 + {Z}_{1-8}}\cdot\frac{{Z}_{1-5}}{{j2\pi fC ({Z}_{1-5} + R)+1}}\]  <br/><br/>     \[{G}_{v}=\frac{1}{\frac{(150 + {Z}_{1-8}) \cdot j2\pi fC ({Z}_{1-5} + R)}{2({Z}_{1-5})^{2}R}+\frac{150 + {Z}_{1-8}}{2({Z}_{1-5})^{2}R}}\]
 \[|{G}_{v}|=\frac{1}{ \sqrt{(\frac{(150 + {Z}_{1-8}) \cdot j2\pi fC ({Z}_{1-5} + R)}{2({Z}_{1-5})^{2}R})^{2}+(\frac{150 + {Z}_{1-8}}{2({Z}_{1-5})^{2}R})^{2}}}\]</p>

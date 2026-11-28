@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://electrosmash.mas-effects.com/noisy-cricket-analysis.html">
 <link rel="stylesheet" href="style.css">
 <script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<script src="assets/mathjax/tex-svg.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -44,7 +44,7 @@
 <h3><strong><a id="gain" name="gain"></a>1.2 Noisy Cricket Gain Circuit</strong></h3>
 <p>The 1K logarithmic potentiometer (VR2) is placed between pins 1 and 8 to adjust the voltage gain from 41 (28dB) to 200 (46db), similar to the Ruby Amp. The Gain is calculated following the general LM386 formula: </p>
 
-<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K))}= 41 \: (28dB)\]</p>
+<p>\[{G}_{v\: min}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + (1.35K||1K)}= 41 \: (28dB)\]</p>
 <p>\[{G}_{v\: max}=\frac{{V}_{out}}{{V}_{in}}=2\frac{{Z}_{1-5}}{150 + {Z}_{1-8}}=2\frac{15K}{150 + 0}= 200 \: (46dB)\]</p>
 
 <p>Where Z<sub>1-5</sub> and Z<sub>1-8</sub> are the impedances between the respective pins. Note that Z<sub>1-5</sub> internal resistance is 15K and Z<sub>1-8</sub> is 1.35K.</p>
